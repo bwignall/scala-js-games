@@ -3,13 +3,14 @@ package example
 import org.scalajs.dom
 import scala.util.Random
 
-case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game{
+case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
 
   var bullets = Seq.empty[Bullet]
   val craft = new Craft(bounds / 2, Point(0, 0), 0)
   var frameCount = 0
   var asteroids = Seq.fill(10)(
-    new Asteroid(3,
+    new Asteroid(
+      3,
       if (Random.nextBoolean()) Point(0, Random.nextInt(bounds.y.toInt))
       else Point(Random.nextInt(bounds.y.toInt), 0),
       Point(Random.nextInt(5), Random.nextInt(5)) - Point(2.5, 2.5)
@@ -19,21 +20,18 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game{
   def update(keys: Set[Int]) = {
     frameCount += 1
 
-
     asteroids.foreach(_.move())
     bullets.foreach(_.move())
     craft.move(keys)
 
-
-
-    if (keys(32) && bullets.length < 10 && frameCount % 2 == 0){
+    if (keys(32) && bullets.length < 10 && frameCount % 2 == 0) {
       bullets = bullets :+ new Bullet(
         craft.position,
         craft.momentum + Point(15, 0).rotate(craft.theta)
       )
     }
 
-    val changes = for{
+    val changes = for {
       b <- bullets
       a <- asteroids
       if a.contains(b.position)
@@ -42,7 +40,11 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game{
         if (a.level == 1) Nil
         else {
           Seq(30, -30).map(d =>
-            new Asteroid(a.level - 1, a.position, a.momentum.rotate(d*Math.PI/180))
+            new Asteroid(
+              a.level - 1,
+              a.position,
+              a.momentum.rotate(d * Math.PI / 180)
+            )
           )
         }
       (Seq(a, b), newAsteroids)
@@ -50,15 +52,14 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game{
     val (removed, added) = changes.unzip
     val flatRemoved = removed.flatten
     asteroids = asteroids.filter(!flatRemoved.contains(_)) ++ added.flatten
-    bullets =
-      bullets
-        .filter(!flatRemoved.contains(_))
-        .filter(_.position.within(Point(0, 0), bounds))
+    bullets = bullets
+      .filter(!flatRemoved.contains(_))
+      .filter(_.position.within(Point(0, 0), bounds))
 
-    if(asteroids.exists(_.contains(craft.position))){
+    if (asteroids.exists(_.contains(craft.position))) {
       result = Some("Your ship hit an asteroid!")
       resetGame()
-    }else if (asteroids.length == 0){
+    } else if (asteroids.length == 0) {
       result = Some("You successfully destroyed every asteroid!")
       resetGame()
     }
@@ -76,11 +77,10 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game{
     craft.draw(ctx)
   }
 
-
-  class Asteroid(val level: Int, var position: Point, val momentum: Point){
+  class Asteroid(val level: Int, var position: Point, val momentum: Point) {
     def draw(ctx: dom.CanvasRenderingContext2D) = {
-      val size = 10*level
-      ctx.fillRect(position.x - size/2, position.y - size/2, size, size)
+      val size = 10 * level
+      ctx.fillRect(position.x - size / 2, position.y - size / 2, size, size)
     }
     def move() = {
       position += momentum
@@ -94,13 +94,13 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game{
     }
   }
 
-  class Craft(var position: Point, var momentum: Point, var theta: Double){
+  class Craft(var position: Point, var momentum: Point, var theta: Double) {
     def draw(ctx: dom.CanvasRenderingContext2D) = {
       ctx.beginPath()
       val pts = Seq(
         Point(15, 0).rotate(theta) + position,
-        Point(7, 0).rotate(theta + 127.5/180 * Math.PI) + position,
-        Point(7, 0).rotate(theta - 127.5/180 * Math.PI) + position
+        Point(7, 0).rotate(theta + 127.5 / 180 * Math.PI) + position,
+        Point(7, 0).rotate(theta - 127.5 / 180 * Math.PI) + position
       )
       ctx.moveTo(pts.last.x, pts.last.y)
       pts.map(p => ctx.lineTo(p.x, p.y))
@@ -117,7 +117,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game{
       if (keys(40)) momentum -= Point(0.2, 0).rotate(theta)
     }
   }
-  class Bullet(var position: Point, val momentum: Point){
+  class Bullet(var position: Point, val momentum: Point) {
     def draw(ctx: dom.CanvasRenderingContext2D) = {
       ctx.beginPath()
       ctx.moveTo(position.x, position.y)

@@ -1,11 +1,9 @@
 package example
 import scala.scalajs.js
-//import scala.scalajs.js._
 import org.scalajs.dom
 import scala.collection.mutable
 import scala.scalajs.js.Any._
 import scala.scalajs.js.Math
-// import annotation.JSExport
 import scalajs.js.annotation.{JSExport, JSExportTopLevel}
 import org.scalajs.dom.html.Canvas
 
@@ -136,10 +134,11 @@ abstract class Game {
     }
   }
 }
+
 @JSExportTopLevel("ScalaJSExample")
 object ScalaJSExample {
   @JSExport
-  def main(): Unit = {
+  def main(args: Array[String]): Unit = {
     val asteroids = new GameHolder("asteroids", Asteroids)
     val astrolander = new GameHolder("astrolander", AstroLander)
     val snake = new GameHolder("snake", Snake)

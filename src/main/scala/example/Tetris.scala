@@ -1,6 +1,5 @@
 package example
 
-//import scala.scalajs.js._
 import org.scalajs.dom.CanvasRenderingContext2D
 import scala.util.Random
 

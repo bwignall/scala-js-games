@@ -36,8 +36,8 @@
 - Hit `sbt optimizeJS`. This may cause SBT to run out of memory. See [here](http://stackoverflow.com/questions/15280839/how-to-set-heap-size-for-sbt) for how to give it more.
 - Open `/index.html` in your favorite browser and play the games!
 
-License
--------
+## License
+
 The MIT License (MIT)
 
 Copyright (c) 2013 Li Haoyi

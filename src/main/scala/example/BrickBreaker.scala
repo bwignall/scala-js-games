@@ -1,12 +1,13 @@
 package example
 
+//import scala.scalajs.js._
 import org.scalajs.dom
 import scala.util.Random
 
 case class Brick(pos: Point, color: String)
 
 case class BrickBreaker(bounds: Point, resetGame: () => Unit) extends Game {
-  val borderWidth = 175
+  val borderWidth = 175.0
   val brickSize = Point(50, 15)
 
   val colWidth = bounds.x - borderWidth * 2
@@ -167,7 +168,7 @@ case class BrickBreaker(bounds: Point, resetGame: () => Unit) extends Game {
               hit = true
             }
           }
-          for (p <- points if !hit) {
+          for (_ <- points if !hit) { (p: Point) =>
             val delta = ballPos - p
             if (delta.length < 5) {
               val impulse = delta * (ballVel * delta) / delta.lengthSquared

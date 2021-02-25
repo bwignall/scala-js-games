@@ -22,7 +22,7 @@ inThisBuild(
 jsEnv := new org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv()
 
 // This is an application with a main method
-scalaJSUseMainModuleInitializer := true
+// scalaJSUseMainModuleInitializer := true
 
 // idePackagePrefix := Some("com.bwignall")
 

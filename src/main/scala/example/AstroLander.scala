@@ -25,7 +25,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
       else if (n == cliff2 + 2) current = current - Random.nextInt(25) + 150
       else current = current - Random.nextInt(50) + 25
 
-      if (current > bounds.y) current = (2 * bounds.y - current).toInt
+      if (current > bounds.y) current = (2 * bounds.y - current).toInt.toDouble
 
       pts = Point(n * 40.0, current) :: pts
     }
@@ -53,7 +53,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
     ctx.fillText("Speed: " + (craftVel.length * 10).toInt.toDouble / 10, 20, 50)
 
     ctx.strokeStyle = Color.Green
-    ctx.strokeRect(20, 60, math.max(1, fuel) * 65 / 500, 15)
+    ctx.strokeRect(20, 60, math.max(1, fuel) * 65.0 / 500, 15)
     ctx.fillStyle = Color.White
     ctx.strokeStyle = Color.White
     ctx.strokeRect(20, 60, 65, 15)
@@ -75,11 +75,11 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
         val width = w * math.Pi / 180
 
         ctx.strokePath(
-          p + Point(a, a).rotate(angle - offset),
-          p + Point(b, b).rotate(angle - offset + width),
-          p + Point(c, c).rotate(angle - offset),
-          p + Point(b, b).rotate(angle - offset - width),
-          p + Point(a, a).rotate(angle - offset)
+          p + Point(a.toDouble, a.toDouble).rotate(angle - offset),
+          p + Point(b.toDouble, b.toDouble).rotate(angle - offset + width),
+          p + Point(c.toDouble, c.toDouble).rotate(angle - offset),
+          p + Point(b.toDouble, b.toDouble).rotate(angle - offset - width),
+          p + Point(a.toDouble, a.toDouble).rotate(angle - offset)
         )
       }
       diamond(5, 15, 25, 15)
@@ -107,7 +107,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
     craftVel += Point(0, 0.2)
     craftPos += craftVel
 
-    val hit = points.flatMap { p =>
+    val hit = points.flatMap { _ =>
       val prevIndex = points.lastIndexWhere(_.x < craftPos.x)
       if (prevIndex == -1 || prevIndex == 21) None
       else {
@@ -137,6 +137,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
         result = Some("You have crashed your lander: " + reason)
         resetGame()
     }
+    ()
   }
 }
 

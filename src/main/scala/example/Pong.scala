@@ -1,5 +1,6 @@
 package example
 
+//import scala.scalajs.js._
 import org.scalajs.dom
 import scala.util.Random
 

@@ -1,5 +1,6 @@
 package example
 
+// import scala.scalajs.js._
 import org.scalajs.dom
 import scala.util.Random
 
@@ -11,9 +12,13 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
   var asteroids = Seq.fill(10)(
     new Asteroid(
       3,
-      if (Random.nextBoolean()) Point(0, Random.nextInt(bounds.y.toInt))
-      else Point(Random.nextInt(bounds.y.toInt), 0),
-      Point(Random.nextInt(5), Random.nextInt(5)) - Point(2.5, 2.5)
+      if (Random.nextBoolean())
+        Point(0, Random.nextInt(bounds.y.toInt).toDouble)
+      else Point(Random.nextInt(bounds.y.toInt).toDouble, 0),
+      Point(Random.nextInt(5).toDouble, Random.nextInt(5).toDouble) - Point(
+        2.5,
+        2.5
+      )
     )
   )
 
@@ -47,13 +52,15 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
             )
           )
         }
-      (Seq(a, b), newAsteroids)
+      ((a, b), newAsteroids)
     }
     val (removed, added) = changes.unzip
-    val flatRemoved = removed.flatten
-    asteroids = asteroids.filter(!flatRemoved.contains(_)) ++ added.flatten
+    val removed_asteroids = removed map { _._1 }
+    val removed_bullets = removed map { _._2 }
+    asteroids =
+      asteroids.filter(!removed_asteroids.contains(_)) ++ added.flatten
     bullets = bullets
-      .filter(!flatRemoved.contains(_))
+      .filter(!removed_bullets.contains(_))
       .filter(_.position.within(Point(0, 0), bounds))
 
     if (asteroids.exists(_.contains(craft.position))) {
@@ -80,7 +87,12 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
   class Asteroid(val level: Int, var position: Point, val momentum: Point) {
     def draw(ctx: dom.CanvasRenderingContext2D) = {
       val size = 10 * level
-      ctx.fillRect(position.x - size / 2, position.y - size / 2, size, size)
+      ctx.fillRect(
+        position.x - size / 2,
+        position.y - size / 2,
+        size.toDouble,
+        size.toDouble
+      )
     }
     def move() = {
       position += momentum
@@ -88,8 +100,8 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
       position %= bounds
     }
     def contains(other: Point) = {
-      val min = position - Point(5, 5) * level
-      val max = position + Point(5, 5) * level
+      val min = position - Point(5, 5) * level.toDouble
+      val max = position + Point(5, 5) * level.toDouble
       other.within(min, max)
     }
   }

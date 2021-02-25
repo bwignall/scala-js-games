@@ -1,5 +1,6 @@
 package example
 
+//import scala.scalajs.js._
 import org.scalajs.dom.CanvasRenderingContext2D
 import scala.util.Random
 
@@ -50,7 +51,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
   }
   var moveCount = 0
   var keyCount = 0
-  val blockWidth = 20
+  val blockWidth = 20.0
   val gridDims = Point(13, bounds.y / blockWidth)
   val leftBorder = (bounds.x - blockWidth * gridDims.x) / 2
   var linesCleared = 0
@@ -65,11 +66,11 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
   def rotate(p: Seq[Array[Int]]) = {
     val w = p.length
     val h = p(0).length
-    val center = Point(w - 1, h - 1) / 2
+    val center = Point(w.toDouble - 1, h.toDouble - 1) / 2
     val out = Seq.fill(w)(Array.fill(h)(0))
 
     for { i <- 0 until w; j <- 0 until h } {
-      val centered = (Point(i, j) - center)
+      val centered = (Point(i.toDouble, j.toDouble) - center)
       val rotated = Point(centered.y * -1, centered.x * 1) + center
       out(rotated.x.toInt)(rotated.y.toInt) = p(i)(j)
     }
@@ -84,7 +85,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
     for {
       index <- 0 until pts.length
       (i, j) = pts(index)
-      newPt = Point(i, j) + offset
+      newPt = Point(i.toDouble, j.toDouble) + offset
       if !newPt.within(Point(0, 0), gridDims) || grid(newPt.x.toInt)(
         newPt.y.toInt
       ).filled != Color.Black
@@ -162,7 +163,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
     )
     ctx.fillText("Next Block", leftBorder * 1.35 + gridDims.x * blockWidth, 150)
 
-    def fillBlock(i: Int, j: Int, color: String) {
+    def fillBlock(i: Int, j: Int, color: String): Unit = {
       ctx.fillStyle = color.replace("255", "128")
       ctx.fillRect(
         leftBorder + i * blockWidth,
@@ -189,7 +190,10 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
       val pts = iterator(pieces(p), pos)
       for (index <- 0 until pts.length) {
         val (i, j) = pts(index)
-        if (Point(i, j).within(Point(0, 0), gridDims) || external)
+        if (
+          Point(i.toDouble, j.toDouble)
+            .within(Point(0, 0), gridDims) || external
+        )
           fillBlock(i, j, Color.all(p))
       }
     }

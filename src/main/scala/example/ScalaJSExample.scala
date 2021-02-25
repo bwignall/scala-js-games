@@ -1,10 +1,12 @@
 package example
-import scala.scalajs.js._
+import scala.scalajs.js
+//import scala.scalajs.js._
 import org.scalajs.dom
 import scala.collection.mutable
 import scala.scalajs.js.Any._
 import scala.scalajs.js.Math
-import annotation.JSExport
+// import annotation.JSExport
+import scalajs.js.annotation.{JSExport, JSExportTopLevel}
 import org.scalajs.dom.html.Canvas
 
 object Color {
@@ -29,7 +31,7 @@ object Color {
   )
 }
 
-case class Point(x: Double, y: Double) {
+case class Point(val x: Double, val y: Double) {
   def +(other: Point) = Point(x + other.x, y + other.y)
   def -(other: Point) = Point(x - other.x, y - other.y)
   def %(other: Point) = Point(x % other.x, y % other.y)
@@ -56,7 +58,8 @@ case class Point(x: Double, y: Double) {
 class GameHolder(canvasName: String, gameMaker: (Point, () => Unit) => Game) {
   private[this] val canvas =
     dom.document.getElementById(canvasName).asInstanceOf[Canvas]
-  private[this] val bounds = Point(canvas.width, canvas.height)
+  private[this] val bounds =
+    Point(canvas.width.toDouble, canvas.height.toDouble)
   private[this] val keys = mutable.Set.empty[Int]
   var game: Game = gameMaker(bounds, () => resetGame())
 
@@ -70,10 +73,10 @@ class GameHolder(canvasName: String, gameMaker: (Point, () => Unit) => Game) {
     if (Seq(32, 37, 38, 39, 40).contains(e.keyCode.toInt)) e.preventDefault()
   }
 
-  canvas.onfocus = { (e: dom.FocusEvent) =>
+  canvas.onfocus = { (_: dom.FocusEvent) =>
     active = true
   }
-  canvas.onblur = { (e: dom.FocusEvent) =>
+  canvas.onblur = { (_: dom.FocusEvent) =>
     active = false
   }
 
@@ -88,7 +91,7 @@ class GameHolder(canvasName: String, gameMaker: (Point, () => Unit) => Game) {
     }
     if (active && message.isEmpty) {
       game.draw(ctx)
-      game.update(keys.toSet)
+      game.update(Set(keys.toList: _*))
     } else if (message.isDefined) {
       ctx.fillStyle = Color.Black
       ctx.fillRect(0, 0, bounds.x, bounds.y)
@@ -104,7 +107,7 @@ class GameHolder(canvasName: String, gameMaker: (Point, () => Unit) => Game) {
   var message: Option[String] = None
   def resetGame(): Unit = {
     message = game.result
-    println("MESSAGE " + message)
+    println("MESSAGE " + message.getOrElse("missing message?!"))
     game = gameMaker(bounds, () => resetGame())
   }
   ctx.font = "12pt Arial"
@@ -133,7 +136,7 @@ abstract class Game {
     }
   }
 }
-@JSExport
+@JSExportTopLevel("ScalaJSExample")
 object ScalaJSExample {
   @JSExport
   def main(): Unit = {
@@ -144,6 +147,7 @@ object ScalaJSExample {
     val bricks = new GameHolder("bricks", BrickBreaker)
     val tetris = new GameHolder("tetris", Tetris)
     val games = Seq(asteroids, astrolander, snake, pong, bricks, tetris)
-    dom.setInterval(() => games.foreach(_.update()), 15)
+    js.timers.setInterval(15) { games.foreach(_.update()) }
+    ()
   }
 }

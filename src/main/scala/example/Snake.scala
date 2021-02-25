@@ -47,13 +47,13 @@ case class Snake(bounds: Point, resetGame: () => Unit) extends Game {
       grid(i)(j) match {
         case Wall(_) =>
           ctx.fillStyle = "rgb(200, 200, 200)"
-          ctx.fillRect(i * 10, j * 10, 10, 10)
+          ctx.fillRect(i.toDouble * 10, j.toDouble * 10, 10, 10)
         case Apple(_, x) =>
           ctx.fillStyle = x match {
             case 2 => "rgb(255, 0, 0)"
             case 5 => "rgb(255, 255, 0)"
           }
-          ctx.fillCircle(i * 10 + 5, j * 10 + 5, 5)
+          ctx.fillCircle(i.toDouble * 10 + 5, j.toDouble * 10 + 5, 5)
 
         case Empty =>
       }
@@ -65,7 +65,7 @@ case class Snake(bounds: Point, resetGame: () => Unit) extends Game {
 
     if (frameCount % 2 == 0) {
 
-      if (math.random > 0.9 + appleCount / 10.0) {
+      if (math.random() > 0.9 + appleCount / 10.0) {
         val (x, y) = (Random.nextInt(80), Random.nextInt(60))
         grid(x)(y) match {
           case Empty =>
@@ -77,7 +77,7 @@ case class Snake(bounds: Point, resetGame: () => Unit) extends Game {
       position = position + direction
 
       grid(position.x.toInt)(position.y.toInt) match {
-        case Wall(d) =>
+        case Wall(_) =>
           result = Some("You hit a wall!")
           resetGame()
         case x =>

@@ -5707,10 +5707,11 @@ let ScalaJSExample;
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 12"
       );
-    var c = (-1 + Ja(this.$j / kn(this).h)) | 0;
-    if (!(0 > c))
-      for (var d = 0; ; ) {
-        for (var f = d, g = 3; ; ) {
+    var c = Ja(this.$j / kn(this).h),
+      d = (-1 + c) | 0;
+    if (!(0 >= c))
+      for (c = 0; ; ) {
+        for (var f = c, g = 3; ; ) {
           var h = g;
           h = new A(f * kn(this).h + hn(this), h * kn(this).g);
           var k = nl(),
@@ -5719,8 +5720,8 @@ let ScalaJSExample;
           if (15 === g) break;
           g = (1 + g) | 0;
         }
-        if (d === c) break;
-        d = (1 + d) | 0;
+        if (c === d) break;
+        c = (1 + c) | 0;
       }
     this.Zj = b;
     this.K |= 1024;

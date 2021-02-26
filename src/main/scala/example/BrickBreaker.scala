@@ -42,7 +42,7 @@ case class BrickBreaker(bounds: Point, resetGame: () => Unit) extends Game {
     )
     val bricks = scala.collection.mutable.Set.empty[Brick]
     for {
-      i <- 0 to (colWidth / brickSize.x).toInt - 1
+      i <- 0 until (colWidth / brickSize.x).toInt
       j <- 3 to 15
     } {
       bricks.add(

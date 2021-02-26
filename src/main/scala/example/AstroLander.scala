@@ -122,7 +122,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
             val landingSkew = math.abs(craftVel.x / craftVel.y)
 
             if (groundGradient > 0.1) Failure("landing area too steep")
-            else if (landingSkew > 1) Failure("too much horiontal velocity")
+            else if (landingSkew > 1) Failure("too much horizontal velocity")
             else if (craftVel.length > 3) Failure("coming in too fast")
             else Success
           }

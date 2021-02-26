@@ -2,67 +2,67 @@ let ScalaJSExample;
 (function () {
   "use strict";
   var e,
-    aa = Object.freeze({
+    ba = Object.freeze({
       assumingES6: !0,
       productionMode: !0,
       linkerVersion: "1.5.0",
       fileLevelThis: this,
     }),
-    ba = Math.imul,
-    ca = Math.clz32,
-    da;
-  function ea(a) {
+    ca = Math.imul,
+    da = Math.clz32,
+    ea;
+  function fa(a) {
     for (var b in a) return b;
   }
-  function fa(a) {
+  function ha(a) {
     this.yk = a;
   }
-  fa.prototype.toString = function () {
+  ha.prototype.toString = function () {
     return String.fromCharCode(this.yk);
   };
-  var ia = function ha(a, b, c) {
+  var ja = function ia(a, b, c) {
     var f = new a.G(b[c]);
     if (c < b.length - 1) {
-      a = a.Bg;
+      a = a.tg;
       c += 1;
-      for (var g = f.a, h = 0; h < g.length; h++) g[h] = ha(a, b, c);
+      for (var g = f.a, h = 0; h < g.length; h++) g[h] = ia(a, b, c);
     }
     return f;
   };
-  function ja(a) {
+  function ka(a) {
     switch (typeof a) {
       case "string":
-        return m(la);
+        return m(ma);
       case "number":
-        return ma(a)
+        return na(a)
           ? (a << 24) >> 24 === a
-            ? m(na)
-            : (a << 16) >> 16 === a
             ? m(oa)
-            : m(pa)
-          : m(ra);
+            : (a << 16) >> 16 === a
+            ? m(pa)
+            : m(qa)
+          : m(sa);
       case "boolean":
-        return m(sa);
-      case "undefined":
         return m(ta);
+      case "undefined":
+        return m(ua);
       default:
         return null === a
           ? a.Am()
           : a instanceof n
-          ? m(ua)
-          : a instanceof fa
           ? m(va)
+          : a instanceof ha
+          ? m(xa)
           : a && a.$classData
           ? m(a.$classData)
           : null;
     }
   }
-  function xa(a) {
+  function ya(a) {
     switch (typeof a) {
       case "string":
         return "java.lang.String";
       case "number":
-        return ma(a)
+        return na(a)
           ? (a << 24) >> 24 === a
             ? "java.lang.Byte"
             : (a << 16) >> 16 === a
@@ -78,14 +78,14 @@ let ScalaJSExample;
           ? a.Am()
           : a instanceof n
           ? "java.lang.Long"
-          : a instanceof fa
+          : a instanceof ha
           ? "java.lang.Character"
           : a && a.$classData
           ? a.$classData.name
-          : null.Cc.name;
+          : null.xc.name;
     }
   }
-  function ya(a, b) {
+  function za(a, b) {
     switch (typeof a) {
       case "string":
         return a === b;
@@ -98,19 +98,19 @@ let ScalaJSExample;
       default:
         return (a && a.$classData) || null === a
           ? a.y(b)
-          : a instanceof fa
-          ? b instanceof fa
-            ? za(a) === za(b)
+          : a instanceof ha
+          ? b instanceof ha
+            ? Aa(a) === Aa(b)
             : !1
-          : Aa.prototype.y.call(a, b);
+          : Ba.prototype.y.call(a, b);
     }
   }
-  function Ba(a) {
+  function Ca(a) {
     switch (typeof a) {
       case "string":
-        return Ca(a);
-      case "number":
         return Da(a);
+      case "number":
+        return Ea(a);
       case "boolean":
         return a ? 1231 : 1237;
       case "undefined":
@@ -118,40 +118,32 @@ let ScalaJSExample;
       default:
         return (a && a.$classData) || null === a
           ? a.H()
-          : a instanceof fa
-          ? za(a)
-          : Aa.prototype.H.call(a);
+          : a instanceof ha
+          ? Aa(a)
+          : Ba.prototype.H.call(a);
     }
   }
-  function Ea(a) {
+  function Fa(a) {
     return void 0 === a ? "undefined" : a.toString();
   }
-  function Fa(a, b) {
-    if (0 === b) throw new Ga();
-    return (a / b) | 0;
-  }
-  function Ia(a, b) {
-    if (0 === b) throw new Ga();
-    return a % b | 0;
-  }
-  function Ja(a) {
+  function Ga(a) {
     return 2147483647 < a ? 2147483647 : -2147483648 > a ? -2147483648 : a | 0;
   }
-  function La(a, b, c, d, f) {
+  function Ha(a, b, c, d, f) {
     if (a !== c || d < b || ((b + f) | 0) < d)
       for (var g = 0; g < f; g = (g + 1) | 0) c[(d + g) | 0] = a[(b + g) | 0];
     else
       for (g = (f - 1) | 0; 0 <= g; g = (g - 1) | 0)
         c[(d + g) | 0] = a[(b + g) | 0];
   }
-  var Ma = 0,
-    Na = new WeakMap();
-  function Oa(a) {
+  var Ja = 0,
+    Ka = new WeakMap();
+  function La(a) {
     switch (typeof a) {
       case "string":
-        return Ca(a);
-      case "number":
         return Da(a);
+      case "number":
+        return Ea(a);
       case "bigint":
         var b = 0;
         for (a < BigInt(0) && (a = ~a); a !== BigInt(0); )
@@ -162,41 +154,41 @@ let ScalaJSExample;
       case "undefined":
         return 0;
       case "symbol":
-        return (a = a.description), void 0 === a ? 0 : Ca(a);
+        return (a = a.description), void 0 === a ? 0 : Da(a);
       default:
         if (null === a) return 0;
-        b = Na.get(a);
-        void 0 === b && ((Ma = b = (Ma + 1) | 0), Na.set(a, b));
+        b = Ka.get(a);
+        void 0 === b && ((Ja = b = (Ja + 1) | 0), Ka.set(a, b));
         return b;
     }
   }
-  function ma(a) {
+  function na(a) {
     return "number" === typeof a && (a | 0) === a && 1 / a !== 1 / -0;
   }
-  function Pa(a) {
-    return new fa(a);
+  function Na(a) {
+    return new ha(a);
   }
-  function za(a) {
+  function Aa(a) {
     return null === a ? 0 : a.yk;
   }
-  function Qa(a) {
-    return null === a ? da : a;
+  function Oa(a) {
+    return null === a ? ea : a;
   }
-  function Aa() {}
-  Aa.prototype.constructor = Aa;
+  function Ba() {}
+  Ba.prototype.constructor = Ba;
   function q() {}
-  q.prototype = Aa.prototype;
-  Aa.prototype.H = function () {
-    return Oa(this);
+  q.prototype = Ba.prototype;
+  Ba.prototype.H = function () {
+    return La(this);
   };
-  Aa.prototype.y = function (a) {
+  Ba.prototype.y = function (a) {
     return this === a;
   };
-  Aa.prototype.z = function () {
+  Ba.prototype.z = function () {
     var a = this.H();
-    return xa(this) + "@" + (+(a >>> 0)).toString(16);
+    return ya(this) + "@" + (+(a >>> 0)).toString(16);
   };
-  Aa.prototype.toString = function () {
+  Ba.prototype.toString = function () {
     return this.z();
   };
   function r(a) {
@@ -208,59 +200,59 @@ let ScalaJSExample;
   r.prototype = new q();
   r.prototype.constructor = r;
   r.prototype.I = function (a, b, c, d) {
-    La(this.a, a, b.a, c, d);
+    Ha(this.a, a, b.a, c, d);
   };
-  r.prototype.q = function () {
+  r.prototype.o = function () {
     return new r(this.a.slice());
   };
-  function Ra() {}
-  Ra.prototype = r.prototype;
-  function Sa(a) {
+  function Pa() {}
+  Pa.prototype = r.prototype;
+  function Qa(a) {
     if ("number" === typeof a) {
       this.a = Array(a);
       for (var b = 0; b < a; b++) this.a[b] = !1;
     } else this.a = a;
   }
+  Qa.prototype = new q();
+  Qa.prototype.constructor = Qa;
+  Qa.prototype.I = function (a, b, c, d) {
+    Ha(this.a, a, b.a, c, d);
+  };
+  Qa.prototype.o = function () {
+    return new Qa(this.a.slice());
+  };
+  function Ra(a) {
+    this.a = "number" === typeof a ? new Uint16Array(a) : a;
+  }
+  Ra.prototype = new q();
+  Ra.prototype.constructor = Ra;
+  Ra.prototype.I = function (a, b, c, d) {
+    b.a.set(this.a.subarray(a, (a + d) | 0), c);
+  };
+  Ra.prototype.o = function () {
+    return new Ra(this.a.slice());
+  };
+  function Sa(a) {
+    this.a = "number" === typeof a ? new Int8Array(a) : a;
+  }
   Sa.prototype = new q();
   Sa.prototype.constructor = Sa;
   Sa.prototype.I = function (a, b, c, d) {
-    La(this.a, a, b.a, c, d);
+    b.a.set(this.a.subarray(a, (a + d) | 0), c);
   };
-  Sa.prototype.q = function () {
+  Sa.prototype.o = function () {
     return new Sa(this.a.slice());
   };
   function Ta(a) {
-    this.a = "number" === typeof a ? new Uint16Array(a) : a;
+    this.a = "number" === typeof a ? new Int16Array(a) : a;
   }
   Ta.prototype = new q();
   Ta.prototype.constructor = Ta;
   Ta.prototype.I = function (a, b, c, d) {
     b.a.set(this.a.subarray(a, (a + d) | 0), c);
   };
-  Ta.prototype.q = function () {
+  Ta.prototype.o = function () {
     return new Ta(this.a.slice());
-  };
-  function Ua(a) {
-    this.a = "number" === typeof a ? new Int8Array(a) : a;
-  }
-  Ua.prototype = new q();
-  Ua.prototype.constructor = Ua;
-  Ua.prototype.I = function (a, b, c, d) {
-    b.a.set(this.a.subarray(a, (a + d) | 0), c);
-  };
-  Ua.prototype.q = function () {
-    return new Ua(this.a.slice());
-  };
-  function Va(a) {
-    this.a = "number" === typeof a ? new Int16Array(a) : a;
-  }
-  Va.prototype = new q();
-  Va.prototype.constructor = Va;
-  Va.prototype.I = function (a, b, c, d) {
-    b.a.set(this.a.subarray(a, (a + d) | 0), c);
-  };
-  Va.prototype.q = function () {
-    return new Va(this.a.slice());
   };
   function t(a) {
     this.a = "number" === typeof a ? new Int32Array(a) : a;
@@ -270,130 +262,130 @@ let ScalaJSExample;
   t.prototype.I = function (a, b, c, d) {
     b.a.set(this.a.subarray(a, (a + d) | 0), c);
   };
-  t.prototype.q = function () {
+  t.prototype.o = function () {
     return new t(this.a.slice());
   };
-  function Wa(a) {
+  function Ua(a) {
     if ("number" === typeof a) {
       this.a = Array(a);
-      for (var b = 0; b < a; b++) this.a[b] = da;
+      for (var b = 0; b < a; b++) this.a[b] = ea;
     } else this.a = a;
+  }
+  Ua.prototype = new q();
+  Ua.prototype.constructor = Ua;
+  Ua.prototype.I = function (a, b, c, d) {
+    Ha(this.a, a, b.a, c, d);
+  };
+  Ua.prototype.o = function () {
+    return new Ua(this.a.slice());
+  };
+  function Va(a) {
+    this.a = "number" === typeof a ? new Float32Array(a) : a;
+  }
+  Va.prototype = new q();
+  Va.prototype.constructor = Va;
+  Va.prototype.I = function (a, b, c, d) {
+    b.a.set(this.a.subarray(a, (a + d) | 0), c);
+  };
+  Va.prototype.o = function () {
+    return new Va(this.a.slice());
+  };
+  function Wa(a) {
+    this.a = "number" === typeof a ? new Float64Array(a) : a;
   }
   Wa.prototype = new q();
   Wa.prototype.constructor = Wa;
   Wa.prototype.I = function (a, b, c, d) {
-    La(this.a, a, b.a, c, d);
+    b.a.set(this.a.subarray(a, (a + d) | 0), c);
   };
-  Wa.prototype.q = function () {
+  Wa.prototype.o = function () {
     return new Wa(this.a.slice());
   };
-  function Xa(a) {
-    this.a = "number" === typeof a ? new Float32Array(a) : a;
-  }
-  Xa.prototype = new q();
-  Xa.prototype.constructor = Xa;
-  Xa.prototype.I = function (a, b, c, d) {
-    b.a.set(this.a.subarray(a, (a + d) | 0), c);
-  };
-  Xa.prototype.q = function () {
-    return new Xa(this.a.slice());
-  };
-  function Ya(a) {
-    this.a = "number" === typeof a ? new Float64Array(a) : a;
-  }
-  Ya.prototype = new q();
-  Ya.prototype.constructor = Ya;
-  Ya.prototype.I = function (a, b, c, d) {
-    b.a.set(this.a.subarray(a, (a + d) | 0), c);
-  };
-  Ya.prototype.q = function () {
-    return new Ya(this.a.slice());
-  };
-  function Za() {
+  function Xa() {
     this.G = void 0;
-    this.Nf = this.Bg = this.Nb = null;
-    this.Of = 0;
-    this.$h = null;
-    this.gf = "";
-    this.Zh = this.kf = this.wg = this.Pi = void 0;
+    this.Df = this.tg = this.Ib = null;
+    this.Ef = 0;
+    this.Wh = null;
+    this.Ye = "";
+    this.Vh = this.af = this.rg = this.Ki = void 0;
     this.name = "";
     this.isJSClass = this.isArrayClass = this.isInterface = this.isPrimitive = !1;
     this.isInstance = void 0;
   }
-  function $a(a, b, c, d, f) {
-    var g = new Za();
-    g.Nb = {};
-    g.$h = a;
-    g.gf = b;
-    g.kf = (h) => h === g;
+  function Ya(a, b, c, d, f) {
+    var g = new Xa();
+    g.Ib = {};
+    g.Wh = a;
+    g.Ye = b;
+    g.af = (h) => h === g;
     g.name = c;
     g.isPrimitive = !0;
     g.isInstance = () => !1;
-    void 0 !== d && (g.wg = ab(g, d, f));
+    void 0 !== d && (g.rg = Za(g, d, f));
     return g;
   }
   function v(a, b, c, d, f) {
-    var g = new Za(),
-      h = ea(a);
-    g.Nb = d;
-    g.gf = "L" + c + ";";
-    g.kf = (k) => !!k.Nb[h];
+    var g = new Xa(),
+      h = fa(a);
+    g.Ib = d;
+    g.Ye = "L" + c + ";";
+    g.af = (k) => !!k.Ib[h];
     g.name = c;
     g.isInterface = b;
-    g.isInstance = f || ((k) => !!(k && k.$classData && k.$classData.Nb[h]));
+    g.isInstance = f || ((k) => !!(k && k.$classData && k.$classData.Ib[h]));
     return g;
   }
-  function ab(a, b, c, d) {
-    var f = new Za();
+  function Za(a, b, c, d) {
+    var f = new Xa();
     b.prototype.$classData = f;
-    var g = "[" + a.gf;
+    var g = "[" + a.Ye;
     f.G = b;
-    f.Nb = { b: 1, Xb: 1, c: 1 };
-    f.Bg = a;
-    f.Nf = a;
-    f.Of = 1;
-    f.gf = g;
+    f.Ib = { b: 1, Vb: 1, c: 1 };
+    f.tg = a;
+    f.Df = a;
+    f.Ef = 1;
+    f.Ye = g;
     f.name = g;
     f.isArrayClass = !0;
-    f.kf = d || ((h) => f === h);
-    f.Zh = c ? (h) => new b(new c(h)) : (h) => new b(h);
+    f.af = d || ((h) => f === h);
+    f.Vh = c ? (h) => new b(new c(h)) : (h) => new b(h);
     f.isInstance = (h) => h instanceof b;
     return f;
   }
-  function bb(a) {
+  function $a(a) {
     function b(k) {
       if ("number" === typeof k) {
         this.a = Array(k);
         for (var l = 0; l < k; l++) this.a[l] = null;
       } else this.a = k;
     }
-    var c = new Za();
-    b.prototype = new Ra();
+    var c = new Xa();
+    b.prototype = new Pa();
     b.prototype.constructor = b;
     b.prototype.I = function (k, l, p, u) {
-      La(this.a, k, l.a, p, u);
+      Ha(this.a, k, l.a, p, u);
     };
-    b.prototype.q = function () {
+    b.prototype.o = function () {
       return new b(this.a.slice());
     };
-    var d = a.Nf || a,
-      f = a.Of + 1;
+    var d = a.Df || a,
+      f = a.Ef + 1;
     b.prototype.$classData = c;
-    var g = "[" + a.gf;
+    var g = "[" + a.Ye;
     c.G = b;
-    c.Nb = { b: 1, Xb: 1, c: 1 };
-    c.Bg = a;
-    c.Nf = d;
-    c.Of = f;
-    c.gf = g;
+    c.Ib = { b: 1, Vb: 1, c: 1 };
+    c.tg = a;
+    c.Df = d;
+    c.Ef = f;
+    c.Ye = g;
     c.name = g;
     c.isArrayClass = !0;
     var h = (k) => {
-      var l = k.Of;
-      return l === f ? d.kf(k.Nf) : l > f && d === w;
+      var l = k.Ef;
+      return l === f ? d.af(k.Df) : l > f && d === w;
     };
-    c.kf = h;
-    c.Zh = (k) => new b(k);
+    c.af = h;
+    c.Vh = (k) => new b(k);
     c.isInstance = (k) => {
       k = k && k.$classData;
       return !!k && (k === c || h(k));
@@ -401,467 +393,467 @@ let ScalaJSExample;
     return c;
   }
   function x(a) {
-    a.wg || (a.wg = bb(a));
-    return a.wg;
+    a.rg || (a.rg = $a(a));
+    return a.rg;
   }
   function m(a) {
-    a.Pi || (a.Pi = new cb(a));
-    return a.Pi;
+    a.Ki || (a.Ki = new ab(a));
+    return a.Ki;
   }
-  Za.prototype.isAssignableFrom = function (a) {
-    return this === a || this.kf(a);
+  Xa.prototype.isAssignableFrom = function (a) {
+    return this === a || this.af(a);
   };
-  Za.prototype.checkCast = function () {};
-  Za.prototype.getSuperclass = function () {
+  Xa.prototype.checkCast = function () {};
+  Xa.prototype.getSuperclass = function () {
     return this.qn ? m(this.qn) : null;
   };
-  Za.prototype.getComponentType = function () {
-    return this.Bg ? m(this.Bg) : null;
+  Xa.prototype.getComponentType = function () {
+    return this.tg ? m(this.tg) : null;
   };
-  Za.prototype.newArrayOfThisClass = function (a) {
+  Xa.prototype.newArrayOfThisClass = function (a) {
     for (var b = this, c = 0; c < a.length; c++) b = x(b);
-    return ia(b, a, 0);
+    return ja(b, a, 0);
   };
-  var w = new Za();
-  w.Nb = { b: 1 };
-  w.gf = "Ljava.lang.Object;";
-  w.kf = (a) => !a.isPrimitive;
+  var w = new Xa();
+  w.Ib = { b: 1 };
+  w.Ye = "Ljava.lang.Object;";
+  w.af = (a) => !a.isPrimitive;
   w.name = "java.lang.Object";
   w.isInstance = (a) => null !== a;
-  w.wg = ab(w, r, void 0, (a) => {
-    var b = a.Of;
-    return 1 === b ? !a.Nf.isPrimitive : 1 < b;
+  w.rg = Za(w, r, void 0, (a) => {
+    var b = a.Ef;
+    return 1 === b ? !a.Df.isPrimitive : 1 < b;
   });
-  Aa.prototype.$classData = w;
-  var db = $a(void 0, "V", "void", void 0, void 0),
-    eb = $a(!1, "Z", "boolean", Sa, void 0),
-    fb = $a(0, "C", "char", Ta, Uint16Array),
-    gb = $a(0, "B", "byte", Ua, Int8Array),
-    hb = $a(0, "S", "short", Va, Int16Array),
-    ib = $a(0, "I", "int", t, Int32Array),
-    jb = $a(null, "J", "long", Wa, void 0),
-    kb = $a(0, "F", "float", Xa, Float32Array),
-    lb = $a(0, "D", "double", Ya, Float64Array);
-  function mb(a, b, c, d) {
-    this.bi = null;
-    this.qg = b;
-    this.yd = c;
+  Ba.prototype.$classData = w;
+  var bb = Ya(void 0, "V", "void", void 0, void 0),
+    cb = Ya(!1, "Z", "boolean", Qa, void 0),
+    db = Ya(0, "C", "char", Ra, Uint16Array),
+    eb = Ya(0, "B", "byte", Sa, Int8Array),
+    fb = Ya(0, "S", "short", Ta, Int16Array),
+    gb = Ya(0, "I", "int", t, Int32Array),
+    hb = Ya(null, "J", "long", Ua, void 0),
+    ib = Ya(0, "F", "float", Va, Float32Array),
+    jb = Ya(0, "D", "double", Wa, Float64Array);
+  function kb(a, b, c, d) {
+    this.Xh = null;
+    this.ig = b;
+    this.rd = c;
     this.Tj = d;
-    if (null === a) throw nb(null);
-    this.bi = a;
+    if (null === a) throw lb(null);
+    this.Xh = a;
   }
-  mb.prototype = new q();
-  mb.prototype.constructor = mb;
-  mb.prototype.cd = function (a) {
-    var b = ba(10, this.qg);
-    a.fillRect(this.yd.h - ((b / 2) | 0), this.yd.g - ((b / 2) | 0), b, b);
+  kb.prototype = new q();
+  kb.prototype.constructor = kb;
+  kb.prototype.Xc = function (a) {
+    var b = ca(10, this.ig);
+    a.fillRect(this.rd.i - ((b / 2) | 0), this.rd.g - ((b / 2) | 0), b, b);
   };
-  mb.prototype.$i = function () {
-    this.yd = z(this.yd, this.Tj);
-    this.yd = z(this.yd, this.bi.Ad);
-    this.yd = ob(this.yd, this.bi.Ad);
+  kb.prototype.Vi = function () {
+    this.rd = y(this.rd, this.Tj);
+    this.rd = y(this.rd, this.Xh.td);
+    this.rd = mb(this.rd, this.Xh.td);
   };
-  function pb(a, b) {
-    return qb(
+  function nb(a, b) {
+    return ob(
       b,
-      rb(a.yd, sb(new A(5, 5), a.qg)),
-      z(a.yd, sb(new A(5, 5), a.qg)),
-      new A(0, 0)
+      pb(a.rd, qb(new z(5, 5), a.ig)),
+      y(a.rd, qb(new z(5, 5), a.ig)),
+      new z(0, 0)
     );
   }
-  mb.prototype.$classData = v({ Ql: 0 }, !1, "example.Asteroids$Asteroid", {
+  kb.prototype.$classData = v({ Ql: 0 }, !1, "example.Asteroids$Asteroid", {
     Ql: 1,
     b: 1,
   });
-  function tb(a, b, c) {
-    this.cf = b;
-    this.ci = c;
-    if (null === a) throw nb(null);
+  function rb(a, b, c) {
+    this.Ve = b;
+    this.Yh = c;
+    if (null === a) throw lb(null);
   }
-  tb.prototype = new q();
-  tb.prototype.constructor = tb;
-  tb.prototype.cd = function (a) {
+  rb.prototype = new q();
+  rb.prototype.constructor = rb;
+  rb.prototype.Xc = function (a) {
     a.beginPath();
-    a.moveTo(this.cf.h, this.cf.g);
-    var b = z(this.cf, ub(sb(this.ci, 5), vb(this.ci)));
-    a.lineTo(b.h, b.g);
+    a.moveTo(this.Ve.i, this.Ve.g);
+    var b = y(this.Ve, sb(qb(this.Yh, 5), tb(this.Yh)));
+    a.lineTo(b.i, b.g);
     a.stroke();
   };
-  tb.prototype.$i = function () {
-    this.cf = z(this.cf, this.ci);
+  rb.prototype.Vi = function () {
+    this.Ve = y(this.Ve, this.Yh);
   };
-  tb.prototype.$classData = v({ Rl: 0 }, !1, "example.Asteroids$Bullet", {
+  rb.prototype.$classData = v({ Rl: 0 }, !1, "example.Asteroids$Bullet", {
     Rl: 1,
     b: 1,
   });
-  function wb(a, b, c, d) {
-    this.di = null;
-    this.zd = b;
-    this.Jf = c;
-    this.Wd = d;
-    if (null === a) throw nb(null);
-    this.di = a;
+  function ub(a, b, c, d) {
+    this.Zh = null;
+    this.sd = b;
+    this.zf = c;
+    this.Ld = d;
+    if (null === a) throw lb(null);
+    this.Zh = a;
   }
-  wb.prototype = new q();
-  wb.prototype.constructor = wb;
-  wb.prototype.cd = function (a) {
+  ub.prototype = new q();
+  ub.prototype.constructor = ub;
+  ub.prototype.Xc = function (a) {
     a.beginPath();
-    var b = xb().jb,
+    var b = vb().db,
       c = [
-        z(yb(new A(15, 0), this.Wd), this.zd),
-        z(yb(new A(7, 0), this.Wd + 2.2252947962927703), this.zd),
-        z(yb(new A(7, 0), this.Wd - 2.2252947962927703), this.zd),
+        y(wb(new z(15, 0), this.Ld), this.sd),
+        y(wb(new z(7, 0), this.Ld + 2.2252947962927703), this.sd),
+        y(wb(new z(7, 0), this.Ld - 2.2252947962927703), this.sd),
       ];
-    b = zb(b, B(new C(), c));
-    a.moveTo(b.dd().h, b.dd().g);
+    b = xb(b, B(new C(), c));
+    a.moveTo(b.id().i, b.id().g);
     b.N(
-      new E(
+      new D(
         ((d, f) => (g) => {
-          f.lineTo(g.h, g.g);
+          f.lineTo(g.i, g.g);
         })(this, a)
       )
     );
     a.fill();
   };
-  function Ab(a, b) {
-    a.zd = z(a.zd, a.Jf);
-    a.zd = z(a.zd, a.di.Ad);
-    a.zd = ob(a.zd, a.di.Ad);
-    b.F(37) && (a.Wd -= 0.05);
-    b.F(38) && (a.Jf = z(a.Jf, yb(new A(0.2, 0), a.Wd)));
-    b.F(39) && (a.Wd += 0.05);
-    b.F(40) && (a.Jf = rb(a.Jf, yb(new A(0.2, 0), a.Wd)));
+  function yb(a, b) {
+    a.sd = y(a.sd, a.zf);
+    a.sd = y(a.sd, a.Zh.td);
+    a.sd = mb(a.sd, a.Zh.td);
+    b.F(37) && (a.Ld -= 0.05);
+    b.F(38) && (a.zf = y(a.zf, wb(new z(0.2, 0), a.Ld)));
+    b.F(39) && (a.Ld += 0.05);
+    b.F(40) && (a.zf = pb(a.zf, wb(new z(0.2, 0), a.Ld)));
   }
-  wb.prototype.$classData = v({ Sl: 0 }, !1, "example.Asteroids$Craft", {
+  ub.prototype.$classData = v({ Sl: 0 }, !1, "example.Asteroids$Craft", {
     Sl: 1,
     b: 1,
   });
-  function Bb() {
+  function zb() {
     this.jk = this.bk = this.ik = this.fk = this.dk = this.ck = this.ek = this.gk = this.hk = null;
-    this.Ta = 0;
-    Cb = this;
-    this.hk = Db(255, 255, 255);
-    this.Ta |= 1;
-    this.gk = Db(255, 0, 0);
-    this.Ta |= 2;
-    this.ek = Db(0, 255, 0);
-    this.Ta |= 4;
-    this.ck = Db(0, 0, 255);
-    this.Ta |= 8;
-    this.dk = Db(0, 255, 255);
-    this.Ta |= 16;
-    this.fk = Db(255, 0, 255);
-    this.Ta |= 32;
-    this.ik = Db(255, 255, 0);
-    this.Ta |= 64;
-    this.bk = Db(0, 0, 0);
-    this.Ta |= 128;
-    var a = xb().jb,
+    this.Pa = 0;
+    Ab = this;
+    this.hk = Bb(255, 255, 255);
+    this.Pa |= 1;
+    this.gk = Bb(255, 0, 0);
+    this.Pa |= 2;
+    this.ek = Bb(0, 255, 0);
+    this.Pa |= 4;
+    this.ck = Bb(0, 0, 255);
+    this.Pa |= 8;
+    this.dk = Bb(0, 255, 255);
+    this.Pa |= 16;
+    this.fk = Bb(255, 0, 255);
+    this.Pa |= 32;
+    this.ik = Bb(255, 255, 0);
+    this.Pa |= 64;
+    this.bk = Bb(0, 0, 0);
+    this.Pa |= 128;
+    var a = vb().db,
       b = [
+        Cb(this),
+        Db(this),
         Eb(this),
         Fb(this),
         Gb(this),
         Hb(this),
         Ib(this),
         Jb(this),
-        Kb(this),
-        Lb(this),
       ];
-    this.jk = zb(a, B(new C(), b));
-    this.Ta |= 256;
+    this.jk = xb(a, B(new C(), b));
+    this.Pa |= 256;
   }
-  Bb.prototype = new q();
-  Bb.prototype.constructor = Bb;
-  function Db(a, b, c) {
+  zb.prototype = new q();
+  zb.prototype.constructor = zb;
+  function Bb(a, b, c) {
     return "rgb(" + a + ", " + b + ", " + c + ")";
   }
-  function Eb(a) {
-    if (0 === (1 & a.Ta))
-      throw new F(
+  function Cb(a) {
+    if (0 === (1 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 12"
       );
     return a.hk;
   }
-  function Fb(a) {
-    if (0 === (2 & a.Ta))
-      throw new F(
+  function Db(a) {
+    if (0 === (2 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 13"
       );
     return a.gk;
   }
-  function Gb(a) {
-    if (0 === (4 & a.Ta))
-      throw new F(
+  function Eb(a) {
+    if (0 === (4 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 14"
       );
     return a.ek;
   }
-  function Hb(a) {
-    if (0 === (8 & a.Ta))
-      throw new F(
+  function Fb(a) {
+    if (0 === (8 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 15"
       );
     return a.ck;
   }
-  function Ib(a) {
-    if (0 === (16 & a.Ta))
-      throw new F(
+  function Gb(a) {
+    if (0 === (16 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 16"
       );
     return a.dk;
   }
-  function Jb(a) {
-    if (0 === (32 & a.Ta))
-      throw new F(
+  function Hb(a) {
+    if (0 === (32 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 17"
       );
     return a.fk;
   }
-  function Kb(a) {
-    if (0 === (64 & a.Ta))
-      throw new F(
+  function Ib(a) {
+    if (0 === (64 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 18"
       );
     return a.ik;
   }
-  function Lb(a) {
-    if (0 === (128 & a.Ta))
-      throw new F(
+  function Jb(a) {
+    if (0 === (128 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 19"
       );
     return a.bk;
   }
-  function Mb() {
-    var a = G();
-    if (0 === (256 & a.Ta))
-      throw new F(
+  function Kb() {
+    var a = F();
+    if (0 === (256 & a.Pa))
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 20"
       );
     return a.jk;
   }
-  Bb.prototype.$classData = v({ Zl: 0 }, !1, "example.Color$", { Zl: 1, b: 1 });
-  var Cb;
-  function G() {
-    Cb || (Cb = new Bb());
-    return Cb;
+  zb.prototype.$classData = v({ Zl: 0 }, !1, "example.Color$", { Zl: 1, b: 1 });
+  var Ab;
+  function F() {
+    Ab || (Ab = new zb());
+    return Ab;
   }
-  function Nb(a) {
-    a.ie = Ob();
-    a.he = !0;
+  function Lb(a) {
+    a.Yd = Mb();
+    a.Xd = !0;
   }
-  function Pb() {
-    this.ie = null;
-    this.he = !1;
+  function Nb() {
+    this.Yd = null;
+    this.Xd = !1;
   }
-  Pb.prototype = new q();
-  Pb.prototype.constructor = Pb;
-  function Qb() {}
-  Qb.prototype = Pb.prototype;
-  function Rb(a) {
-    if (!a.he)
-      throw new F(
+  Nb.prototype = new q();
+  Nb.prototype.constructor = Nb;
+  function Ob() {}
+  Ob.prototype = Nb.prototype;
+  function Pb(a) {
+    if (!a.Xd)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 115"
       );
-    return a.ie;
+    return a.Yd;
   }
-  function Sb(a, b) {
-    a.ie = b;
-    a.he = !0;
+  function Qb(a, b) {
+    a.Yd = b;
+    a.Xd = !0;
+  }
+  function Rb(a, b) {
+    this.We = b;
+    if (null === a) throw lb(null);
+  }
+  Rb.prototype = new q();
+  Rb.prototype.constructor = Rb;
+  function Sb(a, b, c) {
+    a.We.beginPath();
+    a.We.arc(b, c, 5, 0, 6.283185307179586);
+    a.We.fill();
   }
   function Tb(a, b) {
-    this.df = b;
-    if (null === a) throw nb(null);
-  }
-  Tb.prototype = new q();
-  Tb.prototype.constructor = Tb;
-  function Ub(a, b, c) {
-    a.df.beginPath();
-    a.df.arc(b, c, 5, 0, 6.283185307179586);
-    a.df.fill();
-  }
-  function Vb(a, b) {
-    a.df.beginPath();
-    a.df.moveTo(b.dd().h, b.dd().g);
+    a.We.beginPath();
+    a.We.moveTo(b.id().i, b.id().g);
     b.N(
-      new E(
+      new D(
         ((c) => (d) => {
-          c.df.lineTo(d.h, d.g);
+          c.We.lineTo(d.i, d.g);
         })(a)
       )
     );
-    a.df.stroke();
+    a.We.stroke();
   }
-  Tb.prototype.$classData = v({ bm: 0 }, !1, "example.Game$pimpedContext", {
+  Rb.prototype.$classData = v({ bm: 0 }, !1, "example.Game$pimpedContext", {
     bm: 1,
     b: 1,
   });
-  function Wb(a, b) {
-    this.$c = this.si = this.ih = this.ge = this.ze = this.kk = null;
-    this.ri = this.hh = !1;
-    this.ti = null;
-    this.wa = 0;
+  function Ub(a, b) {
+    this.Tc = this.ni = this.ch = this.Wd = this.te = this.kk = null;
+    this.mi = this.bh = !1;
+    this.oi = null;
+    this.ta = 0;
     this.kk = b;
-    this.ze = Xb().getElementById(a);
-    this.wa = ((1 | this.wa) << 24) >> 24;
-    this.ge = new A(this.ze.width | 0, this.ze.height | 0);
-    this.wa = ((2 | this.wa) << 24) >> 24;
-    this.ih = Yb().Fb();
-    this.wa = ((4 | this.wa) << 24) >> 24;
-    this.si = b.ad(
-      this.ge,
+    this.te = Vb().getElementById(a);
+    this.ta = ((1 | this.ta) << 24) >> 24;
+    this.Wd = new z(this.te.width | 0, this.te.height | 0);
+    this.ta = ((2 | this.ta) << 24) >> 24;
+    this.ch = Wb().Bb();
+    this.ta = ((4 | this.ta) << 24) >> 24;
+    this.ni = b.Uc(
+      this.Wd,
       new H(
         ((c) => () => {
-          Zb(c);
+          Xb(c);
         })(this)
       )
     );
-    this.wa = ((8 | this.wa) << 24) >> 24;
-    this.ze.onkeydown = ((c) => (d) => {
-      $b(c.ih, d.keyCode | 0);
-      zb(xb().jb, B(new C(), [32, 37, 38, 39, 40])).F(d.keyCode | 0) &&
+    this.ta = ((8 | this.ta) << 24) >> 24;
+    this.te.onkeydown = ((c) => (d) => {
+      Yb(c.ch, d.keyCode | 0);
+      xb(vb().db, B(new C(), [32, 37, 38, 39, 40])).F(d.keyCode | 0) &&
         d.preventDefault();
-      ac(c, Ob());
+      Zb(c, Mb());
     })(this);
-    this.ze.onkeyup = ((c) => (d) => {
-      bc(c.ih, d.keyCode | 0);
-      zb(xb().jb, B(new C(), [32, 37, 38, 39, 40])).F(d.keyCode | 0) &&
+    this.te.onkeyup = ((c) => (d) => {
+      $b(c.ch, d.keyCode | 0);
+      xb(vb().db, B(new C(), [32, 37, 38, 39, 40])).F(d.keyCode | 0) &&
         d.preventDefault();
     })(this);
-    this.ze.onfocus = ((c) => () => {
-      c.hh = !0;
-      c.wa = ((32 | c.wa) << 24) >> 24;
+    this.te.onfocus = ((c) => () => {
+      c.bh = !0;
+      c.ta = ((32 | c.ta) << 24) >> 24;
     })(this);
-    this.ze.onblur = ((c) => () => {
-      c.hh = !1;
-      c.wa = ((32 | c.wa) << 24) >> 24;
+    this.te.onblur = ((c) => () => {
+      c.bh = !1;
+      c.ta = ((32 | c.ta) << 24) >> 24;
     })(this);
-    this.$c = this.ze.getContext("2d");
-    this.wa = ((16 | this.wa) << 24) >> 24;
-    this.hh = !1;
-    this.wa = ((32 | this.wa) << 24) >> 24;
-    this.ri = !1;
-    this.wa = ((64 | this.wa) << 24) >> 24;
-    this.ti = Ob();
-    this.wa = ((128 | this.wa) << 24) >> 24;
-    this.$c.font = "12pt Arial";
-    this.$c.textAlign = "center";
+    this.Tc = this.te.getContext("2d");
+    this.ta = ((16 | this.ta) << 24) >> 24;
+    this.bh = !1;
+    this.ta = ((32 | this.ta) << 24) >> 24;
+    this.mi = !1;
+    this.ta = ((64 | this.ta) << 24) >> 24;
+    this.oi = Mb();
+    this.ta = ((128 | this.ta) << 24) >> 24;
+    this.Tc.font = "12pt Arial";
+    this.Tc.textAlign = "center";
   }
-  Wb.prototype = new q();
-  Wb.prototype.constructor = Wb;
-  function cc(a) {
-    if (0 === ((8 & a.wa) << 24) >> 24)
-      throw new F(
+  Ub.prototype = new q();
+  Ub.prototype.constructor = Ub;
+  function ac(a) {
+    if (0 === ((8 & a.ta) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 62"
       );
-    return a.si;
+    return a.ni;
   }
-  function dc(a, b) {
-    a.si = b;
-    a.wa = ((8 | a.wa) << 24) >> 24;
+  function bc(a, b) {
+    a.ni = b;
+    a.ta = ((8 | a.ta) << 24) >> 24;
   }
-  function ec(a) {
-    if (0 === ((128 & a.wa) << 24) >> 24)
-      throw new F(
+  function cc(a) {
+    if (0 === ((128 & a.ta) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 105"
       );
-    return a.ti;
+    return a.oi;
   }
-  function ac(a, b) {
-    a.ti = b;
-    a.wa = ((128 | a.wa) << 24) >> 24;
+  function Zb(a, b) {
+    a.oi = b;
+    a.ta = ((128 | a.ta) << 24) >> 24;
   }
-  function Zb(a) {
-    ac(a, Rb(cc(a)));
-    var b = ec(a);
-    b = "MESSAGE " + (b.e() ? "missing message?!" : b.Fg());
-    fc(b + "\n");
-    dc(
+  function Xb(a) {
+    Zb(a, Pb(ac(a)));
+    var b = cc(a);
+    b = "MESSAGE " + (b.e() ? "missing message?!" : b.zg());
+    dc(b + "\n");
+    bc(
       a,
-      a.kk.ad(
-        a.ge,
+      a.kk.Uc(
+        a.Wd,
         new H(
           ((c) => () => {
-            Zb(c);
+            Xb(c);
           })(a)
         )
       )
     );
   }
-  Wb.prototype.$classData = v({ cm: 0 }, !1, "example.GameHolder", {
+  Ub.prototype.$classData = v({ cm: 0 }, !1, "example.GameHolder", {
     cm: 1,
     b: 1,
   });
-  function gc(a, b, c, d) {
-    this.Vb = a;
-    this.rc = b;
-    this.ld = c;
-    this.je = d;
+  function ec(a, b, c, d) {
+    this.Ub = a;
+    this.pc = b;
+    this.fd = c;
+    this.Zd = d;
   }
-  gc.prototype = new q();
-  gc.prototype.constructor = gc;
-  gc.prototype.$classData = v({ dm: 0 }, !1, "example.Paddle", { dm: 1, b: 1 });
-  function hc() {}
-  hc.prototype = new q();
-  hc.prototype.constructor = hc;
-  function ic(a) {
+  ec.prototype = new q();
+  ec.prototype.constructor = ec;
+  ec.prototype.$classData = v({ dm: 0 }, !1, "example.Paddle", { dm: 1, b: 1 });
+  function fc() {}
+  fc.prototype = new q();
+  fc.prototype.constructor = fc;
+  function gc(a) {
+    hc || (hc = new ic());
+    var b = new Ub("asteroids", hc);
     jc || (jc = new kc());
-    var b = new Wb("asteroids", jc);
+    var c = new Ub("astrolander", jc);
     lc || (lc = new mc());
-    var c = new Wb("astrolander", lc);
+    var d = new Ub("snake", lc);
     nc || (nc = new oc());
-    var d = new Wb("snake", nc);
+    var f = new Ub("pong", nc);
     pc || (pc = new qc());
-    var f = new Wb("pong", pc);
+    var g = new Ub("bricks", pc);
     rc || (rc = new sc());
-    var g = new Wb("bricks", rc);
-    tc || (tc = new uc());
-    var h = new Wb("tetris", tc);
-    b = zb(xb().jb, B(new C(), [b, c, d, f, g, h]));
-    c = vc;
-    wc || (wc = new xc());
+    var h = new Ub("tetris", rc);
+    b = xb(vb().db, B(new C(), [b, c, d, f, g, h]));
+    c = tc;
+    uc || (uc = new vc());
     c(
-      wc,
+      uc,
       new H(
         ((k, l) => () => {
           l.N(
-            new E(
+            new D(
               (() => (p) => {
-                if (0 === ((64 & p.wa) << 24) >> 24)
-                  throw new F(
+                if (0 === ((64 & p.ta) << 24) >> 24)
+                  throw new E(
                     "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 84"
                   );
-                p.ri ||
-                  (cc(p).cd(p.$c),
-                  (p.ri = !0),
-                  (p.wa = ((64 | p.wa) << 24) >> 24));
-                if (0 === ((32 & p.wa) << 24) >> 24)
-                  throw new F(
+                p.mi ||
+                  (ac(p).Xc(p.Tc),
+                  (p.mi = !0),
+                  (p.ta = ((64 | p.ta) << 24) >> 24));
+                if (0 === ((32 & p.ta) << 24) >> 24)
+                  throw new E(
                     "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 83"
                   );
-                if (p.hh && ec(p).e()) {
-                  cc(p).cd(p.$c);
-                  var u = cc(p);
-                  yc();
-                  p = p.ih;
-                  zc();
-                  p = Ac(I(), p);
-                  u.pg(Bc(p));
-                } else if (!ec(p).e()) {
-                  u = p.$c;
-                  var y = Lb(G());
-                  u.fillStyle = y;
-                  p.$c.fillRect(0, 0, p.ge.h, p.ge.g);
-                  u = p.$c;
-                  y = Eb(G());
-                  u.fillStyle = y;
-                  p.$c.font = "20pt Arial";
-                  p.$c.textAlign = "center";
-                  p.$c.fillText(ec(p).Fg(), p.ge.h / 2, p.ge.g / 2);
-                  p.$c.font = "14pt Arial";
-                  p.$c.fillText(
+                if (p.bh && cc(p).e()) {
+                  ac(p).Xc(p.Tc);
+                  var u = ac(p);
+                  wc();
+                  p = p.ch;
+                  xc();
+                  p = yc(I(), p);
+                  u.gg(zc(p));
+                } else if (!cc(p).e()) {
+                  u = p.Tc;
+                  var A = Jb(F());
+                  u.fillStyle = A;
+                  p.Tc.fillRect(0, 0, p.Wd.i, p.Wd.g);
+                  u = p.Tc;
+                  A = Cb(F());
+                  u.fillStyle = A;
+                  p.Tc.font = "20pt Arial";
+                  p.Tc.textAlign = "center";
+                  p.Tc.fillText(cc(p).zg(), p.Wd.i / 2, p.Wd.g / 2);
+                  p.Tc.font = "14pt Arial";
+                  p.Tc.fillText(
                     "Press any key to continue",
-                    p.ge.h / 2,
-                    p.ge.g / 2 + 30
+                    p.Wd.i / 2,
+                    p.Wd.g / 2 + 30
                   );
                 }
               })(k)
@@ -871,109 +863,109 @@ let ScalaJSExample;
       )
     );
   }
-  hc.prototype.main = function () {
-    ic(this);
+  fc.prototype.main = function () {
+    gc(this);
   };
-  hc.prototype.$classData = v({ hm: 0 }, !1, "example.ScalaJSExample$", {
+  fc.prototype.$classData = v({ hm: 0 }, !1, "example.ScalaJSExample$", {
     hm: 1,
     b: 1,
   });
-  var Cc;
-  function Dc() {
-    Cc || (Cc = new hc());
-    return Cc;
+  var Ac;
+  function Bc() {
+    Ac || (Ac = new fc());
+    return Ac;
   }
-  var Ec = v({ kh: 0 }, !0, "example.Spot", { kh: 1, b: 1 });
-  function Hc(a, b) {
-    this.ef = b;
-    if (null === a) throw nb(null);
+  var Cc = v({ eh: 0 }, !0, "example.Spot", { eh: 1, b: 1 });
+  function Fc(a, b) {
+    this.Xe = b;
+    if (null === a) throw lb(null);
   }
+  Fc.prototype = new q();
+  Fc.prototype.constructor = Fc;
+  var Gc = v({ nm: 0 }, !1, "example.Tetris$Position", { nm: 1, b: 1 });
+  Fc.prototype.$classData = Gc;
+  function Hc() {}
   Hc.prototype = new q();
   Hc.prototype.constructor = Hc;
-  var Ic = v({ nm: 0 }, !1, "example.Tetris$Position", { nm: 1, b: 1 });
-  Hc.prototype.$classData = Ic;
-  function Jc() {}
-  Jc.prototype = new q();
-  Jc.prototype.constructor = Jc;
-  Jc.prototype.$classData = v({ om: 0 }, !1, "example.Tetris$Position$", {
+  Hc.prototype.$classData = v({ om: 0 }, !1, "example.Tetris$Position$", {
     om: 1,
     b: 1,
   });
-  function cb(a) {
-    this.Cc = a;
+  function ab(a) {
+    this.xc = a;
   }
-  cb.prototype = new q();
-  cb.prototype.constructor = cb;
-  cb.prototype.z = function () {
+  ab.prototype = new q();
+  ab.prototype.constructor = ab;
+  ab.prototype.z = function () {
     return (
-      (this.Cc.isInterface
+      (this.xc.isInterface
         ? "interface "
-        : this.Cc.isPrimitive
+        : this.xc.isPrimitive
         ? ""
-        : "class ") + this.Cc.name
+        : "class ") + this.xc.name
     );
   };
-  function Kc(a) {
-    return a.Cc.getComponentType();
+  function Ic(a) {
+    return a.xc.getComponentType();
   }
-  function Lc(a, b) {
-    return a.Cc.newArrayOfThisClass(b);
+  function Jc(a, b) {
+    return a.xc.newArrayOfThisClass(b);
   }
-  cb.prototype.$classData = v({ Km: 0 }, !1, "java.lang.Class", {
+  ab.prototype.$classData = v({ Km: 0 }, !1, "java.lang.Class", {
     Km: 1,
     b: 1,
   });
-  function Mc() {
-    this.Gk = this.rh = this.Hg = null;
-    this.Vi = !1;
+  function Kc() {
+    this.Gk = this.mh = this.Bg = null;
+    this.Qi = !1;
     this.Ik = this.Hk = 0;
-    Nc = this;
-    this.Hg = new ArrayBuffer(8);
-    this.rh = new Int32Array(this.Hg, 0, 2);
-    new Float32Array(this.Hg, 0, 2);
-    this.Gk = new Float64Array(this.Hg, 0, 1);
-    this.rh[0] = 16909060;
-    this.Hk = (this.Vi = 1 === (new Int8Array(this.Hg, 0, 8)[0] | 0)) ? 0 : 1;
-    this.Ik = this.Vi ? 1 : 0;
+    Lc = this;
+    this.Bg = new ArrayBuffer(8);
+    this.mh = new Int32Array(this.Bg, 0, 2);
+    new Float32Array(this.Bg, 0, 2);
+    this.Gk = new Float64Array(this.Bg, 0, 1);
+    this.mh[0] = 16909060;
+    this.Hk = (this.Qi = 1 === (new Int8Array(this.Bg, 0, 8)[0] | 0)) ? 0 : 1;
+    this.Ik = this.Qi ? 1 : 0;
   }
-  Mc.prototype = new q();
-  Mc.prototype.constructor = Mc;
-  function Oc(a, b) {
+  Kc.prototype = new q();
+  Kc.prototype.constructor = Kc;
+  function Mc(a, b) {
     var c = b | 0;
     if (c === b && -Infinity !== 1 / b) return c;
     a.Gk[0] = b;
-    a = new n(a.rh[a.Ik] | 0, a.rh[a.Hk] | 0);
-    return a.Fa ^ a.Ea;
+    a = new n(a.mh[a.Ik] | 0, a.mh[a.Hk] | 0);
+    return a.bb ^ a.ab;
   }
-  Mc.prototype.$classData = v({ Mm: 0 }, !1, "java.lang.FloatingPointBits$", {
+  Kc.prototype.$classData = v({ Mm: 0 }, !1, "java.lang.FloatingPointBits$", {
     Mm: 1,
     b: 1,
   });
-  var Nc;
-  function Pc() {
-    Nc || (Nc = new Mc());
-    return Nc;
+  var Lc;
+  function Nc() {
+    Lc || (Lc = new Kc());
+    return Lc;
   }
-  function Qc() {
+  function Oc() {
     this.Kk = null;
-    Rc = this;
-    this.Kk = new Sc(!1);
-    new Sc(!0);
+    Pc = this;
+    this.Kk = new Qc(!1);
+    new Qc(!0);
   }
-  Qc.prototype = new q();
-  Qc.prototype.constructor = Qc;
-  Qc.prototype.$classData = v({ an: 0 }, !1, "java.lang.System$Streams$", {
+  Oc.prototype = new q();
+  Oc.prototype.constructor = Oc;
+  Oc.prototype.$classData = v({ an: 0 }, !1, "java.lang.System$Streams$", {
     an: 1,
     b: 1,
   });
-  var Rc;
-  function Tc() {
-    Rc || (Rc = new Qc());
-    return Rc;
+  var Pc;
+  function Rc() {
+    Pc || (Pc = new Oc());
+    return Pc;
   }
-  function Uc() {
-    this.Lk = this.Xi = null;
-    Vc = this;
+  function Sc() {
+    this.Lk = this.Si = null;
+    Tc = this;
     var a = {
       "java.version": "1.8",
       "java.vm.specification.version": "1.8",
@@ -981,79 +973,109 @@ let ScalaJSExample;
       "java.vm.specification.name": "Java Virtual Machine Specification",
       "java.vm.name": "Scala.js",
     };
-    a["java.vm.version"] = aa.linkerVersion;
+    a["java.vm.version"] = ba.linkerVersion;
     a["java.specification.version"] = "1.8";
     a["java.specification.vendor"] = "Oracle Corporation";
     a["java.specification.name"] = "Java Platform API Specification";
     a["file.separator"] = "/";
     a["path.separator"] = ":";
     a["line.separator"] = "\n";
-    this.Xi = a;
+    this.Si = a;
     this.Lk = null;
   }
-  Uc.prototype = new q();
-  Uc.prototype.constructor = Uc;
-  function Wc(a, b, c) {
-    null !== a.Xi
-      ? (Xc || (Xc = new Yc()),
-        (a = a.Xi),
-        Zc || (Zc = new $c()),
-        (b = Zc.Nk.call(a, b) ? a[b] : c))
-      : (b = Wc(a.Lk, b, c));
+  Sc.prototype = new q();
+  Sc.prototype.constructor = Sc;
+  function Uc(a, b, c) {
+    null !== a.Si
+      ? (Vc || (Vc = new Wc()),
+        (a = a.Si),
+        Xc || (Xc = new Yc()),
+        (b = Xc.Nk.call(a, b) ? a[b] : c))
+      : (b = Uc(a.Lk, b, c));
     return b;
   }
-  Uc.prototype.$classData = v(
+  Sc.prototype.$classData = v(
     { bn: 0 },
     !1,
     "java.lang.System$SystemProperties$",
     { bn: 1, b: 1 }
   );
-  var Vc;
-  function ad() {
-    Vc || (Vc = new Uc());
-    return Vc;
+  var Tc;
+  function Zc() {
+    Tc || (Tc = new Sc());
+    return Tc;
   }
-  function Yc() {}
-  Yc.prototype = new q();
-  Yc.prototype.constructor = Yc;
-  Yc.prototype.$classData = v({ gn: 0 }, !1, "java.lang.Utils$", {
+  function Wc() {}
+  Wc.prototype = new q();
+  Wc.prototype.constructor = Wc;
+  Wc.prototype.$classData = v({ gn: 0 }, !1, "java.lang.Utils$", {
     gn: 1,
     b: 1,
   });
-  var Xc;
-  function $c() {
+  var Vc;
+  function Yc() {
     this.Nk = null;
-    Zc = this;
+    Xc = this;
     this.Nk = Object.prototype.hasOwnProperty;
   }
-  $c.prototype = new q();
-  $c.prototype.constructor = $c;
-  $c.prototype.$classData = v({ hn: 0 }, !1, "java.lang.Utils$Cache$", {
+  Yc.prototype = new q();
+  Yc.prototype.constructor = Yc;
+  Yc.prototype.$classData = v({ hn: 0 }, !1, "java.lang.Utils$Cache$", {
     hn: 1,
     b: 1,
   });
-  var Zc,
-    ta = v(
+  var Xc,
+    ua = v(
       { Ok: 0 },
       !1,
       "java.lang.Void",
       { Ok: 1, b: 1 },
       (a) => void 0 === a
     );
-  function bd() {}
-  bd.prototype = new q();
-  bd.prototype.constructor = bd;
-  bd.prototype.$classData = v({ jn: 0 }, !1, "java.lang.reflect.Array$", {
+  function $c() {}
+  $c.prototype = new q();
+  $c.prototype.constructor = $c;
+  $c.prototype.$classData = v({ jn: 0 }, !1, "java.lang.reflect.Array$", {
     jn: 1,
     b: 1,
   });
-  var cd;
-  function dd() {
-    cd || (cd = new bd());
+  var ad;
+  function bd() {
+    ad || (ad = new $c());
   }
-  function ed() {}
-  ed.prototype = new q();
-  ed.prototype.constructor = ed;
+  function cd() {}
+  cd.prototype = new q();
+  cd.prototype.constructor = cd;
+  function dd(a, b, c) {
+    if (b === c) return !0;
+    if (null === b || null === c) return !1;
+    a = b.a.length;
+    if (c.a.length !== a) return !1;
+    for (var d = 0; d !== a; ) {
+      var f = b.a[d],
+        g = f.bb;
+      f = f.ab;
+      var h = c.a[d],
+        k = h.bb;
+      h = h.ab;
+      if (!J(L(), new n(g, f), new n(k, h))) return !1;
+      d = (1 + d) | 0;
+    }
+    return !0;
+  }
+  function ed(a, b, c) {
+    if (b === c) return !0;
+    if (null === b || null === c) return !1;
+    a = b.a.length;
+    if (c.a.length !== a) return !1;
+    for (var d = 0; d !== a; ) {
+      var f = b.a[d],
+        g = c.a[d];
+      if (!J(L(), f, g)) return !1;
+      d = (1 + d) | 0;
+    }
+    return !0;
+  }
   function fd(a, b, c) {
     if (b === c) return !0;
     if (null === b || null === c) return !1;
@@ -1061,12 +1083,8 @@ let ScalaJSExample;
     if (c.a.length !== a) return !1;
     for (var d = 0; d !== a; ) {
       var f = b.a[d],
-        g = f.Fa;
-      f = f.Ea;
-      var h = c.a[d],
-        k = h.Fa;
-      h = h.Ea;
-      if (!L(M(), new n(g, f), new n(k, h))) return !1;
+        g = c.a[d];
+      if (!J(L(), f, g)) return !1;
       d = (1 + d) | 0;
     }
     return !0;
@@ -1079,7 +1097,7 @@ let ScalaJSExample;
     for (var d = 0; d !== a; ) {
       var f = b.a[d],
         g = c.a[d];
-      if (!L(M(), f, g)) return !1;
+      if (!J(L(), Na(f), Na(g))) return !1;
       d = (1 + d) | 0;
     }
     return !0;
@@ -1092,7 +1110,7 @@ let ScalaJSExample;
     for (var d = 0; d !== a; ) {
       var f = b.a[d],
         g = c.a[d];
-      if (!L(M(), f, g)) return !1;
+      if (!J(L(), f, g)) return !1;
       d = (1 + d) | 0;
     }
     return !0;
@@ -1105,7 +1123,7 @@ let ScalaJSExample;
     for (var d = 0; d !== a; ) {
       var f = b.a[d],
         g = c.a[d];
-      if (!L(M(), Pa(f), Pa(g))) return !1;
+      if (!J(L(), f, g)) return !1;
       d = (1 + d) | 0;
     }
     return !0;
@@ -1118,7 +1136,7 @@ let ScalaJSExample;
     for (var d = 0; d !== a; ) {
       var f = b.a[d],
         g = c.a[d];
-      if (!L(M(), f, g)) return !1;
+      if (!J(L(), f, g)) return !1;
       d = (1 + d) | 0;
     }
     return !0;
@@ -1131,392 +1149,410 @@ let ScalaJSExample;
     for (var d = 0; d !== a; ) {
       var f = b.a[d],
         g = c.a[d];
-      if (!L(M(), f, g)) return !1;
+      if (!J(L(), f, g)) return !1;
       d = (1 + d) | 0;
     }
     return !0;
   }
   function ld(a, b, c) {
-    if (b === c) return !0;
-    if (null === b || null === c) return !1;
-    a = b.a.length;
-    if (c.a.length !== a) return !1;
-    for (var d = 0; d !== a; ) {
-      var f = b.a[d],
-        g = c.a[d];
-      if (!L(M(), f, g)) return !1;
-      d = (1 + d) | 0;
-    }
-    return !0;
-  }
-  function md(a, b, c) {
-    if (b === c) return !0;
-    if (null === b || null === c) return !1;
-    a = b.a.length;
-    if (c.a.length !== a) return !1;
-    for (var d = 0; d !== a; ) {
-      var f = b.a[d],
-        g = c.a[d];
-      if (!L(M(), f, g)) return !1;
-      d = (1 + d) | 0;
-    }
-    return !0;
-  }
-  function nd(a, b, c) {
-    a = od(pd(), Kc(ja(b)));
-    if (0 > c) throw new qd();
+    a = md(nd(), Ic(ka(b)));
+    if (0 > c) throw new od();
     var d = b.a.length;
     d = c < d ? c : d;
-    c = a.Dc(c);
+    c = a.yc(c);
     b.I(0, c, 0, d);
     return c;
   }
   function N(a, b, c, d) {
-    a = od(pd(), Kc(ja(b)));
-    if (c > d) throw rd(c + " \x3e " + d);
+    a = md(nd(), Ic(ka(b)));
+    if (c > d) throw pd(c + " \x3e " + d);
     d = (d - c) | 0;
     var f = (b.a.length - c) | 0;
     f = d < f ? d : f;
-    a = a.Dc(d);
+    a = a.yc(d);
     b.I(c, a, 0, f);
     return a;
   }
-  ed.prototype.$classData = v({ kn: 0 }, !1, "java.util.Arrays$", {
+  cd.prototype.$classData = v({ kn: 0 }, !1, "java.util.Arrays$", {
     kn: 1,
     b: 1,
   });
-  var sd;
+  var qd;
   function O() {
-    sd || (sd = new ed());
-    return sd;
+    qd || (qd = new cd());
+    return qd;
   }
-  function td() {
+  function rd() {
     this.tk = this.uk = null;
-    this.Ae = 0;
+    this.ue = 0;
+  }
+  rd.prototype = new q();
+  rd.prototype.constructor = rd;
+  function Vb() {
+    sd || (sd = new rd());
+    var a = sd;
+    0 === (67108864 & a.ue) &&
+      0 === (67108864 & a.ue) &&
+      (0 === (33554432 & a.ue) &&
+        0 === (33554432 & a.ue) &&
+        ((a.uk = window), (a.ue |= 33554432)),
+      (a.tk = a.uk.document),
+      (a.ue |= 67108864));
+    return a.tk;
+  }
+  rd.prototype.$classData = v({ tm: 0 }, !1, "org.scalajs.dom.package$", {
+    tm: 1,
+    b: 1,
+  });
+  var sd;
+  function td() {
+    this.Rk = this.$i = null;
+    ud = this;
+    new Qa(0);
+    new Sa(0);
+    new Ra(0);
+    new Wa(0);
+    new Va(0);
+    this.$i = new t(0);
+    new Ua(0);
+    new Ta(0);
+    this.Rk = new r(0);
   }
   td.prototype = new q();
   td.prototype.constructor = td;
-  function Xb() {
-    ud || (ud = new td());
-    var a = ud;
-    0 === (67108864 & a.Ae) &&
-      0 === (67108864 & a.Ae) &&
-      (0 === (33554432 & a.Ae) &&
-        0 === (33554432 & a.Ae) &&
-        ((a.uk = window), (a.Ae |= 33554432)),
-      (a.tk = a.uk.document),
-      (a.Ae |= 67108864));
-    return a.tk;
-  }
-  td.prototype.$classData = v({ tm: 0 }, !1, "org.scalajs.dom.package$", {
-    tm: 1,
+  td.prototype.$classData = v({ un: 0 }, !1, "scala.Array$EmptyArrays$", {
+    un: 1,
     b: 1,
   });
   var ud;
   function vd() {
-    this.Rk = this.dj = null;
-    wd = this;
-    new Sa(0);
-    new Ua(0);
-    new Ta(0);
-    new Ya(0);
-    new Xa(0);
-    this.dj = new t(0);
-    new Wa(0);
-    new Va(0);
-    this.Rk = new r(0);
+    ud || (ud = new td());
+    return ud;
   }
-  vd.prototype = new q();
-  vd.prototype.constructor = vd;
-  vd.prototype.$classData = v({ un: 0 }, !1, "scala.Array$EmptyArrays$", {
-    un: 1,
-    b: 1,
-  });
-  var wd;
-  function xd() {
-    wd || (wd = new vd());
-    return wd;
-  }
+  function wd() {}
+  wd.prototype = new q();
+  wd.prototype.constructor = wd;
+  function xd() {}
+  xd.prototype = wd.prototype;
   function yd() {}
   yd.prototype = new q();
   yd.prototype.constructor = yd;
-  function zd() {}
-  zd.prototype = yd.prototype;
-  function Ad() {}
-  Ad.prototype = new q();
-  Ad.prototype.constructor = Ad;
-  function Bd(a, b) {
+  function zd(a) {
+    for (var b = new (x(Ad).G)(Bd(Gd(), a)), c = 0; c < Bd(Gd(), a); )
+      (b.a[c] = Hd(new Id(), Jd(Gd(), a, c), c)), (c = (1 + c) | 0);
+    return b;
+  }
+  yd.prototype.$classData = v({ jo: 0 }, !1, "scala.collection.ArrayOps$", {
+    jo: 1,
+    b: 1,
+  });
+  var Kd;
+  function Ld(a, b) {
+    this.gj = a;
+    this.Eg = b;
+  }
+  Ld.prototype = new q();
+  Ld.prototype.constructor = Ld;
+  function Md(a, b) {
+    return new Ld(
+      new D(((c, d) => (f) => !!c.gj.m(f) && !!d.m(f))(a, b)),
+      a.Eg
+    );
+  }
+  Ld.prototype.$classData = v(
+    { Bo: 0 },
+    !1,
+    "scala.collection.ArrayOps$WithFilter",
+    { Bo: 1, b: 1 }
+  );
+  function Nd() {}
+  Nd.prototype = new q();
+  Nd.prototype.constructor = Nd;
+  function Od(a, b) {
     a = (b + ~(b << 9)) | 0;
     a ^= (a >>> 14) | 0;
     a = (a + (a << 4)) | 0;
     return a ^ ((a >>> 10) | 0);
   }
-  Ad.prototype.$classData = v({ Bo: 0 }, !1, "scala.collection.Hashing$", {
-    Bo: 1,
+  Nd.prototype.$classData = v({ Do: 0 }, !1, "scala.collection.Hashing$", {
+    Do: 1,
     b: 1,
   });
-  var Cd;
-  function Dd() {
-    Cd || (Cd = new Ad());
-    return Cd;
+  var Pd;
+  function Qd() {
+    Pd || (Pd = new Nd());
+    return Pd;
   }
-  function Ed(a, b) {
-    for (a = a.i(); a.m(); ) b.l(a.k());
+  function Rd() {}
+  Rd.prototype = new q();
+  Rd.prototype.constructor = Rd;
+  function Sd(a) {
+    return Td(a) ? a.e() : !a.h().l();
   }
-  function Fd(a, b) {
+  Rd.prototype.$classData = v(
+    { Lo: 0 },
+    !1,
+    "scala.collection.IterableOnceExtensionMethods$",
+    { Lo: 1, b: 1 }
+  );
+  var Ud;
+  function Vd(a, b) {
+    for (a = a.h(); a.l(); ) b.m(a.k());
+  }
+  function Wd(a, b) {
     var c = !1;
-    for (a = a.i(); !c && a.m(); ) c = !!b.l(a.k());
+    for (a = a.h(); !c && a.l(); ) c = !!b.m(a.k());
     return c;
   }
-  function Kd(a, b) {
-    a = a.i();
-    if (!a.m()) throw Ld("empty.reduceLeft");
-    for (var c = !0, d = null; a.m(); ) {
+  function Xd(a, b) {
+    a = a.h();
+    if (!a.l()) throw Yd("empty.reduceLeft");
+    for (var c = !0, d = null; a.l(); ) {
       var f = a.k();
-      c ? ((d = f), (c = !1)) : (d = b.ad(d, f));
+      c ? ((d = f), (c = !1)) : (d = b.Uc(d, f));
     }
     return d;
   }
-  function Md(a, b, c, d) {
-    a = a.i();
+  function Zd(a, b, c, d) {
+    a = a.h();
     var f = c,
-      g = (Nd(Od(), b) - c) | 0;
-    for (d = (c + (d < g ? d : g)) | 0; f < d && a.m(); )
-      Pd(Od(), b, f, a.k()), (f = (1 + f) | 0);
+      g = (Bd(Gd(), b) - c) | 0;
+    for (d = (c + (d < g ? d : g)) | 0; f < d && a.l(); )
+      $d(Gd(), b, f, a.k()), (f = (1 + f) | 0);
     return (f - c) | 0;
   }
-  function Qd(a) {
-    var b = Rd;
+  function ae(a) {
+    var b = be;
     return a.e()
       ? 0
-      : a.Fe(new Sd((() => (c, d) => ((c | 0) + (d | 0)) | 0)(a, b)));
+      : a.ze(new ce((() => (c, d) => ((c | 0) + (d | 0)) | 0)(a, b)));
   }
-  function Td(a, b, c) {
-    return a.e() ? "" + b + ")" : a.le(Ud(), b, c, ")").Tb.o;
+  function de(a, b, c) {
+    return a.e() ? "" + b + ")" : a.ae(ee(), b, c, ")").Nb.n;
   }
-  function Vd(a, b, c, d, f) {
-    var g = b.Tb;
-    0 !== (c.length | 0) && (g.o = "" + g.o + c);
-    a = a.i();
-    if (a.m())
-      for (c = a.k(), g.o = "" + g.o + c; a.m(); )
-        (g.o = "" + g.o + d), (c = a.k()), (g.o = "" + g.o + c);
-    0 !== (f.length | 0) && (g.o = "" + g.o + f);
+  function fe(a, b, c, d, f) {
+    var g = b.Nb;
+    0 !== (c.length | 0) && (g.n = "" + g.n + c);
+    a = a.h();
+    if (a.l())
+      for (c = a.k(), g.n = "" + g.n + c; a.l(); )
+        (g.n = "" + g.n + d), (c = a.k()), (g.n = "" + g.n + c);
+    0 !== (f.length | 0) && (g.n = "" + g.n + f);
     return b;
   }
-  function Wd(a, b) {
-    this.Xo = a;
-    this.Gh = b;
+  function ge(a, b) {
+    this.ap = a;
+    this.Dh = b;
   }
-  Wd.prototype = new q();
-  Wd.prototype.constructor = Wd;
-  Wd.prototype.$classData = v(
-    { Wo: 0 },
+  ge.prototype = new q();
+  ge.prototype.constructor = ge;
+  ge.prototype.$classData = v(
+    { $o: 0 },
     !1,
     "scala.collection.Iterator$ConcatIteratorCell",
-    { Wo: 1, b: 1 }
+    { $o: 1, b: 1 }
   );
-  function Xd(a, b) {
+  function he(a, b) {
     this.dl = null;
-    this.oj = !1;
+    this.kj = !1;
     this.cl = b;
   }
-  Xd.prototype = new q();
-  Xd.prototype.constructor = Xd;
-  function Yd(a) {
-    a.oj || (a.oj || ((a.dl = Zd(a.cl)), (a.oj = !0)), (a.cl = null));
+  he.prototype = new q();
+  he.prototype.constructor = he;
+  function ie(a) {
+    a.kj || (a.kj || ((a.dl = je(a.cl)), (a.kj = !0)), (a.cl = null));
     return a.dl;
   }
-  Xd.prototype.$classData = v(
-    { Zo: 0 },
+  he.prototype.$classData = v(
+    { cp: 0 },
     !1,
     "scala.collection.LinearSeqIterator$LazyCell",
-    { Zo: 1, b: 1 }
+    { cp: 1, b: 1 }
   );
-  function $d(a, b) {
-    null === a.ae &&
-      ((a.ae = new t(P().Ej << 1)), (a.ag = new (x(ae).G)(P().Ej)));
-    a.Gc = (1 + a.Gc) | 0;
-    var c = a.Gc << 1,
-      d = (1 + (a.Gc << 1)) | 0;
-    a.ag.a[a.Gc] = b;
-    a.ae.a[c] = 0;
-    a.ae.a[d] = b.Pk();
+  function ke(a, b) {
+    null === a.Rd &&
+      ((a.Rd = new t(P().Bj << 1)), (a.Rf = new (x(le).G)(P().Bj)));
+    a.Ac = (1 + a.Ac) | 0;
+    var c = a.Ac << 1,
+      d = (1 + (a.Ac << 1)) | 0;
+    a.Rf.a[a.Ac] = b;
+    a.Rd.a[c] = 0;
+    a.Rd.a[d] = b.Pk();
   }
-  function be(a, b) {
-    a.lc = 0;
-    a.tf = 0;
-    a.Gc = -1;
-    b.Ti() && $d(a, b);
-    b.Ui() && ((a.qe = b), (a.lc = 0), (a.tf = b.bj()));
+  function me(a, b) {
+    a.jc = 0;
+    a.lf = 0;
+    a.Ac = -1;
+    b.Oi() && ke(a, b);
+    b.Pi() && ((a.fe = b), (a.jc = 0), (a.lf = b.Yi()));
   }
-  function ce() {
-    this.tf = this.lc = 0;
-    this.qe = null;
-    this.Gc = 0;
-    this.ag = this.ae = null;
+  function ne() {
+    this.lf = this.jc = 0;
+    this.fe = null;
+    this.Ac = 0;
+    this.Rf = this.Rd = null;
   }
-  ce.prototype = new q();
-  ce.prototype.constructor = ce;
-  function de() {}
-  de.prototype = ce.prototype;
-  ce.prototype.m = function () {
+  ne.prototype = new q();
+  ne.prototype.constructor = ne;
+  function oe() {}
+  oe.prototype = ne.prototype;
+  ne.prototype.l = function () {
     var a;
-    if (!(a = this.lc < this.tf))
+    if (!(a = this.jc < this.lf))
       a: {
-        for (; 0 <= this.Gc; ) {
-          a = this.Gc << 1;
-          var b = this.ae.a[a];
-          if (b < this.ae.a[(1 + (this.Gc << 1)) | 0]) {
-            var c = this.ae;
+        for (; 0 <= this.Ac; ) {
+          a = this.Ac << 1;
+          var b = this.Rd.a[a];
+          if (b < this.Rd.a[(1 + (this.Ac << 1)) | 0]) {
+            var c = this.Rd;
             c.a[a] = (1 + c.a[a]) | 0;
-            a = this.ag.a[this.Gc].Yd(b);
-            a.Ti() && $d(this, a);
-            if (a.Ui()) {
-              this.qe = a;
-              this.lc = 0;
-              this.tf = a.bj();
+            a = this.Rf.a[this.Ac].Od(b);
+            a.Oi() && ke(this, a);
+            if (a.Pi()) {
+              this.fe = a;
+              this.jc = 0;
+              this.lf = a.Yi();
               a = !0;
               break a;
             }
-          } else this.Gc = (-1 + this.Gc) | 0;
+          } else this.Ac = (-1 + this.Ac) | 0;
         }
         a = !1;
       }
     return a;
   };
-  function ee() {
+  function pe() {
     this.nl = 0;
-    fe = this;
+    qe = this;
     try {
-      var a = Wc(
-        ad(),
+      var a = Uc(
+        Zc(),
         "scala.collection.immutable.IndexedSeq.defaultApplyPreferredMaxLength",
         "64"
       );
-      var b = ge(he(), a);
+      var b = re(se(), a);
     } catch (c) {
       throw c;
     }
     this.nl = b;
   }
-  ee.prototype = new q();
-  ee.prototype.constructor = ee;
-  ee.prototype.$classData = v(
-    { Ep: 0 },
-    !1,
-    "scala.collection.immutable.IndexedSeqDefaults$",
-    { Ep: 1, b: 1 }
-  );
-  var fe;
-  function ie() {
-    this.zj = null;
-  }
-  ie.prototype = new q();
-  ie.prototype.constructor = ie;
-  function je(a) {
-    a = a.zj;
-    if (null === a) throw new ke("uninitialized");
-    return Zd(a);
-  }
-  function le(a, b) {
-    if (null !== a.zj) throw new ke("already initialized");
-    a.zj = b;
-  }
-  ie.prototype.$classData = v(
-    { Jp: 0 },
-    !1,
-    "scala.collection.immutable.LazyList$LazyBuilder$DeferredState",
-    { Jp: 1, b: 1 }
-  );
-  function me(a, b) {
-    var c = new ne();
-    a = b + " is out of bounds (min 0, max " + ((-1 + Nd(Od(), a)) | 0);
-    oe(c, a);
-    return c;
-  }
-  function pe() {}
   pe.prototype = new q();
   pe.prototype.constructor = pe;
-  function qe() {}
-  qe.prototype = pe.prototype;
-  function re(a, b) {
-    if (0 > b) throw me(a, b);
-    if (b > ((-1 + a.a.length) | 0)) throw me(a, b);
+  pe.prototype.$classData = v(
+    { Jp: 0 },
+    !1,
+    "scala.collection.immutable.IndexedSeqDefaults$",
+    { Jp: 1, b: 1 }
+  );
+  var qe;
+  function te() {
+    this.wj = null;
+  }
+  te.prototype = new q();
+  te.prototype.constructor = te;
+  function ue(a) {
+    a = a.wj;
+    if (null === a) throw new ve("uninitialized");
+    return je(a);
+  }
+  function we(a, b) {
+    if (null !== a.wj) throw new ve("already initialized");
+    a.wj = b;
+  }
+  te.prototype.$classData = v(
+    { Op: 0 },
+    !1,
+    "scala.collection.immutable.LazyList$LazyBuilder$DeferredState",
+    { Op: 1, b: 1 }
+  );
+  function xe(a, b) {
+    var c = new ye();
+    a = b + " is out of bounds (min 0, max " + ((-1 + Bd(Gd(), a)) | 0);
+    ze(c, a);
+    return c;
+  }
+  function Ae() {}
+  Ae.prototype = new q();
+  Ae.prototype.constructor = Ae;
+  function Be() {}
+  Be.prototype = Ae.prototype;
+  function Ce(a, b) {
+    if (0 > b) throw xe(a, b);
+    if (b > ((-1 + a.a.length) | 0)) throw xe(a, b);
     var c = new t((-1 + a.a.length) | 0);
     a.I(0, c, 0, b);
     a.I((1 + b) | 0, c, b, (-1 + ((a.a.length - b) | 0)) | 0);
     return c;
   }
-  function se(a, b, c) {
-    if (0 > b) throw me(a, b);
-    if (b > a.a.length) throw me(a, b);
+  function De(a, b, c) {
+    if (0 > b) throw xe(a, b);
+    if (b > a.a.length) throw xe(a, b);
     var d = new t((1 + a.a.length) | 0);
     a.I(0, d, 0, b);
     d.a[b] = c;
     a.I(b, d, (1 + b) | 0, (a.a.length - b) | 0);
     return d;
   }
-  var ae = v({ Dj: 0 }, !1, "scala.collection.immutable.Node", { Dj: 1, b: 1 });
-  pe.prototype.$classData = ae;
-  function te() {
-    this.Ej = 0;
-    ue = this;
-    this.Ej = Ja(7);
+  var le = v({ Aj: 0 }, !1, "scala.collection.immutable.Node", { Aj: 1, b: 1 });
+  Ae.prototype.$classData = le;
+  function Ee() {
+    this.Bj = 0;
+    Fe = this;
+    this.Bj = Ga(7);
   }
-  te.prototype = new q();
-  te.prototype.constructor = te;
-  function ve(a, b, c) {
+  Ee.prototype = new q();
+  Ee.prototype.constructor = Ee;
+  function Ge(a, b, c) {
     return 31 & ((b >>> c) | 0);
   }
-  function we(a, b) {
+  function He(a, b) {
     return 1 << b;
   }
-  function xe(a, b, c) {
+  function Ie(a, b, c) {
     a = b & ((-1 + c) | 0);
-    return ye(he(), a);
+    return Je(se(), a);
   }
-  function ze(a, b, c, d) {
-    return -1 === b ? c : xe(0, b, d);
+  function Ke(a, b, c, d) {
+    return -1 === b ? c : Ie(0, b, d);
   }
-  te.prototype.$classData = v(
-    { Xp: 0 },
+  Ee.prototype.$classData = v(
+    { bq: 0 },
     !1,
     "scala.collection.immutable.Node$",
-    { Xp: 1, b: 1 }
+    { bq: 1, b: 1 }
   );
-  var ue;
+  var Fe;
   function P() {
-    ue || (ue = new te());
-    return ue;
+    Fe || (Fe = new Ee());
+    return Fe;
   }
-  function Ae() {
-    this.ig = null;
-    Be = this;
-    this.ig = new Ce(0, 0, (De(), new r(0)), (Ee(), new t(0)), 0, 0);
+  function Pe() {
+    this.Zf = null;
+    Qe = this;
+    this.Zf = new Re(0, 0, (Se(), new r(0)), (Te(), new t(0)), 0, 0);
   }
-  Ae.prototype = new q();
-  Ae.prototype.constructor = Ae;
-  Ae.prototype.$classData = v(
-    { qq: 0 },
+  Pe.prototype = new q();
+  Pe.prototype.constructor = Pe;
+  Pe.prototype.$classData = v(
+    { sq: 0 },
     !1,
     "scala.collection.immutable.SetNode$",
-    { qq: 1, b: 1 }
+    { sq: 1, b: 1 }
   );
-  var Be;
-  function Fe() {
-    Be || (Be = new Ae());
-    return Be;
+  var Qe;
+  function Ue() {
+    Qe || (Qe = new Pe());
+    return Qe;
   }
-  var Ie = function Ge(a, b, c, d, f) {
+  var Xe = function Ve(a, b, c, d, f) {
     for (;;) {
       if (1 === b) {
         b = c;
         var h = d,
           k = f;
-        He(a, 1, 0 === h && k === b.a.length ? b : N(O(), b, h, k));
+        We(a, 1, 0 === h && k === b.a.length ? b : N(O(), b, h, k));
       } else {
-        h = ba(5, (-1 + b) | 0);
+        h = ca(5, (-1 + b) | 0);
         var l = 1 << h;
         k = (d >>> h) | 0;
         h = (f >>> h) | 0;
@@ -1525,11 +1561,11 @@ let ScalaJSExample;
         if (0 === d)
           if (0 === f)
             (f = c),
-              He(a, b, 0 === k && h === f.a.length ? f : N(O(), f, k, h));
+              We(a, b, 0 === k && h === f.a.length ? f : N(O(), f, k, h));
           else {
             h > k &&
               ((d = c),
-              He(a, b, 0 === k && h === d.a.length ? d : N(O(), d, k, h)));
+              We(a, b, 0 === k && h === d.a.length ? d : N(O(), d, k, h)));
             h = c.a[h];
             b = (-1 + b) | 0;
             c = h;
@@ -1541,16 +1577,16 @@ let ScalaJSExample;
           b = (-1 + b) | 0;
           c = h;
           continue;
-        } else if ((Ge(a, (-1 + b) | 0, c.a[k], d, l), 0 === f))
+        } else if ((Ve(a, (-1 + b) | 0, c.a[k], d, l), 0 === f))
           h > ((1 + k) | 0) &&
             ((f = c),
             (k = (1 + k) | 0),
-            He(a, b, 0 === k && h === f.a.length ? f : N(O(), f, k, h)));
+            We(a, b, 0 === k && h === f.a.length ? f : N(O(), f, k, h)));
         else {
           h > ((1 + k) | 0) &&
             ((d = c),
             (k = (1 + k) | 0),
-            He(a, b, 0 === k && h === d.a.length ? d : N(O(), d, k, h)));
+            We(a, b, 0 === k && h === d.a.length ? d : N(O(), d, k, h)));
           h = c.a[h];
           b = (-1 + b) | 0;
           c = h;
@@ -1561,78 +1597,78 @@ let ScalaJSExample;
       break;
     }
   };
-  function He(a, b, c) {
-    b <= a.Jc ? (b = (11 - b) | 0) : ((a.Jc = b), (b = (-1 + b) | 0));
+  function We(a, b, c) {
+    b <= a.Cc ? (b = (11 - b) | 0) : ((a.Cc = b), (b = (-1 + b) | 0));
     a.A.a[b] = c;
   }
-  var Ke = function Je(a, b) {
+  var Ze = function Ye(a, b) {
       if (null === a.A.a[(-1 + b) | 0])
-        if (b === a.Jc)
+        if (b === a.Cc)
           (a.A.a[(-1 + b) | 0] = a.A.a[(11 - b) | 0]),
             (a.A.a[(11 - b) | 0] = null);
         else {
-          Je(a, (1 + b) | 0);
+          Ye(a, (1 + b) | 0);
           var d = a.A.a[(-1 + ((1 + b) | 0)) | 0];
           a.A.a[(-1 + b) | 0] = d.a[0];
           if (1 === d.a.length)
             (a.A.a[(-1 + ((1 + b) | 0)) | 0] = null),
-              a.Jc === ((1 + b) | 0) &&
+              a.Cc === ((1 + b) | 0) &&
                 null === a.A.a[(11 - ((1 + b) | 0)) | 0] &&
-                (a.Jc = b);
+                (a.Cc = b);
           else {
             var f = d.a.length;
             a.A.a[(-1 + ((1 + b) | 0)) | 0] = N(O(), d, 1, f);
           }
         }
     },
-    Me = function Le(a, b) {
+    af = function $e(a, b) {
       if (null === a.A.a[(11 - b) | 0])
-        if (b === a.Jc)
+        if (b === a.Cc)
           (a.A.a[(11 - b) | 0] = a.A.a[(-1 + b) | 0]),
             (a.A.a[(-1 + b) | 0] = null);
         else {
-          Le(a, (1 + b) | 0);
+          $e(a, (1 + b) | 0);
           var d = a.A.a[(11 - ((1 + b) | 0)) | 0];
           a.A.a[(11 - b) | 0] = d.a[(-1 + d.a.length) | 0];
           if (1 === d.a.length)
             (a.A.a[(11 - ((1 + b) | 0)) | 0] = null),
-              a.Jc === ((1 + b) | 0) &&
+              a.Cc === ((1 + b) | 0) &&
                 null === a.A.a[(-1 + ((1 + b) | 0)) | 0] &&
-                (a.Jc = b);
+                (a.Cc = b);
           else {
             var f = (-1 + d.a.length) | 0;
             a.A.a[(11 - ((1 + b) | 0)) | 0] = N(O(), d, 0, f);
           }
         }
     };
-  function Ne(a, b) {
+  function bf(a, b) {
     this.A = null;
-    this.Jc = this.lg = this.Sd = 0;
-    this.Cl = a;
-    this.Bl = b;
+    this.Cc = this.bg = this.Id = 0;
+    this.Dl = a;
+    this.Cl = b;
     this.A = new (x(x(w)).G)(11);
-    this.Jc = this.lg = this.Sd = 0;
+    this.Cc = this.bg = this.Id = 0;
   }
-  Ne.prototype = new q();
-  Ne.prototype.constructor = Ne;
+  bf.prototype = new q();
+  bf.prototype.constructor = bf;
   function Q(a, b, c) {
-    var d = ba(c.a.length, 1 << ba(5, (-1 + b) | 0)),
-      f = (a.Cl - a.lg) | 0;
+    var d = ca(c.a.length, 1 << ca(5, (-1 + b) | 0)),
+      f = (a.Dl - a.bg) | 0;
     f = 0 < f ? f : 0;
-    var g = (a.Bl - a.lg) | 0;
+    var g = (a.Cl - a.bg) | 0;
     g = g < d ? g : d;
-    g > f && (Ie(a, b, c, f, g), (a.Sd = (a.Sd + ((g - f) | 0)) | 0));
-    a.lg = (a.lg + d) | 0;
+    g > f && (Xe(a, b, c, f, g), (a.Id = (a.Id + ((g - f) | 0)) | 0));
+    a.bg = (a.bg + d) | 0;
   }
-  Ne.prototype.Id = function () {
-    if (32 >= this.Sd) {
-      if (0 === this.Sd) return Oe();
+  bf.prototype.Cd = function () {
+    if (32 >= this.Id) {
+      if (0 === this.Id) return cf();
       var a = this.A.a[0],
         b = this.A.a[10];
       if (null !== a)
         if (null !== b) {
           var c = (a.a.length + b.a.length) | 0,
-            d = nd(O(), a, c);
+            d = ld(O(), a, c);
           b.I(0, d, a.a.length, b.a.length);
           var f = d;
         } else f = a;
@@ -1641,240 +1677,240 @@ let ScalaJSExample;
         var g = this.A.a[1];
         f = null !== g ? g.a[0] : this.A.a[9].a[0];
       }
-      return new Pe(f);
+      return new df(f);
     }
-    Ke(this, 1);
-    Me(this, 1);
-    var h = this.Jc;
+    Ze(this, 1);
+    af(this, 1);
+    var h = this.Cc;
     if (6 > h) {
-      var k = this.A.a[(-1 + this.Jc) | 0],
-        l = this.A.a[(11 - this.Jc) | 0];
+      var k = this.A.a[(-1 + this.Cc) | 0],
+        l = this.A.a[(11 - this.Cc) | 0];
       if (null !== k && null !== l)
         if (30 >= ((k.a.length + l.a.length) | 0)) {
           var p = this.A,
-            u = this.Jc,
-            y = (k.a.length + l.a.length) | 0,
-            D = nd(O(), k, y);
-          l.I(0, D, k.a.length, l.a.length);
-          p.a[(-1 + u) | 0] = D;
-          this.A.a[(11 - this.Jc) | 0] = null;
+            u = this.Cc,
+            A = (k.a.length + l.a.length) | 0,
+            G = ld(O(), k, A);
+          l.I(0, G, k.a.length, l.a.length);
+          p.a[(-1 + u) | 0] = G;
+          this.A.a[(11 - this.Cc) | 0] = null;
         } else h = (1 + h) | 0;
       else 30 < (null !== k ? k : l).a.length && (h = (1 + h) | 0);
     }
     var K = this.A.a[0],
-      J = this.A.a[10],
-      Z = K.a.length,
+      M = this.A.a[10],
+      aa = K.a.length,
       wa = h;
     switch (wa) {
       case 2:
-        var Ha = R().Q,
-          ka = this.A.a[1];
-        if (null !== ka) var Ka = ka;
+        var Ia = R().P,
+          la = this.A.a[1];
+        if (null !== la) var Ma = la;
         else {
-          var qa = this.A.a[9];
-          Ka = null !== qa ? qa : Ha;
+          var ra = this.A.a[9];
+          Ma = null !== ra ? ra : Ia;
         }
-        var Gd = new Ue(K, Z, Ka, J, this.Sd);
+        var Cd = new ef(K, aa, Ma, M, this.Id);
         break;
       case 3:
-        var Ug = R().Q,
-          Vg = this.A.a[1],
-          Nj = null !== Vg ? Vg : Ug,
-          Oj = R().fb,
-          Pj = this.A.a[2];
-        if (null !== Pj) var Wg = Pj;
+        var Qg = R().P,
+          Rg = this.A.a[1],
+          Ij = null !== Rg ? Rg : Qg,
+          Jj = R().$a,
+          Kj = this.A.a[2];
+        if (null !== Kj) var Sg = Kj;
         else {
-          var Qe = this.A.a[8];
-          Wg = null !== Qe ? Qe : Oj;
+          var Le = this.A.a[8];
+          Sg = null !== Le ? Le : Jj;
         }
-        var Re = Wg,
-          rm = R().Q,
-          Qj = this.A.a[9];
-        Gd = new Ve(
+        var Me = Sg,
+          km = R().P,
+          Lj = this.A.a[9];
+        Cd = new ff(
           K,
-          Z,
-          Nj,
-          (Z + (Nj.a.length << 5)) | 0,
-          Re,
-          null !== Qj ? Qj : rm,
-          J,
-          this.Sd
+          aa,
+          Ij,
+          (aa + (Ij.a.length << 5)) | 0,
+          Me,
+          null !== Lj ? Lj : km,
+          M,
+          this.Id
         );
         break;
       case 4:
-        var Rj = R().Q,
-          Sj = this.A.a[1],
-          Xg = null !== Sj ? Sj : Rj,
-          Tj = R().fb,
-          Uj = this.A.a[2],
-          Yg = null !== Uj ? Uj : Tj,
-          Vj = R().wc,
-          Wj = this.A.a[3];
-        if (null !== Wj) var Xj = Wj;
+        var Mj = R().P,
+          Nj = this.A.a[1],
+          Tg = null !== Nj ? Nj : Mj,
+          Oj = R().$a,
+          Pj = this.A.a[2],
+          Ug = null !== Pj ? Pj : Oj,
+          Qj = R().tc,
+          Rj = this.A.a[3];
+        if (null !== Rj) var Sj = Rj;
         else {
-          var Yj = this.A.a[7];
-          Xj = null !== Yj ? Yj : Vj;
+          var Tj = this.A.a[7];
+          Sj = null !== Tj ? Tj : Qj;
         }
-        var sm = Xj,
-          Zg = R().fb,
-          $g = this.A.a[8],
-          tm = null !== $g ? $g : Zg,
-          Zj = R().Q,
-          ah = this.A.a[9],
-          ak = (Z + (Xg.a.length << 5)) | 0;
-        Gd = new We(
+        var lm = Sj,
+          Vg = R().$a,
+          Wg = this.A.a[8],
+          mm = null !== Wg ? Wg : Vg,
+          Uj = R().P,
+          Xg = this.A.a[9],
+          Vj = (aa + (Tg.a.length << 5)) | 0;
+        Cd = new gf(
           K,
-          Z,
-          Xg,
-          ak,
-          Yg,
-          (ak + (Yg.a.length << 10)) | 0,
-          sm,
-          tm,
-          null !== ah ? ah : Zj,
-          J,
-          this.Sd
+          aa,
+          Tg,
+          Vj,
+          Ug,
+          (Vj + (Ug.a.length << 10)) | 0,
+          lm,
+          mm,
+          null !== Xg ? Xg : Uj,
+          M,
+          this.Id
         );
         break;
       case 5:
-        var bk = R().Q,
-          Se = this.A.a[1],
-          Hd = null !== Se ? Se : bk,
-          Id = R().fb,
-          ck = this.A.a[2],
-          dk = null !== ck ? ck : Id,
-          ek = R().wc,
-          fk = this.A.a[3],
-          bh = null !== fk ? fk : ek,
-          gk = R().Re,
-          hk = this.A.a[4];
-        if (null !== hk) var ch = hk;
+        var Wj = R().P,
+          Ne = this.A.a[1],
+          Dd = null !== Ne ? Ne : Wj,
+          Ed = R().$a,
+          Xj = this.A.a[2],
+          Yj = null !== Xj ? Xj : Ed,
+          Zj = R().tc,
+          ak = this.A.a[3],
+          Yg = null !== ak ? ak : Zj,
+          bk = R().Ke,
+          ck = this.A.a[4];
+        if (null !== ck) var Zg = ck;
         else {
-          var dh = this.A.a[6];
-          ch = null !== dh ? dh : gk;
+          var $g = this.A.a[6];
+          Zg = null !== $g ? $g : bk;
         }
-        var um = ch,
-          ik = R().wc,
-          eh = this.A.a[7],
-          vm = null !== eh ? eh : ik,
-          wm = R().fb,
-          jk = this.A.a[8],
-          xm = null !== jk ? jk : wm,
-          ym = R().Q,
-          kk = this.A.a[9],
-          Te = (Z + (Hd.a.length << 5)) | 0,
-          fh = (Te + (dk.a.length << 10)) | 0;
-        Gd = new Xe(
+        var nm = Zg,
+          dk = R().tc,
+          ah = this.A.a[7],
+          om = null !== ah ? ah : dk,
+          pm = R().$a,
+          ek = this.A.a[8],
+          qm = null !== ek ? ek : pm,
+          rm = R().P,
+          fk = this.A.a[9],
+          Oe = (aa + (Dd.a.length << 5)) | 0,
+          bh = (Oe + (Yj.a.length << 10)) | 0;
+        Cd = new hf(
           K,
-          Z,
-          Hd,
-          Te,
-          dk,
-          fh,
+          aa,
+          Dd,
+          Oe,
+          Yj,
           bh,
-          (fh + (bh.a.length << 15)) | 0,
-          um,
-          vm,
-          xm,
-          null !== kk ? kk : ym,
-          J,
-          this.Sd
+          Yg,
+          (bh + (Yg.a.length << 15)) | 0,
+          nm,
+          om,
+          qm,
+          null !== fk ? fk : rm,
+          M,
+          this.Id
         );
         break;
       case 6:
-        var zm = R().Q,
-          gh = this.A.a[1],
-          hh = null !== gh ? gh : zm,
-          lk = R().fb,
-          mk = this.A.a[2],
-          ih = null !== mk ? mk : lk,
-          jh = R().wc,
-          Jd = this.A.a[3],
-          Fc = null !== Jd ? Jd : jh,
-          Gc = R().Re,
-          nk = this.A.a[4],
-          ok = null !== nk ? nk : Gc,
-          pk = R().Sh,
-          qk = this.A.a[5];
-        if (null !== qk) var kh = qk;
+        var sm = R().P,
+          ch = this.A.a[1],
+          dh = null !== ch ? ch : sm,
+          gk = R().$a,
+          hk = this.A.a[2],
+          eh = null !== hk ? hk : gk,
+          fh = R().tc,
+          Fd = this.A.a[3],
+          Dc = null !== Fd ? Fd : fh,
+          Ec = R().Ke,
+          ik = this.A.a[4],
+          jk = null !== ik ? ik : Ec,
+          kk = R().Oh,
+          lk = this.A.a[5];
+        if (null !== lk) var gh = lk;
         else {
-          var lh = this.A.a[5];
-          kh = null !== lh ? lh : pk;
+          var hh = this.A.a[5];
+          gh = null !== hh ? hh : kk;
         }
-        var Am = kh,
-          rk = R().Re,
-          mh = this.A.a[6],
-          Bm = null !== mh ? mh : rk,
-          sk = R().wc,
-          nh = this.A.a[7],
-          Cm = null !== nh ? nh : sk,
-          tk = R().fb,
-          oh = this.A.a[8],
-          Dm = null !== oh ? oh : tk,
-          Em = R().Q,
-          uk = this.A.a[9],
-          vk = (Z + (hh.a.length << 5)) | 0,
-          wk = (vk + (ih.a.length << 10)) | 0,
-          xk = (wk + (Fc.a.length << 15)) | 0;
-        Gd = new S(
+        var tm = gh,
+          mk = R().Ke,
+          ih = this.A.a[6],
+          um = null !== ih ? ih : mk,
+          nk = R().tc,
+          jh = this.A.a[7],
+          vm = null !== jh ? jh : nk,
+          ok = R().$a,
+          kh = this.A.a[8],
+          wm = null !== kh ? kh : ok,
+          xm = R().P,
+          pk = this.A.a[9],
+          qk = (aa + (dh.a.length << 5)) | 0,
+          rk = (qk + (eh.a.length << 10)) | 0,
+          sk = (rk + (Dc.a.length << 15)) | 0;
+        Cd = new S(
           K,
-          Z,
-          hh,
-          vk,
-          ih,
-          wk,
-          Fc,
-          xk,
-          ok,
-          (xk + (ok.a.length << 20)) | 0,
-          Am,
-          Bm,
-          Cm,
-          Dm,
-          null !== uk ? uk : Em,
-          J,
-          this.Sd
+          aa,
+          dh,
+          qk,
+          eh,
+          rk,
+          Dc,
+          sk,
+          jk,
+          (sk + (jk.a.length << 20)) | 0,
+          tm,
+          um,
+          vm,
+          wm,
+          null !== pk ? pk : xm,
+          M,
+          this.Id
         );
         break;
       default:
         throw new T(wa);
     }
-    return Gd;
+    return Cd;
   };
-  Ne.prototype.z = function () {
+  bf.prototype.z = function () {
     return (
       "VectorSliceBuilder(lo\x3d" +
-      this.Cl +
+      this.Dl +
       ", hi\x3d" +
-      this.Bl +
+      this.Cl +
       ", len\x3d" +
-      this.Sd +
+      this.Id +
       ", pos\x3d" +
-      this.lg +
+      this.bg +
       ", maxDim\x3d" +
-      this.Jc +
+      this.Cc +
       ")"
     );
   };
-  Ne.prototype.$classData = v(
-    { Hq: 0 },
+  bf.prototype.$classData = v(
+    { Jq: 0 },
     !1,
     "scala.collection.immutable.VectorSliceBuilder",
-    { Hq: 1, b: 1 }
+    { Jq: 1, b: 1 }
   );
-  function Ye() {
-    this.Sh = this.Re = this.wc = this.fb = this.Q = this.Hj = null;
-    Ze = this;
-    this.Hj = new r(0);
-    this.Q = new (x(x(w)).G)(0);
-    this.fb = new (x(x(x(w))).G)(0);
-    this.wc = new (x(x(x(x(w)))).G)(0);
-    this.Re = new (x(x(x(x(x(w))))).G)(0);
-    this.Sh = new (x(x(x(x(x(x(w)))))).G)(0);
+  function jf() {
+    this.Oh = this.Ke = this.tc = this.$a = this.P = this.Fj = null;
+    kf = this;
+    this.Fj = new r(0);
+    this.P = new (x(x(w)).G)(0);
+    this.$a = new (x(x(x(w))).G)(0);
+    this.tc = new (x(x(x(x(w)))).G)(0);
+    this.Ke = new (x(x(x(x(x(w))))).G)(0);
+    this.Oh = new (x(x(x(x(x(x(w)))))).G)(0);
   }
-  Ye.prototype = new q();
-  Ye.prototype.constructor = Ye;
-  function $e(a, b, c) {
+  jf.prototype = new q();
+  jf.prototype.constructor = jf;
+  function lf(a, b, c) {
     a = b.a.length;
     var d = new r((1 + a) | 0);
     b.I(0, d, 0, a);
@@ -1883,72 +1919,72 @@ let ScalaJSExample;
   }
   function U(a, b, c) {
     a = (1 + b.a.length) | 0;
-    b = nd(O(), b, a);
+    b = ld(O(), b, a);
     b.a[(-1 + b.a.length) | 0] = c;
     return b;
   }
-  function af(a, b, c) {
+  function mf(a, b, c) {
     a = new r((1 + c.a.length) | 0);
     c.I(0, a, 1, c.a.length);
     a.a[0] = b;
     return a;
   }
   function V(a, b, c) {
-    a = Kc(ja(c));
+    a = Ic(ka(c));
     var d = (1 + c.a.length) | 0;
-    dd();
-    a = Lc(a, [d]);
+    bd();
+    a = Jc(a, [d]);
     c.I(0, a, 1, c.a.length);
     a.a[0] = b;
     return a;
   }
-  function bf(a, b, c, d) {
+  function nf(a, b, c, d) {
     var f = 0,
       g = c.a.length;
-    if (0 === b) for (; f < g; ) d.l(c.a[f]), (f = (1 + f) | 0);
-    else for (b = (-1 + b) | 0; f < g; ) bf(a, b, c.a[f], d), (f = (1 + f) | 0);
+    if (0 === b) for (; f < g; ) d.m(c.a[f]), (f = (1 + f) | 0);
+    else for (b = (-1 + b) | 0; f < g; ) nf(a, b, c.a[f], d), (f = (1 + f) | 0);
   }
-  function cf(a, b, c) {
+  function of(a, b, c) {
     for (var d = 0; d < b.a.length; ) {
       var f = b.a[d];
-      a = c.l(f);
+      a = c.m(f);
       if (!Object.is(f, a)) {
         f = a;
         a = new r(b.a.length);
         0 < d && b.I(0, a, 0, d);
         a.a[d] = f;
         for (d = (1 + d) | 0; d < b.a.length; )
-          (a.a[d] = c.l(b.a[d])), (d = (1 + d) | 0);
+          (a.a[d] = c.m(b.a[d])), (d = (1 + d) | 0);
         return a;
       }
       d = (1 + d) | 0;
     }
     return b;
   }
-  function df(a, b, c, d) {
-    if (1 === b) return cf(0, c, d);
+  function pf(a, b, c, d) {
+    if (1 === b) return of(0, c, d);
     for (var f = 0; f < c.a.length; ) {
       var g = c.a[f],
-        h = df(a, (-1 + b) | 0, g, d);
+        h = pf(a, (-1 + b) | 0, g, d);
       if (g !== h) {
-        g = Kc(ja(c));
+        g = Ic(ka(c));
         var k = c.a.length;
-        dd();
-        g = Lc(g, [k]);
+        bd();
+        g = Jc(g, [k]);
         0 < f && c.I(0, g, 0, f);
         g.a[f] = h;
         for (h = (1 + f) | 0; h < c.a.length; )
-          (g.a[h] = df(a, (-1 + b) | 0, c.a[h], d)), (h = (1 + h) | 0);
+          (g.a[h] = pf(a, (-1 + b) | 0, c.a[h], d)), (h = (1 + h) | 0);
         return g;
       }
       f = (1 + f) | 0;
     }
     return c;
   }
-  function ef(a, b, c) {
-    if (ff(c))
-      if (0 >= c.Pj((32 - b.a.length) | 0))
-        switch (((a = c.Xa()), a)) {
+  function qf(a, b, c) {
+    if (rf(c))
+      if (0 >= c.Oj((32 - b.a.length) | 0))
+        switch (((a = c.Sa()), a)) {
           case 0:
             return null;
           case 1:
@@ -1956,423 +1992,423 @@ let ScalaJSExample;
           default:
             return (
               (a = (b.a.length + a) | 0),
-              (a = nd(O(), b, a)),
-              c.Ob(a, b.a.length, 2147483647),
+              (a = ld(O(), b, a)),
+              c.Pb(a, b.a.length, 2147483647),
               a
             );
         }
       else return null;
     else
       return (
-        (a = c.v()),
+        (a = c.t()),
         0 < a && a <= ((32 - b.a.length) | 0)
           ? ((a = (b.a.length + a) | 0),
-            (a = nd(O(), b, a)),
-            c.i().Ob(a, b.a.length, 2147483647),
+            (a = ld(O(), b, a)),
+            c.h().Pb(a, b.a.length, 2147483647),
             a)
           : null
       );
   }
-  Ye.prototype.$classData = v(
-    { Iq: 0 },
+  jf.prototype.$classData = v(
+    { Kq: 0 },
     !1,
     "scala.collection.immutable.VectorStatics$",
-    { Iq: 1, b: 1 }
-  );
-  var Ze;
-  function R() {
-    Ze || (Ze = new Ye());
-    return Ze;
-  }
-  function gf(a, b, c) {
-    this.af = a;
-    this.Td = b;
-    this.pb = c;
-  }
-  gf.prototype = new q();
-  gf.prototype.constructor = gf;
-  gf.prototype.N = function (a) {
-    for (var b = this; ; )
-      if ((a.l(b.af), null !== b.pb)) b = b.pb;
-      else break;
-  };
-  gf.prototype.z = function () {
-    return "Node(" + this.af + ", " + this.Td + ") -\x3e " + this.pb;
-  };
-  var hf = v({ mr: 0 }, !1, "scala.collection.mutable.HashSet$Node", {
-    mr: 1,
-    b: 1,
-  });
-  gf.prototype.$classData = hf;
-  function jf() {}
-  jf.prototype = new q();
-  jf.prototype.constructor = jf;
-  jf.prototype.$classData = v(
-    { qr: 0 },
-    !1,
-    "scala.collection.mutable.MutationTracker$",
-    { qr: 1, b: 1 }
+    { Kq: 1, b: 1 }
   );
   var kf;
-  function lf() {}
-  lf.prototype = new q();
-  lf.prototype.constructor = lf;
-  lf.prototype.$classData = v(
-    { tp: 0 },
+  function R() {
+    kf || (kf = new jf());
+    return kf;
+  }
+  function sf(a, b, c) {
+    this.Te = a;
+    this.Jd = b;
+    this.jb = c;
+  }
+  sf.prototype = new q();
+  sf.prototype.constructor = sf;
+  sf.prototype.N = function (a) {
+    for (var b = this; ; )
+      if ((a.m(b.Te), null !== b.jb)) b = b.jb;
+      else break;
+  };
+  sf.prototype.z = function () {
+    return "Node(" + this.Te + ", " + this.Jd + ") -\x3e " + this.jb;
+  };
+  var tf = v({ or: 0 }, !1, "scala.collection.mutable.HashSet$Node", {
+    or: 1,
+    b: 1,
+  });
+  sf.prototype.$classData = tf;
+  function uf() {}
+  uf.prototype = new q();
+  uf.prototype.constructor = uf;
+  uf.prototype.$classData = v(
+    { sr: 0 },
+    !1,
+    "scala.collection.mutable.MutationTracker$",
+    { sr: 1, b: 1 }
+  );
+  var vf;
+  function wf() {}
+  wf.prototype = new q();
+  wf.prototype.constructor = wf;
+  wf.prototype.$classData = v(
+    { yp: 0 },
     !1,
     "scala.collection.package$$colon$plus$",
-    { tp: 1, b: 1 }
+    { yp: 1, b: 1 }
   );
-  var mf;
-  function nf() {}
-  nf.prototype = new q();
-  nf.prototype.constructor = nf;
-  nf.prototype.$classData = v(
-    { up: 0 },
+  var xf;
+  function yf() {}
+  yf.prototype = new q();
+  yf.prototype.constructor = yf;
+  yf.prototype.$classData = v(
+    { zp: 0 },
     !1,
     "scala.collection.package$$plus$colon$",
-    { up: 1, b: 1 }
+    { zp: 1, b: 1 }
   );
-  var of;
-  function pf() {}
-  pf.prototype = new q();
-  pf.prototype.constructor = pf;
-  pf.prototype.$classData = v({ In: 0 }, !1, "scala.math.Ordered$", {
+  var zf;
+  function Af() {}
+  Af.prototype = new q();
+  Af.prototype.constructor = Af;
+  Af.prototype.$classData = v({ In: 0 }, !1, "scala.math.Ordered$", {
     In: 1,
     b: 1,
   });
-  var qf;
-  function rf() {
-    this.gj = this.jb = null;
-    sf = this;
-    tf || (tf = new uf());
-    tf || (tf = new uf());
-    vf || (vf = new wf());
-    this.jb = vf;
-    xf();
-    W();
-    zc();
-    this.gj = I();
-    yf || (yf = new zf());
-    of || (of = new nf());
-    mf || (mf = new lf());
-    Af();
-    Bf();
-    Cf();
-    Df || (Df = new Ef());
-    Ff();
+  var Bf;
+  function Cf() {
+    this.cj = this.db = null;
+    Df = this;
+    Ef || (Ef = new Ff());
+    Ef || (Ef = new Ff());
     Gf || (Gf = new Hf());
-    If || (If = new Jf());
-    Kf || (Kf = new Lf());
-    Mf || (Mf = new Nf());
-    qf || (qf = new pf());
-    Of || (Of = new Pf());
+    this.db = Gf;
+    If();
+    W();
+    xc();
+    this.cj = I();
+    Jf || (Jf = new Kf());
+    zf || (zf = new yf());
+    xf || (xf = new wf());
+    Lf();
+    X();
+    Mf();
+    Nf || (Nf = new Of());
+    Pf();
     Qf || (Qf = new Rf());
     Sf || (Sf = new Tf());
     Uf || (Uf = new Vf());
+    Wf || (Wf = new Xf());
+    Bf || (Bf = new Af());
+    Yf || (Yf = new Zf());
+    $f || ($f = new ag());
+    bg || (bg = new cg());
+    dg || (dg = new eg());
   }
-  rf.prototype = new q();
-  rf.prototype.constructor = rf;
-  rf.prototype.$classData = v({ Kn: 0 }, !1, "scala.package$", { Kn: 1, b: 1 });
-  var sf;
-  function xb() {
-    sf || (sf = new rf());
-    return sf;
+  Cf.prototype = new q();
+  Cf.prototype.constructor = Cf;
+  Cf.prototype.$classData = v({ Kn: 0 }, !1, "scala.package$", { Kn: 1, b: 1 });
+  var Df;
+  function vb() {
+    Df || (Df = new Cf());
+    return Df;
   }
-  function Wf() {}
-  Wf.prototype = new q();
-  Wf.prototype.constructor = Wf;
-  function L(a, b, c) {
+  function fg() {}
+  fg.prototype = new q();
+  fg.prototype.constructor = fg;
+  function J(a, b, c) {
     if (b === c) c = !0;
-    else if (Xf(b))
-      a: if (Xf(c)) c = Yf(b, c);
+    else if (gg(b))
+      a: if (gg(c)) c = hg(b, c);
       else {
-        if (c instanceof fa) {
+        if (c instanceof ha) {
           if ("number" === typeof b) {
-            c = +b === za(c);
+            c = +b === Aa(c);
             break a;
           }
           if (b instanceof n) {
-            a = Qa(b);
-            b = a.Ea;
-            c = za(c);
-            c = a.Fa === c && b === c >> 31;
+            a = Oa(b);
+            b = a.ab;
+            c = Aa(c);
+            c = a.bb === c && b === c >> 31;
             break a;
           }
         }
-        c = null === b ? null === c : ya(b, c);
+        c = null === b ? null === c : za(b, c);
       }
-    else c = b instanceof fa ? Zf(b, c) : null === b ? null === c : ya(b, c);
+    else c = b instanceof ha ? ig(b, c) : null === b ? null === c : za(b, c);
     return c;
   }
-  function Yf(a, b) {
+  function hg(a, b) {
     if ("number" === typeof a) {
       a = +a;
       if ("number" === typeof b) return a === +b;
       if (b instanceof n) {
-        var c = Qa(b);
-        b = c.Fa;
-        c = c.Ea;
-        return a === $f(ag(), b, c);
+        var c = Oa(b);
+        b = c.bb;
+        c = c.ab;
+        return a === jg(kg(), b, c);
       }
       return !1;
     }
     if (a instanceof n) {
-      c = Qa(a);
-      a = c.Fa;
-      c = c.Ea;
+      c = Oa(a);
+      a = c.bb;
+      c = c.ab;
       if (b instanceof n) {
-        b = Qa(b);
-        var d = b.Ea;
-        return a === b.Fa && c === d;
+        b = Oa(b);
+        var d = b.ab;
+        return a === b.bb && c === d;
       }
-      return "number" === typeof b ? ((b = +b), $f(ag(), a, c) === b) : !1;
+      return "number" === typeof b ? ((b = +b), jg(kg(), a, c) === b) : !1;
     }
-    return null === a ? null === b : ya(a, b);
+    return null === a ? null === b : za(a, b);
   }
-  function Zf(a, b) {
-    if (b instanceof fa) return za(a) === za(b);
-    if (Xf(b)) {
-      if ("number" === typeof b) return +b === za(a);
+  function ig(a, b) {
+    if (b instanceof ha) return Aa(a) === Aa(b);
+    if (gg(b)) {
+      if ("number" === typeof b) return +b === Aa(a);
       if (b instanceof n) {
-        b = Qa(b);
-        var c = b.Ea;
-        a = za(a);
-        return b.Fa === a && c === a >> 31;
+        b = Oa(b);
+        var c = b.ab;
+        a = Aa(a);
+        return b.bb === a && c === a >> 31;
       }
-      return null === b ? null === a : ya(b, a);
+      return null === b ? null === a : za(b, a);
     }
     return null === a && null === b;
   }
-  Wf.prototype.$classData = v({ Mr: 0 }, !1, "scala.runtime.BoxesRunTime$", {
-    Mr: 1,
+  fg.prototype.$classData = v({ Or: 0 }, !1, "scala.runtime.BoxesRunTime$", {
+    Or: 1,
     b: 1,
   });
-  var bg;
-  function M() {
-    bg || (bg = new Wf());
-    return bg;
+  var lg;
+  function L() {
+    lg || (lg = new fg());
+    return lg;
   }
-  var cg = v({ Pr: 0 }, !1, "scala.runtime.Null$", { Pr: 1, b: 1 });
-  function dg() {}
-  dg.prototype = new q();
-  dg.prototype.constructor = dg;
-  function eg(a, b, c) {
+  var mg = v({ Rr: 0 }, !1, "scala.runtime.Null$", { Rr: 1, b: 1 });
+  function ng() {}
+  ng.prototype = new q();
+  ng.prototype.constructor = ng;
+  function Jd(a, b, c) {
     if (
       b instanceof r ||
       b instanceof t ||
-      b instanceof Ya ||
       b instanceof Wa ||
-      b instanceof Xa
+      b instanceof Ua ||
+      b instanceof Va
     )
       return b.a[c];
-    if (b instanceof Ta) return Pa(b.a[c]);
-    if (b instanceof Ua || b instanceof Va || b instanceof Sa) return b.a[c];
-    if (null === b) throw new fg();
+    if (b instanceof Ra) return Na(b.a[c]);
+    if (b instanceof Sa || b instanceof Ta || b instanceof Qa) return b.a[c];
+    if (null === b) throw new og();
     throw new T(b);
   }
-  function Pd(a, b, c, d) {
+  function $d(a, b, c, d) {
     if (b instanceof r) b.a[c] = d;
     else if (b instanceof t) b.a[c] = d | 0;
-    else if (b instanceof Ya) b.a[c] = +d;
-    else if (b instanceof Wa) b.a[c] = Qa(d);
-    else if (b instanceof Xa) b.a[c] = +d;
-    else if (b instanceof Ta) b.a[c] = za(d);
-    else if (b instanceof Ua) b.a[c] = d | 0;
-    else if (b instanceof Va) b.a[c] = d | 0;
-    else if (b instanceof Sa) b.a[c] = !!d;
+    else if (b instanceof Wa) b.a[c] = +d;
+    else if (b instanceof Ua) b.a[c] = Oa(d);
+    else if (b instanceof Va) b.a[c] = +d;
+    else if (b instanceof Ra) b.a[c] = Aa(d);
+    else if (b instanceof Sa) b.a[c] = d | 0;
+    else if (b instanceof Ta) b.a[c] = d | 0;
+    else if (b instanceof Qa) b.a[c] = !!d;
     else {
-      if (null === b) throw new fg();
+      if (null === b) throw new og();
       throw new T(b);
     }
   }
-  function Nd(a, b) {
-    dd();
+  function Bd(a, b) {
+    bd();
     if (
       b instanceof r ||
+      b instanceof Qa ||
+      b instanceof Ra ||
       b instanceof Sa ||
       b instanceof Ta ||
+      b instanceof t ||
       b instanceof Ua ||
       b instanceof Va ||
-      b instanceof t ||
-      b instanceof Wa ||
-      b instanceof Xa ||
-      b instanceof Ya
+      b instanceof Wa
     )
       a = b.a.length;
-    else throw rd("argument type mismatch");
+    else throw pd("argument type mismatch");
     return a;
   }
-  function gg(a) {
-    Od();
-    return Td(new hg(a), a.ib() + "(", ",");
+  function pg(a) {
+    Gd();
+    return de(new qg(a), a.cb() + "(", ",");
   }
-  dg.prototype.$classData = v({ Rr: 0 }, !1, "scala.runtime.ScalaRunTime$", {
-    Rr: 1,
+  ng.prototype.$classData = v({ Tr: 0 }, !1, "scala.runtime.ScalaRunTime$", {
+    Tr: 1,
     b: 1,
   });
-  var ig;
-  function Od() {
-    ig || (ig = new dg());
-    return ig;
+  var rg;
+  function Gd() {
+    rg || (rg = new ng());
+    return rg;
   }
-  function jg() {}
-  jg.prototype = new q();
-  jg.prototype.constructor = jg;
-  jg.prototype.p = function (a, b) {
-    a = this.th(a, b);
-    return (-430675100 + ba(5, (a << 13) | (a >>> 19) | 0)) | 0;
+  function sg() {}
+  sg.prototype = new q();
+  sg.prototype.constructor = sg;
+  sg.prototype.p = function (a, b) {
+    a = this.oh(a, b);
+    return (-430675100 + ca(5, (a << 13) | (a >>> 19) | 0)) | 0;
   };
-  jg.prototype.th = function (a, b) {
-    b = ba(-862048943, b);
-    b = ba(461845907, (b << 15) | (b >>> 17) | 0);
+  sg.prototype.oh = function (a, b) {
+    b = ca(-862048943, b);
+    b = ca(461845907, (b << 15) | (b >>> 17) | 0);
     return a ^ b;
   };
-  jg.prototype.L = function (a, b) {
+  sg.prototype.L = function (a, b) {
     a ^= b;
-    a = ba(-2048144789, a ^ ((a >>> 16) | 0));
-    a = ba(-1028477387, a ^ ((a >>> 13) | 0));
+    a = ca(-2048144789, a ^ ((a >>> 16) | 0));
+    a = ca(-1028477387, a ^ ((a >>> 13) | 0));
     return a ^ ((a >>> 16) | 0);
   };
-  function kg(a, b) {
-    a = b.Fa;
-    b = b.Ea;
+  function tg(a, b) {
+    a = b.bb;
+    b = b.ab;
     return b === a >> 31 ? a : a ^ b;
   }
-  function lg(a, b) {
-    a = Ja(b);
+  function ug(a, b) {
+    a = Ga(b);
     if (a === b) return a;
-    a = ag();
+    a = kg();
     if (-9223372036854775808 > b) {
-      a.Na = -2147483648;
+      a.gh = -2147483648;
       var c = 0;
-    } else if (0x7fffffffffffffff <= b) (a.Na = 2147483647), (c = -1);
+    } else if (0x7fffffffffffffff <= b) (a.gh = 2147483647), (c = -1);
     else {
       c = b | 0;
       var d = (b / 4294967296) | 0;
-      a.Na = 0 > b && 0 !== c ? (-1 + d) | 0 : d;
+      a.gh = 0 > b && 0 !== c ? (-1 + d) | 0 : d;
     }
-    a = a.Na;
-    return $f(ag(), c, a) === b ? c ^ a : Oc(Pc(), b);
+    a = a.gh;
+    return jg(kg(), c, a) === b ? c ^ a : Mc(Nc(), b);
   }
-  function mg(a, b) {
+  function vg(a, b) {
     return null === b
       ? 0
       : "number" === typeof b
-      ? lg(0, +b)
+      ? ug(0, +b)
       : b instanceof n
-      ? ((a = Qa(b)), kg(0, new n(a.Fa, a.Ea)))
-      : Ba(b);
+      ? ((a = Oa(b)), tg(0, new n(a.bb, a.ab)))
+      : Ca(b);
   }
-  function ng(a, b) {
-    throw og(new pg(), "" + b);
+  function wg(a, b) {
+    throw xg(new yg(), "" + b);
   }
-  jg.prototype.$classData = v({ Ur: 0 }, !1, "scala.runtime.Statics$", {
-    Ur: 1,
+  sg.prototype.$classData = v({ Wr: 0 }, !1, "scala.runtime.Statics$", {
+    Wr: 1,
     b: 1,
   });
-  var qg;
-  function X() {
-    qg || (qg = new jg());
-    return qg;
+  var zg;
+  function Y() {
+    zg || (zg = new sg());
+    return zg;
   }
-  function xc() {}
-  xc.prototype = new q();
-  xc.prototype.constructor = xc;
-  function vc(a, b) {
+  function vc() {}
+  vc.prototype = new q();
+  vc.prototype.constructor = vc;
+  function tc(a, b) {
     setInterval(
       ((c) => () => {
-        Zd(c);
+        je(c);
       })(b),
       15
     );
   }
-  xc.prototype.$classData = v(
-    { Br: 0 },
+  vc.prototype.$classData = v(
+    { Dr: 0 },
     !1,
     "scala.scalajs.js.timers.package$",
-    { Br: 1, b: 1 }
+    { Dr: 1, b: 1 }
   );
-  var wc;
-  function rg() {}
-  rg.prototype = new q();
-  rg.prototype.constructor = rg;
-  function nb(a) {
-    sg || (sg = new rg());
-    return a instanceof tg ? a.eh : a;
+  var uc;
+  function Ag() {}
+  Ag.prototype = new q();
+  Ag.prototype.constructor = Ag;
+  function lb(a) {
+    Bg || (Bg = new Ag());
+    return a instanceof Cg ? a.Zg : a;
   }
-  rg.prototype.$classData = v({ Kr: 0 }, !1, "scala.scalajs.runtime.package$", {
-    Kr: 1,
+  Ag.prototype.$classData = v({ Mr: 0 }, !1, "scala.scalajs.runtime.package$", {
+    Mr: 1,
     b: 1,
   });
-  var sg;
-  function ug(a) {
+  var Bg;
+  function Dg(a) {
     this.Uk = a;
   }
-  ug.prototype = new q();
-  ug.prototype.constructor = ug;
-  ug.prototype.z = function () {
+  Dg.prototype = new q();
+  Dg.prototype.constructor = Dg;
+  Dg.prototype.z = function () {
     return "DynamicVariable(" + this.Uk + ")";
   };
-  ug.prototype.$classData = v({ bo: 0 }, !1, "scala.util.DynamicVariable", {
+  Dg.prototype.$classData = v({ bo: 0 }, !1, "scala.util.DynamicVariable", {
     bo: 1,
     b: 1,
   });
-  function vg() {}
-  vg.prototype = new q();
-  vg.prototype.constructor = vg;
-  function wg() {}
-  wg.prototype = vg.prototype;
-  vg.prototype.p = function (a, b) {
-    a = this.th(a, b);
-    return (-430675100 + ba(5, (a << 13) | (a >>> 19) | 0)) | 0;
+  function Eg() {}
+  Eg.prototype = new q();
+  Eg.prototype.constructor = Eg;
+  function Fg() {}
+  Fg.prototype = Eg.prototype;
+  Eg.prototype.p = function (a, b) {
+    a = this.oh(a, b);
+    return (-430675100 + ca(5, (a << 13) | (a >>> 19) | 0)) | 0;
   };
-  vg.prototype.th = function (a, b) {
-    b = ba(-862048943, b);
-    b = ba(461845907, (b << 15) | (b >>> 17) | 0);
+  Eg.prototype.oh = function (a, b) {
+    b = ca(-862048943, b);
+    b = ca(461845907, (b << 15) | (b >>> 17) | 0);
     return a ^ b;
   };
-  vg.prototype.L = function (a, b) {
-    return xg(a ^ b);
+  Eg.prototype.L = function (a, b) {
+    return Gg(a ^ b);
   };
-  function xg(a) {
-    a = ba(-2048144789, a ^ ((a >>> 16) | 0));
-    a = ba(-1028477387, a ^ ((a >>> 13) | 0));
+  function Gg(a) {
+    a = ca(-2048144789, a ^ ((a >>> 16) | 0));
+    a = ca(-1028477387, a ^ ((a >>> 13) | 0));
     return a ^ ((a >>> 16) | 0);
   }
-  function yg(a) {
-    var b = zg(),
-      c = a.rb();
-    if (0 === c) return Ca(a.ib());
-    var d = b.p(-889275714, Ca(a.ib()));
+  function Hg(a) {
+    var b = Ig(),
+      c = a.lb();
+    if (0 === c) return Da(a.cb());
+    var d = b.p(-889275714, Da(a.cb()));
     for (var f = 0; f < c; ) {
-      var g = a.sb(f);
-      d = b.p(d, mg(X(), g));
+      var g = a.mb(f);
+      d = b.p(d, vg(Y(), g));
       f = (1 + f) | 0;
     }
     return b.L(d, c);
   }
-  function Ag(a, b, c) {
+  function Jg(a, b, c) {
     var d = 0,
       f = 0,
       g = 0,
       h = 1;
-    for (b = b.i(); b.m(); ) {
+    for (b = b.h(); b.l(); ) {
       var k = b.k();
-      k = mg(X(), k);
+      k = vg(Y(), k);
       d = (d + k) | 0;
       f ^= k;
-      h = ba(h, 1 | k);
+      h = ca(h, 1 | k);
       g = (1 + g) | 0;
     }
     c = a.p(c, d);
     c = a.p(c, f);
-    c = a.th(c, h);
+    c = a.oh(c, h);
     return a.L(c, g);
   }
-  function Bg(a) {
-    0 === ((32 & a.qh) << 24) >> 24 &&
-      0 === ((32 & a.qh) << 24) >> 24 &&
+  function Kg(a) {
+    0 === ((32 & a.lh) << 24) >> 24 &&
+      0 === ((32 & a.lh) << 24) >> 24 &&
       ((a.Fk = new t(
         new Int32Array([
           1632,
@@ -2422,38 +2458,38 @@ let ScalaJSExample;
           120822,
         ])
       )),
-      (a.qh = ((32 | a.qh) << 24) >> 24));
+      (a.lh = ((32 | a.lh) << 24) >> 24));
     return a.Fk;
   }
-  function Cg() {
+  function Lg() {
     this.Fk = null;
-    this.qh = 0;
+    this.lh = 0;
   }
-  Cg.prototype = new q();
-  Cg.prototype.constructor = Cg;
-  Cg.prototype.$classData = v({ Jm: 0 }, !1, "java.lang.Character$", {
+  Lg.prototype = new q();
+  Lg.prototype.constructor = Lg;
+  Lg.prototype.$classData = v({ Jm: 0 }, !1, "java.lang.Character$", {
     Jm: 1,
     b: 1,
     c: 1,
   });
-  var Dg;
-  function Eg(a) {
-    throw new Fg('For input string: "' + a + '"');
+  var Mg;
+  function Ng(a) {
+    throw new Og('For input string: "' + a + '"');
   }
-  function Gg() {}
-  Gg.prototype = new q();
-  Gg.prototype.constructor = Gg;
-  function ge(a, b) {
+  function Pg() {}
+  Pg.prototype = new q();
+  Pg.prototype.constructor = Pg;
+  function re(a, b) {
     a = null === b ? 0 : b.length | 0;
-    0 === a && Eg(b);
+    0 === a && Ng(b);
     var c = 65535 & (b.charCodeAt(0) | 0),
       d = 45 === c,
       f = d ? 2147483648 : 2147483647;
     c = d || 43 === c ? 1 : 0;
-    c >= (b.length | 0) && Eg(b);
+    c >= (b.length | 0) && Ng(b);
     for (var g = 0; c !== a; ) {
-      Dg || (Dg = new Cg());
-      var h = Dg;
+      Mg || (Mg = new Lg());
+      var h = Mg;
       var k = 65535 & (b.charCodeAt(c) | 0);
       if (256 > k)
         h =
@@ -2467,82 +2503,82 @@ let ScalaJSExample;
       else if (65313 <= k && 65338 >= k) h = (-65303 + k) | 0;
       else if (65345 <= k && 65370 >= k) h = (-65335 + k) | 0;
       else {
-        var l = Bg(h);
+        var l = Kg(h);
         a: {
           O();
-          for (var p = k, u = 0, y = l.a.length; ; ) {
-            if (u === y) {
+          for (var p = k, u = 0, A = l.a.length; ; ) {
+            if (u === A) {
               l = (-1 - u) | 0;
               break a;
             }
-            var D = (((u + y) | 0) >>> 1) | 0,
-              K = l.a[D];
-            if (p < K) y = D;
+            var G = (((u + A) | 0) >>> 1) | 0,
+              K = l.a[G];
+            if (p < K) A = G;
             else {
-              if (L(M(), p, K)) {
-                l = D;
+              if (J(L(), p, K)) {
+                l = G;
                 break a;
               }
-              u = (1 + D) | 0;
+              u = (1 + G) | 0;
             }
           }
         }
         l = 0 > l ? (-2 - l) | 0 : l;
-        0 > l ? (h = -1) : ((h = (k - Bg(h).a[l]) | 0), (h = 9 < h ? -1 : h));
+        0 > l ? (h = -1) : ((h = (k - Kg(h).a[l]) | 0), (h = 9 < h ? -1 : h));
       }
       h = 10 > h ? h : -1;
       g = 10 * g + h;
-      (-1 === h || g > f) && Eg(b);
+      (-1 === h || g > f) && Ng(b);
       c = (1 + c) | 0;
     }
     return d ? -g | 0 : g | 0;
   }
-  function ye(a, b) {
+  function Je(a, b) {
     a = (b - (1431655765 & (b >> 1))) | 0;
     a = ((858993459 & a) + (858993459 & (a >> 2))) | 0;
-    return ba(16843009, 252645135 & ((a + (a >> 4)) | 0)) >> 24;
+    return ca(16843009, 252645135 & ((a + (a >> 4)) | 0)) >> 24;
   }
-  Gg.prototype.$classData = v({ Pm: 0 }, !1, "java.lang.Integer$", {
+  Pg.prototype.$classData = v({ Pm: 0 }, !1, "java.lang.Integer$", {
     Pm: 1,
     b: 1,
     c: 1,
   });
-  var Hg;
-  function he() {
-    Hg || (Hg = new Gg());
-    return Hg;
+  var lh;
+  function se() {
+    lh || (lh = new Pg());
+    return lh;
   }
-  function Ig() {}
-  Ig.prototype = new q();
-  Ig.prototype.constructor = Ig;
-  function Jg() {}
-  Jg.prototype = Ig.prototype;
-  function Xf(a) {
-    return a instanceof Ig || "number" === typeof a;
+  function mh() {}
+  mh.prototype = new q();
+  mh.prototype.constructor = mh;
+  function nh() {}
+  nh.prototype = mh.prototype;
+  function gg(a) {
+    return a instanceof mh || "number" === typeof a;
   }
-  function Kg() {}
-  Kg.prototype = new q();
-  Kg.prototype.constructor = Kg;
-  Kg.prototype.$classData = v({ Ym: 0 }, !1, "java.lang.String$", {
+  function oh() {}
+  oh.prototype = new q();
+  oh.prototype.constructor = oh;
+  oh.prototype.$classData = v({ Ym: 0 }, !1, "java.lang.String$", {
     Ym: 1,
     b: 1,
     c: 1,
   });
-  var Lg;
-  function oe(a, b) {
+  var ph;
+  function ze(a, b) {
     a.Mk = b;
     a.cn = null;
     a.dn = !0;
     a.en = !0;
     a.Ak();
   }
-  class Mg extends Error {
+  class qh extends Error {
     constructor() {
       super();
       this.cn = this.Mk = null;
       this.en = this.dn = !1;
     }
-    ph() {
+    kh() {
       return this.Mk;
     }
     Ak() {
@@ -2551,53 +2587,56 @@ let ScalaJSExample;
         Error.captureStackTrace(this);
     }
     z() {
-      var a = xa(this),
-        b = this.ph();
+      var a = ya(this),
+        b = this.kh();
       return null === b ? a : a + ": " + b;
     }
     H() {
-      return Aa.prototype.H.call(this);
+      return Ba.prototype.H.call(this);
     }
     y(a) {
-      return Aa.prototype.y.call(this, a);
+      return Ba.prototype.y.call(this, a);
     }
     get ["message"]() {
-      var a = this.ph();
+      var a = this.kh();
       return null === a ? "" : a;
     }
     get ["name"]() {
-      return xa(this);
+      return ya(this);
     }
     ["toString"]() {
       return this.z();
     }
   }
-  function Ng() {
-    this.Zi = this.Yi = 0;
+  function rh() {
+    this.Ui = this.Ti = 0;
     this.pn = !1;
   }
-  Ng.prototype = new q();
-  Ng.prototype.constructor = Ng;
-  function Og(a, b) {
-    var c = a.Zi,
+  rh.prototype = new q();
+  rh.prototype.constructor = rh;
+  function sh(a, b) {
+    var c = a.Ui,
       d = 15525485 * c + 11;
     c =
       16777215 &
       ((((d / 16777216) | 0) +
-        (16777215 & ((1502 * c + 15525485 * a.Yi) | 0))) |
+        (16777215 & ((1502 * c + 15525485 * a.Ti) | 0))) |
         0);
     d = 16777215 & (d | 0);
-    a.Yi = c;
-    a.Zi = d;
+    a.Ti = c;
+    a.Ui = d;
     return (((c << 8) | (d >> 16)) >>> ((32 - b) | 0)) | 0;
   }
-  function Pg(a, b) {
-    if (0 >= b) throw rd("n must be positive");
-    if ((b & (-b | 0)) === b) a = Og(a, 31) >> ca(b);
+  function th(a, b) {
+    if (0 >= b) throw pd("n must be positive");
+    if ((b & (-b | 0)) === b) a = sh(a, 31) >> da(b);
     else
       a: for (;;) {
-        var c = Og(a, 31),
-          d = Ia(c, b);
+        var c = sh(a, 31);
+        var d = c;
+        var f = b;
+        if (0 === f) throw new uh();
+        d = d % f | 0;
         if (!(0 > ((((c - d) | 0) + ((-1 + b) | 0)) | 0))) {
           a = d;
           break a;
@@ -2605,299 +2644,228 @@ let ScalaJSExample;
       }
     return a;
   }
-  Ng.prototype.$classData = v({ nn: 0 }, !1, "java.util.Random", {
+  rh.prototype.$classData = v({ nn: 0 }, !1, "java.util.Random", {
     nn: 1,
     b: 1,
     c: 1,
   });
-  function Qg() {
+  function vh() {
     var a = 4294967296 * +Math.random();
-    return Ja(+Math.floor(a) - 2147483648);
+    return Ga(+Math.floor(a) - 2147483648);
   }
-  function Rg() {}
-  Rg.prototype = new q();
-  Rg.prototype.constructor = Rg;
-  Rg.prototype.$classData = v({ on: 0 }, !1, "java.util.Random$", {
+  function wh() {}
+  wh.prototype = new q();
+  wh.prototype.constructor = wh;
+  wh.prototype.$classData = v({ on: 0 }, !1, "java.util.Random$", {
     on: 1,
     b: 1,
     c: 1,
   });
-  var Sg;
-  function Tg(a, b, c) {
-    return 0 === (-2097152 & c)
-      ? "" + (4294967296 * c + +(b >>> 0))
-      : ph(a, b, c, 1e9, 0, 2);
-  }
-  function ph(a, b, c, d, f, g) {
-    var h =
-        ((0 !== f ? ca(f) : (32 + ca(d)) | 0) -
-          (0 !== c ? ca(c) : (32 + ca(b)) | 0)) |
-        0,
-      k = h,
-      l = 0 === (32 & k) ? d << k : 0,
-      p =
-        0 === (32 & k)
-          ? (((d >>> 1) | 0) >>> ((31 - k) | 0)) | 0 | (f << k)
-          : d << k;
-    k = b;
-    var u = c;
-    for (b = c = 0; 0 <= h && 0 !== (-2097152 & u); ) {
-      var y = k,
-        D = u,
-        K = l,
-        J = p;
+  var xh;
+  function yh(a, b) {
+    if (0 === (-2097152 & b)) b = "" + (4294967296 * b + +(a >>> 0));
+    else {
+      var c = (((32 + da(1e9)) | 0) - (0 !== b ? da(b) : (32 + da(a)) | 0)) | 0,
+        d = c,
+        f = 0 === (32 & d) ? 1e9 << d : 0;
+      d = 0 === (32 & d) ? (5e8 >>> ((31 - d) | 0)) | 0 | (0 << d) : 1e9 << d;
+      var g = a,
+        h = b;
+      for (a = b = 0; 0 <= c && 0 !== (-2097152 & h); ) {
+        var k = g,
+          l = h,
+          p = f,
+          u = d;
+        if (
+          l === u
+            ? (-2147483648 ^ k) >= (-2147483648 ^ p)
+            : (-2147483648 ^ l) >= (-2147483648 ^ u)
+        )
+          (k = h),
+            (l = d),
+            (h = (g - f) | 0),
+            (k =
+              (-2147483648 ^ h) > (-2147483648 ^ g)
+                ? (-1 + ((k - l) | 0)) | 0
+                : (k - l) | 0),
+            (g = h),
+            (h = k),
+            32 > c ? (b |= 1 << c) : (a |= 1 << c);
+        c = (-1 + c) | 0;
+        k = (d >>> 1) | 0;
+        f = (f >>> 1) | 0 | (d << 31);
+        d = k;
+      }
+      c = h;
       if (
-        D === J
-          ? (-2147483648 ^ y) >= (-2147483648 ^ K)
-          : (-2147483648 ^ D) >= (-2147483648 ^ J)
+        0 === c
+          ? -1147483648 <= (-2147483648 ^ g)
+          : -2147483648 <= (-2147483648 ^ c)
       )
-        (y = u),
-          (D = p),
-          (u = (k - l) | 0),
-          (y =
-            (-2147483648 ^ u) > (-2147483648 ^ k)
-              ? (-1 + ((y - D) | 0)) | 0
-              : (y - D) | 0),
-          (k = u),
-          (u = y),
-          32 > h ? (c |= 1 << h) : (b |= 1 << h);
-      h = (-1 + h) | 0;
-      y = (p >>> 1) | 0;
-      l = (l >>> 1) | 0 | (p << 31);
-      p = y;
+        (c = 4294967296 * h + +(g >>> 0)),
+          (g = c / 1e9),
+          (f = (g / 4294967296) | 0),
+          (d = b),
+          (b = g = (d + (g | 0)) | 0),
+          (a =
+            (-2147483648 ^ g) < (-2147483648 ^ d)
+              ? (1 + ((a + f) | 0)) | 0
+              : (a + f) | 0),
+          (g = c % 1e9 | 0);
+      c = "" + g;
+      b =
+        "" +
+        (4294967296 * a + +(b >>> 0)) +
+        "000000000".substring(c.length | 0) +
+        c;
     }
-    h = u;
-    if (
-      h === f
-        ? (-2147483648 ^ k) >= (-2147483648 ^ d)
-        : (-2147483648 ^ h) >= (-2147483648 ^ f)
-    )
-      (h = 4294967296 * u + +(k >>> 0)),
-        (d = 4294967296 * f + +(d >>> 0)),
-        1 !== g &&
-          ((p = h / d),
-          (f = (p / 4294967296) | 0),
-          (l = c),
-          (c = p = (l + (p | 0)) | 0),
-          (b =
-            (-2147483648 ^ p) < (-2147483648 ^ l)
-              ? (1 + ((b + f) | 0)) | 0
-              : (b + f) | 0)),
-        0 !== g && ((d = h % d), (k = d | 0), (u = (d / 4294967296) | 0));
-    if (0 === g) return (a.Na = b), c;
-    if (1 === g) return (a.Na = u), k;
-    a = "" + k;
-    return (
-      "" +
-      (4294967296 * b + +(c >>> 0)) +
-      "000000000".substring(a.length | 0) +
-      a
-    );
+    return b;
   }
-  function qh() {
-    this.Na = 0;
+  function zh() {
+    this.gh = 0;
   }
-  qh.prototype = new q();
-  qh.prototype.constructor = qh;
-  function $f(a, b, c) {
+  zh.prototype = new q();
+  zh.prototype.constructor = zh;
+  function jg(a, b, c) {
     return 0 > c
       ? -(4294967296 * +((0 !== b ? ~c : -c | 0) >>> 0) + +((-b | 0) >>> 0))
       : 4294967296 * c + +(b >>> 0);
   }
-  function rh(a, b, c, d, f) {
-    if (0 === (d | f)) throw new Ga();
-    if (c === b >> 31) {
-      if (f === d >> 31) {
-        if (-2147483648 === b && -1 === d) return (a.Na = 0), -2147483648;
-        c = Fa(b, d);
-        a.Na = c >> 31;
-        return c;
-      }
-      return -2147483648 === b && -2147483648 === d && 0 === f
-        ? (a.Na = -1)
-        : (a.Na = 0);
-    }
-    if (0 > c) {
-      var g = -b | 0;
-      b = 0 !== b ? ~c : -c | 0;
-    } else (g = b), (b = c);
-    if (0 > f) {
-      var h = -d | 0;
-      d = 0 !== d ? ~f : -f | 0;
-    } else (h = d), (d = f);
-    0 === (-2097152 & b)
-      ? 0 === (-2097152 & d)
-        ? ((g = (4294967296 * b + +(g >>> 0)) / (4294967296 * d + +(h >>> 0))),
-          (a.Na = (g / 4294967296) | 0),
-          (g |= 0))
-        : (g = a.Na = 0)
-      : 0 === d && 0 === (h & ((-1 + h) | 0))
-      ? ((h = (31 - ca(h)) | 0),
-        (a.Na = (b >>> h) | 0),
-        (g = (g >>> h) | 0 | ((b << 1) << ((31 - h) | 0))))
-      : 0 === h && 0 === (d & ((-1 + d) | 0))
-      ? ((g = (31 - ca(d)) | 0), (a.Na = 0), (g = (b >>> g) | 0))
-      : (g = ph(a, g, b, h, d, 0) | 0);
-    if (0 <= (c ^ f)) return g;
-    c = a.Na;
-    a.Na = 0 !== g ? ~c : -c | 0;
-    return -g | 0;
-  }
-  function sh(a, b, c, d, f) {
-    if (0 === (d | f)) throw new Ga();
-    if (c === b >> 31) {
-      if (f === d >> 31)
-        return -1 !== d ? ((c = Ia(b, d)), (a.Na = c >> 31), c) : (a.Na = 0);
-      if (-2147483648 === b && -2147483648 === d && 0 === f) return (a.Na = 0);
-      a.Na = c;
-      return b;
-    }
-    if (0 > c) {
-      var g = -b | 0;
-      var h = 0 !== b ? ~c : -c | 0;
-    } else (g = b), (h = c);
-    0 > f ? ((b = -d | 0), (d = 0 !== d ? ~f : -f | 0)) : ((b = d), (d = f));
-    0 === (-2097152 & h)
-      ? 0 === (-2097152 & d)
-        ? ((b = (4294967296 * h + +(g >>> 0)) % (4294967296 * d + +(b >>> 0))),
-          (a.Na = (b / 4294967296) | 0),
-          (b |= 0))
-        : ((a.Na = h), (b = g))
-      : 0 === d && 0 === (b & ((-1 + b) | 0))
-      ? ((a.Na = 0), (b = g & ((-1 + b) | 0)))
-      : 0 === b && 0 === (d & ((-1 + d) | 0))
-      ? ((a.Na = h & ((-1 + d) | 0)), (b = g))
-      : (b = ph(a, g, h, b, d, 1) | 0);
-    return 0 > c ? ((c = a.Na), (a.Na = 0 !== b ? ~c : -c | 0), -b | 0) : b;
-  }
-  qh.prototype.$classData = v(
+  zh.prototype.$classData = v(
     { vm: 0 },
     !1,
     "org.scalajs.linker.runtime.RuntimeLong$",
     { vm: 1, b: 1, c: 1 }
   );
-  var th;
-  function ag() {
-    th || (th = new qh());
-    return th;
+  var Ah;
+  function kg() {
+    Ah || (Ah = new zh());
+    return Ah;
   }
-  function uh() {
-    this.cj = null;
-    vh = this;
-    this.cj = new wh();
+  function Bh() {
+    this.Zi = null;
+    Ch = this;
+    this.Zi = new Dh();
   }
-  uh.prototype = new q();
-  uh.prototype.constructor = uh;
-  uh.prototype.$classData = v({ rn: 0 }, !1, "scala.$less$colon$less$", {
+  Bh.prototype = new q();
+  Bh.prototype.constructor = Bh;
+  Bh.prototype.$classData = v({ rn: 0 }, !1, "scala.$less$colon$less$", {
     rn: 1,
     b: 1,
     c: 1,
   });
-  var vh;
-  function xh() {
-    vh || (vh = new uh());
-    return vh;
+  var Ch;
+  function Eh() {
+    Ch || (Ch = new Bh());
+    return Ch;
   }
-  function yh() {}
-  yh.prototype = new q();
-  yh.prototype.constructor = yh;
-  function zh(a, b, c, d, f, g) {
-    a = ja(b);
+  function Fh() {}
+  Fh.prototype = new q();
+  Fh.prototype.constructor = Fh;
+  function Gh(a, b, c, d, f, g) {
+    a = ka(b);
     var h;
-    if ((h = !!a.Cc.isArrayClass)) h = !!ja(d).Cc.isAssignableFrom(a.Cc);
+    if ((h = !!a.xc.isArrayClass)) h = !!ka(d).xc.isAssignableFrom(a.xc);
     if (h) b.I(c, d, f, g);
     else
       for (a = c, c = (c + g) | 0; a < c; )
-        Pd(Od(), d, f, eg(Od(), b, a)), (a = (1 + a) | 0), (f = (1 + f) | 0);
+        $d(Gd(), d, f, Jd(Gd(), b, a)), (a = (1 + a) | 0), (f = (1 + f) | 0);
   }
-  yh.prototype.$classData = v({ tn: 0 }, !1, "scala.Array$", {
+  Fh.prototype.$classData = v({ tn: 0 }, !1, "scala.Array$", {
     tn: 1,
     b: 1,
     c: 1,
   });
-  var Ah;
-  function Bh() {
-    Ah || (Ah = new yh());
-    return Ah;
+  var Hh;
+  function Ih() {
+    Hh || (Hh = new Fh());
+    return Hh;
   }
-  function Ch() {
+  function Jh() {
     this.Sk = null;
-    Dh = this;
-    this.Sk = new ug(Tc().Kk);
-    Tc();
+    Kh = this;
+    this.Sk = new Dg(Rc().Kk);
+    Rc();
   }
-  Ch.prototype = new q();
-  Ch.prototype.constructor = Ch;
-  Ch.prototype.$classData = v({ vn: 0 }, !1, "scala.Console$", {
+  Jh.prototype = new q();
+  Jh.prototype.constructor = Jh;
+  Jh.prototype.$classData = v({ vn: 0 }, !1, "scala.Console$", {
     vn: 1,
     b: 1,
-    fs: 1,
+    hs: 1,
   });
-  var Dh;
-  function Eh() {}
-  Eh.prototype = new zd();
-  Eh.prototype.constructor = Eh;
-  function Fh() {}
-  Fh.prototype = Eh.prototype;
-  function Gh(a, b) {
-    return null !== b ? new Hh(b) : null;
+  var Kh;
+  function Lh() {}
+  Lh.prototype = new xd();
+  Lh.prototype.constructor = Lh;
+  function Mh() {}
+  Mh.prototype = Lh.prototype;
+  function Nh(a) {
+    return null === a
+      ? null
+      : 0 === a.a.length
+      ? ((a = Oh()), Ph(), a.Ij)
+      : new Qh(a);
   }
-  function Ih() {}
-  Ih.prototype = new q();
-  Ih.prototype.constructor = Ih;
-  Ih.prototype.z = function () {
+  function Rh(a, b) {
+    return null !== b ? new Sh(b) : null;
+  }
+  function Th() {}
+  Th.prototype = new q();
+  Th.prototype.constructor = Th;
+  Th.prototype.z = function () {
     return "Tuple2";
   };
-  Ih.prototype.$classData = v({ xm: 0 }, !1, "scala.Tuple2$", {
+  Th.prototype.$classData = v({ xm: 0 }, !1, "scala.Tuple2$", {
     xm: 1,
     b: 1,
     c: 1,
   });
-  var Jh;
-  function Kh(a, b, c) {
-    return a.ga(new Lh(b, c));
+  var Uh;
+  function Vh(a, b, c) {
+    return a.W(new Wh(b, c));
   }
-  function Mh() {}
-  Mh.prototype = new q();
-  Mh.prototype.constructor = Mh;
-  function Nh() {}
-  Nh.prototype = Mh.prototype;
-  function zf() {}
-  zf.prototype = new q();
-  zf.prototype.constructor = zf;
-  zf.prototype.z = function () {
+  function Xh() {}
+  Xh.prototype = new q();
+  Xh.prototype.constructor = Xh;
+  function Yh() {}
+  Yh.prototype = Xh.prototype;
+  function Kf() {}
+  Kf.prototype = new q();
+  Kf.prototype.constructor = Kf;
+  Kf.prototype.z = function () {
     return "::";
   };
-  zf.prototype.$classData = v(
-    { wp: 0 },
+  Kf.prototype.$classData = v(
+    { Bp: 0 },
     !1,
     "scala.collection.immutable.$colon$colon$",
-    { wp: 1, b: 1, c: 1 }
+    { Bp: 1, b: 1, c: 1 }
   );
-  var yf;
-  function Oh(a, b) {
-    this.tf = this.lc = 0;
-    this.qe = null;
-    this.Gc = 0;
-    this.ag = this.ae = null;
-    for (be(this, b.mc); this.m(); )
-      (b = this.qe.Gd(this.lc)),
-        Ph(a, a.re, this.qe.ic(this.lc), b, Bd(Dd(), b), 0),
-        (this.lc = (1 + this.lc) | 0);
+  var Jf;
+  function Zh(a, b) {
+    this.lf = this.jc = 0;
+    this.fe = null;
+    this.Ac = 0;
+    this.Rf = this.Rd = null;
+    for (me(this, b.kc); this.l(); )
+      (b = this.fe.zd(this.jc)),
+        $h(a, a.ge, this.fe.gc(this.jc), b, Od(Qd(), b), 0),
+        (this.jc = (1 + this.jc) | 0);
   }
-  Oh.prototype = new de();
-  Oh.prototype.constructor = Oh;
-  Oh.prototype.$classData = v(
-    { Cp: 0 },
+  Zh.prototype = new oe();
+  Zh.prototype.constructor = Zh;
+  Zh.prototype.$classData = v(
+    { Hp: 0 },
     !1,
     "scala.collection.immutable.HashSetBuilder$$anon$1",
-    { Cp: 1, ml: 1, b: 1 }
+    { Hp: 1, ml: 1, b: 1 }
   );
-  function Qh() {}
-  Qh.prototype = new q();
-  Qh.prototype.constructor = Qh;
-  function Rh(a, b, c, d, f) {
-    throw rd(
+  function ai() {}
+  ai.prototype = new q();
+  ai.prototype.constructor = ai;
+  function bi(a, b, c, d, f) {
+    throw pd(
       b +
         (f ? " to " : " until ") +
         c +
@@ -2906,282 +2874,278 @@ let ScalaJSExample;
         ": seqs cannot contain more than Int.MaxValue elements."
     );
   }
-  function Sh(a) {
-    Ff();
-    return Th(new Uh(), a + " on empty Range");
-  }
-  Qh.prototype.$classData = v(
-    { Zp: 0 },
+  ai.prototype.$classData = v(
+    { cq: 0 },
     !1,
     "scala.collection.immutable.Range$",
-    { Zp: 1, b: 1, c: 1 }
+    { cq: 1, b: 1, c: 1 }
   );
-  var Vh;
-  function Ff() {
-    Vh || (Vh = new Qh());
-    return Vh;
+  var ci;
+  function Pf() {
+    ci || (ci = new ai());
+    return ci;
   }
-  function Wh() {}
-  Wh.prototype = new qe();
-  Wh.prototype.constructor = Wh;
-  function Xh() {}
-  Xh.prototype = Wh.prototype;
-  function Yh(a, b) {
+  function di() {}
+  di.prototype = new Be();
+  di.prototype.constructor = di;
+  function ei() {}
+  ei.prototype = di.prototype;
+  function fi(a, b) {
     if (b === a) {
-      var c = a.qb;
-      Zh || (Zh = new $h());
-      c.call(a, Zh.Ce(b));
-    } else for (b = b.i(); b.m(); ) a.Oa(b.k());
+      var c = a.wb;
+      gi || (gi = new hi());
+      c.call(a, gi.we(b));
+    } else for (b = b.h(); b.l(); ) a.Ia(b.k());
     return a;
   }
-  function Ef() {}
-  Ef.prototype = new q();
-  Ef.prototype.constructor = Ef;
-  Ef.prototype.$classData = v(
-    { xr: 0 },
+  function Of() {}
+  Of.prototype = new q();
+  Of.prototype.constructor = Of;
+  Of.prototype.$classData = v(
+    { zr: 0 },
     !1,
     "scala.collection.mutable.StringBuilder$",
-    { xr: 1, b: 1, c: 1 }
+    { zr: 1, b: 1, c: 1 }
   );
-  var Df;
-  function Jf() {}
-  Jf.prototype = new q();
-  Jf.prototype.constructor = Jf;
-  Jf.prototype.$classData = v({ En: 0 }, !1, "scala.math.Fractional$", {
+  var Nf;
+  function Tf() {}
+  Tf.prototype = new q();
+  Tf.prototype.constructor = Tf;
+  Tf.prototype.$classData = v({ En: 0 }, !1, "scala.math.Fractional$", {
     En: 1,
     b: 1,
     c: 1,
   });
-  var If;
-  function Lf() {}
-  Lf.prototype = new q();
-  Lf.prototype.constructor = Lf;
-  Lf.prototype.$classData = v({ Fn: 0 }, !1, "scala.math.Integral$", {
+  var Sf;
+  function Vf() {}
+  Vf.prototype = new q();
+  Vf.prototype.constructor = Vf;
+  Vf.prototype.$classData = v({ Fn: 0 }, !1, "scala.math.Integral$", {
     Fn: 1,
     b: 1,
     c: 1,
   });
-  var Kf;
-  function Nf() {}
-  Nf.prototype = new q();
-  Nf.prototype.constructor = Nf;
-  Nf.prototype.$classData = v({ Gn: 0 }, !1, "scala.math.Numeric$", {
+  var Uf;
+  function Xf() {}
+  Xf.prototype = new q();
+  Xf.prototype.constructor = Xf;
+  Xf.prototype.$classData = v({ Gn: 0 }, !1, "scala.math.Numeric$", {
     Gn: 1,
     b: 1,
     c: 1,
   });
-  var Mf;
-  function ai() {}
-  ai.prototype = new q();
-  ai.prototype.constructor = ai;
-  function od(a, b) {
-    b === m(gb)
-      ? (a = bi())
-      : b === m(hb)
-      ? (a = ci())
+  var Wf;
+  function ii() {}
+  ii.prototype = new q();
+  ii.prototype.constructor = ii;
+  function md(a, b) {
+    b === m(eb)
+      ? (a = ji())
       : b === m(fb)
-      ? (a = di())
-      : b === m(ib)
-      ? (a = Ee())
-      : b === m(jb)
-      ? (a = ei())
-      : b === m(kb)
-      ? (a = fi())
-      : b === m(lb)
-      ? (a = gi())
-      : b === m(eb)
-      ? (a = hi())
+      ? (a = ki())
       : b === m(db)
-      ? (a = ii())
+      ? (a = li())
+      : b === m(gb)
+      ? (a = Te())
+      : b === m(hb)
+      ? (a = mi())
+      : b === m(ib)
+      ? (a = ni())
+      : b === m(jb)
+      ? (a = oi())
+      : b === m(cb)
+      ? (a = pi())
+      : b === m(bb)
+      ? (a = qi())
       : b === m(w)
-      ? (ji || (ji = new ki()), (a = ji))
-      : b === m(li)
-      ? (mi || (mi = new ni()), (a = mi))
-      : b === m(cg)
-      ? (oi || (oi = new pi()), (a = oi))
-      : (a = new qi(b));
+      ? (a = Ph())
+      : b === m(ri)
+      ? (si || (si = new ti()), (a = si))
+      : b === m(mg)
+      ? (ui || (ui = new vi()), (a = ui))
+      : (a = new wi(b));
     return a;
   }
-  ai.prototype.$classData = v({ Ln: 0 }, !1, "scala.reflect.ClassTag$", {
+  ii.prototype.$classData = v({ Ln: 0 }, !1, "scala.reflect.ClassTag$", {
     Ln: 1,
     b: 1,
     c: 1,
   });
-  var ri;
-  function pd() {
-    ri || (ri = new ai());
-    return ri;
+  var xi;
+  function nd() {
+    xi || (xi = new ii());
+    return xi;
   }
-  function si() {}
-  si.prototype = new q();
-  si.prototype.constructor = si;
-  si.prototype.$classData = v({ Nn: 0 }, !1, "scala.reflect.Manifest$", {
+  function yi() {}
+  yi.prototype = new q();
+  yi.prototype.constructor = yi;
+  yi.prototype.$classData = v({ Nn: 0 }, !1, "scala.reflect.Manifest$", {
     Nn: 1,
     b: 1,
     c: 1,
   });
-  var ti;
-  function ui() {}
-  ui.prototype = new q();
-  ui.prototype.constructor = ui;
-  function vi() {}
-  vi.prototype = ui.prototype;
-  ui.prototype.z = function () {
-    return "\x3cfunction0\x3e";
-  };
-  function wi() {}
-  wi.prototype = new q();
-  wi.prototype.constructor = wi;
-  function xi() {}
-  xi.prototype = wi.prototype;
-  wi.prototype.z = function () {
-    return "\x3cfunction1\x3e";
-  };
-  function yi() {}
-  yi.prototype = new q();
-  yi.prototype.constructor = yi;
-  function zi() {}
-  zi.prototype = yi.prototype;
-  yi.prototype.z = function () {
-    return "\x3cfunction2\x3e";
-  };
-  function Ai(a) {
-    this.og = a;
-  }
+  var zi;
+  function Ai() {}
   Ai.prototype = new q();
   Ai.prototype.constructor = Ai;
+  function Bi() {}
+  Bi.prototype = Ai.prototype;
   Ai.prototype.z = function () {
-    return "" + this.og;
+    return "\x3cfunction0\x3e";
   };
-  Ai.prototype.$classData = v({ Lr: 0 }, !1, "scala.runtime.BooleanRef", {
-    Lr: 1,
-    b: 1,
-    c: 1,
-  });
-  function Bi(a) {
-    this.Rj = a;
+  function Ci() {}
+  Ci.prototype = new q();
+  Ci.prototype.constructor = Ci;
+  function Di() {}
+  Di.prototype = Ci.prototype;
+  Ci.prototype.z = function () {
+    return "\x3cfunction1\x3e";
+  };
+  function Ei() {}
+  Ei.prototype = new q();
+  Ei.prototype.constructor = Ei;
+  function Fi() {}
+  Fi.prototype = Ei.prototype;
+  Ei.prototype.z = function () {
+    return "\x3cfunction2\x3e";
+  };
+  function Gi(a) {
+    this.eg = a;
   }
-  Bi.prototype = new q();
-  Bi.prototype.constructor = Bi;
-  Bi.prototype.z = function () {
-    return "" + this.Rj;
+  Gi.prototype = new q();
+  Gi.prototype.constructor = Gi;
+  Gi.prototype.z = function () {
+    return "" + this.eg;
   };
-  Bi.prototype.$classData = v({ Nr: 0 }, !1, "scala.runtime.IntRef", {
+  Gi.prototype.$classData = v({ Nr: 0 }, !1, "scala.runtime.BooleanRef", {
     Nr: 1,
     b: 1,
     c: 1,
   });
-  function Ci(a) {
-    this.fa = a;
+  function Hi(a) {
+    this.Qj = a;
   }
-  Ci.prototype = new q();
-  Ci.prototype.constructor = Ci;
-  Ci.prototype.z = function () {
-    return "" + this.fa;
+  Hi.prototype = new q();
+  Hi.prototype.constructor = Hi;
+  Hi.prototype.z = function () {
+    return "" + this.Qj;
   };
-  Ci.prototype.$classData = v({ Qr: 0 }, !1, "scala.runtime.ObjectRef", {
-    Qr: 1,
+  Hi.prototype.$classData = v({ Pr: 0 }, !1, "scala.runtime.IntRef", {
+    Pr: 1,
     b: 1,
     c: 1,
   });
-  function Rf() {}
-  Rf.prototype = new q();
-  Rf.prototype.constructor = Rf;
-  Rf.prototype.$classData = v({ co: 0 }, !1, "scala.util.Either$", {
+  function Ii(a) {
+    this.ha = a;
+  }
+  Ii.prototype = new q();
+  Ii.prototype.constructor = Ii;
+  Ii.prototype.z = function () {
+    return "" + this.ha;
+  };
+  Ii.prototype.$classData = v({ Sr: 0 }, !1, "scala.runtime.ObjectRef", {
+    Sr: 1,
+    b: 1,
+    c: 1,
+  });
+  function ag() {}
+  ag.prototype = new q();
+  ag.prototype.constructor = ag;
+  ag.prototype.$classData = v({ co: 0 }, !1, "scala.util.Either$", {
     co: 1,
     b: 1,
     c: 1,
   });
-  var Qf;
-  function Tf() {}
-  Tf.prototype = new q();
-  Tf.prototype.constructor = Tf;
-  Tf.prototype.z = function () {
+  var $f;
+  function cg() {}
+  cg.prototype = new q();
+  cg.prototype.constructor = cg;
+  cg.prototype.z = function () {
     return "Left";
   };
-  Tf.prototype.$classData = v({ eo: 0 }, !1, "scala.util.Left$", {
+  cg.prototype.$classData = v({ eo: 0 }, !1, "scala.util.Left$", {
     eo: 1,
     b: 1,
     c: 1,
   });
-  var Sf;
-  function Di() {
-    this.Cb = null;
+  var bg;
+  function Ji() {
+    this.zb = null;
   }
-  Di.prototype = new q();
-  Di.prototype.constructor = Di;
-  function Ei() {}
-  Ei.prototype = Di.prototype;
-  function Vf() {}
-  Vf.prototype = new q();
-  Vf.prototype.constructor = Vf;
-  Vf.prototype.z = function () {
+  Ji.prototype = new q();
+  Ji.prototype.constructor = Ji;
+  function Ki() {}
+  Ki.prototype = Ji.prototype;
+  function eg() {}
+  eg.prototype = new q();
+  eg.prototype.constructor = eg;
+  eg.prototype.z = function () {
     return "Right";
   };
-  Vf.prototype.$classData = v({ go: 0 }, !1, "scala.util.Right$", {
+  eg.prototype.$classData = v({ go: 0 }, !1, "scala.util.Right$", {
     go: 1,
     b: 1,
     c: 1,
   });
-  var Uf;
-  function Fi() {
-    this.xh = this.Vk = this.Ec = 0;
-    Gi = this;
-    this.Ec = Ca("Seq");
-    this.Vk = Ca("Map");
-    this.xh = Ca("Set");
-    Ag(this, xb().gj, this.Vk);
+  var dg;
+  function Li() {
+    this.sh = this.Vk = this.Mc = 0;
+    Mi = this;
+    this.Mc = Da("Seq");
+    this.Vk = Da("Map");
+    this.sh = Da("Set");
+    Jg(this, vb().cj, this.Vk);
   }
-  Fi.prototype = new wg();
-  Fi.prototype.constructor = Fi;
-  function Hi(a) {
-    var b = zg();
-    if (a && a.$classData && a.$classData.Nb.$a)
+  Li.prototype = new Fg();
+  Li.prototype.constructor = Li;
+  function Ni(a) {
+    var b = Ig();
+    if (a && a.$classData && a.$classData.Ib.nb)
       a: {
-        var c = b.Ec,
-          d = a.n();
+        var c = b.Mc,
+          d = a.q();
         switch (d) {
           case 0:
             b = b.L(c, 0);
             break a;
           case 1:
             d = c;
-            a = a.t(0);
-            b = b.L(b.p(d, mg(X(), a)), 1);
+            a = a.v(0);
+            b = b.L(b.p(d, vg(Y(), a)), 1);
             break a;
           default:
-            var f = a.t(0),
-              g = mg(X(), f);
+            var f = a.v(0),
+              g = vg(Y(), f);
             f = c = b.p(c, g);
-            var h = a.t(1);
-            h = mg(X(), h);
+            var h = a.v(1);
+            h = vg(Y(), h);
             var k = (h - g) | 0;
             for (g = 2; g < d; ) {
               c = b.p(c, h);
-              var l = a.t(g);
-              l = mg(X(), l);
+              var l = a.v(g);
+              l = vg(Y(), l);
               if (k !== ((l - h) | 0)) {
                 c = b.p(c, l);
                 for (g = (1 + g) | 0; g < d; )
-                  (f = a.t(g)), (c = b.p(c, mg(X(), f))), (g = (1 + g) | 0);
+                  (f = a.v(g)), (c = b.p(c, vg(Y(), f))), (g = (1 + g) | 0);
                 b = b.L(c, d);
                 break a;
               }
               h = l;
               g = (1 + g) | 0;
             }
-            b = xg(b.p(b.p(f, k), h));
+            b = Gg(b.p(b.p(f, k), h));
         }
       }
-    else if (a instanceof Ii) {
-      d = b.Ec;
+    else if (a instanceof Oi) {
+      d = b.Mc;
       g = 0;
       h = d;
       c = f = l = k = 0;
       for (var p = a; !p.e(); ) {
         a = p.u();
         p = p.w();
-        a = mg(X(), a);
+        a = vg(Y(), a);
         h = b.p(h, a);
         switch (k) {
           case 0:
@@ -3199,1468 +3163,1482 @@ let ScalaJSExample;
         g = (1 + g) | 0;
       }
       2 === k
-        ? ((a = l), (b = xg(b.p(b.p(b.p(d, c), a), f))))
+        ? ((a = l), (b = Gg(b.p(b.p(b.p(d, c), a), f))))
         : (b = b.L(h, g));
     } else
-      a: if (((d = b.Ec), (a = a.i()), a.m()))
-        if (((c = a.k()), a.m())) {
+      a: if (((d = b.Mc), (a = a.h()), a.l()))
+        if (((c = a.k()), a.l())) {
           f = a.k();
-          h = mg(X(), c);
+          h = vg(Y(), c);
           c = d = b.p(d, h);
-          g = mg(X(), f);
+          g = vg(Y(), f);
           h = (g - h) | 0;
-          for (f = 2; a.m(); ) {
+          for (f = 2; a.l(); ) {
             d = b.p(d, g);
             k = a.k();
-            k = mg(X(), k);
+            k = vg(Y(), k);
             if (h !== ((k - g) | 0)) {
               d = b.p(d, k);
-              for (f = (1 + f) | 0; a.m(); )
-                (c = a.k()), (d = b.p(d, mg(X(), c))), (f = (1 + f) | 0);
+              for (f = (1 + f) | 0; a.l(); )
+                (c = a.k()), (d = b.p(d, vg(Y(), c))), (f = (1 + f) | 0);
               b = b.L(d, f);
               break a;
             }
             g = k;
             f = (1 + f) | 0;
           }
-          b = xg(b.p(b.p(c, h), g));
-        } else b = b.L(b.p(d, mg(X(), c)), 1);
+          b = Gg(b.p(b.p(c, h), g));
+        } else b = b.L(b.p(d, vg(Y(), c)), 1);
       else b = b.L(d, 0);
     return b;
   }
-  Fi.prototype.$classData = v(
+  Li.prototype.$classData = v(
     { ho: 0 },
     !1,
     "scala.util.hashing.MurmurHash3$",
-    { ho: 1, As: 1, b: 1 }
+    { ho: 1, Cs: 1, b: 1 }
   );
-  var Gi;
-  function zg() {
-    Gi || (Gi = new Fi());
-    return Gi;
+  var Mi;
+  function Ig() {
+    Mi || (Mi = new Li());
+    return Mi;
   }
-  var sa = v(
+  var ta = v(
       { Gm: 0 },
       !1,
       "java.lang.Boolean",
-      { Gm: 1, b: 1, c: 1, Ee: 1 },
+      { Gm: 1, b: 1, c: 1, ye: 1 },
       (a) => "boolean" === typeof a
     ),
-    va = v(
+    xa = v(
       { Im: 0 },
       !1,
       "java.lang.Character",
-      { Im: 1, b: 1, c: 1, Ee: 1 },
-      (a) => a instanceof fa
+      { Im: 1, b: 1, c: 1, ye: 1 },
+      (a) => a instanceof ha
     );
-  class Ji extends Mg {}
-  class Ki extends Mg {}
-  Ki.prototype.$classData = v({ jc: 0 }, !1, "java.lang.Exception", {
-    jc: 1,
-    fc: 1,
+  class Pi extends qh {}
+  class Qi extends qh {}
+  Qi.prototype.$classData = v({ hc: 0 }, !1, "java.lang.Exception", {
+    hc: 1,
+    ec: 1,
     b: 1,
     c: 1,
   });
-  function Li() {}
-  Li.prototype = new q();
-  Li.prototype.constructor = Li;
-  function Mi() {}
-  Mi.prototype = Li.prototype;
-  function Ni() {
-    Oi = this;
-    xb();
-    zc();
-    Pi || (Pi = new Qi());
-    Ri();
-    Jh || (Jh = new Ih());
-    ti || (ti = new si());
-    Si || (Si = new Ti());
+  function Ri() {}
+  Ri.prototype = new q();
+  Ri.prototype.constructor = Ri;
+  function Si() {}
+  Si.prototype = Ri.prototype;
+  function Ti() {
+    Ui = this;
+    vb();
+    xc();
+    Vi || (Vi = new Wi());
+    Xi();
+    Uh || (Uh = new Th());
+    zi || (zi = new yi());
+    Yi || (Yi = new Zi());
   }
-  Ni.prototype = new Fh();
-  Ni.prototype.constructor = Ni;
-  Ni.prototype.$classData = v({ zn: 0 }, !1, "scala.Predef$", {
+  Ti.prototype = new Mh();
+  Ti.prototype.constructor = Ti;
+  Ti.prototype.$classData = v({ zn: 0 }, !1, "scala.Predef$", {
     zn: 1,
-    bs: 1,
-    cs: 1,
+    ds: 1,
+    es: 1,
     b: 1,
   });
-  var Oi;
-  function yc() {
-    Oi || (Oi = new Ni());
-    return Oi;
+  var Ui;
+  function wc() {
+    Ui || (Ui = new Ti());
+    return Ui;
   }
-  function Ui() {
-    this.kj = null;
-  }
-  Ui.prototype = new q();
-  Ui.prototype.constructor = Ui;
-  function Vi() {}
-  Vi.prototype = Ui.prototype;
-  Ui.prototype.Fb = function () {
-    var a = this.kj;
-    De();
-    return a.Fl;
-  };
-  Ui.prototype.ga = function (a) {
-    De();
-    var b = a.v();
-    if (-1 < b) {
-      var c = new r(b);
-      a = a.i();
-      for (var d = 0; d < b; ) (c.a[d] = a.k()), (d = (1 + d) | 0);
-      b = c;
-    } else {
-      b = [];
-      for (c = a.i(); c.m(); ) (a = c.k()), b.push(null === a ? null : a);
-      b = new r(b);
-    }
-    return Wi(0, b);
-  };
-  Ui.prototype.X = function () {
-    var a = this.kj;
-    De();
-    var b = new Xi(m(w));
-    return new Yi(b, new E((() => (c) => Wi(Zi(), c))(a)));
-  };
-  Ui.prototype.nd = function (a) {
-    De();
-    var b = a.v();
-    if (-1 < b) {
-      var c = new r(b);
-      a = a.i();
-      for (var d = 0; d < b; ) (c.a[d] = a.k()), (d = (1 + d) | 0);
-      b = c;
-    } else {
-      b = [];
-      for (c = a.i(); c.m(); ) (a = c.k()), b.push(null === a ? null : a);
-      b = new r(b);
-    }
-    return Wi(0, b);
-  };
   function $i() {
-    this.pe = null;
+    this.hj = null;
   }
   $i.prototype = new q();
   $i.prototype.constructor = $i;
   function aj() {}
   aj.prototype = $i.prototype;
-  $i.prototype.Fb = function () {
-    return this.pe.Fb();
+  $i.prototype.Bb = function () {
+    var a = this.hj;
+    Se();
+    return a.Ij;
   };
-  $i.prototype.ga = function (a) {
-    return this.pe.ga(a);
+  $i.prototype.W = function (a) {
+    Se();
+    var b = a.t();
+    if (-1 < b) {
+      var c = new r(b);
+      a = a.h();
+      for (var d = 0; d < b; ) (c.a[d] = a.k()), (d = (1 + d) | 0);
+      b = c;
+    } else {
+      b = [];
+      for (c = a.h(); c.l(); ) (a = c.k()), b.push(null === a ? null : a);
+      b = new r(b);
+    }
+    return bj(0, b);
   };
-  $i.prototype.X = function () {
-    return this.pe.X();
+  $i.prototype.ea = function () {
+    var a = this.hj;
+    Se();
+    var b = new cj(m(w));
+    return new dj(b, new D((() => (c) => bj(Oh(), c))(a)));
   };
-  function bj(a, b) {
+  $i.prototype.gd = function (a) {
+    Se();
+    var b = a.t();
+    if (-1 < b) {
+      var c = new r(b);
+      a = a.h();
+      for (var d = 0; d < b; ) (c.a[d] = a.k()), (d = (1 + d) | 0);
+      b = c;
+    } else {
+      b = [];
+      for (c = a.h(); c.l(); ) (a = c.k()), b.push(null === a ? null : a);
+      b = new r(b);
+    }
+    return bj(0, b);
+  };
+  function ej() {
+    this.ee = null;
+  }
+  ej.prototype = new q();
+  ej.prototype.constructor = ej;
+  function fj() {}
+  fj.prototype = ej.prototype;
+  ej.prototype.Bb = function () {
+    return this.ee.Bb();
+  };
+  ej.prototype.W = function (a) {
+    return this.ee.W(a);
+  };
+  ej.prototype.ea = function () {
+    return this.ee.ea();
+  };
+  function gj(a, b) {
     if (0 > b) return 1;
-    var c = a.v();
+    var c = a.t();
     if (0 <= c) return c === b ? 0 : c < b ? -1 : 1;
     c = 0;
-    for (a = a.i(); a.m(); ) {
+    for (a = a.h(); a.l(); ) {
       if (c === b) return 1;
       a.k();
       c = (1 + c) | 0;
     }
     return (c - b) | 0;
   }
-  function cj(a) {
-    if (a.e()) throw ((a = new dj()), oe(a, null), a);
-    return a.Eb(1);
+  function hj(a) {
+    if (a.e()) throw ((a = new ij()), ze(a, null), a);
+    return a.Jb(1);
   }
-  function ej(a, b) {
-    var c = a.ha();
-    a = fj(b) ? new gj(a, b) : a.i().Dd(new H(((d, f) => () => f.i())(a, b)));
-    return c.ga(a);
+  function jj(a, b) {
+    var c = a.X();
+    a = Td(b) ? new kj(a, b) : a.h().wd(new H(((d, f) => () => f.h())(a, b)));
+    return c.W(a);
   }
-  function hj(a, b) {
-    var c = ij(new jj(), a, new E(((d, f) => (g) => f.l(g).Ac())(a, b)));
-    b = ij(new jj(), a, new E(((d, f) => (g) => f.l(g).Bc())(a, b)));
-    return kj(new lj(), a.ha().ga(c), a.ha().ga(b));
+  function lj(a, b) {
+    var c = mj(new nj(), a, new D(((d, f) => (g) => f.m(g).dc())(a, b)));
+    b = mj(new nj(), a, new D(((d, f) => (g) => f.m(g).qc())(a, b)));
+    return Hd(new Id(), a.X().W(c), a.X().W(b));
   }
-  function mj(a, b) {
-    this.zh = a;
-    this.lj = b;
-  }
-  mj.prototype = new Nh();
-  mj.prototype.constructor = mj;
-  mj.prototype.W = function (a) {
-    return this.zh.ha().ga(ij(new jj(), new nj(this.zh, this.lj, !1), a));
-  };
-  mj.prototype.N = function (a) {
-    new nj(this.zh, this.lj, !1).N(a);
-  };
   function oj(a, b) {
-    return new mj(
-      a.zh,
-      new E(((c, d) => (f) => !!c.lj.l(f) && !!d.l(f))(a, b))
+    this.Lf = a;
+    this.uh = b;
+  }
+  oj.prototype = new Yh();
+  oj.prototype.constructor = oj;
+  e = oj.prototype;
+  e.da = function (a) {
+    return this.Lf.X().W(mj(new nj(), new pj(this.Lf, this.uh, !1), a));
+  };
+  e.Cb = function (a) {
+    return this.Lf.X().W(new qj(new pj(this.Lf, this.uh, !1), a));
+  };
+  e.N = function (a) {
+    new pj(this.Lf, this.uh, !1).N(a);
+  };
+  function rj(a, b) {
+    return new oj(
+      a.Lf,
+      new D(((c, d) => (f) => !!c.uh.m(f) && !!d.m(f))(a, b))
     );
   }
-  mj.prototype.Vd = function (a) {
-    return oj(this, a);
+  e.Hc = function (a) {
+    return rj(this, a);
   };
-  mj.prototype.$classData = v(
-    { Jo: 0 },
-    !1,
-    "scala.collection.IterableOps$WithFilter",
-    { Jo: 1, ll: 1, b: 1, c: 1 }
-  );
-  function pj(a, b, c) {
+  e.$classData = v({ Mo: 0 }, !1, "scala.collection.IterableOps$WithFilter", {
+    Mo: 1,
+    ll: 1,
+    b: 1,
+    c: 1,
+  });
+  function sj(a, b, c) {
     var d = 0 < c ? c : 0;
-    for (a.Ed(c); a.m(); ) {
-      if (b.l(a.k())) return d;
+    for (a.xd(c); a.l(); ) {
+      if (b.m(a.k())) return d;
       d = (1 + d) | 0;
     }
     return -1;
   }
-  function qj(a, b) {
-    for (var c = 0; c < b && a.m(); ) a.k(), (c = (1 + c) | 0);
+  function tj(a, b) {
+    for (var c = 0; c < b && a.l(); ) a.k(), (c = (1 + c) | 0);
     return a;
   }
-  function rj() {
-    this.Y = null;
-    sj = this;
-    this.Y = new tj();
+  function uj() {
+    this.Z = null;
+    vj = this;
+    this.Z = new wj();
   }
-  rj.prototype = new q();
-  rj.prototype.constructor = rj;
-  rj.prototype.X = function () {
-    return new uj();
+  uj.prototype = new q();
+  uj.prototype.constructor = uj;
+  uj.prototype.ea = function () {
+    return new xj();
   };
-  rj.prototype.Fb = function () {
-    return this.Y;
+  uj.prototype.Bb = function () {
+    return this.Z;
   };
-  rj.prototype.ga = function (a) {
-    return a.i();
+  uj.prototype.W = function (a) {
+    return a.h();
   };
-  rj.prototype.$classData = v({ Ko: 0 }, !1, "scala.collection.Iterator$", {
-    Ko: 1,
+  uj.prototype.$classData = v({ No: 0 }, !1, "scala.collection.Iterator$", {
+    No: 1,
     b: 1,
-    Hb: 1,
+    Eb: 1,
     c: 1,
   });
-  var sj;
+  var vj;
   function W() {
-    sj || (sj = new rj());
-    return sj;
+    vj || (vj = new uj());
+    return vj;
   }
-  function vj() {}
-  vj.prototype = new q();
-  vj.prototype.constructor = vj;
-  function wj(a, b) {
-    if (b && b.$classData && b.$classData.Nb.Zb) return b;
-    if (fj(b)) return new xj(new H(((c, d) => () => d.i())(a, b)));
-    a = yj(Bf(), b);
-    return zj(new Aj(), a);
+  function yj() {}
+  yj.prototype = new q();
+  yj.prototype.constructor = yj;
+  function zj(a, b) {
+    if (b && b.$classData && b.$classData.Ib.Rb) return b;
+    if (Td(b)) return new Aj(new H(((c, d) => () => d.h())(a, b)));
+    a = Bj(X(), b);
+    return Cj(new Dj(), a);
   }
-  vj.prototype.X = function () {
-    var a = new Bj();
-    return new Yi(a, new E((() => (b) => wj(Cj(), b))(this)));
+  yj.prototype.ea = function () {
+    var a = new Ej();
+    return new dj(a, new D((() => (b) => zj(Fj(), b))(this)));
   };
-  vj.prototype.Fb = function () {
-    Dj || (Dj = new Ej());
-    return Dj;
+  yj.prototype.Bb = function () {
+    Gj || (Gj = new Hj());
+    return Gj;
   };
-  vj.prototype.ga = function (a) {
-    return wj(this, a);
+  yj.prototype.W = function (a) {
+    return zj(this, a);
   };
-  vj.prototype.$classData = v({ cp: 0 }, !1, "scala.collection.View$", {
-    cp: 1,
+  yj.prototype.$classData = v({ gp: 0 }, !1, "scala.collection.View$", {
+    gp: 1,
     b: 1,
-    Hb: 1,
+    Eb: 1,
     c: 1,
   });
-  var Fj;
-  function Cj() {
-    Fj || (Fj = new vj());
-    return Fj;
+  var tk;
+  function Fj() {
+    tk || (tk = new yj());
+    return tk;
   }
-  function Ce(a, b, c, d, f, g) {
+  function Re(a, b, c, d, f, g) {
     this.R = a;
-    this.Qa = b;
-    this.Db = c;
-    this.$b = d;
-    this.bb = f;
-    this.Fc = g;
+    this.Ma = b;
+    this.Ab = c;
+    this.Yb = d;
+    this.Xa = f;
+    this.zc = g;
   }
-  Ce.prototype = new Xh();
-  Ce.prototype.constructor = Ce;
-  e = Ce.prototype;
-  e.Xa = function () {
-    return this.bb;
+  Re.prototype = new ei();
+  Re.prototype.constructor = Re;
+  e = Re.prototype;
+  e.Sa = function () {
+    return this.Xa;
   };
-  e.Cd = function () {
-    return this.Fc;
+  e.vd = function () {
+    return this.zc;
   };
-  e.ic = function (a) {
-    return this.Db.a[a];
+  e.gc = function (a) {
+    return this.Ab.a[a];
   };
-  e.Gd = function (a) {
-    return this.$b.a[a];
+  e.zd = function (a) {
+    return this.Yb.a[a];
   };
-  e.Yd = function (a) {
-    return this.Db.a[(((-1 + this.Db.a.length) | 0) - a) | 0];
+  e.Od = function (a) {
+    return this.Ab.a[(((-1 + this.Ab.a.length) | 0) - a) | 0];
   };
-  e.Cg = function (a, b, c, d) {
-    var f = ve(P(), c, d),
-      g = we(P(), f);
+  e.ug = function (a, b, c, d) {
+    var f = Ge(P(), c, d),
+      g = He(P(), f);
     return 0 !== (this.R & g)
-      ? ((c = ze(P(), this.R, f, g)),
-        this.$b.a[c] === b && L(M(), a, this.ic(c)))
-      : 0 !== (this.Qa & g)
-      ? ((f = ze(P(), this.Qa, f, g)), this.Yd(f).Cg(a, b, c, (5 + d) | 0))
+      ? ((c = Ke(P(), this.R, f, g)),
+        this.Yb.a[c] === b && J(L(), a, this.gc(c)))
+      : 0 !== (this.Ma & g)
+      ? ((f = Ke(P(), this.Ma, f, g)), this.Od(f).ug(a, b, c, (5 + d) | 0))
       : !1;
   };
-  function Gj(a, b, c, d, f) {
-    var g = ve(P(), d, f),
-      h = we(P(), g);
+  function uk(a, b, c, d, f) {
+    var g = Ge(P(), d, f),
+      h = He(P(), g);
     if (0 !== (a.R & h)) {
-      g = ze(P(), a.R, g, h);
-      var k = a.ic(g);
+      g = Ke(P(), a.R, g, h);
+      var k = a.gc(g);
       if (Object.is(k, b)) return a;
-      var l = a.Gd(g);
-      g = Bd(Dd(), l);
-      if (c === l && L(M(), k, b)) return a;
-      d = Hj(a, k, l, g, b, c, d, (5 + f) | 0);
-      c = Ij(a, h);
-      f = (((-1 + a.Db.a.length) | 0) - Jj(a, h)) | 0;
-      k = a.Db;
+      var l = a.zd(g);
+      g = Od(Qd(), l);
+      if (c === l && J(L(), k, b)) return a;
+      d = vk(a, k, l, g, b, c, d, (5 + f) | 0);
+      c = wk(a, h);
+      f = (((-1 + a.Ab.a.length) | 0) - xk(a, h)) | 0;
+      k = a.Ab;
       b = new r(k.a.length);
       k.I(0, b, 0, c);
       k.I((1 + c) | 0, b, c, (f - c) | 0);
       b.a[f] = d;
       k.I((1 + f) | 0, b, (1 + f) | 0, (-1 + ((k.a.length - f) | 0)) | 0);
-      c = re(a.$b, c);
-      return new Ce(
+      c = Ce(a.Yb, c);
+      return new Re(
         a.R ^ h,
-        a.Qa | h,
+        a.Ma | h,
         b,
         c,
-        (((-1 + a.bb) | 0) + d.Xa()) | 0,
-        (((a.Fc - g) | 0) + d.Cd()) | 0
+        (((-1 + a.Xa) | 0) + d.Sa()) | 0,
+        (((a.zc - g) | 0) + d.vd()) | 0
       );
     }
-    if (0 !== (a.Qa & h))
+    if (0 !== (a.Ma & h))
       return (
-        (g = ze(P(), a.Qa, g, h)),
-        (g = a.Yd(g)),
+        (g = Ke(P(), a.Ma, g, h)),
+        (g = a.Od(g)),
         (d = g.Ml(b, c, d, (5 + f) | 0)),
-        g === d ? a : Kj(a, h, g, d)
+        g === d ? a : yk(a, h, g, d)
       );
-    f = Ij(a, h);
-    k = a.Db;
+    f = wk(a, h);
+    k = a.Ab;
     g = new r((1 + k.a.length) | 0);
     k.I(0, g, 0, f);
     g.a[f] = b;
     k.I(f, g, (1 + f) | 0, (k.a.length - f) | 0);
-    b = se(a.$b, f, c);
-    return new Ce(a.R | h, a.Qa, g, b, (1 + a.bb) | 0, (a.Fc + d) | 0);
+    b = De(a.Yb, f, c);
+    return new Re(a.R | h, a.Ma, g, b, (1 + a.Xa) | 0, (a.zc + d) | 0);
   }
-  function Lj(a, b, c, d, f) {
-    var g = ve(P(), d, f),
-      h = we(P(), g);
+  function zk(a, b, c, d, f) {
+    var g = Ge(P(), d, f),
+      h = He(P(), g);
     if (0 !== (a.R & h)) {
-      g = ze(P(), a.R, g, h);
-      c = a.ic(g);
-      if (L(M(), c, b)) {
+      g = Ke(P(), a.R, g, h);
+      c = a.gc(g);
+      if (J(L(), c, b)) {
         b = a.R;
-        2 === ye(he(), b) ? ((b = a.Qa), (b = 0 === ye(he(), b))) : (b = !1);
+        2 === Je(se(), b) ? ((b = a.Ma), (b = 0 === Je(se(), b))) : (b = !1);
         if (b) {
-          h = 0 === f ? a.R ^ h : we(P(), ve(P(), d, 0));
+          h = 0 === f ? a.R ^ h : He(P(), Ge(P(), d, 0));
           if (0 === g) {
-            d = [a.ic(1)];
+            d = [a.gc(1)];
             f = B(new C(), d);
-            De();
-            d = f.n();
+            Se();
+            d = f.q();
             d = new r(d);
-            f = new Mj(f);
-            f = new yk(f);
-            for (g = 0; f.m(); ) (d.a[g] = f.k()), (g = (1 + g) | 0);
-            return new Ce(
+            f = new Ak(f);
+            f = new Bk(f);
+            for (g = 0; f.l(); ) (d.a[g] = f.k()), (g = (1 + g) | 0);
+            return new Re(
               h,
               0,
               d,
-              new t(new Int32Array([a.$b.a[1]])),
-              (-1 + a.bb) | 0,
-              Bd(Dd(), a.$b.a[1])
+              new t(new Int32Array([a.Yb.a[1]])),
+              (-1 + a.Xa) | 0,
+              Od(Qd(), a.Yb.a[1])
             );
           }
-          d = [a.ic(0)];
+          d = [a.gc(0)];
           f = B(new C(), d);
-          De();
-          d = f.n();
+          Se();
+          d = f.q();
           d = new r(d);
-          f = new Mj(f);
-          f = new yk(f);
-          for (g = 0; f.m(); ) (d.a[g] = f.k()), (g = (1 + g) | 0);
-          return new Ce(
+          f = new Ak(f);
+          f = new Bk(f);
+          for (g = 0; f.l(); ) (d.a[g] = f.k()), (g = (1 + g) | 0);
+          return new Re(
             h,
             0,
             d,
-            new t(new Int32Array([a.$b.a[0]])),
-            (-1 + a.bb) | 0,
-            Bd(Dd(), a.$b.a[0])
+            new t(new Int32Array([a.Yb.a[0]])),
+            (-1 + a.Xa) | 0,
+            Od(Qd(), a.Yb.a[0])
           );
         }
-        g = Ij(a, h);
-        b = a.Db;
+        g = wk(a, h);
+        b = a.Ab;
         f = new r((-1 + b.a.length) | 0);
         b.I(0, f, 0, g);
         b.I((1 + g) | 0, f, g, (-1 + ((b.a.length - g) | 0)) | 0);
-        g = re(a.$b, g);
-        return new Ce(a.R ^ h, a.Qa, f, g, (-1 + a.bb) | 0, (a.Fc - d) | 0);
+        g = Ce(a.Yb, g);
+        return new Re(a.R ^ h, a.Ma, f, g, (-1 + a.Xa) | 0, (a.zc - d) | 0);
       }
       return a;
     }
-    if (0 !== (a.Qa & h)) {
-      g = ze(P(), a.Qa, g, h);
-      g = a.Yd(g);
+    if (0 !== (a.Ma & h)) {
+      g = Ke(P(), a.Ma, g, h);
+      g = a.Od(g);
       d = g.Qk(b, c, d, (5 + f) | 0);
       if (d === g) return a;
-      f = d.Xa();
+      f = d.Sa();
       if (1 === f) {
-        if (a.bb === g.Xa()) a = d;
+        if (a.Xa === g.Sa()) a = d;
         else {
-          b = (((-1 + a.Db.a.length) | 0) - Jj(a, h)) | 0;
-          c = Ij(a, h);
-          var k = a.Db;
+          b = (((-1 + a.Ab.a.length) | 0) - xk(a, h)) | 0;
+          c = wk(a, h);
+          var k = a.Ab;
           f = new r(k.a.length);
           k.I(0, f, 0, c);
-          f.a[c] = d.ic(0);
+          f.a[c] = d.gc(0);
           k.I(c, f, (1 + c) | 0, (b - c) | 0);
           k.I((1 + b) | 0, f, (1 + b) | 0, (-1 + ((k.a.length - b) | 0)) | 0);
-          b = se(a.$b, c, d.Gd(0));
-          a = new Ce(
+          b = De(a.Yb, c, d.zd(0));
+          a = new Re(
             a.R | h,
-            a.Qa ^ h,
+            a.Ma ^ h,
             f,
             b,
-            (1 + ((a.bb - g.Xa()) | 0)) | 0,
-            (((a.Fc - g.Cd()) | 0) + d.Cd()) | 0
+            (1 + ((a.Xa - g.Sa()) | 0)) | 0,
+            (((a.zc - g.vd()) | 0) + d.vd()) | 0
           );
         }
         return a;
       }
-      if (1 < f) return Kj(a, h, g, d);
+      if (1 < f) return yk(a, h, g, d);
     }
     return a;
   }
-  function Hj(a, b, c, d, f, g, h, k) {
-    if (32 <= k) return Cf(), new zk(c, d, Ak(0, B(new C(), [b, f])));
-    var l = ve(P(), d, k),
-      p = ve(P(), h, k);
+  function vk(a, b, c, d, f, g, h, k) {
+    if (32 <= k) return Mf(), new Ck(c, d, Dk(0, B(new C(), [b, f])));
+    var l = Ge(P(), d, k),
+      p = Ge(P(), h, k);
     if (l !== p) {
-      var u = we(P(), l) | we(P(), p);
+      var u = He(P(), l) | He(P(), p);
       d = (d + h) | 0;
       if (l < p) {
         f = B(new C(), [b, f]);
-        De();
-        b = f.n();
+        Se();
+        b = f.q();
         b = new r(b);
-        f = new Mj(f);
-        f = new yk(f);
-        for (h = 0; f.m(); ) (b.a[h] = f.k()), (h = (1 + h) | 0);
-        return new Ce(u, 0, b, new t(new Int32Array([c, g])), 2, d);
+        f = new Ak(f);
+        f = new Bk(f);
+        for (h = 0; f.l(); ) (b.a[h] = f.k()), (h = (1 + h) | 0);
+        return new Re(u, 0, b, new t(new Int32Array([c, g])), 2, d);
       }
       f = B(new C(), [f, b]);
-      De();
-      b = f.n();
+      Se();
+      b = f.q();
       b = new r(b);
-      f = new Mj(f);
-      f = new yk(f);
-      for (h = 0; f.m(); ) (b.a[h] = f.k()), (h = (1 + h) | 0);
-      return new Ce(u, 0, b, new t(new Int32Array([g, c])), 2, d);
+      f = new Ak(f);
+      f = new Bk(f);
+      for (h = 0; f.l(); ) (b.a[h] = f.k()), (h = (1 + h) | 0);
+      return new Re(u, 0, b, new t(new Int32Array([g, c])), 2, d);
     }
-    u = we(P(), l);
-    c = Hj(a, b, c, d, f, g, h, (5 + k) | 0);
+    u = He(P(), l);
+    c = vk(a, b, c, d, f, g, h, (5 + k) | 0);
     d = B(new C(), [c]);
-    De();
-    g = d.n();
+    Se();
+    g = d.q();
     g = new r(g);
-    d = new Mj(d);
-    d = new yk(d);
-    for (b = 0; d.m(); ) (g.a[b] = d.k()), (b = (1 + b) | 0);
-    return new Ce(0, u, g, xd().dj, c.Xa(), c.Cd());
+    d = new Ak(d);
+    d = new Bk(d);
+    for (b = 0; d.l(); ) (g.a[b] = d.k()), (b = (1 + b) | 0);
+    return new Re(0, u, g, vd().$i, c.Sa(), c.vd());
   }
-  e.Ui = function () {
+  e.Pi = function () {
     return 0 !== this.R;
   };
-  e.bj = function () {
+  e.Yi = function () {
     var a = this.R;
-    return ye(he(), a);
+    return Je(se(), a);
   };
-  e.Ti = function () {
-    return 0 !== this.Qa;
+  e.Oi = function () {
+    return 0 !== this.Ma;
   };
   e.Pk = function () {
-    var a = this.Qa;
-    return ye(he(), a);
+    var a = this.Ma;
+    return Je(se(), a);
   };
-  function Ij(a, b) {
+  function wk(a, b) {
     a = a.R & ((-1 + b) | 0);
-    return ye(he(), a);
+    return Je(se(), a);
   }
-  function Jj(a, b) {
-    a = a.Qa & ((-1 + b) | 0);
-    return ye(he(), a);
+  function xk(a, b) {
+    a = a.Ma & ((-1 + b) | 0);
+    return Je(se(), a);
   }
-  function Kj(a, b, c, d) {
-    b = (((-1 + a.Db.a.length) | 0) - Jj(a, b)) | 0;
-    var f = a.Db,
+  function yk(a, b, c, d) {
+    b = (((-1 + a.Ab.a.length) | 0) - xk(a, b)) | 0;
+    var f = a.Ab,
       g = new r(f.a.length);
     f.I(0, g, 0, f.a.length);
     g.a[b] = d;
-    return new Ce(
+    return new Re(
       a.R,
-      a.Qa,
+      a.Ma,
       g,
-      a.$b,
-      (((a.bb - c.Xa()) | 0) + d.Xa()) | 0,
-      (((a.Fc - c.Cd()) | 0) + d.Cd()) | 0
+      a.Yb,
+      (((a.Xa - c.Sa()) | 0) + d.Sa()) | 0,
+      (((a.zc - c.vd()) | 0) + d.vd()) | 0
     );
   }
   e.N = function (a) {
     var b = this.R;
-    b = ye(he(), b);
-    for (var c = 0; c < b; ) a.l(this.ic(c)), (c = (1 + c) | 0);
-    b = this.Qa;
-    b = ye(he(), b);
-    for (c = 0; c < b; ) this.Yd(c).N(a), (c = (1 + c) | 0);
+    b = Je(se(), b);
+    for (var c = 0; c < b; ) a.m(this.gc(c)), (c = (1 + c) | 0);
+    b = this.Ma;
+    b = Je(se(), b);
+    for (c = 0; c < b; ) this.Od(c).N(a), (c = (1 + c) | 0);
   };
-  function Bk(a, b, c) {
-    if (0 === a.bb) return a;
-    if (1 === a.bb) return !!b.l(a.ic(0)) !== c ? a : Fe().ig;
-    if (0 === a.Qa) {
+  function Ek(a, b, c) {
+    if (0 === a.Xa) return a;
+    if (1 === a.Xa) return !!b.m(a.gc(0)) !== c ? a : Ue().Zf;
+    if (0 === a.Ma) {
       for (
         var d = a.R,
-          f = 0 === d ? 32 : (31 - ca(d & (-d | 0))) | 0,
-          g = (32 - ca(a.R)) | 0,
+          f = 0 === d ? 32 : (31 - da(d & (-d | 0))) | 0,
+          g = (32 - da(a.R)) | 0,
           h = (d = 0),
           k = 0;
         f < g;
 
       ) {
-        var l = we(P(), f);
+        var l = He(P(), f);
         if (0 !== (l & a.R)) {
-          var p = a.ic(k);
-          !!b.l(p) !== c && ((d |= l), (h = (h + Bd(Dd(), a.Gd(k))) | 0));
+          var p = a.gc(k);
+          !!b.m(p) !== c && ((d |= l), (h = (h + Od(Qd(), a.zd(k))) | 0));
           k = (1 + k) | 0;
         }
         f = (1 + f) | 0;
       }
-      if (0 === d) return Fe().ig;
+      if (0 === d) return Ue().Zf;
       if (d === a.R) return a;
       b = d;
-      b = ye(he(), b);
+      b = Je(se(), b);
       c = new r(b);
       g = new t(b);
-      k = (32 - ca(d)) | 0;
+      k = (32 - da(d)) | 0;
       f = d;
-      f = 0 === f ? 32 : (31 - ca(f & (-f | 0))) | 0;
+      f = 0 === f ? 32 : (31 - da(f & (-f | 0))) | 0;
       for (l = 0; f < k; )
-        (p = we(P(), f)),
+        (p = He(P(), f)),
           0 !== (p & d) &&
-            ((p = xe(P(), a.R, p)),
-            (c.a[l] = a.Db.a[p]),
-            (g.a[l] = a.$b.a[p]),
+            ((p = Ie(P(), a.R, p)),
+            (c.a[l] = a.Ab.a[p]),
+            (g.a[l] = a.Yb.a[p]),
             (l = (1 + l) | 0)),
           (f = (1 + f) | 0);
-      return new Ce(d, 0, c, g, b, h);
+      return new Re(d, 0, c, g, b, h);
     }
-    h = a.R | a.Qa;
-    d = 0 === h ? 32 : (31 - ca(h & (-h | 0))) | 0;
-    var u = (32 - ca(h)) | 0,
-      y = (f = 0),
-      D = null;
+    h = a.R | a.Ma;
+    d = 0 === h ? 32 : (31 - da(h & (-h | 0))) | 0;
+    var u = (32 - da(h)) | 0,
+      A = (f = 0),
+      G = null;
     l = p = 0;
     k = null;
-    for (var K = 0, J = (g = 0), Z = (h = 0), wa = 0, Ha = d; Ha < u; ) {
-      var ka = we(P(), Ha);
-      if (0 !== (ka & a.R)) {
-        var Ka = a.ic(Z);
-        !!b.l(Ka) !== c &&
-          ((K |= ka),
-          (f |= ka),
-          (J = (1 + J) | 0),
-          (h = (h + Bd(Dd(), a.Gd(Z))) | 0));
-        Z = (1 + Z) | 0;
-      } else if (0 !== (ka & a.Qa)) {
-        Ka = a.Yd(wa);
-        var qa = Ka.Bk(b, c);
-        J = (J + qa.Xa()) | 0;
-        h = (h + qa.Cd()) | 0;
-        1 < qa.Xa()
-          ? ((g |= ka),
-            Ka === qa
-              ? (p |= ka)
-              : ((l |= ka), null === k && (k = new Ck(16)), Dk(k, qa)))
-          : 1 === qa.Xa() &&
-            ((K |= ka), (y |= ka), null === D && (D = new Ck(16)), Dk(D, qa));
+    for (var K = 0, M = (g = 0), aa = (h = 0), wa = 0, Ia = d; Ia < u; ) {
+      var la = He(P(), Ia);
+      if (0 !== (la & a.R)) {
+        var Ma = a.gc(aa);
+        !!b.m(Ma) !== c &&
+          ((K |= la),
+          (f |= la),
+          (M = (1 + M) | 0),
+          (h = (h + Od(Qd(), a.zd(aa))) | 0));
+        aa = (1 + aa) | 0;
+      } else if (0 !== (la & a.Ma)) {
+        Ma = a.Od(wa);
+        var ra = Ma.Bk(b, c);
+        M = (M + ra.Sa()) | 0;
+        h = (h + ra.vd()) | 0;
+        1 < ra.Sa()
+          ? ((g |= la),
+            Ma === ra
+              ? (p |= la)
+              : ((l |= la), null === k && (k = new Fk(16)), Gk(k, ra)))
+          : 1 === ra.Sa() &&
+            ((K |= la), (A |= la), null === G && (G = new Fk(16)), Gk(G, ra));
         wa = (1 + wa) | 0;
       }
-      Ha = (1 + Ha) | 0;
+      Ia = (1 + Ia) | 0;
     }
-    b = J;
+    b = M;
     c = K;
-    if (0 === b) a = Fe().ig;
-    else if (b !== a.bb) {
-      J = ye(he(), c);
-      K = (J + ye(he(), g)) | 0;
+    if (0 === b) a = Ue().Zf;
+    else if (b !== a.Xa) {
+      M = Je(se(), c);
+      K = (M + Je(se(), g)) | 0;
       u = new r(K);
-      J = new t(J);
-      Z = (32 - ca(c | g)) | 0;
-      for (Ka = ka = Ha = wa = 0; d < Z; )
-        (qa = we(P(), d)),
-          0 !== (qa & f)
-            ? ((u.a[ka] = a.ic(wa)),
-              (J.a[ka] = a.Gd(wa)),
-              (ka = (1 + ka) | 0),
+      M = new t(M);
+      aa = (32 - da(c | g)) | 0;
+      for (Ma = la = Ia = wa = 0; d < aa; )
+        (ra = He(P(), d)),
+          0 !== (ra & f)
+            ? ((u.a[la] = a.gc(wa)),
+              (M.a[la] = a.zd(wa)),
+              (la = (1 + la) | 0),
               (wa = (1 + wa) | 0))
-            : 0 !== (qa & p)
-            ? ((u.a[(-1 + ((K - Ka) | 0)) | 0] = a.Yd(Ha)),
-              (Ka = (1 + Ka) | 0),
-              (Ha = (1 + Ha) | 0))
-            : 0 !== (qa & y)
-            ? ((qa = Ek(D)),
-              (u.a[ka] = qa.ic(0)),
-              (J.a[ka] = qa.Gd(0)),
-              (ka = (1 + ka) | 0),
-              (Ha = (1 + Ha) | 0))
-            : 0 !== (qa & l)
-            ? ((u.a[(-1 + ((K - Ka) | 0)) | 0] = Ek(k)),
-              (Ka = (1 + Ka) | 0),
-              (Ha = (1 + Ha) | 0))
-            : 0 !== (qa & a.R)
+            : 0 !== (ra & p)
+            ? ((u.a[(-1 + ((K - Ma) | 0)) | 0] = a.Od(Ia)),
+              (Ma = (1 + Ma) | 0),
+              (Ia = (1 + Ia) | 0))
+            : 0 !== (ra & A)
+            ? ((ra = Hk(G)),
+              (u.a[la] = ra.gc(0)),
+              (M.a[la] = ra.zd(0)),
+              (la = (1 + la) | 0),
+              (Ia = (1 + Ia) | 0))
+            : 0 !== (ra & l)
+            ? ((u.a[(-1 + ((K - Ma) | 0)) | 0] = Hk(k)),
+              (Ma = (1 + Ma) | 0),
+              (Ia = (1 + Ia) | 0))
+            : 0 !== (ra & a.R)
             ? (wa = (1 + wa) | 0)
-            : 0 !== (qa & a.Qa) && (Ha = (1 + Ha) | 0),
+            : 0 !== (ra & a.Ma) && (Ia = (1 + Ia) | 0),
           (d = (1 + d) | 0);
-      a = new Ce(c, g, u, J, b, h);
+      a = new Re(c, g, u, M, b, h);
     }
     return a;
   }
   e.y = function (a) {
-    if (a instanceof Ce) {
+    if (a instanceof Re) {
       if (this === a) return !0;
       if (
-        this.Fc === a.Fc &&
-        this.Qa === a.Qa &&
+        this.zc === a.zc &&
+        this.Ma === a.Ma &&
         this.R === a.R &&
-        this.bb === a.bb
+        this.Xa === a.Xa
       ) {
-        var b = this.$b;
-        var c = a.$b;
-        b = gd(O(), b, c);
+        var b = this.Yb;
+        var c = a.Yb;
+        b = ed(O(), b, c);
       } else b = !1;
       if (b) {
-        b = this.Db;
-        a = a.Db;
-        c = this.Db.a.length;
+        b = this.Ab;
+        a = a.Ab;
+        c = this.Ab.a.length;
         if (b === a) return !0;
         for (var d = !0, f = 0; d && f < c; )
-          (d = L(M(), b.a[f], a.a[f])), (f = (1 + f) | 0);
+          (d = J(L(), b.a[f], a.a[f])), (f = (1 + f) | 0);
         return d;
       }
     }
     return !1;
   };
   e.H = function () {
-    throw Ld("Trie nodes do not support hashing.");
+    throw Yd("Trie nodes do not support hashing.");
   };
-  function Fk(a) {
-    var b = a.Db.q(),
+  function Ik(a) {
+    var b = a.Ab.o(),
       c = b.a.length,
       d = a.R;
-    for (d = ye(he(), d); d < c; ) (b.a[d] = b.a[d].zk()), (d = (1 + d) | 0);
-    return new Ce(a.R, a.Qa, b, a.$b.q(), a.bb, a.Fc);
+    for (d = Je(se(), d); d < c; ) (b.a[d] = b.a[d].zk()), (d = (1 + d) | 0);
+    return new Re(a.R, a.Ma, b, a.Yb.o(), a.Xa, a.zc);
   }
-  e.Ri = function (a) {
+  e.Mi = function (a) {
     var b = this.R;
-    b = ye(he(), b);
-    for (var c = 0; c < b; ) a.ad(this.ic(c), this.Gd(c)), (c = (1 + c) | 0);
-    b = this.Qa;
-    b = ye(he(), b);
-    for (c = 0; c < b; ) this.Yd(c).Ri(a), (c = (1 + c) | 0);
+    b = Je(se(), b);
+    for (var c = 0; c < b; ) a.Uc(this.gc(c), this.zd(c)), (c = (1 + c) | 0);
+    b = this.Ma;
+    b = Je(se(), b);
+    for (c = 0; c < b; ) this.Od(c).Mi(a), (c = (1 + c) | 0);
   };
   e.zk = function () {
-    return Fk(this);
+    return Ik(this);
   };
   e.Bk = function (a, b) {
-    return Bk(this, a, b);
+    return Ek(this, a, b);
   };
   e.Qk = function (a, b, c, d) {
-    return Lj(this, a, b, c, d);
+    return zk(this, a, b, c, d);
   };
   e.Ml = function (a, b, c, d) {
-    return Gj(this, a, b, c, d);
+    return uk(this, a, b, c, d);
   };
   e.$classData = v(
-    { xp: 0 },
+    { Cp: 0 },
     !1,
     "scala.collection.immutable.BitmapIndexedSetNode",
-    { xp: 1, pq: 1, Dj: 1, b: 1 }
+    { Cp: 1, rq: 1, Aj: 1, b: 1 }
   );
-  function zk(a, b, c) {
-    this.Rg = a;
-    this.Ke = b;
-    this.Qb = c;
-    yc();
-    if (!(2 <= this.Qb.n())) throw rd("requirement failed");
+  function Ck(a, b, c) {
+    this.Mg = a;
+    this.De = b;
+    this.Kb = c;
+    wc();
+    if (!(2 <= this.Kb.q())) throw pd("requirement failed");
   }
-  zk.prototype = new Xh();
-  zk.prototype.constructor = zk;
-  e = zk.prototype;
-  e.Cg = function (a, b, c) {
-    return this.Ke === c ? Gk(this.Qb, a) : !1;
+  Ck.prototype = new ei();
+  Ck.prototype.constructor = Ck;
+  e = Ck.prototype;
+  e.ug = function (a, b, c) {
+    return this.De === c ? Jk(this.Kb, a) : !1;
   };
   e.Ml = function (a, b, c, d) {
-    return this.Cg(a, b, c, d) ? this : new zk(b, c, this.Qb.hc(a));
+    return this.ug(a, b, c, d) ? this : new Ck(b, c, this.Kb.fc(a));
   };
   e.Qk = function (a, b, c, d) {
-    if (this.Cg(a, b, c, d)) {
-      d = Hk(this.Qb, new E(((h, k) => (l) => L(M(), l, k))(this, a)), !0);
-      if (1 === d.n()) {
-        a = we(P(), ve(P(), c, 0));
-        d = [d.t(0)];
+    if (this.ug(a, b, c, d)) {
+      d = Kk(this.Kb, new D(((h, k) => (l) => J(L(), l, k))(this, a)), !0);
+      if (1 === d.q()) {
+        a = He(P(), Ge(P(), c, 0));
+        d = [d.v(0)];
         var f = B(new C(), d);
-        De();
-        d = f.n();
+        Se();
+        d = f.q();
         d = new r(d);
-        f = new Mj(f);
-        f = new yk(f);
-        for (var g = 0; f.m(); ) (d.a[g] = f.k()), (g = (1 + g) | 0);
-        return new Ce(a, 0, d, new t(new Int32Array([b])), 1, c);
+        f = new Ak(f);
+        f = new Bk(f);
+        for (var g = 0; f.l(); ) (d.a[g] = f.k()), (g = (1 + g) | 0);
+        return new Re(a, 0, d, new t(new Int32Array([b])), 1, c);
       }
-      return new zk(b, c, d);
+      return new Ck(b, c, d);
     }
     return this;
   };
-  e.Ti = function () {
+  e.Oi = function () {
     return !1;
   };
   e.Pk = function () {
     return 0;
   };
-  e.Yd = function () {
-    throw og(new pg(), "No sub-nodes present in hash-collision leaf node.");
+  e.Od = function () {
+    throw xg(new yg(), "No sub-nodes present in hash-collision leaf node.");
   };
-  e.Ui = function () {
+  e.Pi = function () {
     return !0;
   };
-  e.bj = function () {
-    return this.Qb.n();
+  e.Yi = function () {
+    return this.Kb.q();
   };
-  e.ic = function (a) {
-    return this.Qb.t(a);
+  e.gc = function (a) {
+    return this.Kb.v(a);
   };
-  e.Gd = function () {
-    return this.Rg;
+  e.zd = function () {
+    return this.Mg;
   };
-  e.Xa = function () {
-    return this.Qb.n();
+  e.Sa = function () {
+    return this.Kb.q();
   };
   e.N = function (a) {
-    for (var b = this.Qb.i(); b.m(); ) a.l(b.k());
+    for (var b = this.Kb.h(); b.l(); ) a.m(b.k());
   };
-  e.Cd = function () {
-    return ba(this.Qb.n(), this.Ke);
+  e.vd = function () {
+    return ca(this.Kb.q(), this.De);
   };
   e.Bk = function (a, b) {
-    b = Hk(this.Qb, a, b);
-    a = b.n();
-    if (0 === a) return Fe().ig;
+    b = Kk(this.Kb, a, b);
+    a = b.q();
+    if (0 === a) return Ue().Zf;
     if (1 === a) {
-      a = we(P(), ve(P(), this.Ke, 0));
+      a = He(P(), Ge(P(), this.De, 0));
       b = [b.u()];
       var c = B(new C(), b);
-      De();
-      b = c.n();
+      Se();
+      b = c.q();
       b = new r(b);
-      c = new Mj(c);
-      c = new yk(c);
-      for (var d = 0; c.m(); ) (b.a[d] = c.k()), (d = (1 + d) | 0);
-      return new Ce(a, 0, b, new t(new Int32Array([this.Rg])), 1, this.Ke);
+      c = new Ak(c);
+      c = new Bk(c);
+      for (var d = 0; c.l(); ) (b.a[d] = c.k()), (d = (1 + d) | 0);
+      return new Re(a, 0, b, new t(new Int32Array([this.Mg])), 1, this.De);
     }
-    return b.n() === this.Qb.n() ? this : new zk(this.Rg, this.Ke, b);
+    return b.q() === this.Kb.q() ? this : new Ck(this.Mg, this.De, b);
   };
   e.y = function (a) {
-    if (a instanceof zk) {
+    if (a instanceof Ck) {
       if (this === a) return !0;
-      if (this.Ke === a.Ke && this.Qb.n() === a.Qb.n()) {
-        a = a.Qb;
-        for (var b = !0, c = this.Qb.i(); b && c.m(); )
-          (b = c.k()), (b = Gk(a, b));
+      if (this.De === a.De && this.Kb.q() === a.Kb.q()) {
+        a = a.Kb;
+        for (var b = !0, c = this.Kb.h(); b && c.l(); )
+          (b = c.k()), (b = Jk(a, b));
         return b;
       }
     }
     return !1;
   };
   e.H = function () {
-    throw Ld("Trie nodes do not support hashing.");
+    throw Yd("Trie nodes do not support hashing.");
   };
-  e.Ri = function (a) {
-    for (var b = this.Qb.i(); b.m(); ) {
+  e.Mi = function (a) {
+    for (var b = this.Kb.h(); b.l(); ) {
       var c = b.k();
-      a.ad(c, this.Rg);
+      a.Uc(c, this.Mg);
     }
   };
   e.zk = function () {
-    return new zk(this.Rg, this.Ke, this.Qb);
+    return new Ck(this.Mg, this.De, this.Kb);
   };
   e.$classData = v(
-    { yp: 0 },
+    { Dp: 0 },
     !1,
     "scala.collection.immutable.HashCollisionSetNode",
-    { yp: 1, pq: 1, Dj: 1, b: 1 }
+    { Dp: 1, rq: 1, Aj: 1, b: 1 }
   );
-  function Ik() {
-    this.bg = null;
-    Jk = this;
-    var a = Fe();
-    this.bg = new Kk(a.ig);
+  function Lk() {
+    this.Sf = null;
+    Mk = this;
+    var a = Ue();
+    this.Sf = new Nk(a.Zf);
   }
-  Ik.prototype = new q();
-  Ik.prototype.constructor = Ik;
-  Ik.prototype.X = function () {
-    return new Lk();
+  Lk.prototype = new q();
+  Lk.prototype.constructor = Lk;
+  Lk.prototype.ea = function () {
+    return new Ok();
   };
-  Ik.prototype.ga = function (a) {
-    return a instanceof Kk ? a : 0 === a.v() ? this.bg : Mk(Nk(new Lk(), a));
+  Lk.prototype.W = function (a) {
+    return a instanceof Nk ? a : 0 === a.t() ? this.Sf : Pk(Qk(new Ok(), a));
   };
-  Ik.prototype.Fb = function () {
-    return this.bg;
+  Lk.prototype.Bb = function () {
+    return this.Sf;
   };
-  Ik.prototype.$classData = v(
-    { Ap: 0 },
+  Lk.prototype.$classData = v(
+    { Fp: 0 },
     !1,
     "scala.collection.immutable.HashSet$",
-    { Ap: 1, b: 1, Hb: 1, c: 1 }
+    { Fp: 1, b: 1, Eb: 1, c: 1 }
   );
-  var Jk;
-  function Ok() {
-    Jk || (Jk = new Ik());
-    return Jk;
+  var Mk;
+  function Rk() {
+    Mk || (Mk = new Lk());
+    return Mk;
   }
-  function Pk(a, b) {
-    this.Np = a;
-    this.Op = b;
+  function Sk(a, b) {
+    this.Sp = a;
+    this.Tp = b;
   }
-  Pk.prototype = new q();
-  Pk.prototype.constructor = Pk;
-  Pk.prototype.u = function () {
-    return this.Np;
+  Sk.prototype = new q();
+  Sk.prototype.constructor = Sk;
+  Sk.prototype.u = function () {
+    return this.Sp;
   };
-  Pk.prototype.gb = function () {
-    return this.Op;
+  Sk.prototype.Ta = function () {
+    return this.Tp;
   };
-  Pk.prototype.$classData = v(
-    { Mp: 0 },
+  Sk.prototype.$classData = v(
+    { Rp: 0 },
     !1,
     "scala.collection.immutable.LazyList$State$Cons",
-    { Mp: 1, b: 1, Lp: 1, c: 1 }
+    { Rp: 1, b: 1, Qp: 1, c: 1 }
   );
-  function Qk() {}
-  Qk.prototype = new q();
-  Qk.prototype.constructor = Qk;
-  Qk.prototype.Gg = function () {
-    throw Th(new Uh(), "head of empty lazy list");
+  function Tk() {}
+  Tk.prototype = new q();
+  Tk.prototype.constructor = Tk;
+  Tk.prototype.Ag = function () {
+    throw Uk("head of empty lazy list");
   };
-  Qk.prototype.gb = function () {
-    throw Ld("tail of empty lazy list");
+  Tk.prototype.Ta = function () {
+    throw Yd("tail of empty lazy list");
   };
-  Qk.prototype.u = function () {
-    this.Gg();
+  Tk.prototype.u = function () {
+    this.Ag();
   };
-  Qk.prototype.$classData = v(
-    { Pp: 0 },
+  Tk.prototype.$classData = v(
+    { Up: 0 },
     !1,
     "scala.collection.immutable.LazyList$State$Empty$",
-    { Pp: 1, b: 1, Lp: 1, c: 1 }
+    { Up: 1, b: 1, Qp: 1, c: 1 }
   );
-  var Rk;
-  function Sk() {
-    Rk || (Rk = new Qk());
-    return Rk;
+  var Vk;
+  function Wk() {
+    Vk || (Vk = new Tk());
+    return Vk;
   }
-  function Tk(a, b) {
-    this.Oh = null;
-    this.Oh = Uk(a, b);
+  function Xk(a, b) {
+    this.Og = null;
+    this.Og = Yk(a, b);
   }
-  Tk.prototype = new Nh();
-  Tk.prototype.constructor = Tk;
-  e = Tk.prototype;
-  e.Tf = function (a) {
-    return this.Oh.Tf(a);
+  Xk.prototype = new Yh();
+  Xk.prototype.constructor = Xk;
+  e = Xk.prototype;
+  e.If = function (a) {
+    return this.Og.If(a);
+  };
+  e.vg = function (a) {
+    return this.Og.vg(a);
   };
   e.N = function (a) {
-    this.Oh.N(a);
+    this.Og.N(a);
   };
-  e.Vd = function (a) {
-    return new Tk(this.Oh, a);
+  e.Hc = function (a) {
+    return new Xk(this.Og, a);
   };
-  e.W = function (a) {
-    return this.Tf(a);
+  e.Cb = function (a) {
+    return this.vg(a);
+  };
+  e.da = function (a) {
+    return this.If(a);
   };
   e.$classData = v(
-    { Qp: 0 },
+    { Vp: 0 },
     !1,
     "scala.collection.immutable.LazyList$WithFilter",
-    { Qp: 1, ll: 1, b: 1, c: 1 }
+    { Vp: 1, ll: 1, b: 1, c: 1 }
   );
-  function Qi() {}
-  Qi.prototype = new q();
-  Qi.prototype.constructor = Qi;
-  Qi.prototype.$classData = v(
-    { Tp: 0 },
+  function Wi() {}
+  Wi.prototype = new q();
+  Wi.prototype.constructor = Wi;
+  Wi.prototype.$classData = v(
+    { Yp: 0 },
     !1,
     "scala.collection.immutable.Map$",
-    { Tp: 1, b: 1, Gs: 1, c: 1 }
+    { Yp: 1, b: 1, Is: 1, c: 1 }
   );
-  var Pi;
-  function Vk() {}
-  Vk.prototype = new q();
-  Vk.prototype.constructor = Vk;
-  function Bc(a) {
-    return a && a.$classData && a.$classData.Nb.Ks
-      ? Wk(Xk(new Yk(), a))
-      : 0 === a.v()
-      ? Zk()
-      : a && a.$classData && a.$classData.Nb.hg
+  var Vi;
+  function Zk() {}
+  Zk.prototype = new q();
+  Zk.prototype.constructor = Zk;
+  function zc(a) {
+    return a && a.$classData && a.$classData.Ib.Ms
+      ? $k(al(new bl(), a))
+      : 0 === a.t()
+      ? cl()
+      : a && a.$classData && a.$classData.Ib.Yf
       ? a
-      : Wk(Xk(new Yk(), a));
+      : $k(al(new bl(), a));
   }
-  Vk.prototype.X = function () {
-    return new Yk();
+  Zk.prototype.ea = function () {
+    return new bl();
   };
-  Vk.prototype.ga = function (a) {
-    return Bc(a);
+  Zk.prototype.W = function (a) {
+    return zc(a);
   };
-  Vk.prototype.Fb = function () {
-    return Zk();
+  Zk.prototype.Bb = function () {
+    return cl();
   };
-  Vk.prototype.$classData = v(
-    { dq: 0 },
+  Zk.prototype.$classData = v(
+    { fq: 0 },
     !1,
     "scala.collection.immutable.Set$",
-    { dq: 1, b: 1, Hb: 1, c: 1 }
+    { fq: 1, b: 1, Eb: 1, c: 1 }
   );
-  var $k;
-  function Ri() {
-    $k || ($k = new Vk());
-    return $k;
+  var dl;
+  function Xi() {
+    dl || (dl = new Zk());
+    return dl;
   }
-  function al(a) {
-    if (!a.Xg) {
-      var b = bl(a.yl, a.xq, !1);
-      a.yl = null;
-      a.Yg = b;
-      a.Xg = !0;
+  function el(a) {
+    if (!a.Ej && !a.Ej) {
+      var b = fl(a.zl, a.zq, !1);
+      a.zl = null;
+      a.yl = b;
+      a.Ej = !0;
     }
-    return a.Yg;
+    return a.yl;
   }
-  function cl(a, b) {
-    this.Yg = null;
-    this.Xg = !1;
-    this.xq = b;
-    this.yl = a;
+  function gl(a, b) {
+    this.yl = null;
+    this.Ej = !1;
+    this.zq = b;
+    this.zl = a;
   }
-  cl.prototype = new Nh();
-  cl.prototype.constructor = cl;
-  cl.prototype.N = function (a) {
-    (this.Xg ? this.Yg : al(this)).N(a);
+  gl.prototype = new Yh();
+  gl.prototype.constructor = gl;
+  e = gl.prototype;
+  e.N = function (a) {
+    el(this).N(a);
   };
-  cl.prototype.Vd = function (a) {
-    return new cl(this.Xg ? this.Yg : al(this), a);
+  e.Hc = function (a) {
+    return new gl(el(this), a);
   };
-  cl.prototype.W = function (a) {
-    return dl(this.Xg ? this.Yg : al(this), a);
+  e.Cb = function (a) {
+    return hl(el(this), a);
   };
-  cl.prototype.$classData = v(
-    { wq: 0 },
+  e.da = function (a) {
+    return il(el(this), a);
+  };
+  e.$classData = v(
+    { yq: 0 },
     !1,
     "scala.collection.immutable.Stream$WithFilter",
-    { wq: 1, ll: 1, b: 1, c: 1 }
+    { yq: 1, ll: 1, b: 1, c: 1 }
   );
-  function el() {}
-  el.prototype = new q();
-  el.prototype.constructor = el;
-  el.prototype.X = function () {
-    return new fl(16, 0.75);
+  function jl() {}
+  jl.prototype = new q();
+  jl.prototype.constructor = jl;
+  jl.prototype.ea = function () {
+    return new kl(16, 0.75);
   };
-  el.prototype.Fb = function () {
-    var a = new gl();
-    hl(a, 16, 0.75);
+  jl.prototype.Bb = function () {
+    var a = new ll();
+    ml(a, 16, 0.75);
     return a;
   };
-  el.prototype.ga = function (a) {
-    var b = a.v();
-    return il(hl(new gl(), 0 < b ? Ja(((1 + b) | 0) / 0.75) : 16, 0.75), a);
+  jl.prototype.W = function (a) {
+    var b = a.t();
+    return nl(ml(new ll(), 0 < b ? Ga(((1 + b) | 0) / 0.75) : 16, 0.75), a);
   };
-  el.prototype.$classData = v(
-    { hr: 0 },
+  jl.prototype.$classData = v(
+    { jr: 0 },
     !1,
     "scala.collection.mutable.HashSet$",
-    { hr: 1, b: 1, Hb: 1, c: 1 }
+    { jr: 1, b: 1, Eb: 1, c: 1 }
   );
-  var jl;
-  function kl() {
-    jl || (jl = new el());
-    return jl;
+  var ol;
+  function pl() {
+    ol || (ol = new jl());
+    return ol;
   }
-  function Hf() {}
-  Hf.prototype = new q();
-  Hf.prototype.constructor = Hf;
-  Hf.prototype.$classData = v({ Dn: 0 }, !1, "scala.math.Equiv$", {
+  function Rf() {}
+  Rf.prototype = new q();
+  Rf.prototype.constructor = Rf;
+  Rf.prototype.$classData = v({ Dn: 0 }, !1, "scala.math.Equiv$", {
     Dn: 1,
     b: 1,
-    js: 1,
+    ls: 1,
     c: 1,
   });
-  var Gf;
-  function Pf() {}
-  Pf.prototype = new q();
-  Pf.prototype.constructor = Pf;
-  Pf.prototype.$classData = v({ Jn: 0 }, !1, "scala.math.Ordering$", {
+  var Qf;
+  function Zf() {}
+  Zf.prototype = new q();
+  Zf.prototype.constructor = Zf;
+  Zf.prototype.$classData = v({ Jn: 0 }, !1, "scala.math.Ordering$", {
     Jn: 1,
     b: 1,
-    ks: 1,
+    ms: 1,
     c: 1,
   });
-  var Of;
-  function Ti() {}
-  Ti.prototype = new q();
-  Ti.prototype.constructor = Ti;
-  Ti.prototype.z = function () {
+  var Yf;
+  function Zi() {}
+  Zi.prototype = new q();
+  Zi.prototype.constructor = Zi;
+  Zi.prototype.z = function () {
     return "\x3c?\x3e";
   };
-  Ti.prototype.$classData = v({ ao: 0 }, !1, "scala.reflect.NoManifest$", {
+  Zi.prototype.$classData = v({ ao: 0 }, !1, "scala.reflect.NoManifest$", {
     ao: 1,
     b: 1,
-    Sc: 1,
+    Lc: 1,
     c: 1,
   });
-  var Si,
-    li = v({ Or: 0 }, !1, "scala.runtime.Nothing$", {
-      Or: 1,
-      fc: 1,
+  var Yi,
+    ri = v({ Qr: 0 }, !1, "scala.runtime.Nothing$", {
+      Qr: 1,
+      ec: 1,
       b: 1,
       c: 1,
     });
   function H(a) {
-    this.Dr = a;
-  }
-  H.prototype = new vi();
-  H.prototype.constructor = H;
-  function Zd(a) {
-    return (0, a.Dr)();
-  }
-  H.prototype.$classData = v(
-    { Cr: 0 },
-    !1,
-    "scala.scalajs.runtime.AnonFunction0",
-    { Cr: 1, Rs: 1, b: 1, Vr: 1 }
-  );
-  function E(a) {
     this.Fr = a;
   }
-  E.prototype = new xi();
-  E.prototype.constructor = E;
-  E.prototype.l = function (a) {
-    return (0, this.Fr)(a);
-  };
-  E.prototype.$classData = v(
+  H.prototype = new Bi();
+  H.prototype.constructor = H;
+  function je(a) {
+    return (0, a.Fr)();
+  }
+  H.prototype.$classData = v(
     { Er: 0 },
     !1,
-    "scala.scalajs.runtime.AnonFunction1",
-    { Er: 1, Ss: 1, b: 1, O: 1 }
+    "scala.scalajs.runtime.AnonFunction0",
+    { Er: 1, Ts: 1, b: 1, Xr: 1 }
   );
-  function Sd(a) {
+  function D(a) {
     this.Hr = a;
   }
-  Sd.prototype = new zi();
-  Sd.prototype.constructor = Sd;
-  Sd.prototype.ad = function (a, b) {
-    return (0, this.Hr)(a, b);
+  D.prototype = new Di();
+  D.prototype.constructor = D;
+  D.prototype.m = function (a) {
+    return (0, this.Hr)(a);
   };
-  Sd.prototype.$classData = v(
+  D.prototype.$classData = v(
     { Gr: 0 },
     !1,
-    "scala.scalajs.runtime.AnonFunction2",
-    { Gr: 1, ng: 1, b: 1, Hf: 1 }
+    "scala.scalajs.runtime.AnonFunction1",
+    { Gr: 1, Us: 1, b: 1, O: 1 }
   );
-  function ll() {
-    this.Cb = null;
-    var a = new Ng();
-    Sg || (Sg = new Rg());
-    var b = Qg();
-    var c = Qg();
-    b = new n(c, b);
-    c = -554899859 ^ b.Fa;
-    a.Yi = (c >>> 24) | 0 | ((65535 & (5 ^ b.Ea)) << 8);
-    a.Zi = 16777215 & c;
-    a.pn = !1;
-    this.Cb = a;
+  function ce(a) {
+    this.Jr = a;
   }
-  ll.prototype = new Ei();
-  ll.prototype.constructor = ll;
-  ll.prototype.$classData = v({ fo: 0 }, !1, "scala.util.Random$", {
+  ce.prototype = new Fi();
+  ce.prototype.constructor = ce;
+  ce.prototype.Uc = function (a, b) {
+    return (0, this.Jr)(a, b);
+  };
+  ce.prototype.$classData = v(
+    { Ir: 0 },
+    !1,
+    "scala.scalajs.runtime.AnonFunction2",
+    { Ir: 1, dg: 1, b: 1, xf: 1 }
+  );
+  function ql() {
+    this.zb = null;
+    var a = new rh();
+    xh || (xh = new wh());
+    var b = vh();
+    var c = vh();
+    b = new n(c, b);
+    c = -554899859 ^ b.bb;
+    a.Ti = (c >>> 24) | 0 | ((65535 & (5 ^ b.ab)) << 8);
+    a.Ui = 16777215 & c;
+    a.pn = !1;
+    this.zb = a;
+  }
+  ql.prototype = new Ki();
+  ql.prototype.constructor = ql;
+  ql.prototype.$classData = v({ fo: 0 }, !1, "scala.util.Random$", {
     fo: 1,
-    zs: 1,
+    Bs: 1,
     b: 1,
     c: 1,
   });
-  var ml;
-  function nl() {
-    ml || (ml = new ll());
-    return ml;
+  var rl;
+  function sl() {
+    rl || (rl = new ql());
+    return rl;
   }
-  function kc() {}
-  kc.prototype = new zi();
-  kc.prototype.constructor = kc;
-  kc.prototype.z = function () {
+  function ic() {}
+  ic.prototype = new Fi();
+  ic.prototype.constructor = ic;
+  ic.prototype.z = function () {
     return "Asteroids";
   };
-  kc.prototype.ad = function (a, b) {
-    return new ol(a, b);
+  ic.prototype.Uc = function (a, b) {
+    return new tl(a, b);
   };
-  kc.prototype.$classData = v({ Pl: 0 }, !1, "example.Asteroids$", {
+  ic.prototype.$classData = v({ Pl: 0 }, !1, "example.Asteroids$", {
     Pl: 1,
-    ng: 1,
+    dg: 1,
     b: 1,
-    Hf: 1,
+    xf: 1,
+    c: 1,
+  });
+  var hc;
+  function kc() {}
+  kc.prototype = new Fi();
+  kc.prototype.constructor = kc;
+  kc.prototype.z = function () {
+    return "AstroLander";
+  };
+  kc.prototype.Uc = function (a, b) {
+    return new ul(a, b);
+  };
+  kc.prototype.$classData = v({ Ul: 0 }, !1, "example.AstroLander$", {
+    Ul: 1,
+    dg: 1,
+    b: 1,
+    xf: 1,
     c: 1,
   });
   var jc;
-  function mc() {}
-  mc.prototype = new zi();
-  mc.prototype.constructor = mc;
-  mc.prototype.z = function () {
-    return "AstroLander";
-  };
-  mc.prototype.ad = function (a, b) {
-    return new pl(a, b);
-  };
-  mc.prototype.$classData = v({ Ul: 0 }, !1, "example.AstroLander$", {
-    Ul: 1,
-    ng: 1,
-    b: 1,
-    Hf: 1,
-    c: 1,
-  });
-  var lc;
-  function ql(a, b) {
-    this.zc = a;
-    this.tg = b;
+  function vl(a, b) {
+    this.wc = a;
+    this.lg = b;
   }
-  ql.prototype = new q();
-  ql.prototype.constructor = ql;
-  e = ql.prototype;
-  e.ib = function () {
+  vl.prototype = new q();
+  vl.prototype.constructor = vl;
+  e = vl.prototype;
+  e.cb = function () {
     return "Brick";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.zc;
+        return this.wc;
       case 1:
-        return this.tg;
+        return this.lg;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     if (this === a) return !0;
-    if (a instanceof ql) {
-      var b = this.zc,
-        c = a.zc;
-      return (null === b ? null === c : b.y(c)) ? this.tg === a.tg : !1;
+    if (a instanceof vl) {
+      var b = this.wc,
+        c = a.wc;
+      return (null === b ? null === c : b.y(c)) ? this.lg === a.lg : !1;
     }
     return !1;
   };
   e.$classData = v({ Vl: 0 }, !1, "example.Brick", {
     Vl: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function sc() {}
-  sc.prototype = new zi();
-  sc.prototype.constructor = sc;
-  sc.prototype.z = function () {
+  function qc() {}
+  qc.prototype = new Fi();
+  qc.prototype.constructor = qc;
+  qc.prototype.z = function () {
     return "BrickBreaker";
   };
-  sc.prototype.ad = function (a, b) {
-    return new rl(a, b);
+  qc.prototype.Uc = function (a, b) {
+    return new wl(a, b);
   };
-  sc.prototype.$classData = v({ Xl: 0 }, !1, "example.BrickBreaker$", {
+  qc.prototype.$classData = v({ Xl: 0 }, !1, "example.BrickBreaker$", {
     Xl: 1,
-    ng: 1,
+    dg: 1,
     b: 1,
-    Hf: 1,
+    xf: 1,
     c: 1,
   });
-  var rc;
-  function A(a, b) {
-    this.h = a;
+  var pc;
+  function z(a, b) {
+    this.i = a;
     this.g = b;
   }
-  A.prototype = new q();
-  A.prototype.constructor = A;
-  function z(a, b) {
-    return new A(a.h + b.h, a.g + b.g);
+  z.prototype = new q();
+  z.prototype.constructor = z;
+  function y(a, b) {
+    return new z(a.i + b.i, a.g + b.g);
   }
-  function rb(a, b) {
-    return new A(a.h - b.h, a.g - b.g);
+  function pb(a, b) {
+    return new z(a.i - b.i, a.g - b.g);
   }
-  function ob(a, b) {
-    return new A(a.h % b.h, a.g % b.g);
-  }
-  function ub(a, b) {
-    return new A(a.h / b, a.g / b);
+  function mb(a, b) {
+    return new z(a.i % b.i, a.g % b.g);
   }
   function sb(a, b) {
-    return new A(a.h * b, a.g * b);
+    return new z(a.i / b, a.g / b);
   }
-  function sl(a, b) {
-    return a.h * b.h + a.g * b.g;
+  function qb(a, b) {
+    return new z(a.i * b, a.g * b);
   }
-  function vb(a) {
-    return +Math.sqrt(tl(a));
+  function xl(a, b) {
+    return a.i * b.i + a.g * b.g;
   }
-  function tl(a) {
-    return a.h * a.h + a.g * a.g;
+  function tb(a) {
+    return +Math.sqrt(yl(a));
   }
-  function qb(a, b, c, d) {
-    return a.h >= +Math.min(b.h, c.h) - d.h &&
-      a.h < +Math.max(b.h, c.h) + d.g &&
-      a.g >= +Math.min(b.g, c.g) - d.h
+  function yl(a) {
+    return a.i * a.i + a.g * a.g;
+  }
+  function ob(a, b, c, d) {
+    return a.i >= +Math.min(b.i, c.i) - d.i &&
+      a.i < +Math.max(b.i, c.i) + d.g &&
+      a.g >= +Math.min(b.g, c.g) - d.i
       ? a.g < +Math.max(b.g, c.g) + d.g
       : !1;
   }
-  function yb(a, b) {
+  function wb(a, b) {
     var c = +Math.cos(b);
     b = +Math.sin(b);
-    return new A(c * a.h - b * a.g, b * a.h + c * a.g);
+    return new z(c * a.i - b * a.g, b * a.i + c * a.g);
   }
-  e = A.prototype;
-  e.ib = function () {
+  e = z.prototype;
+  e.cb = function () {
     return "Point";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.h;
+        return this.i;
       case 1:
         return this.g;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    var a = Ca("Point");
-    a = X().p(-889275714, a);
-    var b = this.h;
-    b = lg(X(), b);
-    a = X().p(a, b);
+    var a = Da("Point");
+    a = Y().p(-889275714, a);
+    var b = this.i;
+    b = ug(Y(), b);
+    a = Y().p(a, b);
     b = this.g;
-    b = lg(X(), b);
-    a = X().p(a, b);
-    return X().L(a, 2);
+    b = ug(Y(), b);
+    a = Y().p(a, b);
+    return Y().L(a, 2);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     return this === a
       ? !0
-      : a instanceof A
-      ? this.h === a.h && this.g === a.g
+      : a instanceof z
+      ? this.i === a.i && this.g === a.g
       : !1;
   };
   e.$classData = v({ em: 0 }, !1, "example.Point", {
     em: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function qc() {}
-  qc.prototype = new zi();
-  qc.prototype.constructor = qc;
-  qc.prototype.z = function () {
-    return "Pong";
-  };
-  qc.prototype.ad = function (a, b) {
-    return new ul(a, b);
-  };
-  qc.prototype.$classData = v({ gm: 0 }, !1, "example.Pong$", {
-    gm: 1,
-    ng: 1,
-    b: 1,
-    Hf: 1,
-    c: 1,
-  });
-  var pc;
   function oc() {}
-  oc.prototype = new zi();
+  oc.prototype = new Fi();
   oc.prototype.constructor = oc;
   oc.prototype.z = function () {
-    return "Snake";
+    return "Pong";
   };
-  oc.prototype.ad = function (a, b) {
-    return new vl(a, b);
+  oc.prototype.Uc = function (a, b) {
+    return new zl(a, b);
   };
-  oc.prototype.$classData = v({ jm: 0 }, !1, "example.Snake$", {
-    jm: 1,
-    ng: 1,
+  oc.prototype.$classData = v({ gm: 0 }, !1, "example.Pong$", {
+    gm: 1,
+    dg: 1,
     b: 1,
-    Hf: 1,
+    xf: 1,
     c: 1,
   });
   var nc;
-  function uc() {}
-  uc.prototype = new zi();
-  uc.prototype.constructor = uc;
-  uc.prototype.z = function () {
+  function mc() {}
+  mc.prototype = new Fi();
+  mc.prototype.constructor = mc;
+  mc.prototype.z = function () {
+    return "Snake";
+  };
+  mc.prototype.Uc = function (a, b) {
+    return new Al(a, b);
+  };
+  mc.prototype.$classData = v({ jm: 0 }, !1, "example.Snake$", {
+    jm: 1,
+    dg: 1,
+    b: 1,
+    xf: 1,
+    c: 1,
+  });
+  var lc;
+  function sc() {}
+  sc.prototype = new Fi();
+  sc.prototype.constructor = sc;
+  sc.prototype.z = function () {
     return "Tetris";
   };
-  uc.prototype.ad = function (a, b) {
-    return new wl(a, b);
+  sc.prototype.Uc = function (a, b) {
+    return new Bl(a, b);
   };
-  uc.prototype.$classData = v({ mm: 0 }, !1, "example.Tetris$", {
+  sc.prototype.$classData = v({ mm: 0 }, !1, "example.Tetris$", {
     mm: 1,
-    ng: 1,
+    dg: 1,
     b: 1,
-    Hf: 1,
+    xf: 1,
     c: 1,
   });
-  var tc;
-  function xl() {}
-  xl.prototype = new q();
-  xl.prototype.constructor = xl;
-  function yl() {}
-  yl.prototype = xl.prototype;
-  class zl extends Ji {
+  var rc;
+  function Cl() {}
+  Cl.prototype = new q();
+  Cl.prototype.constructor = Cl;
+  function Dl() {}
+  Dl.prototype = Cl.prototype;
+  class El extends Pi {
     constructor() {
       super();
-      oe(this, "assertion failed: Array.length must be power of 2");
+      ze(this, "assertion failed: Array.length must be power of 2");
     }
   }
-  zl.prototype.$classData = v({ Em: 0 }, !1, "java.lang.AssertionError", {
+  El.prototype.$classData = v({ Em: 0 }, !1, "java.lang.AssertionError", {
     Em: 1,
-    Yr: 1,
-    fc: 1,
-    b: 1,
-    c: 1,
-  });
-  var na = v(
-    { Hm: 0 },
-    !1,
-    "java.lang.Byte",
-    { Hm: 1, Ig: 1, b: 1, c: 1, Ee: 1 },
-    (a) => "number" === typeof a && (a << 24) >> 24 === a && 1 / a !== 1 / -0
-  );
-  function Da(a) {
-    a = +a;
-    return Oc(Pc(), a);
-  }
-  var ra = v(
-      { Lm: 0 },
-      !1,
-      "java.lang.Float",
-      { Lm: 1, Ig: 1, b: 1, c: 1, Ee: 1 },
-      (a) => "number" === typeof a
-    ),
-    pa = v(
-      { Om: 0 },
-      !1,
-      "java.lang.Integer",
-      { Om: 1, Ig: 1, b: 1, c: 1, Ee: 1 },
-      (a) => ma(a)
-    ),
-    ua = v(
-      { Tm: 0 },
-      !1,
-      "java.lang.Long",
-      { Tm: 1, Ig: 1, b: 1, c: 1, Ee: 1 },
-      (a) => a instanceof n
-    );
-  class Al extends Ki {}
-  Al.prototype.$classData = v({ sc: 0 }, !1, "java.lang.RuntimeException", {
-    sc: 1,
-    jc: 1,
-    fc: 1,
+    $r: 1,
+    ec: 1,
     b: 1,
     c: 1,
   });
   var oa = v(
+    { Hm: 0 },
+    !1,
+    "java.lang.Byte",
+    { Hm: 1, Cg: 1, b: 1, c: 1, ye: 1 },
+    (a) => "number" === typeof a && (a << 24) >> 24 === a && 1 / a !== 1 / -0
+  );
+  function Ea(a) {
+    a = +a;
+    return Mc(Nc(), a);
+  }
+  var sa = v(
+      { Lm: 0 },
+      !1,
+      "java.lang.Float",
+      { Lm: 1, Cg: 1, b: 1, c: 1, ye: 1 },
+      (a) => "number" === typeof a
+    ),
+    qa = v(
+      { Om: 0 },
+      !1,
+      "java.lang.Integer",
+      { Om: 1, Cg: 1, b: 1, c: 1, ye: 1 },
+      (a) => na(a)
+    ),
+    va = v(
+      { Tm: 0 },
+      !1,
+      "java.lang.Long",
+      { Tm: 1, Cg: 1, b: 1, c: 1, ye: 1 },
+      (a) => a instanceof n
+    );
+  class Fl extends Qi {}
+  Fl.prototype.$classData = v({ rc: 0 }, !1, "java.lang.RuntimeException", {
+    rc: 1,
+    hc: 1,
+    ec: 1,
+    b: 1,
+    c: 1,
+  });
+  var pa = v(
     { Xm: 0 },
     !1,
     "java.lang.Short",
-    { Xm: 1, Ig: 1, b: 1, c: 1, Ee: 1 },
+    { Xm: 1, Cg: 1, b: 1, c: 1, ye: 1 },
     (a) => "number" === typeof a && (a << 16) >> 16 === a && 1 / a !== 1 / -0
   );
-  function Ca(a) {
+  function Da(a) {
     for (var b = 0, c = 1, d = (-1 + (a.length | 0)) | 0; 0 <= d; )
-      (b = (b + ba(65535 & (a.charCodeAt(d) | 0), c)) | 0),
-        (c = ba(31, c)),
+      (b = (b + ca(65535 & (a.charCodeAt(d) | 0), c)) | 0),
+        (c = ca(31, c)),
         (d = (-1 + d) | 0);
     return b;
   }
-  var la = v(
+  var ma = v(
     { wm: 0 },
     !1,
     "java.lang.String",
-    { wm: 1, b: 1, c: 1, Ee: 1, Ek: 1 },
+    { wm: 1, b: 1, c: 1, ye: 1, Ek: 1 },
     (a) => "string" === typeof a
   );
-  function Bl(a) {
-    a.o = "";
+  function Gl(a) {
+    a.n = "";
     return a;
   }
-  function Cl(a) {
-    var b = new Dl();
-    Bl(b);
-    if (null === a) throw new fg();
-    b.o = a;
+  function Hl(a) {
+    var b = new Il();
+    Gl(b);
+    if (null === a) throw new og();
+    b.n = a;
     return b;
   }
-  function Dl() {
-    this.o = null;
+  function Il() {
+    this.n = null;
   }
-  Dl.prototype = new q();
-  Dl.prototype.constructor = Dl;
-  function El(a, b) {
-    Lg || (Lg = new Kg());
+  Il.prototype = new q();
+  Il.prototype.constructor = Il;
+  function Jl(a, b) {
+    ph || (ph = new oh());
     var c = (0 + b.a.length) | 0;
-    if (0 > c || c > b.a.length) throw ((a = new Fl()), oe(a, null), a);
+    if (0 > c || c > b.a.length) throw ((a = new Kl()), ze(a, null), a);
     for (var d = "", f = 0; f !== c; )
       (d = "" + d + String.fromCharCode(b.a[f])), (f = (1 + f) | 0);
-    a.o = "" + a.o + d;
+    a.n = "" + a.n + d;
   }
-  Dl.prototype.z = function () {
-    return this.o;
+  Il.prototype.z = function () {
+    return this.n;
   };
-  Dl.prototype.n = function () {
-    return this.o.length | 0;
+  Il.prototype.q = function () {
+    return this.n.length | 0;
   };
-  function Gl(a, b) {
-    return 65535 & (a.o.charCodeAt(b) | 0);
+  function Ll(a, b) {
+    return 65535 & (a.n.charCodeAt(b) | 0);
   }
-  Dl.prototype.$classData = v({ Zm: 0 }, !1, "java.lang.StringBuilder", {
+  Il.prototype.$classData = v({ Zm: 0 }, !1, "java.lang.StringBuilder", {
     Zm: 1,
     b: 1,
     Ek: 1,
@@ -4668,1055 +4646,1076 @@ let ScalaJSExample;
     c: 1,
   });
   function n(a, b) {
-    this.Fa = a;
-    this.Ea = b;
+    this.bb = a;
+    this.ab = b;
   }
-  n.prototype = new Jg();
+  n.prototype = new nh();
   n.prototype.constructor = n;
   n.prototype.y = function (a) {
-    return a instanceof n ? this.Fa === a.Fa && this.Ea === a.Ea : !1;
+    return a instanceof n ? this.bb === a.bb && this.ab === a.ab : !1;
   };
   n.prototype.H = function () {
-    return this.Fa ^ this.Ea;
+    return this.bb ^ this.ab;
   };
   n.prototype.z = function () {
-    var a = ag(),
-      b = this.Fa,
-      c = this.Ea;
-    return c === b >> 31
-      ? "" + b
-      : 0 > c
-      ? "-" + Tg(a, -b | 0, 0 !== b ? ~c : -c | 0)
-      : Tg(a, b, c);
+    kg();
+    var a = this.bb,
+      b = this.ab;
+    return b === a >> 31
+      ? "" + a
+      : 0 > b
+      ? "-" + yh(-a | 0, 0 !== a ? ~b : -b | 0)
+      : yh(a, b);
   };
   n.prototype.$classData = v(
     { um: 0 },
     !1,
     "org.scalajs.linker.runtime.RuntimeLong",
-    { um: 1, Ig: 1, b: 1, c: 1, Ee: 1 }
+    { um: 1, Cg: 1, b: 1, c: 1, ye: 1 }
   );
-  function Hl() {}
-  Hl.prototype = new Mi();
-  Hl.prototype.constructor = Hl;
-  function Il() {}
-  Il.prototype = Hl.prototype;
-  function Jl() {}
-  Jl.prototype = new q();
-  Jl.prototype.constructor = Jl;
-  function Kl() {}
-  e = Kl.prototype = Jl.prototype;
-  e.i = function () {
+  function Ml() {}
+  Ml.prototype = new Si();
+  Ml.prototype.constructor = Ml;
+  function Nl() {}
+  Nl.prototype = Ml.prototype;
+  function Ol() {}
+  Ol.prototype = new q();
+  Ol.prototype.constructor = Ol;
+  function Pl() {}
+  e = Pl.prototype = Ol.prototype;
+  e.h = function () {
     return this;
   };
   e.e = function () {
-    return !this.m();
+    return !this.l();
   };
-  e.Dd = function (a) {
-    return new Ll(this).Dd(a);
+  e.wd = function (a) {
+    return new Ql(this).wd(a);
   };
-  e.Ed = function (a) {
-    return qj(this, a);
+  e.xd = function (a) {
+    return tj(this, a);
   };
   e.z = function () {
     return "\x3citerator\x3e";
   };
-  e.Fe = function (a) {
-    return Kd(this, a);
+  e.ze = function (a) {
+    return Xd(this, a);
   };
-  e.Ob = function (a, b, c) {
-    return Md(this, a, b, c);
+  e.Pb = function (a, b, c) {
+    return Zd(this, a, b, c);
   };
-  e.le = function (a, b, c, d) {
-    return Vd(this, a, b, c, d);
+  e.ae = function (a, b, c, d) {
+    return fe(this, a, b, c, d);
   };
-  e.v = function () {
+  e.t = function () {
     return -1;
   };
-  function uf() {
-    this.pe = null;
-    Ml || (Ml = new Nl());
-    this.pe = Ml;
+  function Ff() {
+    this.ee = null;
+    Rl || (Rl = new Sl());
+    this.ee = Rl;
   }
-  uf.prototype = new aj();
-  uf.prototype.constructor = uf;
-  uf.prototype.$classData = v({ Io: 0 }, !1, "scala.collection.Iterable$", {
-    Io: 1,
+  Ff.prototype = new fj();
+  Ff.prototype.constructor = Ff;
+  Ff.prototype.$classData = v({ Ko: 0 }, !1, "scala.collection.Iterable$", {
+    Ko: 1,
     Xk: 1,
     b: 1,
-    Hb: 1,
+    Eb: 1,
     c: 1,
   });
-  var tf;
-  function Ol() {
-    this.hd = null;
+  var Ef;
+  function Tl() {
+    this.ad = null;
   }
-  Ol.prototype = new q();
-  Ol.prototype.constructor = Ol;
-  function Pl() {}
-  Pl.prototype = Ol.prototype;
-  function zb(a, b) {
-    return a.hd.nd(b);
+  Tl.prototype = new q();
+  Tl.prototype.constructor = Tl;
+  function Ul() {}
+  Ul.prototype = Tl.prototype;
+  function xb(a, b) {
+    return a.ad.gd(b);
   }
-  e = Ol.prototype;
-  e.Ce = function (a) {
-    return this.hd.ga(a);
+  e = Tl.prototype;
+  e.we = function (a) {
+    return this.ad.W(a);
   };
-  e.X = function () {
-    return this.hd.X();
+  e.ea = function () {
+    return this.ad.ea();
   };
-  e.ga = function (a) {
-    return this.Ce(a);
+  e.W = function (a) {
+    return this.we(a);
   };
-  e.Fb = function () {
-    return this.hd.Fb();
+  e.Bb = function () {
+    return this.ad.Bb();
   };
-  e.nd = function (a) {
-    return zb(this, a);
+  e.gd = function (a) {
+    return xb(this, a);
   };
-  function Ql(a, b) {
-    return a.De(new E(((c, d) => (f) => L(M(), d, f))(a, b)), 0);
+  function Vl(a, b) {
+    return a.xe(new D(((c, d) => (f) => J(L(), d, f))(a, b)), 0);
   }
-  function Gk(a, b) {
-    return a.Qf(new E(((c, d) => (f) => L(M(), f, d))(a, b)));
+  function Jk(a, b) {
+    return a.Gf(new D(((c, d) => (f) => J(L(), f, d))(a, b)));
   }
-  function Rl(a, b) {
-    var c = a.v();
+  function Wl(a, b) {
+    var c = a.t();
     if (-1 !== c) {
-      var d = b.v();
+      var d = b.t();
       c = -1 !== d && c !== d;
     } else c = !1;
     if (c) return !1;
     a: {
-      a = a.i();
-      for (b = b.i(); a.m() && b.m(); )
-        if (!L(M(), a.k(), b.k())) {
+      a = a.h();
+      for (b = b.h(); a.l() && b.l(); )
+        if (!J(L(), a.k(), b.k())) {
           b = !1;
           break a;
         }
-      b = a.m() === b.m();
+      b = a.l() === b.l();
     }
     return b;
   }
-  function Sl(a, b) {
-    var c = a.ha().X(),
-      d = a.ha().X();
+  function Xl(a, b) {
+    var c = a.X().ea(),
+      d = a.X().ea();
     a.N(
-      new E(
+      new D(
         ((f, g, h, k) => (l) => {
-          l = g.l(l);
-          h.Oa(l.Ac());
-          return k.Oa(l.Bc());
+          l = g.m(l);
+          h.Ia(l.dc());
+          return k.Ia(l.qc());
         })(a, b, c, d)
       )
     );
-    return kj(new lj(), c.Ua(), d.Ua());
+    return Hd(new Id(), c.Wa(), d.Wa());
   }
-  function Tl(a, b) {
-    var c = a.ha().X();
-    for (a = a.i(); a.m(); ) {
-      var d = b.l(a.k());
-      c.Oa(d);
+  function Yl(a, b) {
+    var c = a.X().ea();
+    for (a = a.h(); a.l(); ) {
+      var d = b.m(a.k());
+      c.Ia(d);
     }
-    return c.Ua();
+    return c.Wa();
   }
-  function Ul(a, b) {
-    var c = a.ha().X();
-    for (a = a.i(); a.m(); ) {
-      var d = b.l(a.k());
-      c.qb(d);
+  function Zl(a, b) {
+    var c = a.X().ea();
+    for (a = a.h(); a.l(); ) {
+      var d = b.m(a.k());
+      c.wb(d);
     }
-    return c.Ua();
+    return c.Wa();
   }
-  function Vl(a, b) {
-    var c = a.ha().X();
-    for (a = a.i(); a.m(); ) {
-      var d = b.l(a.k());
-      c.qb(d);
+  function $l(a, b) {
+    var c = a.X().ea();
+    for (a = a.h(); a.l(); ) {
+      var d = b.m(a.k());
+      c.wb(d);
     }
-    return c.Ua();
+    return c.Wa();
   }
-  function Wl(a, b) {
-    var c = a.ha().X();
-    a = a.i();
-    for (b = b.i(); a.m() && b.m(); ) {
-      var d = kj(new lj(), a.k(), b.k());
-      c.Oa(d);
+  function am(a, b) {
+    var c = a.X().ea();
+    a = a.h();
+    for (b = b.h(); a.l() && b.l(); ) {
+      var d = Hd(new Id(), a.k(), b.k());
+      c.Ia(d);
     }
-    return c.Ua();
+    return c.Wa();
   }
-  function Xl(a, b) {
-    var c = a.aj();
-    for (a = a.i(); a.m(); ) {
+  function bm(a) {
+    var b = a.X().ea(),
+      c = 0;
+    for (a = a.h(); a.l(); ) {
+      var d = Hd(new Id(), a.k(), c);
+      b.Ia(d);
+      c = (1 + c) | 0;
+    }
+    return b.Wa();
+  }
+  function cm(a, b) {
+    var c = a.Wi();
+    for (a = a.h(); a.l(); ) {
       var d = a.k();
-      !1 !== !!b.l(d) && c.Oa(d);
+      !1 !== !!b.m(d) && c.Ia(d);
     }
-    return c.Ua();
+    return c.Wa();
   }
-  function Nl() {
-    this.pe = null;
-    this.pe = zc();
+  function Sl() {
+    this.ee = null;
+    this.ee = xc();
   }
-  Nl.prototype = new aj();
-  Nl.prototype.constructor = Nl;
-  Nl.prototype.ga = function (a) {
-    return ff(a) ? a : $i.prototype.ga.call(this, a);
+  Sl.prototype = new fj();
+  Sl.prototype.constructor = Sl;
+  Sl.prototype.W = function (a) {
+    return rf(a) ? a : ej.prototype.W.call(this, a);
   };
-  Nl.prototype.$classData = v(
-    { Fp: 0 },
+  Sl.prototype.$classData = v(
+    { Kp: 0 },
     !1,
     "scala.collection.immutable.Iterable$",
-    { Fp: 1, Xk: 1, b: 1, Hb: 1, c: 1 }
+    { Kp: 1, Xk: 1, b: 1, Eb: 1, c: 1 }
   );
-  var Ml;
-  function Yl() {
-    this.Le = null;
-    Zl = this;
-    this.Le = $l(new am(new H((() => () => Sk())(this))));
+  var Rl;
+  function dm() {
+    this.ie = null;
+    em = this;
+    this.ie = fm(new gm(new H((() => () => Wk())(this))));
   }
-  Yl.prototype = new q();
-  Yl.prototype.constructor = Yl;
-  e = Yl.prototype;
-  e.nd = function (a) {
-    return yj(this, a);
+  dm.prototype = new q();
+  dm.prototype.constructor = dm;
+  e = dm.prototype;
+  e.gd = function (a) {
+    return Bj(this, a);
   };
-  function bm(a, b, c, d) {
-    return new am(
+  function hm(a, b, c, d) {
+    return new gm(
       new H(
         ((f, g, h, k) => () => {
-          for (var l = null, p = !1, u = g.fa; !p && !u.e(); )
-            (l = Y(u).u()), (p = !!h.l(l) !== k), (u = Y(u).gb()), (g.fa = u);
-          return p ? (Bf(), (u = bm(Bf(), u, h, k)), new Pk(l, u)) : Sk();
-        })(a, new Ci(b), c, d)
+          for (var l = null, p = !1, u = g.ha; !p && !u.e(); )
+            (l = Z(u).u()), (p = !!h.m(l) !== k), (u = Z(u).Ta()), (g.ha = u);
+          return p ? (X(), (u = hm(X(), u, h, k)), new Sk(l, u)) : Wk();
+        })(a, new Ii(b), c, d)
       )
     );
   }
-  function cm(a, b, c) {
-    return new am(
+  function im(a, b, c) {
+    return new gm(
       new H(
         ((d, f, g) => () => {
           for (
-            var h = new Ci(null), k = !1, l = new Ci(f.fa);
-            !k && !l.fa.e();
+            var h = new Ii(null), k = !1, l = new Ii(f.ha);
+            !k && !l.ha.e();
 
           )
-            (h.fa = g.l(Y(l.fa).u()).i()),
-              (k = h.fa.m()),
-              k || ((l.fa = Y(l.fa).gb()), (f.fa = l.fa));
+            (h.ha = g.m(Z(l.ha).u()).h()),
+              (k = h.ha.l()),
+              k || ((l.ha = Z(l.ha).Ta()), (f.ha = l.ha));
           return k
-            ? ((k = h.fa.k()),
-              (l.fa = Y(l.fa).gb()),
-              (f.fa = l.fa),
-              Bf(),
-              Bf(),
-              new Pk(
+            ? ((k = h.ha.k()),
+              (l.ha = Z(l.ha).Ta()),
+              (f.ha = l.ha),
+              X(),
+              X(),
+              new Sk(
                 k,
-                new am(
+                new gm(
                   new H(
-                    ((p, u, y, D) => () =>
-                      dm(
-                        Bf(),
-                        u.fa,
+                    ((p, u, A, G) => () =>
+                      jm(
+                        X(),
+                        u.ha,
                         new H(
-                          ((K, J, Z) => () => Y(cm(Bf(), J.fa, Z)))(p, y, D)
+                          ((K, M, aa) => () => Z(im(X(), M.ha, aa)))(p, A, G)
                         )
                       ))(d, h, l, g)
                   )
                 )
               ))
-            : Sk();
-        })(a, new Ci(b), c)
+            : Wk();
+        })(a, new Ii(b), c)
       )
     );
   }
-  function em(a, b, c) {
-    return new am(
+  function ym(a, b, c) {
+    return new gm(
       new H(
         ((d, f, g) => () => {
-          for (var h = f.fa, k = g.Rj; 0 < k && !h.e(); )
-            (h = Y(h).gb()), (f.fa = h), (k = (-1 + k) | 0), (g.Rj = k);
-          return Y(h);
-        })(a, new Ci(b), new Bi(c))
+          for (var h = f.ha, k = g.Qj; 0 < k && !h.e(); )
+            (h = Z(h).Ta()), (f.ha = h), (k = (-1 + k) | 0), (g.Qj = k);
+          return Z(h);
+        })(a, new Ii(b), new Hi(c))
       )
     );
   }
-  function yj(a, b) {
-    return b instanceof am
+  function Bj(a, b) {
+    return b instanceof gm
       ? b
-      : 0 === b.v()
-      ? a.Le
-      : new am(new H(((c, d) => () => fm(Bf(), d.i()))(a, b)));
+      : 0 === b.t()
+      ? a.ie
+      : new gm(new H(((c, d) => () => zm(X(), d.h()))(a, b)));
   }
-  function dm(a, b, c) {
-    if (b.m()) {
+  function jm(a, b, c) {
+    if (b.l()) {
       var d = b.k();
-      return new Pk(
+      return new Sk(
         d,
-        new am(new H(((f, g, h) => () => dm(Bf(), g, h))(a, b, c)))
+        new gm(new H(((f, g, h) => () => jm(X(), g, h))(a, b, c)))
       );
     }
-    return Zd(c);
+    return je(c);
   }
-  function fm(a, b) {
-    if (b.m()) {
+  function zm(a, b) {
+    if (b.l()) {
       var c = b.k();
-      return new Pk(c, new am(new H(((d, f) => () => fm(Bf(), f))(a, b))));
+      return new Sk(c, new gm(new H(((d, f) => () => zm(X(), f))(a, b))));
     }
-    return Sk();
+    return Wk();
   }
-  e.X = function () {
-    return new gm();
-  };
-  e.Fb = function () {
-    return this.Le;
-  };
-  e.ga = function (a) {
-    return yj(this, a);
-  };
-  e.$classData = v({ Hp: 0 }, !1, "scala.collection.immutable.LazyList$", {
-    Hp: 1,
-    b: 1,
-    Tc: 1,
-    Hb: 1,
-    c: 1,
-  });
-  var Zl;
-  function Bf() {
-    Zl || (Zl = new Yl());
-    return Zl;
-  }
-  function hm() {}
-  hm.prototype = new q();
-  hm.prototype.constructor = hm;
-  e = hm.prototype;
-  e.nd = function (a) {
-    return im(this, a);
-  };
-  function im(a, b) {
-    return b instanceof jm ? b : km(a, b.i());
-  }
-  function km(a, b) {
-    return b.m()
-      ? new lm(b.k(), new H(((c, d) => () => km(Af(), d))(a, b)))
-      : mm();
-  }
-  e.X = function () {
-    var a = new Bj();
-    return new Yi(a, new E((() => (b) => im(Af(), b))(this)));
-  };
-  function nm(a, b, c, d) {
-    var f = b.u();
-    return new lm(
-      f,
-      new H(((g, h, k, l) => () => bl(h.w(), k, l))(a, b, c, d))
+  function Am(a, b, c) {
+    return new gm(
+      new H(
+        ((d, f, g) => () => {
+          X();
+          var h = Am(X(), (f + g) | 0, g);
+          return new Sk(f, h);
+        })(a, b, c)
+      )
     );
   }
-  e.Fb = function () {
-    return mm();
+  e.ea = function () {
+    return new Bm();
   };
-  e.ga = function (a) {
-    return im(this, a);
+  e.Bb = function () {
+    return this.ie;
   };
-  e.$classData = v({ sq: 0 }, !1, "scala.collection.immutable.Stream$", {
-    sq: 1,
+  e.W = function (a) {
+    return Bj(this, a);
+  };
+  e.$classData = v({ Mp: 0 }, !1, "scala.collection.immutable.LazyList$", {
+    Mp: 1,
     b: 1,
-    Tc: 1,
-    Hb: 1,
+    Nc: 1,
+    Eb: 1,
     c: 1,
   });
-  var om;
-  function Af() {
-    om || (om = new hm());
-    return om;
+  var em;
+  function X() {
+    em || (em = new dm());
+    return em;
   }
-  function pm() {
-    qm = this;
-  }
-  pm.prototype = new q();
-  pm.prototype.constructor = pm;
-  function Fm(a, b) {
-    a = a.X();
-    var c = b.v();
-    0 <= c && a.cc(c);
-    a.qb(b);
-    return a.Ua();
-  }
-  pm.prototype.X = function () {
-    var a = Ud();
-    return new Yi(a, new E((() => (b) => new Gm(b))(this)));
+  function Cm() {}
+  Cm.prototype = new q();
+  Cm.prototype.constructor = Cm;
+  e = Cm.prototype;
+  e.gd = function (a) {
+    return Dm(this, a);
   };
-  pm.prototype.$classData = v(
-    { Kq: 0 },
+  function Dm(a, b) {
+    return b instanceof Em ? b : Fm(a, b.h());
+  }
+  function Fm(a, b) {
+    return b.l()
+      ? new Gm(b.k(), new H(((c, d) => () => Fm(Lf(), d))(a, b)))
+      : Hm();
+  }
+  e.ea = function () {
+    var a = new Ej();
+    return new dj(a, new D((() => (b) => Dm(Lf(), b))(this)));
+  };
+  function Im(a, b, c, d) {
+    var f = b.u();
+    return new Gm(
+      f,
+      new H(((g, h, k, l) => () => fl(h.w(), k, l))(a, b, c, d))
+    );
+  }
+  e.Bb = function () {
+    return Hm();
+  };
+  e.W = function (a) {
+    return Dm(this, a);
+  };
+  e.$classData = v({ uq: 0 }, !1, "scala.collection.immutable.Stream$", {
+    uq: 1,
+    b: 1,
+    Nc: 1,
+    Eb: 1,
+    c: 1,
+  });
+  var Jm;
+  function Lf() {
+    Jm || (Jm = new Cm());
+    return Jm;
+  }
+  function Km() {
+    Lm = this;
+  }
+  Km.prototype = new q();
+  Km.prototype.constructor = Km;
+  function Mm(a, b) {
+    a = a.ea();
+    var c = b.t();
+    0 <= c && a.ac(c);
+    a.wb(b);
+    return a.Wa();
+  }
+  Km.prototype.ea = function () {
+    var a = ee();
+    return new dj(a, new D((() => (b) => new Nm(b))(this)));
+  };
+  Km.prototype.$classData = v(
+    { Mq: 0 },
     !1,
     "scala.collection.immutable.WrappedString$",
-    { Kq: 1, b: 1, Hs: 1, Fs: 1, c: 1 }
+    { Mq: 1, b: 1, Js: 1, Hs: 1, c: 1 }
   );
-  var qm;
-  function Hm() {
-    qm || (qm = new pm());
-    return qm;
+  var Lm;
+  function Om() {
+    Lm || (Lm = new Km());
+    return Lm;
   }
-  function Yi(a, b) {
-    this.Gl = this.$g = null;
-    if (null === a) throw nb(null);
-    this.$g = a;
+  function dj(a, b) {
+    this.Gl = this.Ug = null;
+    if (null === a) throw lb(null);
+    this.Ug = a;
     this.Gl = b;
   }
-  Yi.prototype = new q();
-  Yi.prototype.constructor = Yi;
-  e = Yi.prototype;
-  e.cc = function (a) {
-    this.$g.cc(a);
+  dj.prototype = new q();
+  dj.prototype.constructor = dj;
+  e = dj.prototype;
+  e.ac = function (a) {
+    this.Ug.ac(a);
   };
-  e.Ua = function () {
-    return this.Gl.l(this.$g.Ua());
+  e.Wa = function () {
+    return this.Gl.m(this.Ug.Wa());
   };
-  e.qb = function (a) {
-    this.$g.qb(a);
+  e.wb = function (a) {
+    this.Ug.wb(a);
     return this;
   };
-  e.Oa = function (a) {
-    this.$g.Oa(a);
+  e.Ia = function (a) {
+    this.Ug.Ia(a);
     return this;
   };
-  e.$classData = v({ fr: 0 }, !1, "scala.collection.mutable.Builder$$anon$1", {
-    fr: 1,
+  e.$classData = v({ hr: 0 }, !1, "scala.collection.mutable.Builder$$anon$1", {
+    hr: 1,
     b: 1,
-    Xc: 1,
-    qc: 1,
-    pc: 1,
+    Qc: 1,
+    oc: 1,
+    nc: 1,
   });
-  function Im(a, b) {
-    a.ee = b;
+  function Pm(a, b) {
+    a.Ud = b;
     return a;
   }
-  function Jm() {
-    this.ee = null;
+  function Qm() {
+    this.Ud = null;
   }
-  Jm.prototype = new q();
-  Jm.prototype.constructor = Jm;
-  function Km() {}
-  e = Km.prototype = Jm.prototype;
-  e.cc = function () {};
-  e.qb = function (a) {
-    this.ee.qb(a);
+  Qm.prototype = new q();
+  Qm.prototype.constructor = Qm;
+  function Rm() {}
+  e = Rm.prototype = Qm.prototype;
+  e.ac = function () {};
+  e.wb = function (a) {
+    this.Ud.wb(a);
     return this;
   };
-  e.Oa = function (a) {
-    this.ee.Oa(a);
+  e.Ia = function (a) {
+    this.Ud.Ia(a);
     return this;
   };
-  e.Ua = function () {
-    return this.ee;
+  e.Wa = function () {
+    return this.Ud;
   };
-  e.$classData = v({ Vh: 0 }, !1, "scala.collection.mutable.GrowableBuilder", {
-    Vh: 1,
+  e.$classData = v({ Rh: 0 }, !1, "scala.collection.mutable.GrowableBuilder", {
+    Rh: 1,
     b: 1,
-    Xc: 1,
-    qc: 1,
-    pc: 1,
+    Qc: 1,
+    oc: 1,
+    nc: 1,
   });
-  function Lm() {
-    this.pe = null;
-    this.pe = kl();
+  function Sm() {
+    this.ee = null;
+    this.ee = pl();
   }
-  Lm.prototype = new aj();
-  Lm.prototype.constructor = Lm;
-  Lm.prototype.$classData = v({ vr: 0 }, !1, "scala.collection.mutable.Set$", {
-    vr: 1,
+  Sm.prototype = new fj();
+  Sm.prototype.constructor = Sm;
+  Sm.prototype.$classData = v({ xr: 0 }, !1, "scala.collection.mutable.Set$", {
+    xr: 1,
     Xk: 1,
     b: 1,
-    Hb: 1,
+    Eb: 1,
     c: 1,
   });
-  var Mm;
-  function Yb() {
-    Mm || (Mm = new Lm());
-    return Mm;
+  var Tm;
+  function Wb() {
+    Tm || (Tm = new Sm());
+    return Tm;
   }
-  function Nm(a, b) {
-    this.If = a;
-    this.bf = b;
+  function Um(a, b) {
+    this.yf = a;
+    this.Ue = b;
   }
-  Nm.prototype = new q();
-  Nm.prototype.constructor = Nm;
-  e = Nm.prototype;
-  e.ib = function () {
+  Um.prototype = new q();
+  Um.prototype.constructor = Um;
+  e = Um.prototype;
+  e.cb = function () {
     return "Apple";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.If;
+        return this.yf;
       case 1:
-        return this.bf;
+        return this.Ue;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    var a = Ca("Apple");
-    a = X().p(-889275714, a);
-    var b = this.If;
-    a = X().p(a, b);
-    b = this.bf;
-    a = X().p(a, b);
-    return X().L(a, 2);
+    var a = Da("Apple");
+    a = Y().p(-889275714, a);
+    var b = this.yf;
+    a = Y().p(a, b);
+    b = this.Ue;
+    a = Y().p(a, b);
+    return Y().L(a, 2);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     return this === a
       ? !0
-      : a instanceof Nm
-      ? this.If === a.If && this.bf === a.bf
+      : a instanceof Um
+      ? this.yf === a.yf && this.Ue === a.Ue
       : !1;
   };
   e.$classData = v({ Nl: 0 }, !1, "example.Apple", {
     Nl: 1,
     b: 1,
-    kh: 1,
-    Bb: 1,
+    eh: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function ol(a, b) {
-    this.ie = null;
-    this.he = !1;
-    this.Uj = this.fi = this.Kf = this.Ad = null;
-    this.gi = 0;
-    this.ei = null;
-    this.dc = 0;
-    this.Ad = a;
-    this.Kf = b;
-    Nb(this);
-    this.fi = xb().jb.hd.Fb();
-    this.dc = ((1 | this.dc) << 24) >> 24;
-    this.Uj = new wb(this, ub(a, 2), new A(0, 0), 0);
-    this.dc = ((2 | this.dc) << 24) >> 24;
-    this.gi = 0;
-    this.dc = ((4 | this.dc) << 24) >> 24;
-    a = xb().jb;
-    this.ei = Kh(
+  function tl(a, b) {
+    this.Yd = null;
+    this.Xd = !1;
+    this.Uj = this.ai = this.Af = this.td = null;
+    this.bi = 0;
+    this.$h = null;
+    this.bc = 0;
+    this.td = a;
+    this.Af = b;
+    Lb(this);
+    this.ai = vb().db.ad.Bb();
+    this.bc = ((1 | this.bc) << 24) >> 24;
+    this.Uj = new ub(this, sb(a, 2), new z(0, 0), 0);
+    this.bc = ((2 | this.bc) << 24) >> 24;
+    this.bi = 0;
+    this.bc = ((4 | this.bc) << 24) >> 24;
+    a = vb().db;
+    this.$h = Vh(
       a,
       10,
       new H(
         ((c) => () => {
-          var d = nl().Cb;
-          0 !== Og(d, 1)
-            ? ((d = nl()), (d = new A(0, Pg(d.Cb, Ja(c.Ad.g)))))
-            : ((d = nl()), (d = new A(Pg(d.Cb, Ja(c.Ad.g)), 0)));
-          var f = Pg(nl().Cb, 5),
-            g = nl();
-          return new mb(c, 3, d, rb(new A(f, Pg(g.Cb, 5)), new A(2.5, 2.5)));
+          var d = sl().zb;
+          0 !== sh(d, 1)
+            ? ((d = sl()), (d = new z(0, th(d.zb, Ga(c.td.g)))))
+            : ((d = sl()), (d = new z(th(d.zb, Ga(c.td.g)), 0)));
+          var f = th(sl().zb, 5),
+            g = sl();
+          return new kb(c, 3, d, pb(new z(f, th(g.zb, 5)), new z(2.5, 2.5)));
         })(this)
       )
     );
-    this.dc = ((8 | this.dc) << 24) >> 24;
+    this.bc = ((8 | this.bc) << 24) >> 24;
   }
-  ol.prototype = new Qb();
-  ol.prototype.constructor = ol;
-  function Om(a) {
-    if (0 === ((1 & a.dc) << 24) >> 24)
-      throw new F(
+  tl.prototype = new Ob();
+  tl.prototype.constructor = tl;
+  function Vm(a) {
+    if (0 === ((1 & a.bc) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Asteroids.scala: 8"
       );
-    return a.fi;
+    return a.ai;
   }
-  function Pm(a, b) {
-    a.fi = b;
-    a.dc = ((1 | a.dc) << 24) >> 24;
+  function Wm(a, b) {
+    a.ai = b;
+    a.bc = ((1 | a.bc) << 24) >> 24;
   }
-  function Qm(a) {
-    if (0 === ((2 & a.dc) << 24) >> 24)
-      throw new F(
+  function Xm(a) {
+    if (0 === ((2 & a.bc) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Asteroids.scala: 9"
       );
     return a.Uj;
   }
-  e = ol.prototype;
-  e.Eg = function () {
-    if (0 === ((4 & this.dc) << 24) >> 24)
-      throw new F(
+  e = tl.prototype;
+  e.yg = function () {
+    if (0 === ((4 & this.bc) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Asteroids.scala: 10"
       );
-    return this.gi;
+    return this.bi;
   };
-  e.Si = function (a) {
-    this.gi = a;
-    this.dc = ((4 | this.dc) << 24) >> 24;
+  e.Ni = function (a) {
+    this.bi = a;
+    this.bc = ((4 | this.bc) << 24) >> 24;
   };
-  function Rm(a) {
-    if (0 === ((8 & a.dc) << 24) >> 24)
-      throw new F(
+  function Ym(a) {
+    if (0 === ((8 & a.bc) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Asteroids.scala: 11"
       );
-    return a.ei;
+    return a.$h;
   }
-  function Sm(a, b) {
-    a.ei = b;
-    a.dc = ((8 | a.dc) << 24) >> 24;
+  function Zm(a, b) {
+    a.$h = b;
+    a.bc = ((8 | a.bc) << 24) >> 24;
   }
-  e.pg = function (a) {
-    this.Si((1 + this.Eg()) | 0);
-    Rm(this).N(
-      new E(
+  e.gg = function (a) {
+    this.Ni((1 + this.yg()) | 0);
+    Ym(this).N(
+      new D(
         (() => (f) => {
-          f.$i();
+          f.Vi();
         })(this)
       )
     );
-    Om(this).N(
-      new E(
+    Vm(this).N(
+      new D(
         (() => (f) => {
-          f.$i();
+          f.Vi();
         })(this)
       )
     );
-    Ab(Qm(this), a);
-    if (a.F(32) && 10 > Om(this).n() && 0 === (this.Eg() % 2 | 0)) {
-      a = Om(this);
-      var b = new tb(
+    yb(Xm(this), a);
+    if (a.F(32) && 10 > Vm(this).q() && 0 === (this.yg() % 2 | 0)) {
+      a = Vm(this);
+      var b = new rb(
         this,
-        Qm(this).zd,
-        z(Qm(this).Jf, yb(new A(15, 0), Qm(this).Wd))
+        Xm(this).sd,
+        y(Xm(this).zf, wb(new z(15, 0), Xm(this).Ld))
       );
-      Pm(this, a.md(b));
+      Wm(this, a.ud(b));
     }
-    a = Om(this).Wb(
-      new E(
+    a = Vm(this).Cb(
+      new D(
         ((f) => (g) =>
-          Rm(f)
-            .Vd(new E(((h, k) => (l) => pb(l, k.cf))(f, g)))
-            .W(
-              new E(
+          Ym(f)
+            .Hc(new D(((h, k) => (l) => nb(l, k.Ve))(f, g)))
+            .da(
+              new D(
                 ((h, k) => (l) => {
                   var p =
-                    1 === l.qg
-                      ? xb().gj
-                      : zb(xb().jb, B(new C(), [30, -30])).W(
-                          new E(
-                            ((u, y) => (D) =>
-                              new mb(
+                    1 === l.ig
+                      ? vb().cj
+                      : xb(vb().db, B(new C(), [30, -30])).da(
+                          new D(
+                            ((u, A) => (G) =>
+                              new kb(
                                 u,
-                                (-1 + y.qg) | 0,
-                                y.yd,
-                                yb(y.Tj, (3.141592653589793 * (D | 0)) / 180)
+                                (-1 + A.ig) | 0,
+                                A.rd,
+                                wb(A.Tj, (3.141592653589793 * (G | 0)) / 180)
                               ))(h, l)
                           )
                         );
-                  return kj(new lj(), kj(new lj(), l, k), p);
+                  return Hd(new Id(), Hd(new Id(), l, k), p);
                 })(f, g)
               )
             ))(this)
       )
     );
-    b = xh();
-    a = a.Ff(b.cj);
+    b = Eh();
+    a = a.fg(b.Zi);
     if (null === a) throw new T(a);
-    b = a.Ac();
-    a = a.Bc();
-    var c = b.W(new E((() => (f) => f.Ac())(this)));
-    b = b.W(new E((() => (f) => f.Bc())(this)));
-    c = Rm(this).Pb(new E(((f, g) => (h) => !g.F(h))(this, c)));
-    var d = xh();
-    a = a.Rf(d.cj);
-    Sm(this, c.Pf(a));
-    Pm(
+    b = a.dc();
+    a = a.qc();
+    var c = b.da(new D((() => (f) => f.dc())(this)));
+    b = b.da(new D((() => (f) => f.qc())(this)));
+    c = Ym(this).Qb(new D(((f, g) => (h) => !g.F(h))(this, c)));
+    var d = Eh();
+    a = a.wg(d.Zi);
+    Zm(this, c.Ff(a));
+    Wm(
       this,
-      Om(this)
-        .Pb(new E(((f, g) => (h) => !g.F(h))(this, b)))
-        .Pb(
-          new E(((f) => (g) => qb(g.cf, new A(0, 0), f.Ad, new A(0, 0)))(this))
+      Vm(this)
+        .Qb(new D(((f, g) => (h) => !g.F(h))(this, b)))
+        .Qb(
+          new D(((f) => (g) => ob(g.Ve, new z(0, 0), f.td, new z(0, 0)))(this))
         )
     );
-    Rm(this).Qf(new E(((f) => (g) => pb(g, Qm(f).zd))(this)))
-      ? (Sb(this, new Tm("Your ship hit an asteroid!")), Zd(this.Kf))
-      : Rm(this).e() &&
-        (Sb(this, new Tm("You successfully destroyed every asteroid!")),
-        Zd(this.Kf));
+    Ym(this).Gf(new D(((f) => (g) => nb(g, Xm(f).sd))(this)))
+      ? (Qb(this, new $m("Your ship hit an asteroid!")), je(this.Af))
+      : Ym(this).e() &&
+        (Qb(this, new $m("You successfully destroyed every asteroid!")),
+        je(this.Af));
   };
-  e.cd = function (a) {
-    var b = Lb(G());
+  e.Xc = function (a) {
+    var b = Jb(F());
     a.fillStyle = b;
     a.fillRect(0, 0, 800, 800);
-    b = Eb(G());
+    b = Cb(F());
     a.fillStyle = b;
-    b = Eb(G());
+    b = Cb(F());
     a.strokeStyle = b;
-    Rm(this).N(
-      new E(
+    Ym(this).N(
+      new D(
         ((c, d) => (f) => {
-          f.cd(d);
+          f.Xc(d);
         })(this, a)
       )
     );
-    Om(this).N(
-      new E(
+    Vm(this).N(
+      new D(
         ((c, d) => (f) => {
-          f.cd(d);
+          f.Xc(d);
         })(this, a)
       )
     );
-    Qm(this).cd(a);
+    Xm(this).Xc(a);
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Asteroids";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.Ad;
+        return this.td;
       case 1:
-        return this.Kf;
+        return this.Af;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     if (this === a) return !0;
-    if (a instanceof ol) {
-      var b = this.Ad,
-        c = a.Ad;
-      return (null === b ? null === c : b.y(c)) ? this.Kf === a.Kf : !1;
+    if (a instanceof tl) {
+      var b = this.td,
+        c = a.td;
+      return (null === b ? null === c : b.y(c)) ? this.Af === a.Af : !1;
     }
     return !1;
   };
   e.$classData = v({ Ol: 0 }, !1, "example.Asteroids", {
     Ol: 1,
-    ug: 1,
+    mg: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function Um(a, b, c, d, f, g, h) {
+  function an(a, b, c, d, f, g, h) {
     d = (3.141592653589793 * d) / 180;
-    a = new Tb(a, f);
+    a = new Rb(a, f);
     b = [
-      z(g, yb(new A(b, b), h - 3.9269908169872414)),
-      z(g, yb(new A(15, 15), h - 3.9269908169872414 + d)),
-      z(g, yb(new A(c, c), h - 3.9269908169872414)),
-      z(g, yb(new A(15, 15), h - 3.9269908169872414 - d)),
-      z(g, yb(new A(b, b), h - 3.9269908169872414)),
+      y(g, wb(new z(b, b), h - 3.9269908169872414)),
+      y(g, wb(new z(15, 15), h - 3.9269908169872414 + d)),
+      y(g, wb(new z(c, c), h - 3.9269908169872414)),
+      y(g, wb(new z(15, 15), h - 3.9269908169872414 - d)),
+      y(g, wb(new z(b, b), h - 3.9269908169872414)),
     ];
-    Vb(a, B(new C(), b));
+    Tb(a, B(new C(), b));
   }
-  function Vm(a, b, c, d) {
-    Um(a, 5, 25, 15, d, b, c);
-    Um(a, 10, 20, 10, d, b, c);
+  function bn(a, b, c, d) {
+    an(a, 5, 25, 15, d, b, c);
+    an(a, 10, 20, 10, d, b, c);
   }
-  function pl(a, b) {
-    this.ie = null;
-    this.he = !1;
-    this.ii = this.hi = this.Vj = null;
-    this.ji = this.Wj = 0;
-    this.ki = null;
-    this.Ya = 0;
-    this.Xd = a;
-    this.rg = b;
-    Nb(this);
+  function ul(a, b) {
+    this.Yd = null;
+    this.Xd = !1;
+    this.di = this.ci = this.Vj = null;
+    this.ei = this.Wj = 0;
+    this.fi = null;
+    this.Ua = 0;
+    this.Md = a;
+    this.jg = b;
+    Lb(this);
     var c = 450;
-    xb();
+    vb();
     a = I();
-    b = Pg(nl().Cb, 21);
-    for (var d; (d = Pg(nl().Cb, 21)), d === b; );
-    for (var f; (f = Pg(nl().Cb, 21)), f === b || f === d; );
+    b = th(sl().zb, 21);
+    for (var d; (d = th(sl().zb, 21)), d === b; );
+    for (var f; (f = th(sl().zb, 21)), f === b || f === d; );
     for (var g = 0; ; ) {
       var h = g;
       if (h !== ((1 + b) | 0))
         if (h === ((1 + d) | 0)) {
-          var k = nl();
-          c = c - Pg(k.Cb, 25) - 150;
+          var k = sl();
+          c = c - th(k.zb, 25) - 150;
         } else
           h === ((2 + f) | 0)
-            ? ((k = nl()), (c = c - Pg(k.Cb, 25) + 150))
-            : ((k = nl()), (c = c - Pg(k.Cb, 50) + 25));
-      c > this.Xd.g && (c = Ja(2 * this.Xd.g - c));
-      a = new Wm(new A(40 * h, c), a);
+            ? ((k = sl()), (c = c - th(k.zb, 25) + 150))
+            : ((k = sl()), (c = c - th(k.zb, 50) + 25));
+      c > this.Md.g && (c = Ga(2 * this.Md.g - c));
+      a = new cn(new z(40 * h, c), a);
       if (21 === g) break;
       g = (1 + g) | 0;
     }
     b = a;
-    for (a = I(); !b.e(); ) (d = b.u()), (a = new Wm(d, a)), (b = b.w());
+    for (a = I(); !b.e(); ) (d = b.u()), (a = new cn(d, a)), (b = b.w());
     this.Vj = a;
-    this.Ya = ((1 | this.Ya) << 24) >> 24;
-    this.hi = new A(400, 25);
-    this.Ya = ((2 | this.Ya) << 24) >> 24;
-    this.ii = new A(0, 0);
-    this.Ya = ((4 | this.Ya) << 24) >> 24;
+    this.Ua = ((1 | this.Ua) << 24) >> 24;
+    this.ci = new z(400, 25);
+    this.Ua = ((2 | this.Ua) << 24) >> 24;
+    this.di = new z(0, 0);
+    this.Ua = ((4 | this.Ua) << 24) >> 24;
     this.Wj = -1.5707963267948966;
-    this.Ya = ((8 | this.Ya) << 24) >> 24;
-    this.ji = 500;
-    this.Ya = ((16 | this.Ya) << 24) >> 24;
-    yc();
+    this.Ua = ((8 | this.Ua) << 24) >> 24;
+    this.ei = 500;
+    this.Ua = ((16 | this.Ua) << 24) >> 24;
+    wc();
     a = I();
-    this.ki = Bc(a);
-    this.Ya = ((32 | this.Ya) << 24) >> 24;
+    this.fi = zc(a);
+    this.Ua = ((32 | this.Ua) << 24) >> 24;
   }
-  pl.prototype = new Qb();
-  pl.prototype.constructor = pl;
-  function Xm(a) {
-    if (0 === ((1 & a.Ya) << 24) >> 24)
-      throw new F(
+  ul.prototype = new Ob();
+  ul.prototype.constructor = ul;
+  function dn(a) {
+    if (0 === ((1 & a.Ua) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/AstroLander.scala: 7"
       );
     return a.Vj;
   }
-  function Ym(a) {
-    if (0 === ((2 & a.Ya) << 24) >> 24)
-      throw new F(
+  function en(a) {
+    if (0 === ((2 & a.Ua) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/AstroLander.scala: 36"
       );
-    return a.hi;
+    return a.ci;
   }
-  function Zm(a) {
-    if (0 === ((4 & a.Ya) << 24) >> 24)
-      throw new F(
+  function fn(a) {
+    if (0 === ((4 & a.Ua) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/AstroLander.scala: 37"
       );
-    return a.ii;
+    return a.di;
   }
-  function $m(a, b) {
-    a.ii = b;
-    a.Ya = ((4 | a.Ya) << 24) >> 24;
+  function gn(a, b) {
+    a.di = b;
+    a.Ua = ((4 | a.Ua) << 24) >> 24;
   }
-  function an(a) {
-    if (0 === ((8 & a.Ya) << 24) >> 24)
-      throw new F(
+  function hn(a) {
+    if (0 === ((8 & a.Ua) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/AstroLander.scala: 38"
       );
     return a.Wj;
   }
-  function bn(a) {
-    if (0 === ((16 & a.Ya) << 24) >> 24)
-      throw new F(
+  function jn(a) {
+    if (0 === ((16 & a.Ua) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/AstroLander.scala: 39"
       );
-    return a.ji;
+    return a.ei;
   }
-  function cn(a) {
-    var b = xb().jb;
+  function kn(a) {
+    var b = vb().db;
     a = [
-      z(Ym(a), yb(new A(15, 0), an(a))),
-      z(Ym(a), yb(new A(7, 0), an(a) + 2.2252947962927703)),
-      z(Ym(a), yb(new A(7, 0), an(a) - 2.2252947962927703)),
+      y(en(a), wb(new z(15, 0), hn(a))),
+      y(en(a), wb(new z(7, 0), hn(a) + 2.2252947962927703)),
+      y(en(a), wb(new z(7, 0), hn(a) - 2.2252947962927703)),
     ];
-    return zb(b, B(new C(), a));
+    return xb(b, B(new C(), a));
   }
-  e = pl.prototype;
-  e.cd = function (a) {
+  e = ul.prototype;
+  e.Xc = function (a) {
     a.textAlign = "left";
-    var b = Lb(G());
+    var b = Jb(F());
     a.fillStyle = b;
-    a.fillRect(0, 0, this.Xd.h, this.Xd.g);
-    b = 3 > vb(Zm(this)) ? Gb(G()) : Eb(G());
+    a.fillRect(0, 0, this.Md.i, this.Md.g);
+    b = 3 > tb(fn(this)) ? Eb(F()) : Cb(F());
     a.fillStyle = b;
-    a.fillText("Speed: " + Ja(10 * vb(Zm(this))) / 10, 20, 50);
-    b = Gb(G());
+    a.fillText("Speed: " + Ga(10 * tb(fn(this))) / 10, 20, 50);
+    b = Eb(F());
     a.strokeStyle = b;
-    b = bn(this);
+    b = jn(this);
     a.strokeRect(20, 60, (65 * (1 > b ? 1 : b)) / 500, 15);
-    b = Eb(G());
+    b = Cb(F());
     a.fillStyle = b;
-    b = Eb(G());
+    b = Cb(F());
     a.strokeStyle = b;
     a.strokeRect(20, 60, 65, 15);
     a.beginPath();
-    a.moveTo(0, this.Xd.g);
-    for (b = Xm(this); !b.e(); ) {
+    a.moveTo(0, this.Md.g);
+    for (b = dn(this); !b.e(); ) {
       var c = b.u();
-      a.lineTo(c.h, c.g);
+      a.lineTo(c.i, c.g);
       b = b.w();
     }
-    a.lineTo(this.Xd.h, this.Xd.g);
+    a.lineTo(this.Md.i, this.Md.g);
     a.fill();
     a.beginPath();
-    a.moveTo(cn(this).dd().h, cn(this).dd().g);
-    cn(this).N(
-      new E(
+    a.moveTo(kn(this).id().i, kn(this).id().g);
+    kn(this).N(
+      new D(
         ((d, f) => (g) => {
-          f.lineTo(g.h, g.g);
+          f.lineTo(g.i, g.g);
         })(this, a)
       )
     );
     a.fill();
-    b = Fb(G());
+    b = Db(F());
     a.strokeStyle = b;
-    0 < bn(this) &&
-      (dn(this).F(37) && Vm(this, Ym(this), an(this) + 0.7853981633974483, a),
-      dn(this).F(39) && Vm(this, Ym(this), an(this) - 0.7853981633974483, a),
-      dn(this).F(40) && Vm(this, Ym(this), an(this), a));
+    0 < jn(this) &&
+      (ln(this).F(37) && bn(this, en(this), hn(this) + 0.7853981633974483, a),
+      ln(this).F(39) && bn(this, en(this), hn(this) - 0.7853981633974483, a),
+      ln(this).F(40) && bn(this, en(this), hn(this), a));
   };
-  function dn(a) {
-    if (0 === ((32 & a.Ya) << 24) >> 24)
-      throw new F(
+  function ln(a) {
+    if (0 === ((32 & a.Ua) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/AstroLander.scala: 97"
       );
-    return a.ki;
+    return a.fi;
   }
-  e.pg = function (a) {
-    this.ki = a;
-    this.Ya = ((32 | this.Ya) << 24) >> 24;
-    if (0 < bn(this)) {
+  e.gg = function (a) {
+    this.fi = a;
+    this.Ua = ((32 | this.Ua) << 24) >> 24;
+    if (0 < jn(this)) {
       a.F(37) &&
-        $m(this, z(Zm(this), yb(new A(0.5, 0), an(this) + 0.7853981633974483)));
+        gn(this, y(fn(this), wb(new z(0.5, 0), hn(this) + 0.7853981633974483)));
       a.F(39) &&
-        $m(this, z(Zm(this), yb(new A(0.5, 0), an(this) - 0.7853981633974483)));
-      a.F(40) && $m(this, z(Zm(this), yb(new A(0.5, 0), an(this))));
-      var b = bn(this),
-        c = xb().jb,
+        gn(this, y(fn(this), wb(new z(0.5, 0), hn(this) - 0.7853981633974483)));
+      a.F(40) && gn(this, y(fn(this), wb(new z(0.5, 0), hn(this))));
+      var b = jn(this),
+        c = vb().db,
         d = [a.F(37), a.F(39), a.F(40)];
       a = 0;
-      for (c = zb(c, B(new C(), d)).i(); c.m(); ) c.k() && (a = (1 + a) | 0);
-      this.ji = (b - a) | 0;
-      this.Ya = ((16 | this.Ya) << 24) >> 24;
+      for (c = xb(c, B(new C(), d)).h(); c.l(); ) c.k() && (a = (1 + a) | 0);
+      this.ei = (b - a) | 0;
+      this.Ua = ((16 | this.Ua) << 24) >> 24;
     }
-    $m(this, z(Zm(this), new A(0, 0.2)));
-    this.hi = z(Ym(this), Zm(this));
-    this.Ya = ((2 | this.Ya) << 24) >> 24;
-    b = Xm(this);
+    gn(this, y(fn(this), new z(0, 0.2)));
+    this.ci = y(en(this), fn(this));
+    this.Ua = ((2 | this.Ua) << 24) >> 24;
+    b = dn(this);
     for (a = c = null; b !== I(); ) {
       b.u();
       d = 0;
-      for (var f = Xm(this), g = -1; !f.e(); )
-        f.u().h < Ym(this).h && (g = d), (f = f.w()), (d = (1 + d) | 0);
+      for (var f = dn(this), g = -1; !f.e(); )
+        f.u().i < en(this).i && (g = d), (f = f.w()), (d = (1 + d) | 0);
       d = g;
       -1 === d || 21 === d
-        ? (d = Ob())
-        : ((f = Xm(this)),
-          (f = en(f, d)),
-          (g = Xm(this)),
-          (d = en(g, (1 + d) | 0)),
-          ((Ym(this).h - f.h) / (d.h - f.h)) * (d.g - f.g) + f.g > Ym(this).g
-            ? (d = Ob())
-            : ((d = +Math.abs((d.g - f.g) / (d.h - f.h))),
-              (f = Zm(this).h / Zm(this).g),
+        ? (d = Mb())
+        : ((f = dn(this)),
+          (f = mn(f, d)),
+          (g = dn(this)),
+          (d = mn(g, (1 + d) | 0)),
+          ((en(this).i - f.i) / (d.i - f.i)) * (d.g - f.g) + f.g > en(this).g
+            ? (d = Mb())
+            : ((d = +Math.abs((d.g - f.g) / (d.i - f.i))),
+              (f = fn(this).i / fn(this).g),
               (f = +Math.abs(f)),
-              (d = new Tm(
+              (d = new $m(
                 0.1 < d
-                  ? new fn("landing area too steep")
+                  ? new nn("landing area too steep")
                   : 1 < f
-                  ? new fn("too much horizontal velocity")
-                  : 3 < vb(Zm(this))
-                  ? new fn("coming in too fast")
-                  : gn()
+                  ? new nn("too much horizontal velocity")
+                  : 3 < tb(fn(this))
+                  ? new nn("coming in too fast")
+                  : on()
               ))));
-      for (d = d.i(); d.m(); )
-        (f = new Wm(d.k(), I())), null === a ? (c = f) : (a.tc = f), (a = f);
+      for (d = d.h(); d.l(); )
+        (f = new cn(d.k(), I())), null === a ? (c = f) : (a.sc = f), (a = f);
       b = b.w();
     }
     b = (null === c ? I() : c).Dk();
     if (!b.e())
-      if (((b = b.Fg()), gn() === b))
-        Sb(this, new Tm("You have landed successfully.")), Zd(this.rg);
-      else if (b instanceof fn)
-        Sb(this, new Tm("You have crashed your lander: " + b.gh)), Zd(this.rg);
+      if (((b = b.zg()), on() === b))
+        Qb(this, new $m("You have landed successfully.")), je(this.jg);
+      else if (b instanceof nn)
+        Qb(this, new $m("You have crashed your lander: " + b.ah)), je(this.jg);
       else throw new T(b);
   };
-  e.ib = function () {
+  e.cb = function () {
     return "AstroLander";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.Xd;
+        return this.Md;
       case 1:
-        return this.rg;
+        return this.jg;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     if (this === a) return !0;
-    if (a instanceof pl) {
-      var b = this.Xd,
-        c = a.Xd;
-      return (null === b ? null === c : b.y(c)) ? this.rg === a.rg : !1;
+    if (a instanceof ul) {
+      var b = this.Md,
+        c = a.Md;
+      return (null === b ? null === c : b.y(c)) ? this.jg === a.jg : !1;
     }
     return !1;
   };
   e.$classData = v({ Tl: 0 }, !1, "example.AstroLander", {
     Tl: 1,
-    ug: 1,
+    mg: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function rl(a, b) {
-    this.ie = null;
-    this.he = !1;
+  function wl(a, b) {
+    this.Yd = null;
+    this.Xd = !1;
     this.Xj = 0;
     this.Yj = null;
-    this.ni = this.$j = 0;
-    this.pi = this.li = this.mi = null;
-    this.qi = 0;
-    this.Zj = this.oi = this.ak = null;
+    this.ii = this.$j = 0;
+    this.ki = this.gi = this.hi = null;
+    this.li = 0;
+    this.Zj = this.ji = this.ak = null;
     this.K = 0;
-    this.ec = a;
-    this.sg = b;
-    Nb(this);
+    this.cc = a;
+    this.kg = b;
+    Lb(this);
     this.Xj = 175;
     this.K |= 1;
-    this.Yj = new A(50, 15);
+    this.Yj = new z(50, 15);
     this.K |= 2;
-    this.$j = a.h - 2 * hn(this);
+    this.$j = a.i - 2 * pn(this);
     this.K |= 4;
-    this.ni = 3;
+    this.ii = 3;
     this.K |= 8;
-    this.mi = new A(0, 0);
+    this.hi = new z(0, 0);
     this.K |= 16;
-    this.li = new A(0, 0);
+    this.gi = new z(0, 0);
     this.K |= 32;
-    this.pi = new A(0, 0);
+    this.ki = new z(0, 0);
     this.K |= 64;
-    this.qi = 0;
+    this.li = 0;
     this.K |= 128;
-    jn(this);
-    this.ak = new A(75, 5);
+    qn(this);
+    this.ak = new z(75, 5);
     this.K |= 256;
-    this.oi = new A(0, 0);
+    this.ji = new z(0, 0);
     this.K |= 512;
-    a = xb().jb;
-    b = [Eb(G()), Ib(G()), Kb(G()), Jb(G()), Fb(G()), Gb(G()), Hb(G())];
-    a = zb(a, B(new C(), b));
-    b = Yb().Fb();
+    a = vb().db;
+    b = [Cb(F()), Gb(F()), Ib(F()), Hb(F()), Db(F()), Eb(F()), Fb(F())];
+    a = xb(a, B(new C(), b));
+    b = Wb().Bb();
     if (0 === (4 & this.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 14"
       );
-    var c = Ja(this.$j / kn(this).h),
+    var c = Ga(this.$j / rn(this).i),
       d = (-1 + c) | 0;
     if (!(0 >= c))
       for (c = 0; ; ) {
         for (var f = c, g = 3; ; ) {
           var h = g;
-          h = new A(f * kn(this).h + hn(this), h * kn(this).g);
-          var k = nl(),
-            l = a.n();
-          $b(b, new ql(h, a.t(Pg(k.Cb, l))));
+          h = new z(f * rn(this).i + pn(this), h * rn(this).g);
+          var k = sl(),
+            l = a.q();
+          Yb(b, new vl(h, a.v(th(k.zb, l))));
           if (15 === g) break;
           g = (1 + g) | 0;
         }
@@ -5726,306 +5725,306 @@ let ScalaJSExample;
     this.Zj = b;
     this.K |= 1024;
   }
-  rl.prototype = new Qb();
-  rl.prototype.constructor = rl;
-  function hn(a) {
+  wl.prototype = new Ob();
+  wl.prototype.constructor = wl;
+  function pn(a) {
     if (0 === (1 & a.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 11"
       );
     return a.Xj;
   }
-  function kn(a) {
+  function rn(a) {
     if (0 === (2 & a.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 12"
       );
     return a.Yj;
   }
-  function ln(a) {
+  function sn(a) {
     if (0 === (8 & a.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 15"
       );
-    return a.ni;
+    return a.ii;
   }
-  function mn(a, b) {
-    a.ni = b;
+  function tn(a, b) {
+    a.ii = b;
     a.K |= 8;
   }
-  e = rl.prototype;
-  e.Za = function () {
+  e = wl.prototype;
+  e.Va = function () {
     if (0 === (16 & this.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 17"
       );
-    return this.mi;
+    return this.hi;
   };
-  e.bd = function (a) {
-    this.mi = a;
+  e.Vc = function (a) {
+    this.hi = a;
     this.K |= 16;
   };
-  e.Ab = function () {
+  e.xb = function () {
     if (0 === (32 & this.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 18"
+      );
+    return this.gi;
+  };
+  e.sg = function (a) {
+    this.gi = a;
+    this.K |= 32;
+  };
+  function un(a) {
+    if (0 === (64 & a.K))
+      throw new E(
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 19"
+      );
+    return a.ki;
+  }
+  function vn(a, b) {
+    a.ki = b;
+    a.K |= 64;
+  }
+  e.Be = function () {
+    if (0 === (128 & this.K))
+      throw new E(
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 21"
       );
     return this.li;
   };
-  e.zg = function (a) {
+  e.Ae = function (a) {
     this.li = a;
-    this.K |= 32;
-  };
-  function nn(a) {
-    if (0 === (64 & a.K))
-      throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 19"
-      );
-    return a.pi;
-  }
-  function on(a, b) {
-    a.pi = b;
-    a.K |= 64;
-  }
-  e.He = function () {
-    if (0 === (128 & this.K))
-      throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 21"
-      );
-    return this.qi;
-  };
-  e.Ge = function (a) {
-    this.qi = a;
     this.K |= 128;
   };
-  function jn(a) {
-    a.bd(new A(0, 0));
-    on(a, new A(a.ec.h / 2, a.ec.g - 40));
-    a.zg(new A(a.ec.h / 2, nn(a).g - 5));
-    a.Ge(60);
+  function qn(a) {
+    a.Vc(new z(0, 0));
+    vn(a, new z(a.cc.i / 2, a.cc.g - 40));
+    a.sg(new z(a.cc.i / 2, un(a).g - 5));
+    a.Ae(60);
   }
-  function pn(a) {
+  function wn(a) {
     if (0 === (256 & a.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 32"
       );
     return a.ak;
   }
-  function qn(a) {
+  function xn(a) {
     if (0 === (512 & a.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 33"
       );
-    return a.oi;
+    return a.ji;
   }
-  function rn(a, b) {
-    a.oi = b;
+  function yn(a, b) {
+    a.ji = b;
     a.K |= 512;
   }
-  function sn(a) {
+  function zn(a) {
     if (0 === (1024 & a.K))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 35"
       );
     return a.Zj;
   }
-  e.cd = function (a) {
-    var b = Lb(G());
+  e.Xc = function (a) {
+    var b = Jb(F());
     a.fillStyle = b;
-    a.fillRect(0, 0, this.ec.h, this.ec.g);
-    b = Eb(G());
+    a.fillRect(0, 0, this.cc.i, this.cc.g);
+    b = Cb(F());
     a.fillStyle = b;
-    b = Eb(G());
+    b = Cb(F());
     a.strokeStyle = b;
-    a.strokeRect(0, 0, hn(this) - 1, this.ec.g);
-    a.strokeRect(this.ec.h - hn(this) + 1, 0, hn(this) - 1, this.ec.g);
-    Ub(new Tb(this, a), this.Ab().h - 5, this.Ab().g - 5);
+    a.strokeRect(0, 0, pn(this) - 1, this.cc.g);
+    a.strokeRect(this.cc.i - pn(this) + 1, 0, pn(this) - 1, this.cc.g);
+    Sb(new Rb(this, a), this.xb().i - 5, this.xb().g - 5);
     a.textAlign = "left";
     a.fillText(
-      "Balls Left: " + ln(this),
-      this.ec.h - hn(this) / 2 - 40,
-      (4 * this.ec.g) / 5 - 10
+      "Balls Left: " + sn(this),
+      this.cc.i - pn(this) / 2 - 40,
+      (4 * this.cc.g) / 5 - 10
     );
-    b = ln(this);
+    b = sn(this);
     if (!(1 > b))
       for (var c = 1; ; ) {
         var d = c;
-        Ub(
-          new Tb(this, a),
-          this.ec.h - hn(this) / 2 - 40 + ba(15, d),
-          (4 * this.ec.g) / 5 + 10
+        Sb(
+          new Rb(this, a),
+          this.cc.i - pn(this) / 2 - 40 + ca(15, d),
+          (4 * this.cc.g) / 5 + 10
         );
         if (c === b) break;
         c = (1 + c) | 0;
       }
-    sn(this).N(
-      new E(
+    zn(this).N(
+      new D(
         ((f, g) => (h) => {
-          var k = h.tg.split("255").join("128");
+          var k = h.lg.split("255").join("128");
           g.fillStyle = k;
-          g.fillRect(h.zc.h, h.zc.g, kn(f).h, kn(f).g);
-          g.fillStyle = h.tg;
+          g.fillRect(h.wc.i, h.wc.g, rn(f).i, rn(f).g);
+          g.fillStyle = h.lg;
           g.beginPath();
-          g.moveTo(h.zc.h + 1, h.zc.g + kn(f).g - 1);
-          g.lineTo(h.zc.h + 1, h.zc.g + 1);
-          g.lineTo(h.zc.h + kn(f).h - 1, h.zc.g + 1);
+          g.moveTo(h.wc.i + 1, h.wc.g + rn(f).g - 1);
+          g.lineTo(h.wc.i + 1, h.wc.g + 1);
+          g.lineTo(h.wc.i + rn(f).i - 1, h.wc.g + 1);
           g.stroke();
         })(this, a)
       )
     );
-    b = Eb(G()).split("255").join("128");
+    b = Cb(F()).split("255").join("128");
     a.fillStyle = b;
-    b = rb(nn(this), ub(pn(this), 2));
-    a.fillRect(b.h, b.g, pn(this).h, pn(this).g);
-    c = Eb(G());
+    b = pb(un(this), sb(wn(this), 2));
+    a.fillRect(b.i, b.g, wn(this).i, wn(this).g);
+    c = Cb(F());
     a.fillStyle = c;
-    a.strokeRect(b.h, b.g, pn(this).h, pn(this).g);
+    a.strokeRect(b.i, b.g, wn(this).i, wn(this).g);
   };
-  e.pg = function (a) {
-    if (0 < this.He()) this.Ge((-1 + this.He()) | 0);
-    else if (0 === this.He())
-      (a = nl()),
-        this.bd(new A(7 * (Pg(a.Cb, 2) - 0.5), -3.5)),
-        this.Ge((-1 + this.He()) | 0);
+  e.gg = function (a) {
+    if (0 < this.Be()) this.Ae((-1 + this.Be()) | 0);
+    else if (0 === this.Be())
+      (a = sl()),
+        this.Vc(new z(7 * (th(a.zb, 2) - 0.5), -3.5)),
+        this.Ae((-1 + this.Be()) | 0);
     else {
-      rn(this, new A(0, 0));
-      a.F(37) && rn(this, new A(-8, 0));
-      a.F(39) && rn(this, new A(8, 0));
-      on(this, z(nn(this), qn(this)));
-      a = nn(this);
-      var b = nn(this).h,
-        c = pn(this).h / 2 + hn(this);
+      yn(this, new z(0, 0));
+      a.F(37) && yn(this, new z(-8, 0));
+      a.F(39) && yn(this, new z(8, 0));
+      vn(this, y(un(this), xn(this)));
+      a = un(this);
+      var b = un(this).i,
+        c = wn(this).i / 2 + pn(this);
       b = +Math.max(b, c);
-      c = this.ec.h - pn(this).h / 2 - hn(this);
+      c = this.cc.i - wn(this).i / 2 - pn(this);
       b = +Math.min(b, c);
-      on(this, new A(b, a.g));
-      this.zg(z(this.Ab(), this.Za()));
-      this.Ab().h + 5 > this.ec.h - hn(this)
-        ? ((a = this.Za()),
-          (b = this.Za().h),
+      vn(this, new z(b, a.g));
+      this.sg(y(this.xb(), this.Va()));
+      this.xb().i + 5 > this.cc.i - pn(this)
+        ? ((a = this.Va()),
+          (b = this.Va().i),
           (b = -+Math.abs(b)),
-          this.bd(new A(b, a.g)))
-        : this.Ab().h - 5 < hn(this)
-        ? ((a = this.Za()),
-          (b = this.Za().h),
+          this.Vc(new z(b, a.g)))
+        : this.xb().i - 5 < pn(this)
+        ? ((a = this.Va()),
+          (b = this.Va().i),
           (b = +Math.abs(b)),
-          this.bd(new A(b, a.g)))
-        : 0 > this.Ab().g - 5
-        ? ((a = this.Za()),
-          (b = this.Za().g),
+          this.Vc(new z(b, a.g)))
+        : 0 > this.xb().g - 5
+        ? ((a = this.Va()),
+          (b = this.Va().g),
           (b = +Math.abs(b)),
-          this.bd(new A(a.h, b)))
-        : this.Ab().g > this.ec.g
-        ? (mn(this, (-1 + ln(this)) | 0),
-          0 <= ln(this)
-            ? jn(this)
-            : (Sb(this, new Tm("You've run out of balls!")), Zd(this.sg)))
-        : (qb(
-            this.Ab(),
-            rb(nn(this), ub(pn(this), 2)),
-            z(nn(this), ub(pn(this), 2)),
-            new A(5, 5)
+          this.Vc(new z(a.i, b)))
+        : this.xb().g > this.cc.g
+        ? (tn(this, (-1 + sn(this)) | 0),
+          0 <= sn(this)
+            ? qn(this)
+            : (Qb(this, new $m("You've run out of balls!")), je(this.kg)))
+        : (ob(
+            this.xb(),
+            pb(un(this), sb(wn(this), 2)),
+            y(un(this), sb(wn(this), 2)),
+            new z(5, 5)
           ) &&
-            (this.Za(),
-            (a = this.Za().h + qn(this).h / 8),
-            (b = this.Za().g),
+            (this.Va(),
+            (a = this.Va().i + xn(this).i / 8),
+            (b = this.Va().g),
             (b = -+Math.abs(b)),
-            this.bd(new A(a, b))),
-          sn(this).N(
-            new E(
+            this.Vc(new z(a, b))),
+          zn(this).N(
+            new D(
               ((d) => (f) => {
-                var g = xb().jb,
+                var g = vb().db,
                   h = [
-                    f.zc,
-                    z(f.zc, new A(kn(d).h, 0)),
-                    z(f.zc, kn(d)),
-                    z(f.zc, new A(0, kn(d).g)),
+                    f.wc,
+                    y(f.wc, new z(rn(d).i, 0)),
+                    y(f.wc, rn(d)),
+                    y(f.wc, new z(0, rn(d).g)),
                   ];
-                g = zb(g, B(new C(), h));
-                h = xb().jb;
+                g = xb(g, B(new C(), h));
+                h = vb().db;
                 var k = [
-                  new tn(
-                    g.t(0),
-                    g.t(1),
-                    new E(
+                  new An(
+                    g.v(0),
+                    g.v(1),
+                    new D(
                       (() => (l) => {
                         var p = -+Math.abs(l.g);
-                        return new A(l.h, p);
+                        return new z(l.i, p);
                       })(d)
                     )
                   ),
-                  new tn(
-                    g.t(1),
-                    g.t(2),
-                    new E(
+                  new An(
+                    g.v(1),
+                    g.v(2),
+                    new D(
                       (() => (l) => {
-                        var p = +Math.abs(l.h);
-                        return new A(p, l.g);
+                        var p = +Math.abs(l.i);
+                        return new z(p, l.g);
                       })(d)
                     )
                   ),
-                  new tn(
-                    g.t(2),
-                    g.t(3),
-                    new E(
+                  new An(
+                    g.v(2),
+                    g.v(3),
+                    new D(
                       (() => (l) => {
                         var p = +Math.abs(l.g);
-                        return new A(l.h, p);
+                        return new z(l.i, p);
                       })(d)
                     )
                   ),
-                  new tn(
-                    g.t(3),
-                    g.t(0),
-                    new E(
+                  new An(
+                    g.v(3),
+                    g.v(0),
+                    new D(
                       (() => (l) => {
-                        var p = -+Math.abs(l.h);
-                        return new A(p, l.g);
+                        var p = -+Math.abs(l.i);
+                        return new z(p, l.g);
                       })(d)
                     )
                   ),
                 ];
-                h = zb(h, B(new C(), k));
-                k = new Ai(!1);
-                h.Vd(new E((() => (l) => null !== l)(d)))
-                  .Vd(
-                    new E(
+                h = xb(h, B(new C(), k));
+                k = new Gi(!1);
+                h.Hc(new D((() => (l) => null !== l)(d)))
+                  .Hc(
+                    new D(
                       ((l, p) => (u) => {
-                        if (null !== u) return !p.og;
+                        if (null !== u) return !p.eg;
                         throw new T(u);
                       })(d, k)
                     )
                   )
                   .N(
-                    new E(
-                      ((l, p, u) => (y) => {
-                        if (null !== y) {
-                          var D = y.vg,
-                            K = y.ff;
-                          y = y.Mf;
-                          var J = sl(rb(l.Ab(), D), rb(K, D)) / vb(rb(K, D)),
-                            Z = tl(rb(l.Ab(), D)) - J * J;
-                          Z = +Math.sqrt(Z);
-                          !p.og &&
-                            0 < J &&
-                            J < vb(rb(K, D)) &&
-                            5 > Z &&
-                            (l.bd(y.l(l.Za())), bc(sn(l), u), (p.og = !0));
-                        } else throw new T(y);
+                    new D(
+                      ((l, p, u) => (A) => {
+                        if (null !== A) {
+                          var G = A.ng,
+                            K = A.og;
+                          A = A.pg;
+                          var M = xl(pb(l.xb(), G), pb(K, G)) / tb(pb(K, G)),
+                            aa = yl(pb(l.xb(), G)) - M * M;
+                          aa = +Math.sqrt(aa);
+                          !p.eg &&
+                            0 < M &&
+                            M < tb(pb(K, G)) &&
+                            5 > aa &&
+                            (l.Vc(A.m(l.Va())), $b(zn(l), u), (p.eg = !0));
+                        } else throw new T(A);
                       })(d, k, f)
                     )
                   );
-                g.Vd(new E(((l, p) => () => !p.og)(d, k))).N(
-                  new E(
+                g.Hc(new D(((l, p) => () => !p.eg)(d, k))).N(
+                  new D(
                     ((l, p, u) => () =>
-                      new E(
-                        ((y, D, K) => (J) => {
-                          J = rb(y.Ab(), J);
-                          5 > vb(J) &&
-                            ((J = ub(sb(J, sl(y.Za(), J)), tl(J))),
-                            y.bd(rb(y.Za(), sb(J, 2))),
-                            bc(sn(y), D),
-                            (K.og = !0));
+                      new D(
+                        ((A, G, K) => (M) => {
+                          M = pb(A.xb(), M);
+                          5 > tb(M) &&
+                            ((M = sb(qb(M, xl(A.Va(), M)), yl(M))),
+                            A.Vc(pb(A.Va(), qb(M, 2))),
+                            $b(zn(A), G),
+                            (K.eg = !0));
                         })(l, p, u)
                       ))(d, f, k)
                   )
@@ -6033,62 +6032,62 @@ let ScalaJSExample;
               })(this)
             )
           ),
-          sn(this).e() &&
-            (Sb(this, new Tm("Success! You've destroyed all the bricks!")),
-            Zd(this.sg)));
+          zn(this).e() &&
+            (Qb(this, new $m("Success! You've destroyed all the bricks!")),
+            je(this.kg)));
     }
   };
-  e.ib = function () {
+  e.cb = function () {
     return "BrickBreaker";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.ec;
+        return this.cc;
       case 1:
-        return this.sg;
+        return this.kg;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     if (this === a) return !0;
-    if (a instanceof rl) {
-      var b = this.ec,
-        c = a.ec;
-      return (null === b ? null === c : b.y(c)) ? this.sg === a.sg : !1;
+    if (a instanceof wl) {
+      var b = this.cc,
+        c = a.cc;
+      return (null === b ? null === c : b.y(c)) ? this.kg === a.kg : !1;
     }
     return !1;
   };
   e.$classData = v({ Wl: 0 }, !1, "example.BrickBreaker", {
     Wl: 1,
-    ug: 1,
+    mg: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function un() {}
-  un.prototype = new q();
-  un.prototype.constructor = un;
-  e = un.prototype;
-  e.ib = function () {
+  function Bn() {}
+  Bn.prototype = new q();
+  Bn.prototype.constructor = Bn;
+  e = Bn.prototype;
+  e.cb = function () {
     return "Empty";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 0;
   };
-  e.sb = function (a) {
-    return ng(X(), a);
+  e.mb = function (a) {
+    return wg(Y(), a);
   };
   e.H = function () {
     return 67081517;
@@ -6099,384 +6098,384 @@ let ScalaJSExample;
   e.$classData = v({ $l: 0 }, !1, "example.Empty$", {
     $l: 1,
     b: 1,
-    kh: 1,
-    Bb: 1,
+    eh: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  var vn;
-  function wn() {
-    vn || (vn = new un());
-    return vn;
+  var Cn;
+  function Dn() {
+    Cn || (Cn = new Bn());
+    return Cn;
   }
-  function fn(a) {
-    this.gh = a;
+  function nn(a) {
+    this.ah = a;
   }
-  fn.prototype = new q();
-  fn.prototype.constructor = fn;
-  e = fn.prototype;
-  e.ib = function () {
+  nn.prototype = new q();
+  nn.prototype.constructor = nn;
+  e = nn.prototype;
+  e.cb = function () {
     return "Failure";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 1;
   };
-  e.sb = function (a) {
-    return 0 === a ? this.gh : ng(X(), a);
+  e.mb = function (a) {
+    return 0 === a ? this.ah : wg(Y(), a);
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
-    return this === a ? !0 : a instanceof fn ? this.gh === a.gh : !1;
+    return this === a ? !0 : a instanceof nn ? this.ah === a.ah : !1;
   };
   e.$classData = v({ am: 0 }, !1, "example.Failure", {
     am: 1,
     b: 1,
     Yl: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function ul(a, b) {
-    this.ie = null;
-    this.he = !1;
-    this.mk = this.lk = this.vi = this.ui = this.Ai = null;
-    this.V = this.yi = this.zi = this.wi = 0;
-    this.Oc = a;
-    this.xi = b;
-    Nb(this);
-    b = xn();
-    if (null !== b) b = kj(new lj(), b.Ac(), b.Bc());
+  function zl(a, b) {
+    this.Yd = null;
+    this.Xd = !1;
+    this.mk = this.lk = this.qi = this.pi = this.vi = null;
+    this.V = this.ti = this.ui = this.ri = 0;
+    this.Ic = a;
+    this.si = b;
+    Lb(this);
+    b = En();
+    if (null !== b) b = Hd(new Id(), b.dc(), b.qc());
     else throw new T(b);
-    this.Ai = b;
+    this.vi = b;
     this.V |= 1;
-    this.ui = this.Ai.Ac();
+    this.pi = this.vi.dc();
     this.V |= 2;
-    this.vi = this.Ai.Bc();
+    this.qi = this.vi.qc();
     this.V |= 4;
-    this.lk = new gc(new A(40, a.g / 2), new A(5, 75), new A(0, 0), 0.5);
+    this.lk = new ec(new z(40, a.g / 2), new z(5, 75), new z(0, 0), 0.5);
     this.V |= 8;
-    this.mk = new gc(new A(a.h - 40, a.g / 2), new A(5, 75), new A(0, 0), -0.5);
+    this.mk = new ec(new z(a.i - 40, a.g / 2), new z(5, 75), new z(0, 0), -0.5);
     this.V |= 16;
-    this.wi = 0;
+    this.ri = 0;
     this.V |= 32;
-    this.zi = 0;
+    this.ui = 0;
     this.V |= 64;
-    this.yi = 60;
+    this.ti = 60;
     this.V |= 128;
     this.V |= 256;
   }
-  ul.prototype = new Qb();
-  ul.prototype.constructor = ul;
-  e = ul.prototype;
-  e.Ab = function () {
+  zl.prototype = new Ob();
+  zl.prototype.constructor = zl;
+  e = zl.prototype;
+  e.xb = function () {
     if (0 === (2 & this.V))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 13"
       );
-    return this.ui;
+    return this.pi;
   };
-  e.zg = function (a) {
-    this.ui = a;
+  e.sg = function (a) {
+    this.pi = a;
     this.V |= 2;
   };
-  e.Za = function () {
+  e.Va = function () {
     if (0 === (4 & this.V))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 13"
       );
-    return this.vi;
+    return this.qi;
   };
-  e.bd = function (a) {
-    this.vi = a;
+  e.Vc = function (a) {
+    this.qi = a;
     this.V |= 4;
   };
-  function yn(a) {
+  function Fn(a) {
     if (0 === (8 & a.V))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 14"
       );
     return a.lk;
   }
-  function zn(a) {
+  function Gn(a) {
     if (0 === (16 & a.V))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 16"
       );
     return a.mk;
   }
-  function An(a) {
+  function Hn(a) {
     if (0 === (32 & a.V))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 23"
       );
-    return a.wi;
+    return a.ri;
   }
-  function Bn(a, b) {
-    a.wi = b;
+  function In(a, b) {
+    a.ri = b;
     a.V |= 32;
   }
-  function Cn(a) {
+  function Jn(a) {
     if (0 === (64 & a.V))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 24"
       );
-    return a.zi;
+    return a.ui;
   }
-  function Dn(a, b) {
-    a.zi = b;
+  function Kn(a, b) {
+    a.ui = b;
     a.V |= 64;
   }
-  e.He = function () {
+  e.Be = function () {
     if (0 === (128 & this.V))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 26"
       );
-    return this.yi;
+    return this.ti;
   };
-  e.Ge = function (a) {
-    this.yi = a;
+  e.Ae = function (a) {
+    this.ti = a;
     this.V |= 128;
   };
-  function En(a) {
-    var b = zn(a).Vb.h - a.Ab().h,
-      c = a.Za().g / a.Za().h;
-    b = b * c + a.Ab().g;
-    zn(a).ld = new A(0, 0);
-    c = zn(a).Vb.h - a.Ab().h;
-    +Math.abs(c) < 45 * a.Za().h + 25 &&
-      0 < a.Za().h &&
-      (b > zn(a).Vb.g + zn(a).rc.g / 2
-        ? ((b = b - zn(a).Vb.g - zn(a).rc.g / 2),
-          +Math.abs(b) > zn(a).rc.g / 2 - 10 &&
-            (zn(a).ld = z(zn(a).ld, new A(0, 8))))
-        : b < zn(a).Vb.g + zn(a).rc.g / 2 &&
-          ((b = b - zn(a).Vb.g - zn(a).rc.g / 2),
-          +Math.abs(b) > zn(a).rc.g / 2 - 10 &&
-            (zn(a).ld = rb(zn(a).ld, new A(0, 8)))));
+  function Ln(a) {
+    var b = Gn(a).Ub.i - a.xb().i,
+      c = a.Va().g / a.Va().i;
+    b = b * c + a.xb().g;
+    Gn(a).fd = new z(0, 0);
+    c = Gn(a).Ub.i - a.xb().i;
+    +Math.abs(c) < 45 * a.Va().i + 25 &&
+      0 < a.Va().i &&
+      (b > Gn(a).Ub.g + Gn(a).pc.g / 2
+        ? ((b = b - Gn(a).Ub.g - Gn(a).pc.g / 2),
+          +Math.abs(b) > Gn(a).pc.g / 2 - 10 &&
+            (Gn(a).fd = y(Gn(a).fd, new z(0, 8))))
+        : b < Gn(a).Ub.g + Gn(a).pc.g / 2 &&
+          ((b = b - Gn(a).Ub.g - Gn(a).pc.g / 2),
+          +Math.abs(b) > Gn(a).pc.g / 2 - 10 &&
+            (Gn(a).fd = pb(Gn(a).fd, new z(0, 8)))));
   }
-  function xn() {
-    var a = new A(400, 300),
-      b = Pg(nl().Cb, 2),
-      c = nl();
-    return kj(new lj(), a, new A(8 * (b - 0.5), 8 * (Pg(c.Cb, 2) - 0.5)));
+  function En() {
+    var a = new z(400, 300),
+      b = th(sl().zb, 2),
+      c = sl();
+    return Hd(new Id(), a, new z(8 * (b - 0.5), 8 * (th(c.zb, 2) - 0.5)));
   }
-  e.cd = function (a) {
-    var b = Lb(G());
+  e.Xc = function (a) {
+    var b = Jb(F());
     a.fillStyle = b;
-    a.fillRect(0, 0, this.Oc.h, this.Oc.g);
-    b = Eb(G());
+    a.fillRect(0, 0, this.Ic.i, this.Ic.g);
+    b = Cb(F());
     a.fillStyle = b;
-    b = Eb(G());
+    b = Cb(F());
     a.strokeStyle = b;
-    Ub(new Tb(this, a), this.Ab().h, this.Ab().g);
-    a.fillText("Score", (5 * this.Oc.h) / 10, this.Oc.g / 8);
-    b = An(this);
-    a.fillText("" + b, (5 * this.Oc.h) / 10 - 20, this.Oc.g / 8 + 15);
-    b = Cn(this);
-    a.fillText("" + b, (5 * this.Oc.h) / 10 + 20, this.Oc.g / 8 + 15);
-    b = xb().jb;
-    var c = [yn(this), zn(this)];
-    zb(b, B(new C(), c)).N(
-      new E(
+    Sb(new Rb(this, a), this.xb().i, this.xb().g);
+    a.fillText("Score", (5 * this.Ic.i) / 10, this.Ic.g / 8);
+    b = Hn(this);
+    a.fillText("" + b, (5 * this.Ic.i) / 10 - 20, this.Ic.g / 8 + 15);
+    b = Jn(this);
+    a.fillText("" + b, (5 * this.Ic.i) / 10 + 20, this.Ic.g / 8 + 15);
+    b = vb().db;
+    var c = [Fn(this), Gn(this)];
+    xb(b, B(new C(), c)).N(
+      new D(
         ((d, f) => (g) => {
-          Vb(
-            new Tb(d, f),
+          Tb(
+            new Rb(d, f),
             B(new C(), [
-              new A(g.Vb.h + g.rc.h * g.je, g.Vb.g - g.rc.g * g.je),
-              new A(g.Vb.h + g.rc.h * g.je, g.Vb.g + g.rc.g * g.je),
-              new A(g.Vb.h - g.rc.h * g.je, g.Vb.g + g.rc.g * g.je),
+              new z(g.Ub.i + g.pc.i * g.Zd, g.Ub.g - g.pc.g * g.Zd),
+              new z(g.Ub.i + g.pc.i * g.Zd, g.Ub.g + g.pc.g * g.Zd),
+              new z(g.Ub.i - g.pc.i * g.Zd, g.Ub.g + g.pc.g * g.Zd),
             ])
           );
         })(this, a)
       )
     );
   };
-  e.pg = function (a) {
-    yn(this).ld = new A(0, 0);
-    a.F(38) && (yn(this).ld = rb(yn(this).ld, new A(0, 8)));
-    a.F(40) && (yn(this).ld = z(yn(this).ld, new A(0, 8)));
-    En(this);
-    this.zg(z(this.Ab(), this.Za()));
-    if (0 >= this.Ab().g) {
-      a = this.Za();
-      var b = this.Za().g;
+  e.gg = function (a) {
+    Fn(this).fd = new z(0, 0);
+    a.F(38) && (Fn(this).fd = pb(Fn(this).fd, new z(0, 8)));
+    a.F(40) && (Fn(this).fd = y(Fn(this).fd, new z(0, 8)));
+    Ln(this);
+    this.sg(y(this.xb(), this.Va()));
+    if (0 >= this.xb().g) {
+      a = this.Va();
+      var b = this.Va().g;
       b = +Math.abs(b);
-      this.bd(new A(a.h, b));
+      this.Vc(new z(a.i, b));
     }
-    this.Ab().g >= this.Oc.g &&
-      ((a = this.Za()),
-      (b = this.Za().g),
+    this.xb().g >= this.Ic.g &&
+      ((a = this.Va()),
+      (b = this.Va().g),
       (b = -+Math.abs(b)),
-      this.bd(new A(a.h, b)));
-    0 > this.Ab().h && (Dn(this, (1 + Cn(this)) | 0), this.Ge(100));
-    this.Ab().h > this.Oc.h && (Bn(this, (1 + An(this)) | 0), this.Ge(100));
-    if (0 < this.He()) {
-      a = xn();
+      this.Vc(new z(a.i, b)));
+    0 > this.xb().i && (Kn(this, (1 + Jn(this)) | 0), this.Ae(100));
+    this.xb().i > this.Ic.i && (In(this, (1 + Hn(this)) | 0), this.Ae(100));
+    if (0 < this.Be()) {
+      a = En();
       if (null === a) throw new T(a);
-      b = a.Bc();
-      this.zg(a.Ac());
-      this.bd(b);
-      this.Ge((-1 + this.He()) | 0);
-    } else 0 === this.He() && this.Ge(-1);
-    a = xb().jb;
-    b = [yn(this), zn(this)];
-    zb(a, B(new C(), b)).N(
-      new E(
+      b = a.qc();
+      this.sg(a.dc());
+      this.Vc(b);
+      this.Ae((-1 + this.Be()) | 0);
+    } else 0 === this.Be() && this.Ae(-1);
+    a = vb().db;
+    b = [Fn(this), Gn(this)];
+    xb(a, B(new C(), b)).N(
+      new D(
         ((c) => (d) => {
-          var f = rb(d.Vb, sb(d.rc, d.je)),
-            g = z(d.Vb, sb(d.rc, d.je));
-          qb(c.Ab(), g, f, new A(5, 5)) &&
-            (c.Za(),
-            (f = d.je),
-            (g = c.Za().h),
+          var f = pb(d.Ub, qb(d.pc, d.Zd)),
+            g = y(d.Ub, qb(d.pc, d.Zd));
+          ob(c.xb(), g, f, new z(5, 5)) &&
+            (c.Va(),
+            (f = d.Zd),
+            (g = c.Va().i),
             (f = 2 * f * +Math.abs(g)),
-            (g = c.Za().g + d.ld.g / 8),
-            c.bd(new A(f, g)));
-          d.Vb = z(d.Vb, d.ld);
-          f = d.Vb;
-          g = +Math.min(d.Vb.g, c.Oc.g - d.rc.g / 2);
-          g = +Math.max(g, d.rc.g / 2);
-          d.Vb = new A(f.h, g);
+            (g = c.Va().g + d.fd.g / 8),
+            c.Vc(new z(f, g)));
+          d.Ub = y(d.Ub, d.fd);
+          f = d.Ub;
+          g = +Math.min(d.Ub.g, c.Ic.g - d.pc.g / 2);
+          g = +Math.max(g, d.pc.g / 2);
+          d.Ub = new z(f.i, g);
         })(this)
       )
     );
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Pong";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.Oc;
+        return this.Ic;
       case 1:
-        return this.xi;
+        return this.si;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     if (this === a) return !0;
-    if (a instanceof ul) {
-      var b = this.Oc,
-        c = a.Oc;
-      return (null === b ? null === c : b.y(c)) ? this.xi === a.xi : !1;
+    if (a instanceof zl) {
+      var b = this.Ic,
+        c = a.Ic;
+      return (null === b ? null === c : b.y(c)) ? this.si === a.si : !1;
     }
     return !1;
   };
   e.$classData = v({ fm: 0 }, !1, "example.Pong", {
     fm: 1,
-    ug: 1,
+    mg: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function vl(a, b) {
-    this.ie = null;
-    this.he = !1;
-    this.Ei = this.Di = 0;
-    this.nk = this.Fi = this.Ci = null;
-    this.zb = 0;
-    this.Bi = a;
-    this.jh = b;
-    Nb(this);
-    this.Di = 0;
-    this.zb = ((1 | this.zb) << 24) >> 24;
-    this.Ei = 10;
-    this.zb = ((2 | this.zb) << 24) >> 24;
-    this.Ci = new A(1, 0);
-    this.zb = ((4 | this.zb) << 24) >> 24;
-    this.Fi = new A(40, 30);
-    this.zb = ((8 | this.zb) << 24) >> 24;
-    a = new (x(x(Ec)).G)(80);
+  function Al(a, b) {
+    this.Yd = null;
+    this.Xd = !1;
+    this.zi = this.yi = 0;
+    this.nk = this.Ai = this.xi = null;
+    this.vb = 0;
+    this.wi = a;
+    this.dh = b;
+    Lb(this);
+    this.yi = 0;
+    this.vb = ((1 | this.vb) << 24) >> 24;
+    this.zi = 10;
+    this.vb = ((2 | this.vb) << 24) >> 24;
+    this.xi = new z(1, 0);
+    this.vb = ((4 | this.vb) << 24) >> 24;
+    this.Ai = new z(40, 30);
+    this.vb = ((8 | this.vb) << 24) >> 24;
+    a = new (x(x(Cc)).G)(80);
     for (b = 0; 80 > b; ) {
-      for (var c = b, d = new (x(Ec).G)(60), f = 0; 60 > f; )
-        (d.a[f] = wn()), (f = (1 + f) | 0);
+      for (var c = b, d = new (x(Cc).G)(60), f = 0; 60 > f; )
+        (d.a[f] = Dn()), (f = (1 + f) | 0);
       a.a[c] = d;
       b = (1 + b) | 0;
     }
     for (b = 0; ; ) {
       c = b;
-      a.a[c].a[0] = new Fn(2147483647);
-      a.a[c].a[59] = new Fn(2147483647);
+      a.a[c].a[0] = new Mn(2147483647);
+      a.a[c].a[59] = new Mn(2147483647);
       if (79 === b) break;
       b = (1 + b) | 0;
     }
     for (b = 0; ; ) {
       c = b;
-      a.a[0].a[c] = new Fn(2147483647);
-      a.a[79].a[c] = new Fn(2147483647);
+      a.a[0].a[c] = new Mn(2147483647);
+      a.a[79].a[c] = new Mn(2147483647);
       if (59 === b) break;
       b = (1 + b) | 0;
     }
     this.nk = a;
-    this.zb = ((16 | this.zb) << 24) >> 24;
+    this.vb = ((16 | this.vb) << 24) >> 24;
   }
-  vl.prototype = new Qb();
-  vl.prototype.constructor = vl;
-  e = vl.prototype;
-  e.Eg = function () {
-    if (0 === ((1 & this.zb) << 24) >> 24)
-      throw new F(
+  Al.prototype = new Ob();
+  Al.prototype.constructor = Al;
+  e = Al.prototype;
+  e.yg = function () {
+    if (0 === ((1 & this.vb) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Snake.scala: 12"
       );
-    return this.Di;
+    return this.yi;
   };
-  e.Si = function (a) {
-    this.Di = a;
-    this.zb = ((1 | this.zb) << 24) >> 24;
+  e.Ni = function (a) {
+    this.yi = a;
+    this.vb = ((1 | this.vb) << 24) >> 24;
   };
-  e.n = function () {
-    if (0 === ((2 & this.zb) << 24) >> 24)
-      throw new F(
+  e.q = function () {
+    if (0 === ((2 & this.vb) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Snake.scala: 13"
       );
-    return this.Ei;
+    return this.zi;
   };
-  function Gn(a) {
-    if (0 === ((4 & a.zb) << 24) >> 24)
-      throw new F(
+  function Nn(a) {
+    if (0 === ((4 & a.vb) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Snake.scala: 14"
       );
-    return a.Ci;
+    return a.xi;
   }
-  function Hn(a) {
-    if (0 === ((8 & a.zb) << 24) >> 24)
-      throw new F(
+  function On(a) {
+    if (0 === ((8 & a.vb) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Snake.scala: 15"
       );
-    return a.Fi;
+    return a.Ai;
   }
-  function In(a) {
-    if (0 === ((16 & a.zb) << 24) >> 24)
-      throw new F(
+  function Pn(a) {
+    if (0 === ((16 & a.vb) << 24) >> 24)
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Snake.scala: 16"
       );
     return a.nk;
   }
-  function Jn(a) {
-    var b = In(a);
-    Ee();
+  function Qn(a) {
+    var b = Pn(a);
+    Te();
     var c = null;
     c = [];
     for (var d = 0; d < b.a.length; ) {
       var f = b.a[d],
-        g = (() => (u) => (u instanceof Nm ? 1 : 0))(a);
-      Ee();
+        g = (() => (u) => (u instanceof Um ? 1 : 0))(a);
+      Te();
       var h = f.a.length,
         k = new t(h);
       if (0 < h) {
@@ -6485,47 +6484,47 @@ let ScalaJSExample;
           for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
         else if (f instanceof t)
           for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
-        else if (f instanceof Ya)
-          for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
         else if (f instanceof Wa)
+          for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
+        else if (f instanceof Ua)
           for (; l < h; ) {
             var p = f.a[l];
-            k.a[l] = g(new n(p.Fa, p.Ea)) | 0;
+            k.a[l] = g(new n(p.bb, p.ab)) | 0;
             l = (1 + l) | 0;
           }
-        else if (f instanceof Xa)
-          for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
-        else if (f instanceof Ta)
-          for (; l < h; ) (k.a[l] = g(Pa(f.a[l])) | 0), (l = (1 + l) | 0);
-        else if (f instanceof Ua)
-          for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
         else if (f instanceof Va)
           for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
+        else if (f instanceof Ra)
+          for (; l < h; ) (k.a[l] = g(Na(f.a[l])) | 0), (l = (1 + l) | 0);
         else if (f instanceof Sa)
+          for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
+        else if (f instanceof Ta)
+          for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
+        else if (f instanceof Qa)
           for (; l < h; ) (k.a[l] = g(f.a[l]) | 0), (l = (1 + l) | 0);
         else throw new T(f);
       }
-      g = Gh(yc(), k);
-      for (g = new Kn(g.We); g.m(); ) (h = Ln(g)), c.push(h);
+      g = Rh(wc(), k);
+      for (g = new Rn(g.pe); g.l(); ) (h = Sn(g)), c.push(h);
       d = (1 + d) | 0;
     }
     a = new t(new Int32Array(c));
-    a = Gh(yc(), a);
-    Rd || (Rd = new Mn());
-    return Qd(a) | 0;
+    a = Rh(wc(), a);
+    be || (be = new Tn());
+    return ae(a) | 0;
   }
-  e.cd = function (a) {
+  e.Xc = function (a) {
     a.fillStyle = "rgb(0, 0, 0)";
     a.fillRect(0, 0, 800, 800);
     for (var b = 0; ; ) {
       for (var c = b, d = 0; ; ) {
         var f = d,
-          g = In(this).a[c].a[f];
-        if (g instanceof Fn)
+          g = Pn(this).a[c].a[f];
+        if (g instanceof Mn)
           (a.fillStyle = "rgb(200, 200, 200)"),
             a.fillRect(10 * c, 10 * f, 10, 10);
-        else if (g instanceof Nm) {
-          g = g.bf;
+        else if (g instanceof Um) {
+          g = g.Ue;
           switch (g) {
             case 2:
               g = "rgb(255, 0, 0)";
@@ -6537,8 +6536,8 @@ let ScalaJSExample;
               throw new T(g);
           }
           a.fillStyle = g;
-          Ub(new Tb(this, a), 10 * c + 5, 10 * f + 5);
-        } else if (wn() !== g) throw new T(g);
+          Sb(new Rb(this, a), 10 * c + 5, 10 * f + 5);
+        } else if (Dn() !== g) throw new T(g);
         if (59 === d) break;
         d = (1 + d) | 0;
       }
@@ -6546,56 +6545,56 @@ let ScalaJSExample;
       b = (1 + b) | 0;
     }
   };
-  e.pg = function (a) {
-    this.Si((1 + this.Eg()) | 0);
-    if (0 === (this.Eg() % 2 | 0)) {
-      if (+Math.random() > 0.9 + Jn(this) / 10) {
-        var b = Pg(nl().Cb, 80),
-          c = Pg(nl().Cb, 60),
-          d = In(this).a[b].a[c];
-        wn() === d &&
-          ((d = 0 === Pg(nl().Cb, 20) ? 5 : 2),
-          (In(this).a[b].a[c] = new Nm(375, d)));
+  e.gg = function (a) {
+    this.Ni((1 + this.yg()) | 0);
+    if (0 === (this.yg() % 2 | 0)) {
+      if (+Math.random() > 0.9 + Qn(this) / 10) {
+        var b = th(sl().zb, 80),
+          c = th(sl().zb, 60),
+          d = Pn(this).a[b].a[c];
+        Dn() === d &&
+          ((d = 0 === th(sl().zb, 20) ? 5 : 2),
+          (Pn(this).a[b].a[c] = new Um(375, d)));
       }
-      this.Fi = z(Hn(this), Gn(this));
-      this.zb = ((8 | this.zb) << 24) >> 24;
-      b = In(this).a[Ja(Hn(this).h)].a[Ja(Hn(this).g)];
-      b instanceof Fn
-        ? (Sb(this, new Tm("You hit a wall!")), Zd(this.jh))
-        : (b instanceof Nm &&
-            ((b = b.bf),
-            (this.Ei = (this.n() + b) | 0),
-            (this.zb = ((2 | this.zb) << 24) >> 24)),
-          (In(this).a[Ja(Hn(this).h)].a[Ja(Hn(this).g)] = new Fn(this.n())));
+      this.Ai = y(On(this), Nn(this));
+      this.vb = ((8 | this.vb) << 24) >> 24;
+      b = Pn(this).a[Ga(On(this).i)].a[Ga(On(this).g)];
+      b instanceof Mn
+        ? (Qb(this, new $m("You hit a wall!")), je(this.dh))
+        : (b instanceof Um &&
+            ((b = b.Ue),
+            (this.zi = (this.q() + b) | 0),
+            (this.vb = ((2 | this.vb) << 24) >> 24)),
+          (Pn(this).a[Ga(On(this).i)].a[Ga(On(this).g)] = new Mn(this.q())));
       a = a.F(37)
-        ? new A(-1, 0)
+        ? new z(-1, 0)
         : a.F(39)
-        ? new A(1, 0)
+        ? new z(1, 0)
         : a.F(38)
-        ? new A(0, -1)
+        ? new z(0, -1)
         : a.F(40)
-        ? new A(0, 1)
-        : Gn(this);
-      b = z(a, Gn(this));
-      c = new A(0, 0);
+        ? new z(0, 1)
+        : Nn(this);
+      b = y(a, Nn(this));
+      c = new z(0, 0);
       (null !== b && b.y(c)) ||
-        ((this.Ci = a), (this.zb = ((4 | this.zb) << 24) >> 24));
+        ((this.xi = a), (this.vb = ((4 | this.vb) << 24) >> 24));
       for (a = 0; ; ) {
         b = a;
         for (c = 0; ; ) {
           d = c;
-          var f = In(this).a[b],
-            g = In(this).a[b].a[d];
+          var f = Pn(this).a[b],
+            g = Pn(this).a[b].a[d];
           var h =
-            g instanceof Fn && 1 === g.Lf
+            g instanceof Mn && 1 === g.Bf
               ? !0
-              : g instanceof Nm && 1 === g.If
+              : g instanceof Um && 1 === g.yf
               ? !0
               : !1;
-          if (h) g = wn();
-          else if (g instanceof Fn) g = new Fn((-1 + g.Lf) | 0);
-          else if (g instanceof Nm) g = new Nm((-1 + g.If) | 0, g.bf);
-          else if (wn() === g) g = wn();
+          if (h) g = Dn();
+          else if (g instanceof Mn) g = new Mn((-1 + g.Bf) | 0);
+          else if (g instanceof Um) g = new Um((-1 + g.yf) | 0, g.Ue);
+          else if (Dn() === g) g = Dn();
           else throw new T(g);
           f.a[d] = g;
           if (59 === c) break;
@@ -6606,57 +6605,57 @@ let ScalaJSExample;
       }
     }
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Snake";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.Bi;
+        return this.wi;
       case 1:
-        return this.jh;
+        return this.dh;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     if (this === a) return !0;
-    if (a instanceof vl) {
-      var b = this.Bi,
-        c = a.Bi;
-      return (null === b ? null === c : b.y(c)) ? this.jh === a.jh : !1;
+    if (a instanceof Al) {
+      var b = this.wi,
+        c = a.wi;
+      return (null === b ? null === c : b.y(c)) ? this.dh === a.dh : !1;
     }
     return !1;
   };
   e.$classData = v({ im: 0 }, !1, "example.Snake", {
     im: 1,
-    ug: 1,
+    mg: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function Nn() {}
-  Nn.prototype = new q();
-  Nn.prototype.constructor = Nn;
-  e = Nn.prototype;
-  e.ib = function () {
+  function Un() {}
+  Un.prototype = new q();
+  Un.prototype.constructor = Un;
+  e = Un.prototype;
+  e.cb = function () {
     return "Success";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 0;
   };
-  e.sb = function (a) {
-    return ng(X(), a);
+  e.mb = function (a) {
+    return wg(Y(), a);
   };
   e.H = function () {
     return -202516509;
@@ -6668,17 +6667,17 @@ let ScalaJSExample;
     km: 1,
     b: 1,
     Yl: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  var On;
-  function gn() {
-    On || (On = new Nn());
-    return On;
+  var Vn;
+  function on() {
+    Vn || (Vn = new Un());
+    return Vn;
   }
-  function Pn(a, b) {
-    var c = Ja(Qn(a).h),
+  function Wn(a, b) {
+    var c = Ga(Xn(a).i),
       d = 0 >= c;
     if (d) var f = 0;
     else {
@@ -6686,133 +6685,133 @@ let ScalaJSExample;
       f = (0 === g ? -1 < (-2147483648 ^ c) : 0 < g) ? -1 : c;
     }
     g = (-1 + c) | 0;
-    0 > f && Rh(Ff(), 0, c, 1, !1);
-    c = xf().X();
-    for (d = new Rn(0, 1, g, d); d.Md; )
-      (g = Sn(d)), (g = Tn(a).a[g].a[b]), c.Oa(g);
-    return c.Ua();
+    0 > f && bi(Pf(), 0, c, 1, !1);
+    c = If().ea();
+    for (d = new Zn(0, 1, g, d); d.je; )
+      (g = $n(d)), (g = ao(a).a[g].a[b]), c.Ia(g);
+    return c.Wa();
   }
-  function Un(a, b, c, d, f) {
+  function bo(a, b, c, d, f) {
     var g = d.split("255").join("128");
     f.fillStyle = g;
-    f.fillRect(Vn(a) + b * Wn(a), c * Wn(a), Wn(a), Wn(a));
+    f.fillRect(co(a) + b * eo(a), c * eo(a), eo(a), eo(a));
     f.strokeStyle = d;
-    f.strokeRect(Vn(a) + b * Wn(a), c * Wn(a), Wn(a), Wn(a));
+    f.strokeRect(co(a) + b * eo(a), c * eo(a), eo(a), eo(a));
   }
-  function Xn(a, b, c, d, f) {
-    c = Yn(a, Zn(a).t(b), c);
-    var g = c.n(),
-      h = (-1 + g) | 0;
-    if (!(0 >= g))
-      for (g = 0; ; ) {
-        var k = c.t(g);
-        if (null === k) throw new T(k);
-        var l = k.mh();
-        k = k.nh();
-        var p = new A(l, k),
-          u = new A(0, 0),
-          y = Qn(a);
-        (qb(p, u, y, new A(0, 0)) || d) && Un(a, l, k, Mb().t(b), f);
-        if (g === h) break;
-        g = (1 + g) | 0;
-      }
+  function fo(a, b, c, d, f) {
+    go(a, ho(a).v(b), c)
+      .Hc(new D((() => (g) => null !== g)(a)))
+      .N(
+        new D(
+          ((g, h, k, l) => (p) => {
+            if (null !== p) {
+              var u = p.qg();
+              p = p.Cf();
+              var A = new z(u, p),
+                G = new z(0, 0),
+                K = Xn(g);
+              (ob(A, G, K, new z(0, 0)) || h) && bo(g, u, p, Kb().v(k), l);
+            } else throw new T(p);
+          })(a, d, b, f)
+        )
+      );
   }
-  function wl(a, b) {
-    this.ie = null;
-    this.he = !1;
-    this.sk = this.Gi = null;
-    this.ok = this.Ji = 0;
+  function Bl(a, b) {
+    this.Yd = null;
+    this.Xd = !1;
+    this.sk = this.Bi = null;
+    this.ok = this.Ei = 0;
     this.qk = null;
-    this.Hi = this.Ki = this.Ii = this.rk = 0;
-    this.Mi = this.pk = this.Li = null;
+    this.Ci = this.Fi = this.Di = this.rk = 0;
+    this.Hi = this.pk = this.Gi = null;
     this.J = 0;
-    this.ke = a;
-    this.lh = b;
-    Nb(this);
-    b = xb().jb;
-    var c = xb().jb,
+    this.$d = a;
+    this.fh = b;
+    Lb(this);
+    b = vb().db;
+    var c = vb().db,
       d = [
         new t(new Int32Array([0, 1, 0, 0])),
         new t(new Int32Array([0, 1, 0, 0])),
         new t(new Int32Array([0, 1, 0, 0])),
         new t(new Int32Array([0, 1, 0, 0])),
       ];
-    c = zb(c, B(new C(), d));
-    d = xb().jb;
+    c = xb(c, B(new C(), d));
+    d = vb().db;
     var f = [new t(new Int32Array([1, 1])), new t(new Int32Array([1, 1]))];
-    d = zb(d, B(new C(), f));
-    f = xb().jb;
+    d = xb(d, B(new C(), f));
+    f = vb().db;
     var g = [
       new t(new Int32Array([1, 1, 0])),
       new t(new Int32Array([0, 1, 1])),
       new t(new Int32Array([0, 0, 0])),
     ];
-    f = zb(f, B(new C(), g));
-    g = xb().jb;
+    f = xb(f, B(new C(), g));
+    g = vb().db;
     var h = [
       new t(new Int32Array([0, 1, 1])),
       new t(new Int32Array([1, 1, 0])),
       new t(new Int32Array([0, 0, 0])),
     ];
-    g = zb(g, B(new C(), h));
-    h = xb().jb;
+    g = xb(g, B(new C(), h));
+    h = vb().db;
     var k = [
       new t(new Int32Array([0, 1, 0])),
       new t(new Int32Array([1, 1, 1])),
       new t(new Int32Array([0, 0, 0])),
     ];
-    h = zb(h, B(new C(), k));
-    k = xb().jb;
+    h = xb(h, B(new C(), k));
+    k = vb().db;
     var l = [
       new t(new Int32Array([0, 1, 0])),
       new t(new Int32Array([0, 1, 0])),
       new t(new Int32Array([1, 1, 0])),
     ];
-    k = zb(k, B(new C(), l));
-    l = xb().jb;
+    k = xb(k, B(new C(), l));
+    l = vb().db;
     var p = [
       new t(new Int32Array([0, 1, 0])),
       new t(new Int32Array([0, 1, 0])),
       new t(new Int32Array([0, 1, 1])),
     ];
-    c = [c, d, f, g, h, k, zb(l, B(new C(), p))];
-    this.sk = zb(b, B(new C(), c));
+    c = [c, d, f, g, h, k, xb(l, B(new C(), p))];
+    this.sk = xb(b, B(new C(), c));
     this.J |= 2;
-    this.Ji = 0;
+    this.Ei = 0;
     this.J |= 4;
     this.J |= 8;
     this.ok = 20;
     this.J |= 16;
-    this.qk = new A(13, a.g / Wn(this));
+    this.qk = new z(13, a.g / eo(this));
     this.J |= 32;
-    this.rk = (a.h - Wn(this) * Qn(this).h) / 2;
+    this.rk = (a.i - eo(this) * Xn(this).i) / 2;
     this.J |= 64;
-    this.Ii = 0;
+    this.Di = 0;
     this.J |= 128;
-    a = nl();
-    b = Zn(this).n();
-    this.Ki = Pg(a.Cb, b);
+    a = sl();
+    b = ho(this).q();
+    this.Fi = th(a.zb, b);
     this.J |= 256;
-    a = nl();
-    b = Zn(this).n();
-    this.Hi = Pg(a.Cb, b);
+    a = sl();
+    b = ho(this).q();
+    this.Ci = th(a.zb, b);
     this.J |= 512;
-    this.Li = new A(Qn(this).h / 2, 0);
+    this.Gi = new z(Xn(this).i / 2, 0);
     this.J |= 1024;
-    a = Ja(Qn(this).h);
-    b = Ja(Qn(this).g);
-    if (0 >= a) a = new (x(x(Ic)).G)(0);
+    a = Ga(Xn(this).i);
+    b = Ga(Xn(this).g);
+    if (0 >= a) a = new (x(x(Gc)).G)(0);
     else {
-      c = new (x(x(Ic)).G)(a);
+      c = new (x(x(Gc)).G)(a);
       for (d = 0; d < a; ) {
         f = d;
-        if (0 >= b) g = new (x(Ic).G)(0);
+        if (0 >= b) g = new (x(Gc).G)(0);
         else
-          for (g = new (x(Ic).G)(b), h = 0; h < b; )
+          for (g = new (x(Gc).G)(b), h = 0; h < b; )
             (k = g.a),
               (l = h),
-              null === this.Gi && null === this.Gi && (this.Gi = new Jc(this)),
-              (k[l] = new Hc(this, Lb(G()))),
+              null === this.Bi && null === this.Bi && (this.Bi = new Hc(this)),
+              (k[l] = new Fc(this, Jb(F()))),
               (h = (1 + h) | 0);
         c.a[f] = g;
         d = (1 + d) | 0;
@@ -6821,142 +6820,163 @@ let ScalaJSExample;
     }
     this.pk = a;
     this.J |= 2048;
-    this.Mi = Zk();
+    this.Hi = cl();
     this.J |= 4096;
   }
-  wl.prototype = new Qb();
-  wl.prototype.constructor = wl;
-  function Zn(a) {
+  Bl.prototype = new Ob();
+  Bl.prototype.constructor = Bl;
+  function ho(a) {
     if (0 === (2 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 7"
       );
     return a.sk;
   }
-  function Yn(a, b, c) {
-    var d = b.n(),
-      f = 0 >= d,
-      g = (-1 + d) | 0;
-    d = xf().X();
-    for (f = new Rn(0, 1, g, f); f.Md; ) {
-      g = Sn(f);
-      var h = b.t(0).a.length;
-      h = new $n(0, h, 1);
-      g = new mj(
-        h,
-        new E(
-          ((k, l, p) => (u) => {
-            u |= 0;
-            return 0 !== l.t(p).a[u];
-          })(a, b, g)
-        )
-      ).W(
-        new E(
-          ((k, l, p) => (u) =>
-            new ao((l + Ja(p.h)) | 0, ((u | 0) + Ja(p.g)) | 0))(a, g, c)
+  function go(a, b, c) {
+    return b
+      .hg()
+      .Hc(new D((() => (d) => null !== d)(a)))
+      .Cb(
+        new D(
+          ((d, f) => (g) => {
+            if (null !== g) {
+              var h = g.dc();
+              g = g.Cf();
+              wc();
+              Kd || (Kd = new yd());
+              h = zd(h);
+              h = Md(
+                new Ld(new D((() => (u) => null !== u)(d)), h),
+                new D(
+                  (() => (u) => {
+                    if (null !== u) return 0 !== u.qg();
+                    throw new T(u);
+                  })(d)
+                )
+              );
+              var k = null;
+              k = [];
+              for (var l = 0; l < Bd(Gd(), h.Eg); ) {
+                var p = Jd(Gd(), h.Eg, l);
+                if (h.gj.m(p)) {
+                  if (null === p) throw new T(p);
+                  p = new io((g + Ga(f.i)) | 0, (p.Cf() + Ga(f.g)) | 0);
+                  k.push(p);
+                }
+                l = (1 + l) | 0;
+              }
+              return Nh(new (x(Ad).G)(k));
+            }
+            throw new T(g);
+          })(a, c)
         )
       );
-      d.qb(g);
-    }
-    return d.Ua();
   }
-  function co(a) {
+  function jo(a) {
     if (0 === (4 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 54"
       );
-    return a.Ji;
+    return a.Ei;
   }
-  function eo(a, b) {
-    a.Ji = b;
+  function ko(a, b) {
+    a.Ei = b;
     a.J |= 4;
   }
-  function Wn(a) {
+  function eo(a) {
     if (0 === (16 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 56"
       );
     return a.ok;
   }
-  function Qn(a) {
+  function Xn(a) {
     if (0 === (32 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 57"
       );
     return a.qk;
   }
-  function Vn(a) {
+  function co(a) {
     if (0 === (64 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 58"
       );
     return a.rk;
   }
-  function fo(a) {
+  function lo(a) {
     if (0 === (128 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 59"
       );
-    return a.Ii;
+    return a.Di;
   }
-  function go(a, b) {
-    a.Ii = b;
+  function mo(a, b) {
+    a.Di = b;
     a.J |= 128;
   }
-  function ho(a) {
+  function no(a) {
     if (0 === (256 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 60"
       );
-    return a.Ki;
+    return a.Fi;
   }
-  function io(a) {
+  function oo(a, b) {
+    a.Fi = b;
+    a.J |= 256;
+  }
+  function po(a) {
     if (0 === (512 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 61"
       );
-    return a.Hi;
+    return a.Ci;
   }
-  function jo(a) {
+  function qo(a, b) {
+    a.Ci = b;
+    a.J |= 512;
+  }
+  function ro(a) {
     if (0 === (1024 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 62"
       );
-    return a.Li;
+    return a.Gi;
   }
-  function ko(a, b) {
-    a.Li = b;
+  function so(a, b) {
+    a.Gi = b;
     a.J |= 1024;
   }
-  function Tn(a) {
+  function ao(a) {
     if (0 === (2048 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 65"
       );
     return a.pk;
   }
-  function lo(a) {
+  function to(a) {
     if (0 === (4096 & a.J))
-      throw new F(
+      throw new E(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 67"
       );
-    return a.Mi;
+    return a.Hi;
   }
-  function mo(a, b) {
-    var c = b.n(),
-      d = b.t(0).a.length,
-      f = ub(new A(c - 1, d - 1), 2),
-      g = xb().jb;
-    a = Kh(
+  function uo(a, b) {
+    var c = b.q(),
+      d = b.v(0).a.length,
+      f = sb(new z(c - 1, d - 1), 2),
+      g = vb().db;
+    a = Vh(
       g,
       c,
       new H(
-        ((D, K) => () => {
-          Ee();
+        ((G, K) => () => {
+          Te();
           if (0 >= K) return new t(0);
-          for (var J = new t(K), Z = 0; Z < K; )
-            (J.a[Z] = 0), (Z = (1 + Z) | 0);
-          return J;
+          for (var M = new t(K), aa = 0; aa < K; )
+            (M.a[aa] = 0), (aa = (1 + aa) | 0);
+          return M;
         })(a, d)
       )
     );
@@ -6968,9 +6988,9 @@ let ScalaJSExample;
         if (!(0 >= d))
           for (var p = 0; ; ) {
             var u = p,
-              y = rb(new A(k, u), f);
-            y = z(new A(-y.g, y.h), f);
-            a.t(Ja(y.h)).a[Ja(y.g)] = b.t(k).a[u];
+              A = pb(new z(k, u), f);
+            A = y(new z(-A.g, A.i), f);
+            a.v(Ga(A.i)).a[Ga(A.g)] = b.v(k).a[u];
             if (p === l) break;
             p = (1 + p) | 0;
           }
@@ -6985,7 +7005,7 @@ let ScalaJSExample;
         if (!(0 >= d))
           for (k = 0; ; ) {
             l = k;
-            b.t(g).a[l] = a.t(g).a[l];
+            b.v(g).a[l] = a.v(g).a[l];
             if (k === h) break;
             k = (1 + k) | 0;
           }
@@ -6993,130 +7013,105 @@ let ScalaJSExample;
         c = (1 + c) | 0;
       }
   }
-  function no(a, b) {
-    var c = Yn(a, Zn(a).t(io(a)), jo(a));
-    if (0 <= c.n()) {
-      var d = c.n();
-      d = new (x(oo).G)(d);
-      c.Ob(d, 0, 2147483647);
+  function vo(a, b) {
+    return go(a, ho(a).v(po(a)), ro(a))
+      .Hc(new D((() => (c) => null !== c)(a)))
+      .da(
+        new D(
+          ((c, d) => (f) => {
+            if (null !== f) return Hd(new Id(), f, y(new z(f.qg(), f.Cf()), d));
+            throw new T(f);
+          })(a, b)
+        )
+      )
+      .Hc(
+        new D(
+          ((c) => (d) => {
+            if (null !== d) {
+              var f = d.qc();
+              if (null !== d.dc())
+                return (
+                  !ob(f, new z(0, 0), Xn(c), new z(0, 0)) ||
+                  ao(c).a[Ga(f.i)].a[Ga(f.g)].Xe !== Jb(F())
+                );
+            }
+            throw new T(d);
+          })(a)
+        )
+      )
+      .da(
+        new D(
+          (() => (c) => {
+            if (null === c || null === c.dc()) throw new T(c);
+          })(a)
+        )
+      );
+  }
+  function wo(a) {
+    var b = vo(a, new z(0, 1)),
+      c = go(a, ho(a).v(po(a)), ro(a));
+    if (0 <= c.t()) {
+      var d = c.t();
+      d = new (x(Ad).G)(d);
+      c.Pb(d, 0, 2147483647);
       c = d;
     } else {
       d = null;
       d = [];
-      for (c = c.i(); c.m(); ) {
+      for (c = c.h(); c.l(); ) {
         var f = c.k();
         d.push(null === f ? null : f);
       }
-      c = new (x(oo).G)(d);
+      c = new (x(Ad).G)(d);
     }
-    f = c.a.length;
-    d = 0 >= f;
-    if (d) var g = 0;
+    if (b.e()) so(a, y(ro(a), new z(0, 1)));
     else {
-      var h = f >> 31;
-      g = (0 === h ? -1 < (-2147483648 ^ f) : 0 < h) ? -1 : f;
-    }
-    h = (-1 + f) | 0;
-    0 > g && Rh(Ff(), 0, f, 1, !1);
-    f = xf().X();
-    for (d = new Rn(0, 1, h, d); d.Md; ) {
-      h = Sn(d);
-      g = c.a[h];
-      if (null === g) throw new T(g);
-      f.Oa(new tn(h, g, z(new A(g.mh(), g.nh()), b)));
-    }
-    b = f.Ua();
-    return new mj(
-      b,
-      new E(
-        ((k) => (l) => {
-          if (null !== l) {
-            var p = l.Mf;
-            if (null !== l.ff)
-              return (
-                !qb(p, new A(0, 0), Qn(k), new A(0, 0)) ||
-                Tn(k).a[Ja(p.h)].a[Ja(p.g)].ef !== Lb(G())
-              );
-          }
-          throw new T(l);
-        })(a)
-      )
-    ).W(
-      new E(
-        (() => (k) => {
-          if (null === k || null === k.ff) throw new T(k);
-        })(a)
-      )
-    );
-  }
-  function po(a) {
-    var b = no(a, new A(0, 1)),
-      c = Yn(a, Zn(a).t(io(a)), jo(a));
-    if (0 <= c.n()) {
-      var d = c.n();
-      d = new (x(oo).G)(d);
-      c.Ob(d, 0, 2147483647);
-      c = d;
-    } else {
-      d = [];
-      for (c = c.i(); c.m(); ) {
-        var f = c.k();
-        d.push(null === f ? null : f);
-      }
-      c = new (x(oo).G)(d);
-    }
-    if (b.e()) ko(a, z(jo(a), new A(0, 1)));
-    else {
-      d = c.a.length;
-      b = (-1 + d) | 0;
-      if (!(0 >= d))
-        for (d = 0; ; ) {
-          var g = c.a[d];
-          if (null === g) throw new T(g);
-          f = g.mh();
-          g = g.nh();
-          Tn(a).a[f].a[g].ef = Mb().t(io(a));
-          if (d === b) break;
-          d = (1 + d) | 0;
+      b = new Ld(new D((() => (h) => null !== h)(a)), c);
+      c = Bd(Gd(), b.Eg);
+      for (d = 0; d < c; ) {
+        f = Jd(Gd(), b.Eg, d);
+        if (b.gj.m(f)) {
+          var g = f;
+          if (null !== g)
+            (f = g.qg()), (g = g.Cf()), (ao(a).a[f].a[g].Xe = Kb().v(po(a)));
+          else throw new T(g);
         }
-      b = ho(a);
-      a.Hi = b;
-      a.J |= 512;
-      b = nl();
-      c = Zn(a).n();
-      b = Pg(b.Cb, c);
-      a.Ki = b;
-      a.J |= 256;
-      ko(a, new A(Qn(a).h / 2, 0));
-      no(a, new A(0, 0)).e() ||
-        (Sb(a, new Tm("The board has filled up!")), Zd(a.lh));
+        d = (1 + d) | 0;
+      }
+      qo(a, no(a));
+      b = sl();
+      c = ho(a).q();
+      oo(a, th(b.zb, c));
+      so(a, new z(Xn(a).i / 2, 0));
+      vo(a, new z(0, 0)).e() ||
+        (Qb(a, new $m("The board has filled up!")), je(a.fh));
     }
   }
-  e = wl.prototype;
-  e.pg = function (a) {
+  e = Bl.prototype;
+  e.gg = function (a) {
     a.F(37) &&
-      !lo(this).F(37) &&
-      no(this, new A(-1, 0)).e() &&
-      ko(this, z(jo(this), new A(-1, 0)));
+      !to(this).F(37) &&
+      vo(this, new z(-1, 0)).e() &&
+      so(this, y(ro(this), new z(-1, 0)));
     a.F(39) &&
-      !lo(this).F(39) &&
-      no(this, new A(1, 0)).e() &&
-      ko(this, z(jo(this), new A(1, 0)));
+      !to(this).F(39) &&
+      vo(this, new z(1, 0)).e() &&
+      so(this, y(ro(this), new z(1, 0)));
     if (
       a.F(32) &&
-      !lo(this).F(32) &&
-      (mo(this, Zn(this).t(io(this))), !no(this, new A(0, 0)).e())
+      !to(this).F(32) &&
+      (uo(this, ho(this).v(po(this))), !vo(this, new z(0, 0)).e())
     )
       for (var b = 0; ; ) {
-        mo(this, Zn(this).t(io(this)));
+        uo(this, ho(this).v(po(this)));
         if (2 === b) break;
         b = (1 + b) | 0;
       }
-    a.F(40) && po(this);
-    this.Mi = a;
+    a.F(40) && wo(this);
+    this.Hi = a;
     this.J |= 4096;
-    0 < co(this) ? eo(this, (-1 + co(this)) | 0) : (eo(this, 15), po(this));
-    a = (-1 + Ja(Qn(this).g)) | 0;
+    0 < jo(this) ? ko(this, (-1 + jo(this)) | 0) : (ko(this, 15), wo(this));
+    a = (-1 + Ga(Xn(this).g)) | 0;
     b = 0 > a;
     if (b) var c = 0;
     else {
@@ -7128,74 +7123,74 @@ let ScalaJSExample;
       c = 0 === d ? (1 + c) | 0 : c;
       c = (0 === c ? -1 < (-2147483648 ^ d) : 0 < c) ? -1 : d;
     }
-    zc();
+    xc();
     d = I();
-    0 > c && Rh(Ff(), a, 0, -1, !0);
+    0 > c && bi(Pf(), a, 0, -1, !0);
     if (0 === c) b = d;
-    else if (((a = new Rn(a, -1, 0, b)), a.Md))
-      for (c = b = new Wm(Sn(a), d); a.Md; ) {
-        var f = new Wm(Sn(a), d);
-        c = c.tc = f;
+    else if (((a = new Zn(a, -1, 0, b)), a.je))
+      for (c = b = new cn($n(a), d); a.je; ) {
+        var f = new cn($n(a), d);
+        c = c.sc = f;
       }
     else b = d;
     a = null;
-    a = new mj(
+    a = new oj(
       b,
-      new E(
+      new D(
         ((k) => (l) => {
           var p = !0;
-          for (l = Pn(k, l | 0).i(); p && l.m(); ) p = l.k().ef !== Lb(G());
+          for (l = Wn(k, l | 0).h(); p && l.l(); ) p = l.k().Xe !== Jb(F());
           return !p;
         })(this)
       )
-    ).W(new E((() => (k) => k | 0)(this)));
-    b = (-1 + Ja(Qn(this).g)) | 0;
+    ).da(new D((() => (k) => k | 0)(this)));
+    b = (-1 + Ga(Xn(this).g)) | 0;
     if (!(0 > b))
       for (;;) {
         d = b;
         c = a;
-        if (c instanceof Wm)
+        if (c instanceof cn)
           (a = c),
-            (c = a.Nh | 0),
-            (a = a.tc),
-            Pn(this, d)
-              .ai(Pn(this, c))
-              .Vd(new E((() => (k) => null !== k)(this)))
+            (c = a.Kh | 0),
+            (a = a.sc),
+            Wn(this, d)
+              .Sj(Wn(this, c))
+              .Hc(new D((() => (k) => null !== k)(this)))
               .N(
-                new E(
+                new D(
                   (() => (k) => {
-                    if (null !== k) k.Ac().ef = k.Bc().ef;
+                    if (null !== k) k.dc().Xe = k.qc().Xe;
                     else throw new T(k);
                   })(this)
                 )
               );
         else {
-          go(this, (1 + fo(this)) | 0);
-          var g = Tn(this).a[d];
+          mo(this, (1 + lo(this)) | 0);
+          var g = ao(this).a[d];
           d = (() => (k) => {
-            k.ef = Lb(G());
+            k.Xe = Jb(F());
           })(this);
           c = g.a.length;
           f = 0;
           if (null !== g) for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
           else if (g instanceof t) for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
-          else if (g instanceof Ya)
-            for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
           else if (g instanceof Wa)
+            for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
+          else if (g instanceof Ua)
             for (; f < c; ) {
               var h = g.a[f];
-              d(new n(h.Fa, h.Ea));
+              d(new n(h.bb, h.ab));
               f = (1 + f) | 0;
             }
-          else if (g instanceof Xa)
-            for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
-          else if (g instanceof Ta)
-            for (; f < c; ) d(Pa(g.a[f])), (f = (1 + f) | 0);
-          else if (g instanceof Ua)
-            for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
           else if (g instanceof Va)
             for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
+          else if (g instanceof Ra)
+            for (; f < c; ) d(Na(g.a[f])), (f = (1 + f) | 0);
           else if (g instanceof Sa)
+            for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
+          else if (g instanceof Ta)
+            for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
+          else if (g instanceof Qa)
             for (; f < c; ) d(g.a[f]), (f = (1 + f) | 0);
           else throw new T(g);
         }
@@ -7203,183 +7198,183 @@ let ScalaJSExample;
         b = (-1 + b) | 0;
       }
   };
-  e.cd = function (a) {
-    var b = Lb(G());
+  e.Xc = function (a) {
+    var b = Jb(F());
     a.fillStyle = b;
-    a.fillRect(0, 0, this.ke.h, this.ke.g);
+    a.fillRect(0, 0, this.$d.i, this.$d.g);
     a.textAlign = "left";
-    b = Eb(G());
+    b = Cb(F());
     a.fillStyle = b;
     a.fillText(
-      "Lines Cleared: " + fo(this),
-      1.3 * Vn(this) + Qn(this).h * Wn(this),
+      "Lines Cleared: " + lo(this),
+      1.3 * co(this) + Xn(this).i * eo(this),
       100
     );
-    a.fillText("Next Block", 1.35 * Vn(this) + Qn(this).h * Wn(this), 150);
-    var c = Ja(Qn(this).h);
+    a.fillText("Next Block", 1.35 * co(this) + Xn(this).i * eo(this), 150);
+    var c = Ga(Xn(this).i);
     b = (-1 + c) | 0;
     if (!(0 >= c))
       for (c = 0; ; ) {
         var d = c,
-          f = Ja(Qn(this).g),
+          f = Ga(Xn(this).g),
           g = (-1 + f) | 0;
         if (!(0 >= f))
           for (f = 0; ; ) {
             var h = f;
-            Un(this, d, h, Tn(this).a[d].a[h].ef, a);
+            bo(this, d, h, ao(this).a[d].a[h].Xe, a);
             if (f === g) break;
             f = (1 + f) | 0;
           }
         if (c === b) break;
         c = (1 + c) | 0;
       }
-    Xn(this, io(this), jo(this), !1, a);
-    Xn(this, ho(this), new A(18, 9), !0, a);
-    b = Eb(G());
+    fo(this, po(this), ro(this), !1, a);
+    fo(this, no(this), new z(18, 9), !0, a);
+    b = Cb(F());
     a.strokeStyle = b;
-    b = new Tb(this, a);
-    c = [new A(Vn(this), 0), new A(Vn(this), this.ke.g)];
-    Vb(b, B(new C(), c));
-    a = new Tb(this, a);
+    b = new Rb(this, a);
+    c = [new z(co(this), 0), new z(co(this), this.$d.g)];
+    Tb(b, B(new C(), c));
+    a = new Rb(this, a);
     b = [
-      new A(this.ke.h - Vn(this), 0),
-      new A(this.ke.h - Vn(this), this.ke.g),
+      new z(this.$d.i - co(this), 0),
+      new z(this.$d.i - co(this), this.$d.g),
     ];
-    Vb(a, B(new C(), b));
+    Tb(a, B(new C(), b));
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Tetris";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.ke;
+        return this.$d;
       case 1:
-        return this.lh;
+        return this.fh;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
     if (this === a) return !0;
-    if (a instanceof wl) {
-      var b = this.ke,
-        c = a.ke;
-      return (null === b ? null === c : b.y(c)) ? this.lh === a.lh : !1;
+    if (a instanceof Bl) {
+      var b = this.$d,
+        c = a.$d;
+      return (null === b ? null === c : b.y(c)) ? this.fh === a.fh : !1;
     }
     return !1;
   };
   e.$classData = v({ lm: 0 }, !1, "example.Tetris", {
     lm: 1,
-    ug: 1,
+    mg: 1,
     b: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function Fn(a) {
-    this.Lf = a;
+  function Mn(a) {
+    this.Bf = a;
   }
-  Fn.prototype = new q();
-  Fn.prototype.constructor = Fn;
-  e = Fn.prototype;
-  e.ib = function () {
+  Mn.prototype = new q();
+  Mn.prototype.constructor = Mn;
+  e = Mn.prototype;
+  e.cb = function () {
     return "Wall";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 1;
   };
-  e.sb = function (a) {
-    return 0 === a ? this.Lf : ng(X(), a);
+  e.mb = function (a) {
+    return 0 === a ? this.Bf : wg(Y(), a);
   };
   e.H = function () {
-    var a = Ca("Wall");
-    a = X().p(-889275714, a);
-    var b = this.Lf;
-    a = X().p(a, b);
-    return X().L(a, 1);
+    var a = Da("Wall");
+    a = Y().p(-889275714, a);
+    var b = this.Bf;
+    a = Y().p(a, b);
+    return Y().L(a, 1);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
-    return this === a ? !0 : a instanceof Fn ? this.Lf === a.Lf : !1;
+    return this === a ? !0 : a instanceof Mn ? this.Bf === a.Bf : !1;
   };
   e.$classData = v({ pm: 0 }, !1, "example.Wall", {
     pm: 1,
     b: 1,
-    kh: 1,
-    Bb: 1,
+    eh: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function qo() {}
-  qo.prototype = new yl();
-  qo.prototype.constructor = qo;
-  function ro() {}
-  ro.prototype = qo.prototype;
-  class Ga extends Al {
+  function xo() {}
+  xo.prototype = new Dl();
+  xo.prototype.constructor = xo;
+  function yo() {}
+  yo.prototype = xo.prototype;
+  class uh extends Fl {
     constructor() {
       super();
-      oe(this, "/ by zero");
+      ze(this, "/ by zero");
     }
   }
-  Ga.prototype.$classData = v({ Cm: 0 }, !1, "java.lang.ArithmeticException", {
+  uh.prototype.$classData = v({ Cm: 0 }, !1, "java.lang.ArithmeticException", {
     Cm: 1,
-    sc: 1,
-    jc: 1,
-    fc: 1,
+    rc: 1,
+    hc: 1,
+    ec: 1,
     b: 1,
     c: 1,
   });
-  function rd(a) {
-    var b = new so();
-    oe(b, a);
+  function pd(a) {
+    var b = new zo();
+    ze(b, a);
     return b;
   }
-  function to() {
-    var a = new so();
-    oe(a, null);
+  function Ao() {
+    var a = new zo();
+    ze(a, null);
     return a;
   }
-  class so extends Al {}
-  so.prototype.$classData = v(
+  class zo extends Fl {}
+  zo.prototype.$classData = v(
     { Jk: 0 },
     !1,
     "java.lang.IllegalArgumentException",
-    { Jk: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { Jk: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  class ke extends Al {
+  class ve extends Fl {
     constructor(a) {
       super();
-      oe(this, a);
+      ze(this, a);
     }
   }
-  ke.prototype.$classData = v(
+  ve.prototype.$classData = v(
     { Nm: 0 },
     !1,
     "java.lang.IllegalStateException",
-    { Nm: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { Nm: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  function og(a, b) {
-    oe(a, b);
+  function xg(a, b) {
+    ze(a, b);
     return a;
   }
-  class pg extends Al {}
-  pg.prototype.$classData = v(
-    { Wi: 0 },
+  class yg extends Fl {}
+  yg.prototype.$classData = v(
+    { Ri: 0 },
     !1,
     "java.lang.IndexOutOfBoundsException",
-    { Wi: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { Ri: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
   v({ Rm: 0 }, !1, "java.lang.JSConsoleBasedPrintStream$DummyOutputStream", {
     Rm: 1,
@@ -7389,514 +7384,553 @@ let ScalaJSExample;
     Fm: 1,
     rm: 1,
   });
-  class qd extends Al {
+  class od extends Fl {
     constructor() {
       super();
-      oe(this, null);
+      ze(this, null);
     }
   }
-  qd.prototype.$classData = v(
+  od.prototype.$classData = v(
     { Um: 0 },
     !1,
     "java.lang.NegativeArraySizeException",
-    { Um: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { Um: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  class fg extends Al {
+  class og extends Fl {
     constructor() {
       super();
-      oe(this, null);
+      ze(this, null);
     }
   }
-  fg.prototype.$classData = v({ Vm: 0 }, !1, "java.lang.NullPointerException", {
+  og.prototype.$classData = v({ Vm: 0 }, !1, "java.lang.NullPointerException", {
     Vm: 1,
-    sc: 1,
-    jc: 1,
-    fc: 1,
+    rc: 1,
+    hc: 1,
+    ec: 1,
     b: 1,
     c: 1,
   });
-  function Ld(a) {
-    var b = new dj();
-    oe(b, a);
+  function Yd(a) {
+    var b = new ij();
+    ze(b, a);
     return b;
   }
-  class dj extends Al {}
-  dj.prototype.$classData = v(
+  class ij extends Fl {}
+  ij.prototype.$classData = v(
     { fn: 0 },
     !1,
     "java.lang.UnsupportedOperationException",
-    { fn: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { fn: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  class uo extends Al {
+  class Bo extends Fl {
     constructor() {
       super();
-      oe(this, "mutation occurred during iteration");
+      ze(this, "mutation occurred during iteration");
     }
   }
-  uo.prototype.$classData = v(
+  Bo.prototype.$classData = v(
     { ln: 0 },
     !1,
     "java.util.ConcurrentModificationException",
-    { ln: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { ln: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  function Th(a, b) {
-    oe(a, b);
+  function Uk(a) {
+    var b = new Co();
+    ze(b, a);
+    return b;
+  }
+  function Do() {
+    var a = new Co();
+    ze(a, null);
     return a;
   }
-  function vo() {
-    var a = new Uh();
-    oe(a, null);
-    return a;
-  }
-  class Uh extends Al {}
-  Uh.prototype.$classData = v(
+  class Co extends Fl {}
+  Co.prototype.$classData = v(
     { mn: 0 },
     !1,
     "java.util.NoSuchElementException",
-    { mn: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { mn: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  function wh() {}
-  wh.prototype = new Il();
-  wh.prototype.constructor = wh;
-  wh.prototype.l = function (a) {
+  function Dh() {}
+  Dh.prototype = new Nl();
+  Dh.prototype.constructor = Dh;
+  Dh.prototype.m = function (a) {
     return a;
   };
-  wh.prototype.z = function () {
+  Dh.prototype.z = function () {
     return "generalized constraint";
   };
-  wh.prototype.$classData = v({ sn: 0 }, !1, "scala.$less$colon$less$$anon$1", {
+  Dh.prototype.$classData = v({ sn: 0 }, !1, "scala.$less$colon$less$$anon$1", {
     sn: 1,
-    $r: 1,
-    as: 1,
+    bs: 1,
+    cs: 1,
     b: 1,
     O: 1,
     c: 1,
   });
-  class T extends Al {
+  class T extends Fl {
     constructor(a) {
       super();
       this.Tk = null;
-      this.ej = !1;
-      this.uh = a;
-      oe(this, null);
+      this.aj = !1;
+      this.ph = a;
+      ze(this, null);
     }
-    ph() {
-      if (!this.ej && !this.ej) {
-        if (null === this.uh) var a = "null";
+    kh() {
+      if (!this.aj && !this.aj) {
+        if (null === this.ph) var a = "null";
         else
           try {
-            a = Ea(this.uh) + " (of class " + xa(this.uh) + ")";
+            a = Fa(this.ph) + " (of class " + ya(this.ph) + ")";
           } catch (b) {
             if (
-              (sg || (sg = new rg()),
-              null !== (b instanceof Mg ? b : new tg(b)))
+              (Bg || (Bg = new Ag()),
+              null !== (b instanceof qh ? b : new Cg(b)))
             )
-              a = "an instance of class " + xa(this.uh);
+              a = "an instance of class " + ya(this.ph);
             else throw b;
           }
         this.Tk = a;
-        this.ej = !0;
+        this.aj = !0;
       }
       return this.Tk;
     }
   }
   T.prototype.$classData = v({ wn: 0 }, !1, "scala.MatchError", {
     wn: 1,
-    sc: 1,
-    jc: 1,
-    fc: 1,
+    rc: 1,
+    hc: 1,
+    ec: 1,
     b: 1,
     c: 1,
   });
-  function wo() {}
-  wo.prototype = new q();
-  wo.prototype.constructor = wo;
-  function xo() {}
-  xo.prototype = wo.prototype;
-  wo.prototype.e = function () {
-    return this === Ob();
+  function Eo() {}
+  Eo.prototype = new q();
+  Eo.prototype.constructor = Eo;
+  function Fo() {}
+  Fo.prototype = Eo.prototype;
+  Eo.prototype.e = function () {
+    return this === Mb();
   };
-  wo.prototype.v = function () {
+  Eo.prototype.t = function () {
     return this.e() ? 0 : 1;
   };
-  wo.prototype.i = function () {
-    if (this.e()) return W().Y;
+  Eo.prototype.h = function () {
+    if (this.e()) return W().Z;
     W();
-    var a = this.Fg();
-    return new yo(a);
+    var a = this.zg();
+    return new Go(a);
   };
-  function kj(a, b, c) {
-    a.Ni = b;
-    a.Oi = c;
+  function Hd(a, b, c) {
+    a.Ii = b;
+    a.Ji = c;
     return a;
   }
-  function lj() {
-    this.Oi = this.Ni = null;
+  function Id() {
+    this.Ji = this.Ii = null;
   }
-  lj.prototype = new q();
-  lj.prototype.constructor = lj;
-  function zo() {}
-  e = zo.prototype = lj.prototype;
-  e.rb = function () {
+  Id.prototype = new q();
+  Id.prototype.constructor = Id;
+  function Ho() {}
+  e = Ho.prototype = Id.prototype;
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     a: switch (a) {
       case 0:
-        a = this.Ac();
+        a = this.dc();
         break a;
       case 1:
-        a = this.Bc();
+        a = this.qc();
         break a;
       default:
-        throw og(new pg(), a + " is out of bounds (min 0, max 1)");
+        throw xg(new yg(), a + " is out of bounds (min 0, max 1)");
     }
     return a;
   };
-  e.Ac = function () {
-    return this.Ni;
+  e.dc = function () {
+    return this.Ii;
   };
-  e.Bc = function () {
-    return this.Oi;
+  e.qc = function () {
+    return this.Ji;
   };
   e.z = function () {
-    return "(" + this.Ac() + "," + this.Bc() + ")";
+    return "(" + this.dc() + "," + this.qc() + ")";
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Tuple2";
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.y = function (a) {
     return this === a
       ? !0
-      : a instanceof lj
-      ? L(M(), this.Ac(), a.Ac()) && L(M(), this.Bc(), a.Bc())
+      : a instanceof Id
+      ? J(L(), this.dc(), a.dc()) && J(L(), this.qc(), a.qc())
       : !1;
   };
-  e.mh = function () {
-    return this.Ac() | 0;
+  e.qg = function () {
+    return this.dc() | 0;
   };
-  e.nh = function () {
-    return this.Bc() | 0;
+  e.Cf = function () {
+    return this.qc() | 0;
   };
-  var oo = v({ vk: 0 }, !1, "scala.Tuple2", {
+  var Ad = v({ vk: 0 }, !1, "scala.Tuple2", {
     vk: 1,
     b: 1,
     An: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  lj.prototype.$classData = oo;
-  function tn(a, b, c) {
-    this.vg = a;
-    this.ff = b;
-    this.Mf = c;
+  Id.prototype.$classData = Ad;
+  function An(a, b, c) {
+    this.ng = a;
+    this.og = b;
+    this.pg = c;
   }
-  tn.prototype = new q();
-  tn.prototype.constructor = tn;
-  e = tn.prototype;
-  e.rb = function () {
+  An.prototype = new q();
+  An.prototype.constructor = An;
+  e = An.prototype;
+  e.lb = function () {
     return 3;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     a: switch (a) {
       case 0:
-        a = this.vg;
+        a = this.ng;
         break a;
       case 1:
-        a = this.ff;
+        a = this.og;
         break a;
       case 2:
-        a = this.Mf;
+        a = this.pg;
         break a;
       default:
-        throw og(new pg(), a + " is out of bounds (min 0, max 2)");
+        throw xg(new yg(), a + " is out of bounds (min 0, max 2)");
     }
     return a;
   };
   e.z = function () {
-    return "(" + this.vg + "," + this.ff + "," + this.Mf + ")";
+    return "(" + this.ng + "," + this.og + "," + this.pg + ")";
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Tuple3";
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.y = function (a) {
     return this === a
       ? !0
-      : a instanceof tn
-      ? L(M(), this.vg, a.vg) && L(M(), this.ff, a.ff) && L(M(), this.Mf, a.Mf)
+      : a instanceof An
+      ? J(L(), this.ng, a.ng) && J(L(), this.og, a.og) && J(L(), this.pg, a.pg)
       : !1;
   };
   e.$classData = v({ zm: 0 }, !1, "scala.Tuple3", {
     zm: 1,
     b: 1,
-    es: 1,
-    Bb: 1,
+    gs: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function Ao(a) {
-    this.kj = a;
+  function Io(a) {
+    this.hj = a;
   }
-  Ao.prototype = new Vi();
-  Ao.prototype.constructor = Ao;
-  Ao.prototype.$classData = v(
-    { Ao: 0 },
-    !1,
-    "scala.collection.ClassTagSeqFactory$AnySeqDelegate",
-    { Ao: 1, Cs: 1, b: 1, Hb: 1, c: 1, Tc: 1 }
-  );
-  function Bo(a, b) {
-    return a.Be(new Co(a, b));
-  }
-  function Do(a, b) {
-    return a.ha().ga(new Eo(a, b));
-  }
-  function Fo(a) {
-    this.Vf = 0;
-    this.Wk = null;
-    if (null === a) throw nb(null);
-    this.Wk = a;
-    this.Vf = a.n();
-  }
-  Fo.prototype = new Kl();
-  Fo.prototype.constructor = Fo;
-  Fo.prototype.m = function () {
-    return 0 < this.Vf;
-  };
-  Fo.prototype.k = function () {
-    return 0 < this.Vf
-      ? ((this.Vf = (-1 + this.Vf) | 0), this.Wk.t(this.Vf))
-      : W().Y.k();
-  };
-  Fo.prototype.$classData = v(
+  Io.prototype = new aj();
+  Io.prototype.constructor = Io;
+  Io.prototype.$classData = v(
     { Co: 0 },
     !1,
-    "scala.collection.IndexedSeqOps$$anon$1",
-    { Co: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
-  );
-  function Go(a) {
-    return Td(a, a.Qc() + "(", ", ");
-  }
-  function fj(a) {
-    return !!(a && a.$classData && a.$classData.Nb.B);
-  }
-  function Ho(a, b) {
-    this.Wf = null;
-    this.nf = 0;
-    this.Yk = this.mj = null;
-    if (null === a) throw nb(null);
-    this.mj = a;
-    this.Yk = b;
-    this.Wf = W().Y;
-    this.nf = -1;
-  }
-  Ho.prototype = new Kl();
-  Ho.prototype.constructor = Ho;
-  Ho.prototype.m = function () {
-    if (-1 === this.nf) {
-      for (; !this.Wf.m(); ) {
-        if (!this.mj.m()) return (this.nf = 0), (this.Wf = W().Y), !1;
-        this.Wf = null;
-        this.Wf = this.Yk.l(this.mj.k()).i();
-        this.nf = -1;
-      }
-      this.nf = 1;
-      return !0;
-    }
-    return 1 === this.nf;
-  };
-  Ho.prototype.k = function () {
-    this.m() && (this.nf = -1);
-    return this.Wf.k();
-  };
-  Ho.prototype.$classData = v(
-    { Lo: 0 },
-    !1,
-    "scala.collection.Iterator$$anon$10",
-    { Lo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
-  );
-  function Io(a, b) {
-    this.Ah = this.Bh = null;
-    if (null === a) throw nb(null);
-    this.Ah = a;
-    this.Bh = b.i();
-  }
-  Io.prototype = new Kl();
-  Io.prototype.constructor = Io;
-  Io.prototype.v = function () {
-    var a = this.Ah.v(),
-      b = this.Bh.v();
-    return a < b ? a : b;
-  };
-  Io.prototype.m = function () {
-    return this.Ah.m() && this.Bh.m();
-  };
-  Io.prototype.k = function () {
-    return kj(new lj(), this.Ah.k(), this.Bh.k());
-  };
-  Io.prototype.$classData = v(
-    { Mo: 0 },
-    !1,
-    "scala.collection.Iterator$$anon$14",
-    { Mo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
-  );
-  function tj() {}
-  tj.prototype = new Kl();
-  tj.prototype.constructor = tj;
-  tj.prototype.m = function () {
-    return !1;
-  };
-  tj.prototype.v = function () {
-    return 0;
-  };
-  tj.prototype.k = function () {
-    throw Th(new Uh(), "next on empty iterator");
-  };
-  tj.prototype.$classData = v(
-    { No: 0 },
-    !1,
-    "scala.collection.Iterator$$anon$19",
-    { No: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
-  );
-  function yo(a) {
-    this.Po = a;
-    this.nj = !1;
-  }
-  yo.prototype = new Kl();
-  yo.prototype.constructor = yo;
-  yo.prototype.m = function () {
-    return !this.nj;
-  };
-  yo.prototype.k = function () {
-    if (this.nj) return W().Y.k();
-    this.nj = !0;
-    return this.Po;
-  };
-  yo.prototype.$classData = v(
-    { Oo: 0 },
-    !1,
-    "scala.collection.Iterator$$anon$20",
-    { Oo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    "scala.collection.ClassTagSeqFactory$AnySeqDelegate",
+    { Co: 1, Es: 1, b: 1, Eb: 1, c: 1, Nc: 1 }
   );
   function Jo(a, b) {
-    this.Zk = a;
-    this.So = b;
-    this.Ch = 0;
+    return a.ve(new Ko(a, b));
   }
-  Jo.prototype = new Kl();
-  Jo.prototype.constructor = Jo;
-  Jo.prototype.v = function () {
-    var a = (this.Zk - this.Ch) | 0;
-    return 0 < a ? a : 0;
+  function Lo(a, b) {
+    return a.X().W(new Mo(a, b));
+  }
+  function No(a) {
+    this.Kf = 0;
+    this.Wk = null;
+    if (null === a) throw lb(null);
+    this.Wk = a;
+    this.Kf = a.q();
+  }
+  No.prototype = new Pl();
+  No.prototype.constructor = No;
+  No.prototype.l = function () {
+    return 0 < this.Kf;
   };
-  Jo.prototype.m = function () {
-    return this.Ch < this.Zk;
+  No.prototype.k = function () {
+    return 0 < this.Kf
+      ? ((this.Kf = (-1 + this.Kf) | 0), this.Wk.v(this.Kf))
+      : W().Z.k();
   };
-  Jo.prototype.k = function () {
-    return this.m() ? ((this.Ch = (1 + this.Ch) | 0), Zd(this.So)) : W().Y.k();
+  No.prototype.$classData = v(
+    { Eo: 0 },
+    !1,
+    "scala.collection.IndexedSeqOps$$anon$1",
+    { Eo: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
+  function Oo(a) {
+    return de(a, a.Wc() + "(", ", ");
+  }
+  function Td(a) {
+    return !!(a && a.$classData && a.$classData.Ib.B);
+  }
+  function Po(a, b) {
+    this.Mf = null;
+    this.ef = 0;
+    this.Yk = this.ij = null;
+    if (null === a) throw lb(null);
+    this.ij = a;
+    this.Yk = b;
+    this.Mf = W().Z;
+    this.ef = -1;
+  }
+  Po.prototype = new Pl();
+  Po.prototype.constructor = Po;
+  Po.prototype.l = function () {
+    if (-1 === this.ef) {
+      for (; !this.Mf.l(); ) {
+        if (!this.ij.l()) return (this.ef = 0), (this.Mf = W().Z), !1;
+        this.Mf = null;
+        this.Mf = this.Yk.m(this.ij.k()).h();
+        this.ef = -1;
+      }
+      this.ef = 1;
+      return !0;
+    }
+    return 1 === this.ef;
   };
-  Jo.prototype.$classData = v(
+  Po.prototype.k = function () {
+    this.l() && (this.ef = -1);
+    return this.Mf.k();
+  };
+  Po.prototype.$classData = v(
+    { Oo: 0 },
+    !1,
+    "scala.collection.Iterator$$anon$10",
+    { Oo: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
+  function Qo(a, b) {
+    this.vh = this.wh = null;
+    if (null === a) throw lb(null);
+    this.vh = a;
+    this.wh = b.h();
+  }
+  Qo.prototype = new Pl();
+  Qo.prototype.constructor = Qo;
+  e = Qo.prototype;
+  e.t = function () {
+    var a = this.vh.t(),
+      b = this.wh.t();
+    return a < b ? a : b;
+  };
+  e.l = function () {
+    return this.vh.l() && this.wh.l();
+  };
+  e.Xi = function () {
+    return Hd(new Id(), this.vh.k(), this.wh.k());
+  };
+  e.k = function () {
+    return this.Xi();
+  };
+  e.$classData = v({ Po: 0 }, !1, "scala.collection.Iterator$$anon$14", {
+    Po: 1,
+    la: 1,
+    b: 1,
+    Y: 1,
+    r: 1,
+    s: 1,
+  });
+  function Ro(a) {
+    this.yh = 0;
+    this.xh = null;
+    if (null === a) throw lb(null);
+    this.xh = a;
+    this.yh = 0;
+  }
+  Ro.prototype = new Pl();
+  Ro.prototype.constructor = Ro;
+  e = Ro.prototype;
+  e.t = function () {
+    return this.xh.t();
+  };
+  e.l = function () {
+    return this.xh.l();
+  };
+  e.Xi = function () {
+    var a = Hd(new Id(), this.xh.k(), this.yh);
+    this.yh = (1 + this.yh) | 0;
+    return a;
+  };
+  e.k = function () {
+    return this.Xi();
+  };
+  e.$classData = v({ Qo: 0 }, !1, "scala.collection.Iterator$$anon$16", {
+    Qo: 1,
+    la: 1,
+    b: 1,
+    Y: 1,
+    r: 1,
+    s: 1,
+  });
+  function wj() {}
+  wj.prototype = new Pl();
+  wj.prototype.constructor = wj;
+  wj.prototype.l = function () {
+    return !1;
+  };
+  wj.prototype.t = function () {
+    return 0;
+  };
+  wj.prototype.k = function () {
+    throw Uk("next on empty iterator");
+  };
+  wj.prototype.$classData = v(
     { Ro: 0 },
     !1,
-    "scala.collection.Iterator$$anon$22",
-    { Ro: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    "scala.collection.Iterator$$anon$19",
+    { Ro: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function Ko(a, b, c) {
-    this.Dh = null;
-    this.Eh = !1;
-    this.al = this.Lg = null;
+  function Go(a) {
+    this.To = a;
+    this.jj = !1;
+  }
+  Go.prototype = new Pl();
+  Go.prototype.constructor = Go;
+  Go.prototype.l = function () {
+    return !this.jj;
+  };
+  Go.prototype.k = function () {
+    if (this.jj) return W().Z.k();
+    this.jj = !0;
+    return this.To;
+  };
+  Go.prototype.$classData = v(
+    { So: 0 },
+    !1,
+    "scala.collection.Iterator$$anon$20",
+    { So: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
+  function So(a, b) {
+    this.Zk = a;
+    this.Wo = b;
+    this.zh = 0;
+  }
+  So.prototype = new Pl();
+  So.prototype.constructor = So;
+  So.prototype.t = function () {
+    var a = (this.Zk - this.zh) | 0;
+    return 0 < a ? a : 0;
+  };
+  So.prototype.l = function () {
+    return this.zh < this.Zk;
+  };
+  So.prototype.k = function () {
+    return this.l() ? ((this.zh = (1 + this.zh) | 0), je(this.Wo)) : W().Z.k();
+  };
+  So.prototype.$classData = v(
+    { Vo: 0 },
+    !1,
+    "scala.collection.Iterator$$anon$22",
+    { Vo: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
+  function To(a, b, c) {
+    this.Ah = null;
+    this.Bh = !1;
+    this.al = this.Gg = null;
     this.$k = !1;
-    if (null === a) throw nb(null);
-    this.Lg = a;
+    if (null === a) throw lb(null);
+    this.Gg = a;
     this.al = b;
     this.$k = c;
-    this.Eh = !1;
+    this.Bh = !1;
   }
-  Ko.prototype = new Kl();
-  Ko.prototype.constructor = Ko;
-  Ko.prototype.m = function () {
-    if (!this.Eh) {
-      if (!this.Lg.m()) return !1;
-      for (this.Dh = this.Lg.k(); !!this.al.l(this.Dh) === this.$k; ) {
-        if (!this.Lg.m()) return !1;
-        this.Dh = this.Lg.k();
+  To.prototype = new Pl();
+  To.prototype.constructor = To;
+  To.prototype.l = function () {
+    if (!this.Bh) {
+      if (!this.Gg.l()) return !1;
+      for (this.Ah = this.Gg.k(); !!this.al.m(this.Ah) === this.$k; ) {
+        if (!this.Gg.l()) return !1;
+        this.Ah = this.Gg.k();
       }
-      this.Eh = !0;
+      this.Bh = !0;
     }
     return !0;
   };
-  Ko.prototype.k = function () {
-    return this.m() ? ((this.Eh = !1), this.Dh) : W().Y.k();
+  To.prototype.k = function () {
+    return this.l() ? ((this.Bh = !1), this.Ah) : W().Z.k();
   };
-  Ko.prototype.$classData = v(
-    { To: 0 },
+  To.prototype.$classData = v(
+    { Xo: 0 },
     !1,
     "scala.collection.Iterator$$anon$6",
-    { To: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    { Xo: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function Lo(a, b) {
-    this.bl = this.Fh = null;
-    if (null === a) throw nb(null);
-    this.Fh = a;
+  function Uo(a, b) {
+    this.bl = this.Ch = null;
+    if (null === a) throw lb(null);
+    this.Ch = a;
     this.bl = b;
   }
-  Lo.prototype = new Kl();
-  Lo.prototype.constructor = Lo;
-  Lo.prototype.v = function () {
-    return this.Fh.v();
+  Uo.prototype = new Pl();
+  Uo.prototype.constructor = Uo;
+  Uo.prototype.t = function () {
+    return this.Ch.t();
   };
-  Lo.prototype.m = function () {
-    return this.Fh.m();
+  Uo.prototype.l = function () {
+    return this.Ch.l();
   };
-  Lo.prototype.k = function () {
-    return this.bl.l(this.Fh.k());
+  Uo.prototype.k = function () {
+    return this.bl.m(this.Ch.k());
   };
-  Lo.prototype.$classData = v(
-    { Uo: 0 },
+  Uo.prototype.$classData = v(
+    { Yo: 0 },
     !1,
     "scala.collection.Iterator$$anon$9",
-    { Uo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    { Yo: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function Ll(a) {
-    this.gd = a;
-    this.$d = this.Jd = null;
-    this.of = !1;
+  function Ql(a) {
+    this.$c = a;
+    this.Qd = this.Dd = null;
+    this.ff = !1;
   }
-  Ll.prototype = new Kl();
-  Ll.prototype.constructor = Ll;
-  Ll.prototype.m = function () {
-    if (this.of) return !0;
-    if (null !== this.gd) {
-      if (this.gd.m()) return (this.of = !0);
+  Ql.prototype = new Pl();
+  Ql.prototype.constructor = Ql;
+  Ql.prototype.l = function () {
+    if (this.ff) return !0;
+    if (null !== this.$c) {
+      if (this.$c.l()) return (this.ff = !0);
       a: for (;;) {
-        if (null === this.Jd) {
-          this.$d = this.gd = null;
+        if (null === this.Dd) {
+          this.Qd = this.$c = null;
           var a = !1;
           break a;
         }
-        this.gd = Zd(this.Jd.Xo).i();
-        this.$d === this.Jd && (this.$d = this.$d.Gh);
-        for (this.Jd = this.Jd.Gh; this.gd instanceof Ll; )
-          (a = this.gd),
-            (this.gd = a.gd),
-            (this.of = a.of),
-            null !== a.Jd &&
-              (null === this.$d && (this.$d = a.$d),
-              (a.$d.Gh = this.Jd),
-              (this.Jd = a.Jd));
-        if (this.of) {
+        this.$c = je(this.Dd.ap).h();
+        this.Qd === this.Dd && (this.Qd = this.Qd.Dh);
+        for (this.Dd = this.Dd.Dh; this.$c instanceof Ql; )
+          (a = this.$c),
+            (this.$c = a.$c),
+            (this.ff = a.ff),
+            null !== a.Dd &&
+              (null === this.Qd && (this.Qd = a.Qd),
+              (a.Qd.Dh = this.Dd),
+              (this.Dd = a.Dd));
+        if (this.ff) {
           a = !0;
           break a;
         }
-        if (null !== this.gd && this.gd.m()) {
-          a = this.of = !0;
+        if (null !== this.$c && this.$c.l()) {
+          a = this.ff = !0;
           break a;
         }
       }
@@ -7904,104 +7938,104 @@ let ScalaJSExample;
     }
     return !1;
   };
-  Ll.prototype.k = function () {
-    return this.m() ? ((this.of = !1), this.gd.k()) : W().Y.k();
+  Ql.prototype.k = function () {
+    return this.l() ? ((this.ff = !1), this.$c.k()) : W().Z.k();
   };
-  Ll.prototype.Dd = function (a) {
-    a = new Wd(a, null);
-    null === this.Jd ? (this.Jd = a) : (this.$d.Gh = a);
-    this.$d = a;
-    null === this.gd && (this.gd = W().Y);
+  Ql.prototype.wd = function (a) {
+    a = new ge(a, null);
+    null === this.Dd ? (this.Dd = a) : (this.Qd.Dh = a);
+    this.Qd = a;
+    null === this.$c && (this.$c = W().Z);
     return this;
   };
-  Ll.prototype.$classData = v(
-    { Vo: 0 },
+  Ql.prototype.$classData = v(
+    { Zo: 0 },
     !1,
     "scala.collection.Iterator$ConcatIterator",
-    { Vo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    { Zo: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function Mo(a) {
-    this.Hh = this.el = null;
+  function Vo(a) {
+    this.Eh = this.el = null;
     this.el = a;
-    this.Hh = new Xd(this, new H(((b) => () => b.el)(this)));
+    this.Eh = new he(this, new H(((b) => () => b.el)(this)));
   }
-  Mo.prototype = new Kl();
-  Mo.prototype.constructor = Mo;
-  Mo.prototype.m = function () {
-    return !Yd(this.Hh).e();
+  Vo.prototype = new Pl();
+  Vo.prototype.constructor = Vo;
+  Vo.prototype.l = function () {
+    return !ie(this.Eh).e();
   };
-  Mo.prototype.k = function () {
-    if (this.m()) {
-      var a = Yd(this.Hh),
+  Vo.prototype.k = function () {
+    if (this.l()) {
+      var a = ie(this.Eh),
         b = a.u();
-      this.Hh = new Xd(this, new H(((c, d) => () => d.w())(this, a)));
+      this.Eh = new he(this, new H(((c, d) => () => d.w())(this, a)));
       return b;
     }
-    return W().Y.k();
+    return W().Z.k();
   };
-  Mo.prototype.$classData = v(
-    { Yo: 0 },
+  Vo.prototype.$classData = v(
+    { bp: 0 },
     !1,
     "scala.collection.LinearSeqIterator",
-    { Yo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    { bp: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function No(a) {
+  function Wo(a) {
     for (var b = 0; !a.e(); ) (b = (1 + b) | 0), (a = a.w());
     return b;
   }
-  function Oo(a) {
-    if (a.e()) throw Th(new Uh(), "LinearSeq.last");
+  function Xo(a) {
+    if (a.e()) throw Uk("LinearSeq.last");
     var b = a;
     for (a = a.w(); !a.e(); ) (b = a), (a = a.w());
     return b.u();
   }
-  function en(a, b) {
-    if (0 > b) throw og(new pg(), "" + b);
-    a = a.Eb(b);
-    if (a.e()) throw og(new pg(), "" + b);
+  function mn(a, b) {
+    if (0 > b) throw xg(new yg(), "" + b);
+    a = a.Jb(b);
+    if (a.e()) throw xg(new yg(), "" + b);
     return a.u();
   }
-  function Po(a, b) {
+  function Yo(a, b) {
     for (; !a.e(); ) {
-      if (b.l(a.u())) return !0;
+      if (b.m(a.u())) return !0;
       a = a.w();
     }
     return !1;
   }
-  function Qo(a, b) {
+  function Zo(a, b) {
     for (; !a.e(); ) {
-      if (L(M(), a.u(), b)) return !0;
+      if (J(L(), a.u(), b)) return !0;
       a = a.w();
     }
     return !1;
   }
-  function Ro(a, b) {
-    if (b && b.$classData && b.$classData.Nb.Mg)
+  function $o(a, b) {
+    if (b && b.$classData && b.$classData.Ib.Hg)
       a: for (;;) {
         if (a === b) {
           a = !0;
           break a;
         }
-        if ((a.e() ? 0 : !b.e()) && L(M(), a.u(), b.u()))
+        if ((a.e() ? 0 : !b.e()) && J(L(), a.u(), b.u()))
           (a = a.w()), (b = b.w());
         else {
           a = a.e() && b.e();
           break a;
         }
       }
-    else a = Rl(a, b);
+    else a = Wl(a, b);
     return a;
   }
-  function So(a, b, c) {
+  function ap(a, b, c) {
     var d = 0 < c ? c : 0;
-    for (a = a.Eb(c); !a.e(); ) {
-      if (b.l(a.u())) return d;
+    for (a = a.Jb(c); !a.e(); ) {
+      if (b.m(a.u())) return d;
       d = (1 + d) | 0;
       a = a.w();
     }
     return -1;
   }
-  function To(a, b) {
+  function bp(a, b) {
     for (var c = 0; ; ) {
       if (c === b) return a.e() ? 0 : 1;
       if (a.e()) return -1;
@@ -8009,680 +8043,680 @@ let ScalaJSExample;
       a = a.w();
     }
   }
-  function Uo(a) {
-    this.Kh = a;
+  function cp(a) {
+    this.Hh = a;
   }
-  Uo.prototype = new Kl();
-  Uo.prototype.constructor = Uo;
-  Uo.prototype.m = function () {
-    return !this.Kh.e();
+  cp.prototype = new Pl();
+  cp.prototype.constructor = cp;
+  cp.prototype.l = function () {
+    return !this.Hh.e();
   };
-  Uo.prototype.k = function () {
-    var a = this.Kh.u();
-    this.Kh = this.Kh.w();
+  cp.prototype.k = function () {
+    var a = this.Hh.u();
+    this.Hh = this.Hh.w();
     return a;
   };
-  Uo.prototype.$classData = v(
-    { ap: 0 },
+  cp.prototype.$classData = v(
+    { ep: 0 },
     !1,
     "scala.collection.StrictOptimizedLinearSeqOps$$anon$1",
-    { ap: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    { ep: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function Lk() {
-    this.re = this.uf = null;
-    this.re = new Ce(0, 0, xd().Rk, xd().dj, 0, 0);
+  function Ok() {
+    this.ge = this.mf = null;
+    this.ge = new Re(0, 0, vd().Rk, vd().$i, 0, 0);
   }
-  Lk.prototype = new q();
-  Lk.prototype.constructor = Lk;
-  e = Lk.prototype;
-  e.cc = function () {};
-  function Ph(a, b, c, d, f, g) {
-    if (b instanceof Ce) {
-      var h = ve(P(), f, g),
-        k = we(P(), h);
+  Ok.prototype = new q();
+  Ok.prototype.constructor = Ok;
+  e = Ok.prototype;
+  e.ac = function () {};
+  function $h(a, b, c, d, f, g) {
+    if (b instanceof Re) {
+      var h = Ge(P(), f, g),
+        k = He(P(), h);
       if (0 !== (b.R & k)) {
-        a = ze(P(), b.R, h, k);
-        h = b.ic(a);
-        var l = b.Gd(a);
-        l === d && L(M(), h, c)
-          ? ((d = Ij(b, k)), (b.Db.a[d] = h))
-          : ((a = Bd(Dd(), l)),
-            (d = Hj(b, h, l, a, c, d, f, (5 + g) | 0)),
-            (f = Ij(b, k)),
-            (c = (((-1 + b.Db.a.length) | 0) - Jj(b, k)) | 0),
-            b.Db.I((1 + f) | 0, b.Db, f, (c - f) | 0),
-            (b.Db.a[c] = d),
+        a = Ke(P(), b.R, h, k);
+        h = b.gc(a);
+        var l = b.zd(a);
+        l === d && J(L(), h, c)
+          ? ((d = wk(b, k)), (b.Ab.a[d] = h))
+          : ((a = Od(Qd(), l)),
+            (d = vk(b, h, l, a, c, d, f, (5 + g) | 0)),
+            (f = wk(b, k)),
+            (c = (((-1 + b.Ab.a.length) | 0) - xk(b, k)) | 0),
+            b.Ab.I((1 + f) | 0, b.Ab, f, (c - f) | 0),
+            (b.Ab.a[c] = d),
             (b.R ^= k),
-            (b.Qa |= k),
-            (b.$b = re(b.$b, f)),
-            (b.bb = (((-1 + b.bb) | 0) + d.Xa()) | 0),
-            (b.Fc = (((b.Fc - a) | 0) + d.Cd()) | 0));
-      } else if (0 !== (b.Qa & k))
-        (k = ze(P(), b.Qa, h, k)),
-          (k = b.Yd(k)),
-          (h = k.Xa()),
-          (l = k.Cd()),
-          Ph(a, k, c, d, f, (5 + g) | 0),
-          (b.bb = (b.bb + ((k.Xa() - h) | 0)) | 0),
-          (b.Fc = (b.Fc + ((k.Cd() - l) | 0)) | 0);
+            (b.Ma |= k),
+            (b.Yb = Ce(b.Yb, f)),
+            (b.Xa = (((-1 + b.Xa) | 0) + d.Sa()) | 0),
+            (b.zc = (((b.zc - a) | 0) + d.vd()) | 0));
+      } else if (0 !== (b.Ma & k))
+        (k = Ke(P(), b.Ma, h, k)),
+          (k = b.Od(k)),
+          (h = k.Sa()),
+          (l = k.vd()),
+          $h(a, k, c, d, f, (5 + g) | 0),
+          (b.Xa = (b.Xa + ((k.Sa() - h) | 0)) | 0),
+          (b.zc = (b.zc + ((k.vd() - l) | 0)) | 0);
       else {
-        g = Ij(b, k);
-        h = b.Db;
+        g = wk(b, k);
+        h = b.Ab;
         a = new r((1 + h.a.length) | 0);
         h.I(0, a, 0, g);
         a.a[g] = c;
         h.I(g, a, (1 + g) | 0, (h.a.length - g) | 0);
-        c = b.$b;
-        if (0 > g) throw Vo();
-        if (g > c.a.length) throw Vo();
+        c = b.Yb;
+        if (0 > g) throw dp();
+        if (g > c.a.length) throw dp();
         h = new t((1 + c.a.length) | 0);
         c.I(0, h, 0, g);
         h.a[g] = d;
         c.I(g, h, (1 + g) | 0, (c.a.length - g) | 0);
         b.R |= k;
-        b.Db = a;
-        b.$b = h;
-        b.bb = (1 + b.bb) | 0;
-        b.Fc = (b.Fc + f) | 0;
+        b.Ab = a;
+        b.Yb = h;
+        b.Xa = (1 + b.Xa) | 0;
+        b.zc = (b.zc + f) | 0;
       }
-    } else if (b instanceof zk)
-      (d = Ql(b.Qb, c)), (b.Qb = 0 > d ? b.Qb.hc(c) : b.Qb.Gf(d, c));
+    } else if (b instanceof Ck)
+      (d = Vl(b.Kb, c)), (b.Kb = 0 > d ? b.Kb.fc(c) : b.Kb.wf(d, c));
     else throw new T(b);
   }
-  function Mk(a) {
-    if (0 === a.re.bb) return Ok().bg;
-    null === a.uf && (a.uf = new Kk(a.re));
-    return a.uf;
+  function Pk(a) {
+    if (0 === a.ge.Xa) return Rk().Sf;
+    null === a.mf && (a.mf = new Nk(a.ge));
+    return a.mf;
   }
-  function Wo(a, b) {
-    null !== a.uf && (a.re = Fk(a.re));
-    a.uf = null;
-    var c = mg(X(), b),
-      d = Bd(Dd(), c);
-    Ph(a, a.re, b, c, d, 0);
+  function ep(a, b) {
+    null !== a.mf && (a.ge = Ik(a.ge));
+    a.mf = null;
+    var c = vg(Y(), b),
+      d = Od(Qd(), c);
+    $h(a, a.ge, b, c, d, 0);
     return a;
   }
-  function Nk(a, b) {
-    null !== a.uf && (a.re = Fk(a.re));
-    a.uf = null;
-    if (b instanceof Kk) new Oh(a, b);
-    else for (b = b.i(); b.m(); ) Wo(a, b.k());
+  function Qk(a, b) {
+    null !== a.mf && (a.ge = Ik(a.ge));
+    a.mf = null;
+    if (b instanceof Nk) new Zh(a, b);
+    else for (b = b.h(); b.l(); ) ep(a, b.k());
     return a;
   }
-  e.qb = function (a) {
-    return Nk(this, a);
+  e.wb = function (a) {
+    return Qk(this, a);
   };
-  e.Oa = function (a) {
-    return Wo(this, a);
+  e.Ia = function (a) {
+    return ep(this, a);
   };
-  e.Ua = function () {
-    return Mk(this);
+  e.Wa = function () {
+    return Pk(this);
   };
-  e.$classData = v({ Bp: 0 }, !1, "scala.collection.immutable.HashSetBuilder", {
-    Bp: 1,
+  e.$classData = v({ Gp: 0 }, !1, "scala.collection.immutable.HashSetBuilder", {
+    Gp: 1,
     b: 1,
-    Ef: 1,
-    Xc: 1,
-    qc: 1,
-    pc: 1,
+    vf: 1,
+    Qc: 1,
+    oc: 1,
+    nc: 1,
   });
-  function Xo() {
-    this.hd = null;
-    this.hd = Cf();
+  function fp() {
+    this.ad = null;
+    this.ad = Mf();
   }
-  Xo.prototype = new Pl();
-  Xo.prototype.constructor = Xo;
-  Xo.prototype.ga = function (a) {
-    return Yo(a) ? a : Ol.prototype.Ce.call(this, a);
+  fp.prototype = new Ul();
+  fp.prototype.constructor = fp;
+  fp.prototype.W = function (a) {
+    return gp(a) ? a : Tl.prototype.we.call(this, a);
   };
-  Xo.prototype.Ce = function (a) {
-    return Yo(a) ? a : Ol.prototype.Ce.call(this, a);
+  fp.prototype.we = function (a) {
+    return gp(a) ? a : Tl.prototype.we.call(this, a);
   };
-  Xo.prototype.$classData = v(
-    { Dp: 0 },
+  fp.prototype.$classData = v(
+    { Ip: 0 },
     !1,
     "scala.collection.immutable.IndexedSeq$",
-    { Dp: 1, pj: 1, b: 1, Tc: 1, Hb: 1, c: 1 }
+    { Ip: 1, lj: 1, b: 1, Nc: 1, Eb: 1, c: 1 }
   );
-  var Zo;
-  function xf() {
-    Zo || (Zo = new Xo());
-    return Zo;
+  var hp;
+  function If() {
+    hp || (hp = new fp());
+    return hp;
   }
-  function gm() {
-    this.ol = this.cg = null;
-    $o(this);
+  function Bm() {
+    this.ol = this.Tf = null;
+    ip(this);
   }
-  gm.prototype = new q();
-  gm.prototype.constructor = gm;
-  e = gm.prototype;
-  e.cc = function () {};
-  function $o(a) {
-    var b = new ie();
-    Bf();
-    a.ol = new am(new H(((c, d) => () => je(d))(a, b)));
-    a.cg = b;
+  Bm.prototype = new q();
+  Bm.prototype.constructor = Bm;
+  e = Bm.prototype;
+  e.ac = function () {};
+  function ip(a) {
+    var b = new te();
+    X();
+    a.ol = new gm(new H(((c, d) => () => ue(d))(a, b)));
+    a.Tf = b;
   }
-  function ap(a) {
-    le(a.cg, new H((() => () => Sk())(a)));
+  function jp(a) {
+    we(a.Tf, new H((() => () => Wk())(a)));
     return a.ol;
   }
-  function bp(a, b) {
-    var c = new ie();
-    le(
-      a.cg,
+  function kp(a, b) {
+    var c = new te();
+    we(
+      a.Tf,
       new H(
         ((d, f, g) => () => {
-          Bf();
-          Bf();
-          return new Pk(f, new am(new H(((h, k) => () => je(k))(d, g))));
+          X();
+          X();
+          return new Sk(f, new gm(new H(((h, k) => () => ue(k))(d, g))));
         })(a, b, c)
       )
     );
-    a.cg = c;
+    a.Tf = c;
     return a;
   }
-  function cp(a, b) {
-    if (0 !== b.v()) {
-      var c = new ie();
-      le(
-        a.cg,
+  function lp(a, b) {
+    if (0 !== b.t()) {
+      var c = new te();
+      we(
+        a.Tf,
         new H(
           ((d, f, g) => () =>
-            dm(Bf(), f.i(), new H(((h, k) => () => je(k))(d, g))))(a, b, c)
+            jm(X(), f.h(), new H(((h, k) => () => ue(k))(d, g))))(a, b, c)
         )
       );
-      a.cg = c;
+      a.Tf = c;
     }
     return a;
   }
-  e.qb = function (a) {
-    return cp(this, a);
+  e.wb = function (a) {
+    return lp(this, a);
   };
-  e.Oa = function (a) {
-    return bp(this, a);
+  e.Ia = function (a) {
+    return kp(this, a);
   };
-  e.Ua = function () {
-    return ap(this);
+  e.Wa = function () {
+    return jp(this);
   };
   e.$classData = v(
-    { Ip: 0 },
+    { Np: 0 },
     !1,
     "scala.collection.immutable.LazyList$LazyBuilder",
-    { Ip: 1, b: 1, Ef: 1, Xc: 1, qc: 1, pc: 1 }
+    { Np: 1, b: 1, vf: 1, Qc: 1, oc: 1, nc: 1 }
   );
-  function dp(a) {
-    this.Sg = a;
+  function mp(a) {
+    this.Ng = a;
   }
-  dp.prototype = new Kl();
-  dp.prototype.constructor = dp;
-  dp.prototype.m = function () {
-    return !this.Sg.e();
+  mp.prototype = new Pl();
+  mp.prototype.constructor = mp;
+  mp.prototype.l = function () {
+    return !this.Ng.e();
   };
-  dp.prototype.k = function () {
-    if (this.Sg.e()) return W().Y.k();
-    var a = Y(this.Sg).u();
-    this.Sg = Y(this.Sg).gb();
+  mp.prototype.k = function () {
+    if (this.Ng.e()) return W().Z.k();
+    var a = Z(this.Ng).u();
+    this.Ng = Z(this.Ng).Ta();
     return a;
   };
-  dp.prototype.$classData = v(
-    { Kp: 0 },
+  mp.prototype.$classData = v(
+    { Pp: 0 },
     !1,
     "scala.collection.immutable.LazyList$LazyIterator",
-    { Kp: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    { Pp: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function ep() {
-    fp = this;
-    kj(new lj(), I(), I());
+  function np() {
+    op = this;
+    Hd(new Id(), I(), I());
   }
-  ep.prototype = new q();
-  ep.prototype.constructor = ep;
-  e = ep.prototype;
-  e.nd = function (a) {
-    return Ac(I(), a);
+  np.prototype = new q();
+  np.prototype.constructor = np;
+  e = np.prototype;
+  e.gd = function (a) {
+    return yc(I(), a);
   };
-  e.X = function () {
-    return new gp();
+  e.ea = function () {
+    return new pp();
   };
-  e.Fb = function () {
+  e.Bb = function () {
     return I();
   };
-  e.ga = function (a) {
-    return Ac(I(), a);
+  e.W = function (a) {
+    return yc(I(), a);
   };
-  e.$classData = v({ Sp: 0 }, !1, "scala.collection.immutable.List$", {
-    Sp: 1,
+  e.$classData = v({ Xp: 0 }, !1, "scala.collection.immutable.List$", {
+    Xp: 1,
     b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
     c: 1,
   });
-  var fp;
-  function zc() {
-    fp || (fp = new ep());
-    return fp;
+  var op;
+  function xc() {
+    op || (op = new np());
+    return op;
   }
-  function hp(a) {
-    a.Vc <= a.Jb && W().Y.k();
-    a.zf = (1 + a.zf) | 0;
-    for (var b = a.rl.Ud(a.zf); 0 === b.a.length; )
-      (a.zf = (1 + a.zf) | 0), (b = a.rl.Ud(a.zf));
-    a.Rh = a.eg;
-    var c = (a.Vp / 2) | 0,
-      d = (a.zf - c) | 0;
-    a.yf = (((1 + c) | 0) - (0 > d ? -d | 0 : d)) | 0;
-    c = a.yf;
+  function qp(a) {
+    a.Oc <= a.Fb && W().Z.k();
+    a.rf = (1 + a.rf) | 0;
+    for (var b = a.rl.Kd(a.rf); 0 === b.a.length; )
+      (a.rf = (1 + a.rf) | 0), (b = a.rl.Kd(a.rf));
+    a.Nh = a.Vf;
+    var c = (a.$p / 2) | 0,
+      d = (a.rf - c) | 0;
+    a.qf = (((1 + c) | 0) - (0 > d ? -d | 0 : d)) | 0;
+    c = a.qf;
     switch (c) {
       case 1:
-        a.Ld = b;
+        a.Ed = b;
         break;
       case 2:
-        a.vf = b;
+        a.nf = b;
         break;
       case 3:
-        a.wf = b;
+        a.of = b;
         break;
       case 4:
-        a.xf = b;
+        a.pf = b;
         break;
       case 5:
-        a.dg = b;
+        a.Uf = b;
         break;
       case 6:
-        a.Cj = b;
+        a.zj = b;
         break;
       default:
         throw new T(c);
     }
-    a.eg = (a.Rh + ba(b.a.length, 1 << ba(5, (-1 + a.yf) | 0))) | 0;
-    a.eg > a.Ne && (a.eg = a.Ne);
-    1 < a.yf && (a.Tg = (-1 + (1 << ba(5, a.yf))) | 0);
+    a.Vf = (a.Nh + ca(b.a.length, 1 << ca(5, (-1 + a.qf) | 0))) | 0;
+    a.Vf > a.Ge && (a.Vf = a.Ge);
+    1 < a.qf && (a.Pg = (-1 + (1 << ca(5, a.qf))) | 0);
   }
-  function ip(a) {
-    var b = (((a.Jb - a.Vc) | 0) + a.Ne) | 0;
-    b === a.eg && hp(a);
-    if (1 < a.yf) {
-      b = (b - a.Rh) | 0;
-      var c = a.Tg ^ b;
+  function rp(a) {
+    var b = (((a.Fb - a.Oc) | 0) + a.Ge) | 0;
+    b === a.Vf && qp(a);
+    if (1 < a.qf) {
+      b = (b - a.Nh) | 0;
+      var c = a.Pg ^ b;
       1024 > c
-        ? (a.Ld = a.vf.a[31 & ((b >>> 5) | 0)])
+        ? (a.Ed = a.nf.a[31 & ((b >>> 5) | 0)])
         : (32768 > c
-            ? (a.vf = a.wf.a[31 & ((b >>> 10) | 0)])
+            ? (a.nf = a.of.a[31 & ((b >>> 10) | 0)])
             : (1048576 > c
-                ? (a.wf = a.xf.a[31 & ((b >>> 15) | 0)])
+                ? (a.of = a.pf.a[31 & ((b >>> 15) | 0)])
                 : (33554432 > c
-                    ? (a.xf = a.dg.a[31 & ((b >>> 20) | 0)])
-                    : ((a.dg = a.Cj.a[(b >>> 25) | 0]), (a.xf = a.dg.a[0])),
-                  (a.wf = a.xf.a[0])),
-              (a.vf = a.wf.a[0])),
-          (a.Ld = a.vf.a[0]));
-      a.Tg = b;
+                    ? (a.pf = a.Uf.a[31 & ((b >>> 20) | 0)])
+                    : ((a.Uf = a.zj.a[(b >>> 25) | 0]), (a.pf = a.Uf.a[0])),
+                  (a.of = a.pf.a[0])),
+              (a.nf = a.of.a[0])),
+          (a.Ed = a.nf.a[0]));
+      a.Pg = b;
     }
-    a.Vc = (a.Vc - a.Jb) | 0;
-    b = a.Ld.a.length;
-    c = a.Vc;
-    a.Me = b < c ? b : c;
-    a.Jb = 0;
+    a.Oc = (a.Oc - a.Fb) | 0;
+    b = a.Ed.a.length;
+    c = a.Oc;
+    a.Fe = b < c ? b : c;
+    a.Fb = 0;
   }
-  function jp(a, b, c) {
-    this.Cj = this.dg = this.xf = this.wf = this.vf = null;
+  function sp(a, b, c) {
+    this.zj = this.Uf = this.pf = this.of = this.nf = null;
     this.rl = a;
-    this.Ne = b;
-    this.Vp = c;
-    this.Ld = a.d;
-    this.Me = this.Ld.a.length;
-    this.Tg = this.Jb = 0;
-    this.Vc = this.Ne;
-    this.zf = 0;
-    this.yf = 1;
-    this.Rh = 0;
-    this.eg = this.Me;
+    this.Ge = b;
+    this.$p = c;
+    this.Ed = a.d;
+    this.Fe = this.Ed.a.length;
+    this.Pg = this.Fb = 0;
+    this.Oc = this.Ge;
+    this.rf = 0;
+    this.qf = 1;
+    this.Nh = 0;
+    this.Vf = this.Fe;
   }
-  jp.prototype = new q();
-  jp.prototype.constructor = jp;
-  e = jp.prototype;
-  e.i = function () {
+  sp.prototype = new q();
+  sp.prototype.constructor = sp;
+  e = sp.prototype;
+  e.h = function () {
     return this;
   };
   e.e = function () {
-    return this.Vc <= this.Jb;
+    return this.Oc <= this.Fb;
   };
-  e.Dd = function (a) {
-    return new Ll(this).Dd(a);
+  e.wd = function (a) {
+    return new Ql(this).wd(a);
   };
   e.z = function () {
     return "\x3citerator\x3e";
   };
-  e.Fe = function (a) {
-    return Kd(this, a);
+  e.ze = function (a) {
+    return Xd(this, a);
   };
-  e.le = function (a, b, c, d) {
-    return Vd(this, a, b, c, d);
+  e.ae = function (a, b, c, d) {
+    return fe(this, a, b, c, d);
   };
-  e.v = function () {
-    return (this.Vc - this.Jb) | 0;
+  e.t = function () {
+    return (this.Oc - this.Fb) | 0;
   };
-  e.m = function () {
-    return this.Vc > this.Jb;
+  e.l = function () {
+    return this.Oc > this.Fb;
   };
   e.k = function () {
-    this.Jb === this.Me && ip(this);
-    var a = this.Ld.a[this.Jb];
-    this.Jb = (1 + this.Jb) | 0;
+    this.Fb === this.Fe && rp(this);
+    var a = this.Ed.a[this.Fb];
+    this.Fb = (1 + this.Fb) | 0;
     return a;
   };
-  e.Ed = function (a) {
+  e.xd = function (a) {
     if (0 < a) {
-      a = (((((this.Jb - this.Vc) | 0) + this.Ne) | 0) + a) | 0;
-      var b = this.Ne;
+      a = (((((this.Fb - this.Oc) | 0) + this.Ge) | 0) + a) | 0;
+      var b = this.Ge;
       a = a < b ? a : b;
-      if (a === this.Ne) this.Me = this.Vc = this.Jb = 0;
+      if (a === this.Ge) this.Fe = this.Oc = this.Fb = 0;
       else {
-        for (; a >= this.eg; ) hp(this);
-        b = (a - this.Rh) | 0;
-        if (1 < this.yf) {
-          var c = this.Tg ^ b;
+        for (; a >= this.Vf; ) qp(this);
+        b = (a - this.Nh) | 0;
+        if (1 < this.qf) {
+          var c = this.Pg ^ b;
           1024 > c ||
             (32768 > c ||
               (1048576 > c ||
-                (33554432 > c || (this.dg = this.Cj.a[(b >>> 25) | 0]),
-                (this.xf = this.dg.a[31 & ((b >>> 20) | 0)])),
-              (this.wf = this.xf.a[31 & ((b >>> 15) | 0)])),
-            (this.vf = this.wf.a[31 & ((b >>> 10) | 0)]));
-          this.Ld = this.vf.a[31 & ((b >>> 5) | 0)];
-          this.Tg = b;
+                (33554432 > c || (this.Uf = this.zj.a[(b >>> 25) | 0]),
+                (this.pf = this.Uf.a[31 & ((b >>> 20) | 0)])),
+              (this.of = this.pf.a[31 & ((b >>> 15) | 0)])),
+            (this.nf = this.of.a[31 & ((b >>> 10) | 0)]));
+          this.Ed = this.nf.a[31 & ((b >>> 5) | 0)];
+          this.Pg = b;
         }
-        this.Me = this.Ld.a.length;
-        this.Jb = 31 & b;
-        this.Vc = (this.Jb + ((this.Ne - a) | 0)) | 0;
-        this.Me > this.Vc && (this.Me = this.Vc);
+        this.Fe = this.Ed.a.length;
+        this.Fb = 31 & b;
+        this.Oc = (this.Fb + ((this.Ge - a) | 0)) | 0;
+        this.Fe > this.Oc && (this.Fe = this.Oc);
       }
     }
     return this;
   };
-  e.Ob = function (a, b, c) {
-    var d = Nd(Od(), a),
-      f = (this.Vc - this.Jb) | 0;
+  e.Pb = function (a, b, c) {
+    var d = Bd(Gd(), a),
+      f = (this.Oc - this.Fb) | 0;
     c = c < f ? c : f;
     d = (d - b) | 0;
     d = c < d ? c : d;
     d = 0 < d ? d : 0;
     c = 0;
     for (f = a instanceof r; c < d; ) {
-      this.Jb === this.Me && ip(this);
+      this.Fb === this.Fe && rp(this);
       var g = (d - c) | 0,
-        h = (this.Ld.a.length - this.Jb) | 0;
+        h = (this.Ed.a.length - this.Fb) | 0;
       g = g < h ? g : h;
       f
-        ? this.Ld.I(this.Jb, a, (b + c) | 0, g)
-        : zh(Bh(), this.Ld, this.Jb, a, (b + c) | 0, g);
-      this.Jb = (this.Jb + g) | 0;
+        ? this.Ed.I(this.Fb, a, (b + c) | 0, g)
+        : Gh(Ih(), this.Ed, this.Fb, a, (b + c) | 0, g);
+      this.Fb = (this.Fb + g) | 0;
       c = (c + g) | 0;
     }
     return d;
   };
   e.$classData = v(
-    { Up: 0 },
+    { Zp: 0 },
     !1,
     "scala.collection.immutable.NewVectorIterator",
-    { Up: 1, b: 1, ca: 1, r: 1, s: 1, Xb: 1 }
+    { Zp: 1, b: 1, Y: 1, r: 1, s: 1, Vb: 1 }
   );
-  function wf() {
-    this.hd = null;
-    this.hd = zc();
+  function Hf() {
+    this.ad = null;
+    this.ad = xc();
   }
-  wf.prototype = new Pl();
-  wf.prototype.constructor = wf;
-  wf.prototype.ga = function (a) {
-    return a && a.$classData && a.$classData.Nb.nc
+  Hf.prototype = new Ul();
+  Hf.prototype.constructor = Hf;
+  Hf.prototype.W = function (a) {
+    return a && a.$classData && a.$classData.Ib.Bc
       ? a
-      : Ol.prototype.Ce.call(this, a);
+      : Tl.prototype.we.call(this, a);
   };
-  wf.prototype.Ce = function (a) {
-    return a && a.$classData && a.$classData.Nb.nc
+  Hf.prototype.we = function (a) {
+    return a && a.$classData && a.$classData.Ib.Bc
       ? a
-      : Ol.prototype.Ce.call(this, a);
+      : Tl.prototype.we.call(this, a);
   };
-  wf.prototype.$classData = v(
-    { cq: 0 },
+  Hf.prototype.$classData = v(
+    { eq: 0 },
     !1,
     "scala.collection.immutable.Seq$",
-    { cq: 1, pj: 1, b: 1, Tc: 1, Hb: 1, c: 1 }
+    { eq: 1, lj: 1, b: 1, Nc: 1, Eb: 1, c: 1 }
   );
-  var vf;
-  function Yk() {
-    this.Cf = null;
-    this.Vg = !1;
-    this.Df = null;
-    this.Cf = Zk();
-    this.Vg = !1;
+  var Gf;
+  function bl() {
+    this.tf = null;
+    this.Rg = !1;
+    this.uf = null;
+    this.tf = cl();
+    this.Rg = !1;
   }
-  Yk.prototype = new q();
-  Yk.prototype.constructor = Yk;
-  e = Yk.prototype;
-  e.cc = function () {};
-  function Wk(a) {
-    return a.Vg ? Mk(a.Df) : a.Cf;
+  bl.prototype = new q();
+  bl.prototype.constructor = bl;
+  e = bl.prototype;
+  e.ac = function () {};
+  function $k(a) {
+    return a.Rg ? Pk(a.uf) : a.tf;
   }
-  function Xk(a, b) {
-    return a.Vg ? (Nk(a.Df, b), a) : Yh(a, b);
+  function al(a, b) {
+    return a.Rg ? (Qk(a.uf, b), a) : fi(a, b);
   }
-  e.qb = function (a) {
-    return Xk(this, a);
+  e.wb = function (a) {
+    return al(this, a);
   };
-  e.Oa = function (a) {
-    if (this.Vg) Wo(this.Df, a);
-    else if (4 > this.Cf.Xa()) this.Cf = this.Cf.Sf(a);
-    else if (!this.Cf.F(a)) {
-      this.Vg = !0;
-      null === this.Df && (this.Df = new Lk());
-      var b = this.Cf;
-      this.Df.Oa(b.ue).Oa(b.ce).Oa(b.Od).Oa(b.Pd);
-      Wo(this.Df, a);
+  e.Ia = function (a) {
+    if (this.Rg) ep(this.uf, a);
+    else if (4 > this.tf.Sa()) this.tf = this.tf.Hf(a);
+    else if (!this.tf.F(a)) {
+      this.Rg = !0;
+      null === this.uf && (this.uf = new Ok());
+      var b = this.tf;
+      this.uf.Ia(b.me).Ia(b.Sd).Ia(b.Fd).Ia(b.Gd);
+      ep(this.uf, a);
     }
     return this;
   };
-  e.Ua = function () {
-    return Wk(this);
+  e.Wa = function () {
+    return $k(this);
   };
-  e.$classData = v({ mq: 0 }, !1, "scala.collection.immutable.SetBuilderImpl", {
-    mq: 1,
+  e.$classData = v({ oq: 0 }, !1, "scala.collection.immutable.SetBuilderImpl", {
+    oq: 1,
     b: 1,
-    Ef: 1,
-    Xc: 1,
-    qc: 1,
-    pc: 1,
+    vf: 1,
+    Qc: 1,
+    oc: 1,
+    nc: 1,
   });
-  function kp(a) {
-    this.tf = this.lc = 0;
-    this.qe = null;
-    this.Gc = 0;
-    this.ag = this.ae = null;
-    this.Fj = 0;
-    be(this, a);
-    this.Fj = 0;
+  function tp(a) {
+    this.lf = this.jc = 0;
+    this.fe = null;
+    this.Ac = 0;
+    this.Rf = this.Rd = null;
+    this.Cj = 0;
+    me(this, a);
+    this.Cj = 0;
   }
-  kp.prototype = new de();
-  kp.prototype.constructor = kp;
-  e = kp.prototype;
-  e.i = function () {
+  tp.prototype = new oe();
+  tp.prototype.constructor = tp;
+  e = tp.prototype;
+  e.h = function () {
     return this;
   };
   e.e = function () {
-    return !this.m();
+    return !this.l();
   };
-  e.Dd = function (a) {
-    return new Ll(this).Dd(a);
+  e.wd = function (a) {
+    return new Ql(this).wd(a);
   };
-  e.Ed = function (a) {
-    return qj(this, a);
+  e.xd = function (a) {
+    return tj(this, a);
   };
   e.z = function () {
     return "\x3citerator\x3e";
   };
-  e.Fe = function (a) {
-    return Kd(this, a);
+  e.ze = function (a) {
+    return Xd(this, a);
   };
-  e.Ob = function (a, b, c) {
-    return Md(this, a, b, c);
+  e.Pb = function (a, b, c) {
+    return Zd(this, a, b, c);
   };
-  e.le = function (a, b, c, d) {
-    return Vd(this, a, b, c, d);
+  e.ae = function (a, b, c, d) {
+    return fe(this, a, b, c, d);
   };
-  e.v = function () {
+  e.t = function () {
     return -1;
   };
   e.H = function () {
-    return this.Fj;
+    return this.Cj;
   };
   e.k = function () {
-    if (!this.m()) throw vo();
-    this.Fj = this.qe.Gd(this.lc);
-    this.lc = (1 + this.lc) | 0;
+    if (!this.l()) throw Do();
+    this.Cj = this.fe.zd(this.jc);
+    this.jc = (1 + this.jc) | 0;
     return this;
   };
   e.$classData = v(
-    { nq: 0 },
+    { pq: 0 },
     !1,
     "scala.collection.immutable.SetHashIterator",
-    { nq: 1, ml: 1, b: 1, ca: 1, r: 1, s: 1 }
+    { pq: 1, ml: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function lp(a) {
-    this.tf = this.lc = 0;
-    this.qe = null;
-    this.Gc = 0;
-    this.ag = this.ae = null;
-    be(this, a);
+  function up(a) {
+    this.lf = this.jc = 0;
+    this.fe = null;
+    this.Ac = 0;
+    this.Rf = this.Rd = null;
+    me(this, a);
   }
-  lp.prototype = new de();
-  lp.prototype.constructor = lp;
-  e = lp.prototype;
-  e.i = function () {
+  up.prototype = new oe();
+  up.prototype.constructor = up;
+  e = up.prototype;
+  e.h = function () {
     return this;
   };
   e.e = function () {
-    return !this.m();
+    return !this.l();
   };
-  e.Dd = function (a) {
-    return new Ll(this).Dd(a);
+  e.wd = function (a) {
+    return new Ql(this).wd(a);
   };
-  e.Ed = function (a) {
-    return qj(this, a);
+  e.xd = function (a) {
+    return tj(this, a);
   };
   e.z = function () {
     return "\x3citerator\x3e";
   };
-  e.Fe = function (a) {
-    return Kd(this, a);
+  e.ze = function (a) {
+    return Xd(this, a);
   };
-  e.Ob = function (a, b, c) {
-    return Md(this, a, b, c);
+  e.Pb = function (a, b, c) {
+    return Zd(this, a, b, c);
   };
-  e.le = function (a, b, c, d) {
-    return Vd(this, a, b, c, d);
+  e.ae = function (a, b, c, d) {
+    return fe(this, a, b, c, d);
   };
-  e.v = function () {
+  e.t = function () {
     return -1;
   };
   e.k = function () {
-    if (!this.m()) throw vo();
-    var a = this.qe.ic(this.lc);
-    this.lc = (1 + this.lc) | 0;
+    if (!this.l()) throw Do();
+    var a = this.fe.gc(this.jc);
+    this.jc = (1 + this.jc) | 0;
     return a;
   };
-  e.$classData = v({ oq: 0 }, !1, "scala.collection.immutable.SetIterator", {
-    oq: 1,
+  e.$classData = v({ qq: 0 }, !1, "scala.collection.immutable.SetIterator", {
+    qq: 1,
     ml: 1,
     b: 1,
-    ca: 1,
+    Y: 1,
     r: 1,
     s: 1,
   });
-  function mp() {
-    this.zl = 0;
-    this.Al = null;
-    np = this;
+  function vp() {
+    this.Al = 0;
+    this.Bl = null;
+    wp = this;
     try {
-      var a = Wc(
-        ad(),
+      var a = Uc(
+        Zc(),
         "scala.collection.immutable.Vector.defaultApplyPreferredMaxLength",
         "250"
       );
-      var b = ge(he(), a);
+      var b = re(se(), a);
     } catch (c) {
       throw c;
     }
-    this.zl = b;
-    this.Al = new jp(Oe(), 0, 0);
+    this.Al = b;
+    this.Bl = new sp(cf(), 0, 0);
   }
-  mp.prototype = new q();
-  mp.prototype.constructor = mp;
-  e = mp.prototype;
-  e.nd = function (a) {
-    return Ak(0, a);
+  vp.prototype = new q();
+  vp.prototype.constructor = vp;
+  e = vp.prototype;
+  e.gd = function (a) {
+    return Dk(0, a);
   };
-  function Ak(a, b) {
-    if (b instanceof op) return b;
-    a = b.v();
+  function Dk(a, b) {
+    if (b instanceof xp) return b;
+    a = b.t();
     return 0 === a
-      ? Oe()
+      ? cf()
       : 0 < a && 32 >= a
-      ? (ff(b)
-          ? ((a = new r(a)), b.Ob(a, 0, 2147483647), (b = a))
-          : ((a = new r(a)), b.i().Ob(a, 0, 2147483647), (b = a)),
-        new Pe(b))
-      : pp(new qp(), b).Id();
+      ? (rf(b)
+          ? ((a = new r(a)), b.Pb(a, 0, 2147483647), (b = a))
+          : ((a = new r(a)), b.h().Pb(a, 0, 2147483647), (b = a)),
+        new df(b))
+      : yp(new zp(), b).Cd();
   }
-  e.X = function () {
-    return new qp();
+  e.ea = function () {
+    return new zp();
   };
-  e.ga = function (a) {
-    return Ak(0, a);
+  e.W = function (a) {
+    return Dk(0, a);
   };
-  e.Fb = function () {
-    return Oe();
+  e.Bb = function () {
+    return cf();
   };
-  e.$classData = v({ yq: 0 }, !1, "scala.collection.immutable.Vector$", {
-    yq: 1,
+  e.$classData = v({ Aq: 0 }, !1, "scala.collection.immutable.Vector$", {
+    Aq: 1,
     b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
     c: 1,
   });
-  var np;
-  function Cf() {
-    np || (np = new mp());
-    return np;
+  var wp;
+  function Mf() {
+    wp || (wp = new vp());
+    return wp;
   }
-  function rp(a, b) {
+  function Ap(a, b) {
     var c = b.a.length;
     if (0 < c) {
-      32 === a.ea && sp(a);
-      var d = (32 - a.ea) | 0;
+      32 === a.ga && Bp(a);
+      var d = (32 - a.ga) | 0;
       d = d < c ? d : c;
       c = (c - d) | 0;
-      b.I(0, a.Da, a.ea, d);
-      a.ea = (a.ea + d) | 0;
-      0 < c && (sp(a), b.I(d, a.Da, 0, c), (a.ea = (a.ea + c) | 0));
+      b.I(0, a.za, a.ga, d);
+      a.ga = (a.ga + d) | 0;
+      0 < c && (Bp(a), b.I(d, a.za, 0, c), (a.ga = (a.ga + c) | 0));
     }
   }
-  function tp(a, b) {
-    for (var c = b.xd(), d = 0; d < c; ) {
-      var f = b.Ud(d),
+  function Cp(a, b) {
+    for (var c = b.qd(), d = 0; d < c; ) {
+      var f = b.Kd(d),
         g = (c / 2) | 0,
         h = (d - g) | 0;
       g = (((1 + g) | 0) - (0 > h ? -h | 0 : h)) | 0;
       1 === g
-        ? rp(a, f)
-        : bf(
+        ? Ap(a, f)
+        : nf(
             R(),
             (-2 + g) | 0,
             f,
-            new E(
+            new D(
               ((k) => (l) => {
-                rp(k, l);
+                Ap(k, l);
               })(a)
             )
           );
@@ -8690,247 +8724,247 @@ let ScalaJSExample;
     }
     return a;
   }
-  function sp(a) {
-    var b = (32 + a.Ub) | 0,
-      c = b ^ a.Ub;
-    a.Ub = b;
-    a.ea = 0;
+  function Bp(a) {
+    var b = (32 + a.Tb) | 0,
+      c = b ^ a.Tb;
+    a.Tb = b;
+    a.ga = 0;
     if (1024 > c)
-      1 === a.nb &&
+      1 === a.hb &&
         ((a.T = new (x(x(w)).G)(32)),
-        (a.T.a[0] = a.Da),
-        (a.nb = (1 + a.nb) | 0)),
-        (a.Da = new r(32)),
-        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da);
+        (a.T.a[0] = a.za),
+        (a.hb = (1 + a.hb) | 0)),
+        (a.za = new r(32)),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.za);
     else if (32768 > c)
-      2 === a.nb &&
-        ((a.na = new (x(x(x(w))).G)(32)),
-        (a.na.a[0] = a.T),
-        (a.nb = (1 + a.nb) | 0)),
-        (a.Da = new r(32)),
+      2 === a.hb &&
+        ((a.ma = new (x(x(x(w))).G)(32)),
+        (a.ma.a[0] = a.T),
+        (a.hb = (1 + a.hb) | 0)),
+        (a.za = new r(32)),
         (a.T = new (x(x(w)).G)(32)),
-        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.T);
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.za),
+        (a.ma.a[31 & ((b >>> 10) | 0)] = a.T);
     else if (1048576 > c)
-      3 === a.nb &&
-        ((a.Sa = new (x(x(x(x(w)))).G)(32)),
-        (a.Sa.a[0] = a.na),
-        (a.nb = (1 + a.nb) | 0)),
-        (a.Da = new r(32)),
+      3 === a.hb &&
+        ((a.Oa = new (x(x(x(x(w)))).G)(32)),
+        (a.Oa.a[0] = a.ma),
+        (a.hb = (1 + a.hb) | 0)),
+        (a.za = new r(32)),
         (a.T = new (x(x(w)).G)(32)),
-        (a.na = new (x(x(x(w))).G)(32)),
-        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.T),
-        (a.Sa.a[31 & ((b >>> 15) | 0)] = a.na);
+        (a.ma = new (x(x(x(w))).G)(32)),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.za),
+        (a.ma.a[31 & ((b >>> 10) | 0)] = a.T),
+        (a.Oa.a[31 & ((b >>> 15) | 0)] = a.ma);
     else if (33554432 > c)
-      4 === a.nb &&
-        ((a.vb = new (x(x(x(x(x(w))))).G)(32)),
-        (a.vb.a[0] = a.Sa),
-        (a.nb = (1 + a.nb) | 0)),
-        (a.Da = new r(32)),
+      4 === a.hb &&
+        ((a.rb = new (x(x(x(x(x(w))))).G)(32)),
+        (a.rb.a[0] = a.Oa),
+        (a.hb = (1 + a.hb) | 0)),
+        (a.za = new r(32)),
         (a.T = new (x(x(w)).G)(32)),
-        (a.na = new (x(x(x(w))).G)(32)),
-        (a.Sa = new (x(x(x(x(w)))).G)(32)),
-        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.T),
-        (a.Sa.a[31 & ((b >>> 15) | 0)] = a.na),
-        (a.vb.a[31 & ((b >>> 20) | 0)] = a.Sa);
+        (a.ma = new (x(x(x(w))).G)(32)),
+        (a.Oa = new (x(x(x(x(w)))).G)(32)),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.za),
+        (a.ma.a[31 & ((b >>> 10) | 0)] = a.T),
+        (a.Oa.a[31 & ((b >>> 15) | 0)] = a.ma),
+        (a.rb.a[31 & ((b >>> 20) | 0)] = a.Oa);
     else if (1073741824 > c)
-      5 === a.nb &&
-        ((a.bc = new (x(x(x(x(x(x(w)))))).G)(64)),
-        (a.bc.a[0] = a.vb),
-        (a.nb = (1 + a.nb) | 0)),
-        (a.Da = new r(32)),
+      5 === a.hb &&
+        ((a.$b = new (x(x(x(x(x(x(w)))))).G)(64)),
+        (a.$b.a[0] = a.rb),
+        (a.hb = (1 + a.hb) | 0)),
+        (a.za = new r(32)),
         (a.T = new (x(x(w)).G)(32)),
-        (a.na = new (x(x(x(w))).G)(32)),
-        (a.Sa = new (x(x(x(x(w)))).G)(32)),
-        (a.vb = new (x(x(x(x(x(w))))).G)(32)),
-        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.T),
-        (a.Sa.a[31 & ((b >>> 15) | 0)] = a.na),
-        (a.vb.a[31 & ((b >>> 20) | 0)] = a.Sa),
-        (a.bc.a[31 & ((b >>> 25) | 0)] = a.vb);
+        (a.ma = new (x(x(x(w))).G)(32)),
+        (a.Oa = new (x(x(x(x(w)))).G)(32)),
+        (a.rb = new (x(x(x(x(x(w))))).G)(32)),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.za),
+        (a.ma.a[31 & ((b >>> 10) | 0)] = a.T),
+        (a.Oa.a[31 & ((b >>> 15) | 0)] = a.ma),
+        (a.rb.a[31 & ((b >>> 20) | 0)] = a.Oa),
+        (a.$b.a[31 & ((b >>> 25) | 0)] = a.rb);
     else
-      throw rd(
+      throw pd(
         "advance1(" +
           b +
           ", " +
           c +
           "): a1\x3d" +
-          a.Da +
+          a.za +
           ", a2\x3d" +
           a.T +
           ", a3\x3d" +
-          a.na +
+          a.ma +
           ", a4\x3d" +
-          a.Sa +
+          a.Oa +
           ", a5\x3d" +
-          a.vb +
+          a.rb +
           ", a6\x3d" +
-          a.bc +
+          a.$b +
           ", depth\x3d" +
-          a.nb
+          a.hb
       );
   }
-  function qp() {
-    this.Da = this.T = this.na = this.Sa = this.vb = this.bc = null;
-    this.nb = this.Wc = this.Ub = this.ea = 0;
-    this.Da = new r(32);
-    this.Wc = this.Ub = this.ea = 0;
-    this.nb = 1;
+  function zp() {
+    this.za = this.T = this.ma = this.Oa = this.rb = this.$b = null;
+    this.hb = this.Pc = this.Tb = this.ga = 0;
+    this.za = new r(32);
+    this.Pc = this.Tb = this.ga = 0;
+    this.hb = 1;
   }
-  qp.prototype = new q();
-  qp.prototype.constructor = qp;
-  e = qp.prototype;
-  e.cc = function () {};
-  function up(a, b) {
-    a.nb = 1;
+  zp.prototype = new q();
+  zp.prototype.constructor = zp;
+  e = zp.prototype;
+  e.ac = function () {};
+  function Dp(a, b) {
+    a.hb = 1;
     var c = b.a.length;
-    a.ea = 31 & c;
-    a.Ub = (c - a.ea) | 0;
-    a.Da = 32 === b.a.length ? b : N(O(), b, 0, 32);
-    0 === a.ea && 0 < a.Ub && ((a.ea = 32), (a.Ub = (-32 + a.Ub) | 0));
+    a.ga = 31 & c;
+    a.Tb = (c - a.ga) | 0;
+    a.za = 32 === b.a.length ? b : N(O(), b, 0, 32);
+    0 === a.ga && 0 < a.Tb && ((a.ga = 32), (a.Tb = (-32 + a.Tb) | 0));
   }
-  function vp(a, b) {
-    var c = b.xd();
+  function Ep(a, b) {
+    var c = b.qd();
     switch (c) {
       case 0:
         break;
       case 1:
-        a.nb = 1;
+        a.hb = 1;
         c = b.d.a.length;
-        a.ea = 31 & c;
-        a.Ub = (c - a.ea) | 0;
+        a.ga = 31 & c;
+        a.Tb = (c - a.ga) | 0;
         b = b.d;
-        a.Da = 32 === b.a.length ? b : N(O(), b, 0, 32);
+        a.za = 32 === b.a.length ? b : N(O(), b, 0, 32);
         break;
       case 3:
-        c = b.Kb;
+        c = b.Gb;
         var d = b.f;
-        a.Da = 32 === d.a.length ? d : N(O(), d, 0, 32);
-        a.nb = 2;
-        a.Wc = (32 - b.ac) | 0;
-        d = (b.j + a.Wc) | 0;
-        a.ea = 31 & d;
-        a.Ub = (d - a.ea) | 0;
+        a.za = 32 === d.a.length ? d : N(O(), d, 0, 32);
+        a.hb = 2;
+        a.Pc = (32 - b.Zb) | 0;
+        d = (b.j + a.Pc) | 0;
+        a.ga = 31 & d;
+        a.Tb = (d - a.ga) | 0;
         a.T = new (x(x(w)).G)(32);
         a.T.a[0] = b.d;
         c.I(0, a.T, 1, c.a.length);
-        a.T.a[(1 + c.a.length) | 0] = a.Da;
+        a.T.a[(1 + c.a.length) | 0] = a.za;
         break;
       case 5:
-        c = b.db;
-        d = b.kb;
+        c = b.Ya;
+        d = b.eb;
         var f = b.f;
-        a.Da = 32 === f.a.length ? f : N(O(), f, 0, 32);
-        a.nb = 3;
-        a.Wc = (1024 - b.Lb) | 0;
-        f = (b.j + a.Wc) | 0;
-        a.ea = 31 & f;
-        a.Ub = (f - a.ea) | 0;
-        a.na = new (x(x(x(w))).G)(32);
-        a.na.a[0] = V(R(), b.d, b.Sb);
-        c.I(0, a.na, 1, c.a.length);
-        a.T = nd(O(), d, 32);
-        a.na.a[(1 + c.a.length) | 0] = a.T;
-        a.T.a[d.a.length] = a.Da;
+        a.za = 32 === f.a.length ? f : N(O(), f, 0, 32);
+        a.hb = 3;
+        a.Pc = (1024 - b.Hb) | 0;
+        f = (b.j + a.Pc) | 0;
+        a.ga = 31 & f;
+        a.Tb = (f - a.ga) | 0;
+        a.ma = new (x(x(x(w))).G)(32);
+        a.ma.a[0] = V(R(), b.d, b.Mb);
+        c.I(0, a.ma, 1, c.a.length);
+        a.T = ld(O(), d, 32);
+        a.ma.a[(1 + c.a.length) | 0] = a.T;
+        a.T.a[d.a.length] = a.za;
         break;
       case 7:
-        c = b.Aa;
-        d = b.Ha;
-        f = b.Ga;
+        c = b.wa;
+        d = b.Ca;
+        f = b.Ba;
         var g = b.f;
-        a.Da = 32 === g.a.length ? g : N(O(), g, 0, 32);
-        a.nb = 4;
-        a.Wc = (32768 - b.eb) | 0;
-        g = (b.j + a.Wc) | 0;
-        a.ea = 31 & g;
-        a.Ub = (g - a.ea) | 0;
-        a.Sa = new (x(x(x(x(w)))).G)(32);
-        a.Sa.a[0] = V(R(), V(R(), b.d, b.lb), b.mb);
-        c.I(0, a.Sa, 1, c.a.length);
-        a.na = nd(O(), d, 32);
-        a.T = nd(O(), f, 32);
-        a.Sa.a[(1 + c.a.length) | 0] = a.na;
-        a.na.a[d.a.length] = a.T;
-        a.T.a[f.a.length] = a.Da;
+        a.za = 32 === g.a.length ? g : N(O(), g, 0, 32);
+        a.hb = 4;
+        a.Pc = (32768 - b.Za) | 0;
+        g = (b.j + a.Pc) | 0;
+        a.ga = 31 & g;
+        a.Tb = (g - a.ga) | 0;
+        a.Oa = new (x(x(x(x(w)))).G)(32);
+        a.Oa.a[0] = V(R(), V(R(), b.d, b.fb), b.gb);
+        c.I(0, a.Oa, 1, c.a.length);
+        a.ma = ld(O(), d, 32);
+        a.T = ld(O(), f, 32);
+        a.Oa.a[(1 + c.a.length) | 0] = a.ma;
+        a.ma.a[d.a.length] = a.T;
+        a.T.a[f.a.length] = a.za;
         break;
       case 9:
-        c = b.da;
+        c = b.fa;
         d = b.ka;
         f = b.ja;
         g = b.ia;
         var h = b.f;
-        a.Da = 32 === h.a.length ? h : N(O(), h, 0, 32);
-        a.nb = 5;
-        a.Wc = (1048576 - b.Ba) | 0;
-        h = (b.j + a.Wc) | 0;
-        a.ea = 31 & h;
-        a.Ub = (h - a.ea) | 0;
-        a.vb = new (x(x(x(x(x(w))))).G)(32);
-        a.vb.a[0] = V(R(), V(R(), V(R(), b.d, b.Ia), b.Ja), b.Ka);
-        c.I(0, a.vb, 1, c.a.length);
-        a.Sa = nd(O(), d, 32);
-        a.na = nd(O(), f, 32);
-        a.T = nd(O(), g, 32);
-        a.vb.a[(1 + c.a.length) | 0] = a.Sa;
-        a.Sa.a[d.a.length] = a.na;
-        a.na.a[f.a.length] = a.T;
-        a.T.a[g.a.length] = a.Da;
+        a.za = 32 === h.a.length ? h : N(O(), h, 0, 32);
+        a.hb = 5;
+        a.Pc = (1048576 - b.xa) | 0;
+        h = (b.j + a.Pc) | 0;
+        a.ga = 31 & h;
+        a.Tb = (h - a.ga) | 0;
+        a.rb = new (x(x(x(x(x(w))))).G)(32);
+        a.rb.a[0] = V(R(), V(R(), V(R(), b.d, b.Da), b.Ea), b.Fa);
+        c.I(0, a.rb, 1, c.a.length);
+        a.Oa = ld(O(), d, 32);
+        a.ma = ld(O(), f, 32);
+        a.T = ld(O(), g, 32);
+        a.rb.a[(1 + c.a.length) | 0] = a.Oa;
+        a.Oa.a[d.a.length] = a.ma;
+        a.ma.a[f.a.length] = a.T;
+        a.T.a[g.a.length] = a.za;
         break;
       case 11:
         c = b.S;
-        d = b.ba;
-        f = b.aa;
-        g = b.$;
-        h = b.Z;
+        d = b.ca;
+        f = b.ba;
+        g = b.aa;
+        h = b.$;
         var k = b.f;
-        a.Da = 32 === k.a.length ? k : N(O(), k, 0, 32);
-        a.nb = 6;
-        a.Wc = (33554432 - b.ra) | 0;
-        k = (b.j + a.Wc) | 0;
-        a.ea = 31 & k;
-        a.Ub = (k - a.ea) | 0;
-        a.bc = new (x(x(x(x(x(x(w)))))).G)(32);
-        a.bc.a[0] = V(R(), V(R(), V(R(), V(R(), b.d, b.sa), b.ta), b.ua), b.va);
-        c.I(0, a.bc, 1, c.a.length);
-        a.vb = nd(O(), d, 32);
-        a.Sa = nd(O(), f, 32);
-        a.na = nd(O(), g, 32);
-        a.T = nd(O(), h, 32);
-        a.bc.a[(1 + c.a.length) | 0] = a.vb;
-        a.vb.a[d.a.length] = a.Sa;
-        a.Sa.a[f.a.length] = a.na;
-        a.na.a[g.a.length] = a.T;
-        a.T.a[h.a.length] = a.Da;
+        a.za = 32 === k.a.length ? k : N(O(), k, 0, 32);
+        a.hb = 6;
+        a.Pc = (33554432 - b.oa) | 0;
+        k = (b.j + a.Pc) | 0;
+        a.ga = 31 & k;
+        a.Tb = (k - a.ga) | 0;
+        a.$b = new (x(x(x(x(x(x(w)))))).G)(32);
+        a.$b.a[0] = V(R(), V(R(), V(R(), V(R(), b.d, b.pa), b.qa), b.ra), b.sa);
+        c.I(0, a.$b, 1, c.a.length);
+        a.rb = ld(O(), d, 32);
+        a.Oa = ld(O(), f, 32);
+        a.ma = ld(O(), g, 32);
+        a.T = ld(O(), h, 32);
+        a.$b.a[(1 + c.a.length) | 0] = a.rb;
+        a.rb.a[d.a.length] = a.Oa;
+        a.Oa.a[f.a.length] = a.ma;
+        a.ma.a[g.a.length] = a.T;
+        a.T.a[h.a.length] = a.za;
         break;
       default:
         throw new T(c);
     }
-    0 === a.ea && 0 < a.Ub && ((a.ea = 32), (a.Ub = (-32 + a.Ub) | 0));
+    0 === a.ga && 0 < a.Tb && ((a.ga = 32), (a.Tb = (-32 + a.Tb) | 0));
     return a;
   }
-  function wp(a, b) {
-    32 === a.ea && sp(a);
-    a.Da.a[a.ea] = b;
-    a.ea = (1 + a.ea) | 0;
+  function Fp(a, b) {
+    32 === a.ga && Bp(a);
+    a.za.a[a.ga] = b;
+    a.ga = (1 + a.ga) | 0;
     return a;
   }
-  function pp(a, b) {
-    return b instanceof op
-      ? 0 === a.ea && 0 === a.Ub
-        ? vp(a, b)
-        : tp(a, b)
-      : Yh(a, b);
+  function yp(a, b) {
+    return b instanceof xp
+      ? 0 === a.ga && 0 === a.Tb
+        ? Ep(a, b)
+        : Cp(a, b)
+      : fi(a, b);
   }
-  e.Id = function () {
-    var a = (this.ea + this.Ub) | 0,
-      b = (a - this.Wc) | 0;
-    if (0 === b) return Cf(), Oe();
+  e.Cd = function () {
+    var a = (this.ga + this.Tb) | 0,
+      b = (a - this.Pc) | 0;
+    if (0 === b) return Mf(), cf();
     if (32 >= a) {
-      if (32 === b) return new Pe(this.Da);
-      var c = this.Da;
-      return new Pe(nd(O(), c, b));
+      if (32 === b) return new df(this.za);
+      var c = this.za;
+      return new df(ld(O(), c, b));
     }
     if (1024 >= a) {
       var d = 31 & ((-1 + a) | 0),
@@ -8940,625 +8974,625 @@ let ScalaJSExample;
         k = this.T.a[0],
         l = this.T.a[f],
         p = (1 + d) | 0,
-        u = l.a.length === p ? l : nd(O(), l, p);
-      return new Ue(k, (32 - this.Wc) | 0, h, u, b);
+        u = l.a.length === p ? l : ld(O(), l, p);
+      return new ef(k, (32 - this.Pc) | 0, h, u, b);
     }
     if (32768 >= a) {
-      var y = 31 & ((-1 + a) | 0),
-        D = 31 & ((((-1 + a) | 0) >>> 5) | 0),
+      var A = 31 & ((-1 + a) | 0),
+        G = 31 & ((((-1 + a) | 0) >>> 5) | 0),
         K = (((-1 + a) | 0) >>> 10) | 0,
-        J = this.na,
-        Z = N(O(), J, 1, K),
-        wa = this.na.a[0],
-        Ha = wa.a.length,
-        ka = N(O(), wa, 1, Ha),
-        Ka = this.na.a[0].a[0],
-        qa = this.na.a[K],
-        Gd = nd(O(), qa, D),
-        Ug = this.na.a[K].a[D],
-        Vg = (1 + y) | 0,
-        Nj = Ug.a.length === Vg ? Ug : nd(O(), Ug, Vg),
-        Oj = Ka.a.length;
-      return new Ve(Ka, Oj, ka, (Oj + (ka.a.length << 5)) | 0, Z, Gd, Nj, b);
+        M = this.ma,
+        aa = N(O(), M, 1, K),
+        wa = this.ma.a[0],
+        Ia = wa.a.length,
+        la = N(O(), wa, 1, Ia),
+        Ma = this.ma.a[0].a[0],
+        ra = this.ma.a[K],
+        Cd = ld(O(), ra, G),
+        Qg = this.ma.a[K].a[G],
+        Rg = (1 + A) | 0,
+        Ij = Qg.a.length === Rg ? Qg : ld(O(), Qg, Rg),
+        Jj = Ma.a.length;
+      return new ff(Ma, Jj, la, (Jj + (la.a.length << 5)) | 0, aa, Cd, Ij, b);
     }
     if (1048576 >= a) {
-      var Pj = 31 & ((-1 + a) | 0),
-        Wg = 31 & ((((-1 + a) | 0) >>> 5) | 0),
-        Qe = 31 & ((((-1 + a) | 0) >>> 10) | 0),
-        Re = (((-1 + a) | 0) >>> 15) | 0,
-        rm = this.Sa,
-        Qj = N(O(), rm, 1, Re),
-        Rj = this.Sa.a[0],
-        Sj = Rj.a.length,
-        Xg = N(O(), Rj, 1, Sj),
-        Tj = this.Sa.a[0].a[0],
-        Uj = Tj.a.length,
-        Yg = N(O(), Tj, 1, Uj),
-        Vj = this.Sa.a[0].a[0].a[0],
-        Wj = this.Sa.a[Re],
-        Xj = nd(O(), Wj, Qe),
-        Yj = this.Sa.a[Re].a[Qe],
-        sm = nd(O(), Yj, Wg),
-        Zg = this.Sa.a[Re].a[Qe].a[Wg],
-        $g = (1 + Pj) | 0,
-        tm = Zg.a.length === $g ? Zg : nd(O(), Zg, $g),
-        Zj = Vj.a.length,
-        ah = (Zj + (Yg.a.length << 5)) | 0;
-      return new We(
-        Vj,
-        Zj,
-        Yg,
-        ah,
-        Xg,
-        (ah + (Xg.a.length << 10)) | 0,
+      var Kj = 31 & ((-1 + a) | 0),
+        Sg = 31 & ((((-1 + a) | 0) >>> 5) | 0),
+        Le = 31 & ((((-1 + a) | 0) >>> 10) | 0),
+        Me = (((-1 + a) | 0) >>> 15) | 0,
+        km = this.Oa,
+        Lj = N(O(), km, 1, Me),
+        Mj = this.Oa.a[0],
+        Nj = Mj.a.length,
+        Tg = N(O(), Mj, 1, Nj),
+        Oj = this.Oa.a[0].a[0],
+        Pj = Oj.a.length,
+        Ug = N(O(), Oj, 1, Pj),
+        Qj = this.Oa.a[0].a[0].a[0],
+        Rj = this.Oa.a[Me],
+        Sj = ld(O(), Rj, Le),
+        Tj = this.Oa.a[Me].a[Le],
+        lm = ld(O(), Tj, Sg),
+        Vg = this.Oa.a[Me].a[Le].a[Sg],
+        Wg = (1 + Kj) | 0,
+        mm = Vg.a.length === Wg ? Vg : ld(O(), Vg, Wg),
+        Uj = Qj.a.length,
+        Xg = (Uj + (Ug.a.length << 5)) | 0;
+      return new gf(
         Qj,
-        Xj,
-        sm,
-        tm,
+        Uj,
+        Ug,
+        Xg,
+        Tg,
+        (Xg + (Tg.a.length << 10)) | 0,
+        Lj,
+        Sj,
+        lm,
+        mm,
         b
       );
     }
     if (33554432 >= a) {
-      var ak = 31 & ((-1 + a) | 0),
-        bk = 31 & ((((-1 + a) | 0) >>> 5) | 0),
-        Se = 31 & ((((-1 + a) | 0) >>> 10) | 0),
-        Hd = 31 & ((((-1 + a) | 0) >>> 15) | 0),
-        Id = (((-1 + a) | 0) >>> 20) | 0,
-        ck = this.vb,
-        dk = N(O(), ck, 1, Id),
-        ek = this.vb.a[0],
-        fk = ek.a.length,
-        bh = N(O(), ek, 1, fk),
-        gk = this.vb.a[0].a[0],
-        hk = gk.a.length,
-        ch = N(O(), gk, 1, hk),
-        dh = this.vb.a[0].a[0].a[0],
-        um = dh.a.length,
-        ik = N(O(), dh, 1, um),
-        eh = this.vb.a[0].a[0].a[0].a[0],
-        vm = this.vb.a[Id],
-        wm = nd(O(), vm, Hd),
-        jk = this.vb.a[Id].a[Hd],
-        xm = nd(O(), jk, Se),
-        ym = this.vb.a[Id].a[Hd].a[Se],
-        kk = nd(O(), ym, bk),
-        Te = this.vb.a[Id].a[Hd].a[Se].a[bk],
-        fh = (1 + ak) | 0,
-        zm = Te.a.length === fh ? Te : nd(O(), Te, fh),
-        gh = eh.a.length,
-        hh = (gh + (ik.a.length << 5)) | 0,
-        lk = (hh + (ch.a.length << 10)) | 0;
-      return new Xe(
-        eh,
-        gh,
-        ik,
-        hh,
+      var Vj = 31 & ((-1 + a) | 0),
+        Wj = 31 & ((((-1 + a) | 0) >>> 5) | 0),
+        Ne = 31 & ((((-1 + a) | 0) >>> 10) | 0),
+        Dd = 31 & ((((-1 + a) | 0) >>> 15) | 0),
+        Ed = (((-1 + a) | 0) >>> 20) | 0,
+        Xj = this.rb,
+        Yj = N(O(), Xj, 1, Ed),
+        Zj = this.rb.a[0],
+        ak = Zj.a.length,
+        Yg = N(O(), Zj, 1, ak),
+        bk = this.rb.a[0].a[0],
+        ck = bk.a.length,
+        Zg = N(O(), bk, 1, ck),
+        $g = this.rb.a[0].a[0].a[0],
+        nm = $g.a.length,
+        dk = N(O(), $g, 1, nm),
+        ah = this.rb.a[0].a[0].a[0].a[0],
+        om = this.rb.a[Ed],
+        pm = ld(O(), om, Dd),
+        ek = this.rb.a[Ed].a[Dd],
+        qm = ld(O(), ek, Ne),
+        rm = this.rb.a[Ed].a[Dd].a[Ne],
+        fk = ld(O(), rm, Wj),
+        Oe = this.rb.a[Ed].a[Dd].a[Ne].a[Wj],
+        bh = (1 + Vj) | 0,
+        sm = Oe.a.length === bh ? Oe : ld(O(), Oe, bh),
+        ch = ah.a.length,
+        dh = (ch + (dk.a.length << 5)) | 0,
+        gk = (dh + (Zg.a.length << 10)) | 0;
+      return new hf(
+        ah,
         ch,
-        lk,
-        bh,
-        (lk + (bh.a.length << 15)) | 0,
         dk,
-        wm,
-        xm,
-        kk,
-        zm,
+        dh,
+        Zg,
+        gk,
+        Yg,
+        (gk + (Yg.a.length << 15)) | 0,
+        Yj,
+        pm,
+        qm,
+        fk,
+        sm,
         b
       );
     }
-    var mk = 31 & ((-1 + a) | 0),
-      ih = 31 & ((((-1 + a) | 0) >>> 5) | 0),
-      jh = 31 & ((((-1 + a) | 0) >>> 10) | 0),
-      Jd = 31 & ((((-1 + a) | 0) >>> 15) | 0),
-      Fc = 31 & ((((-1 + a) | 0) >>> 20) | 0),
-      Gc = (((-1 + a) | 0) >>> 25) | 0,
-      nk = this.bc,
-      ok = N(O(), nk, 1, Gc),
-      pk = this.bc.a[0],
-      qk = pk.a.length,
-      kh = N(O(), pk, 1, qk),
-      lh = this.bc.a[0].a[0],
-      Am = lh.a.length,
-      rk = N(O(), lh, 1, Am),
-      mh = this.bc.a[0].a[0].a[0],
-      Bm = mh.a.length,
-      sk = N(O(), mh, 1, Bm),
-      nh = this.bc.a[0].a[0].a[0].a[0],
-      Cm = nh.a.length,
-      tk = N(O(), nh, 1, Cm),
-      oh = this.bc.a[0].a[0].a[0].a[0].a[0],
-      Dm = this.bc.a[Gc],
-      Em = nd(O(), Dm, Fc),
-      uk = this.bc.a[Gc].a[Fc],
-      vk = nd(O(), uk, Jd),
-      wk = this.bc.a[Gc].a[Fc].a[Jd],
-      xk = nd(O(), wk, jh),
-      Mt = this.bc.a[Gc].a[Fc].a[Jd].a[jh],
-      Nt = nd(O(), Mt, ih),
-      bo = this.bc.a[Gc].a[Fc].a[Jd].a[jh].a[ih],
-      Kr = (1 + mk) | 0,
-      Ot = bo.a.length === Kr ? bo : nd(O(), bo, Kr),
-      Lr = oh.a.length,
-      Mr = (Lr + (tk.a.length << 5)) | 0,
-      Nr = (Mr + (sk.a.length << 10)) | 0,
-      Or = (Nr + (rk.a.length << 15)) | 0;
+    var hk = 31 & ((-1 + a) | 0),
+      eh = 31 & ((((-1 + a) | 0) >>> 5) | 0),
+      fh = 31 & ((((-1 + a) | 0) >>> 10) | 0),
+      Fd = 31 & ((((-1 + a) | 0) >>> 15) | 0),
+      Dc = 31 & ((((-1 + a) | 0) >>> 20) | 0),
+      Ec = (((-1 + a) | 0) >>> 25) | 0,
+      ik = this.$b,
+      jk = N(O(), ik, 1, Ec),
+      kk = this.$b.a[0],
+      lk = kk.a.length,
+      gh = N(O(), kk, 1, lk),
+      hh = this.$b.a[0].a[0],
+      tm = hh.a.length,
+      mk = N(O(), hh, 1, tm),
+      ih = this.$b.a[0].a[0].a[0],
+      um = ih.a.length,
+      nk = N(O(), ih, 1, um),
+      jh = this.$b.a[0].a[0].a[0].a[0],
+      vm = jh.a.length,
+      ok = N(O(), jh, 1, vm),
+      kh = this.$b.a[0].a[0].a[0].a[0].a[0],
+      wm = this.$b.a[Ec],
+      xm = ld(O(), wm, Dc),
+      pk = this.$b.a[Ec].a[Dc],
+      qk = ld(O(), pk, Fd),
+      rk = this.$b.a[Ec].a[Dc].a[Fd],
+      sk = ld(O(), rk, fh),
+      Nt = this.$b.a[Ec].a[Dc].a[Fd].a[fh],
+      Ot = ld(O(), Nt, eh),
+      Yn = this.$b.a[Ec].a[Dc].a[Fd].a[fh].a[eh],
+      Jr = (1 + hk) | 0,
+      Pt = Yn.a.length === Jr ? Yn : ld(O(), Yn, Jr),
+      Kr = kh.a.length,
+      Lr = (Kr + (ok.a.length << 5)) | 0,
+      Mr = (Lr + (nk.a.length << 10)) | 0,
+      Nr = (Mr + (mk.a.length << 15)) | 0;
     return new S(
-      oh,
-      Lr,
-      tk,
-      Mr,
-      sk,
-      Nr,
-      rk,
-      Or,
       kh,
-      (Or + (kh.a.length << 20)) | 0,
+      Kr,
       ok,
-      Em,
-      vk,
-      xk,
-      Nt,
+      Lr,
+      nk,
+      Mr,
+      mk,
+      Nr,
+      gh,
+      (Nr + (gh.a.length << 20)) | 0,
+      jk,
+      xm,
+      qk,
+      sk,
       Ot,
+      Pt,
       b
     );
   };
   e.z = function () {
     return (
       "VectorBuilder(len1\x3d" +
-      this.ea +
+      this.ga +
       ", lenRest\x3d" +
-      this.Ub +
+      this.Tb +
       ", offset\x3d" +
-      this.Wc +
+      this.Pc +
       ", depth\x3d" +
-      this.nb +
+      this.hb +
       ")"
     );
   };
-  e.Ua = function () {
-    return this.Id();
+  e.Wa = function () {
+    return this.Cd();
   };
-  e.qb = function (a) {
-    return pp(this, a);
+  e.wb = function (a) {
+    return yp(this, a);
   };
-  e.Oa = function (a) {
-    return wp(this, a);
+  e.Ia = function (a) {
+    return Fp(this, a);
   };
-  e.$classData = v({ Gq: 0 }, !1, "scala.collection.immutable.VectorBuilder", {
-    Gq: 1,
+  e.$classData = v({ Iq: 0 }, !1, "scala.collection.immutable.VectorBuilder", {
+    Iq: 1,
     b: 1,
-    Ef: 1,
-    Xc: 1,
-    qc: 1,
-    pc: 1,
+    vf: 1,
+    Qc: 1,
+    oc: 1,
+    nc: 1,
   });
-  function xp() {}
-  xp.prototype = new q();
-  xp.prototype.constructor = xp;
-  e = xp.prototype;
-  e.nd = function (a) {
-    return yp(a);
+  function Gp() {}
+  Gp.prototype = new q();
+  Gp.prototype.constructor = Gp;
+  e = Gp.prototype;
+  e.gd = function (a) {
+    return Hp(a);
   };
-  function yp(a) {
-    var b = a.v();
+  function Hp(a) {
+    var b = a.t();
     if (0 <= b) {
       var c = new r(16 < b ? b : 16);
-      fj(a) ? a.Ob(c, 0, 2147483647) : a.i().Ob(c, 0, 2147483647);
-      a = new zp();
-      a.de = c;
-      a.ob = b;
+      Td(a) ? a.Pb(c, 0, 2147483647) : a.h().Pb(c, 0, 2147483647);
+      a = new Ip();
+      a.Td = c;
+      a.ib = b;
       return a;
     }
-    return Ap(Bp(), a);
+    return Jp(Kp(), a);
   }
-  e.X = function () {
-    return new Bj();
+  e.ea = function () {
+    return new Ej();
   };
-  e.Fb = function () {
-    return Bp();
+  e.Bb = function () {
+    return Kp();
   };
-  e.ga = function (a) {
-    return yp(a);
+  e.W = function (a) {
+    return Hp(a);
   };
-  e.$classData = v({ Mq: 0 }, !1, "scala.collection.mutable.ArrayBuffer$", {
-    Mq: 1,
+  e.$classData = v({ Oq: 0 }, !1, "scala.collection.mutable.ArrayBuffer$", {
+    Oq: 1,
     b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
     c: 1,
   });
-  var Cp;
-  function Dp() {
-    Cp || (Cp = new xp());
-    return Cp;
+  var Lp;
+  function Mp() {
+    Lp || (Lp = new Gp());
+    return Lp;
   }
-  function Bj() {
-    this.ee = null;
-    Im(this, Bp());
+  function Ej() {
+    this.Ud = null;
+    Pm(this, Kp());
   }
-  Bj.prototype = new Km();
-  Bj.prototype.constructor = Bj;
-  Bj.prototype.cc = function (a) {
-    Ep(this.ee, a);
+  Ej.prototype = new Rm();
+  Ej.prototype.constructor = Ej;
+  Ej.prototype.ac = function (a) {
+    Np(this.Ud, a);
   };
-  Bj.prototype.$classData = v(
-    { Nq: 0 },
+  Ej.prototype.$classData = v(
+    { Pq: 0 },
     !1,
     "scala.collection.mutable.ArrayBuffer$$anon$1",
-    { Nq: 1, Vh: 1, b: 1, Xc: 1, qc: 1, pc: 1 }
+    { Pq: 1, Rh: 1, b: 1, Qc: 1, oc: 1, nc: 1 }
   );
-  function Fp() {}
-  Fp.prototype = new q();
-  Fp.prototype.constructor = Fp;
-  e = Fp.prototype;
-  e.nd = function (a) {
-    return Gp(a);
+  function Op() {}
+  Op.prototype = new q();
+  Op.prototype.constructor = Op;
+  e = Op.prototype;
+  e.gd = function (a) {
+    return Pp(a);
   };
-  function Gp(a) {
-    var b = a.v();
+  function Pp(a) {
+    var b = a.t();
     if (0 <= b) {
-      var c = Hp(0, b);
-      fj(a) ? a.Ob(c, 0, 2147483647) : a.i().Ob(c, 0, 2147483647);
-      return Ip(new Jp(), c, b);
+      var c = Qp(0, b);
+      Td(a) ? a.Pb(c, 0, 2147483647) : a.h().Pb(c, 0, 2147483647);
+      return Rp(new Sp(), c, b);
     }
-    return Kp(Lp(), a);
+    return Tp(Up(), a);
   }
-  e.X = function () {
-    return new Mp();
+  e.ea = function () {
+    return new Vp();
   };
-  function Hp(a, b) {
+  function Qp(a, b) {
     if (!(0 <= b))
-      throw rd("requirement failed: Non-negative array size required");
-    a = ((-2147483648 >>> ca(b)) | 0) << 1;
+      throw pd("requirement failed: Non-negative array size required");
+    a = ((-2147483648 >>> da(b)) | 0) << 1;
     if (!(0 <= a))
-      throw rd(
+      throw pd(
         "requirement failed: ArrayDeque too big - cannot allocate ArrayDeque of length " +
           b
       );
     return new r(16 < a ? a : 16);
   }
-  e.Fb = function () {
-    return Lp();
+  e.Bb = function () {
+    return Up();
   };
-  e.ga = function (a) {
-    return Gp(a);
+  e.W = function (a) {
+    return Pp(a);
   };
-  e.$classData = v({ Rq: 0 }, !1, "scala.collection.mutable.ArrayDeque$", {
-    Rq: 1,
+  e.$classData = v({ Tq: 0 }, !1, "scala.collection.mutable.ArrayDeque$", {
+    Tq: 1,
     b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
     c: 1,
   });
-  var Np;
-  function Op() {
-    Np || (Np = new Fp());
-    return Np;
+  var Wp;
+  function Xp() {
+    Wp || (Wp = new Op());
+    return Wp;
   }
-  function Mp() {
-    this.ee = null;
-    Im(this, Lp());
+  function Vp() {
+    this.Ud = null;
+    Pm(this, Up());
   }
-  Mp.prototype = new Km();
-  Mp.prototype.constructor = Mp;
-  Mp.prototype.cc = function (a) {
-    var b = this.ee;
-    a > (((b.wb - b.xb) | 0) & ((-1 + b.U.a.length) | 0)) &&
+  Vp.prototype = new Rm();
+  Vp.prototype.constructor = Vp;
+  Vp.prototype.ac = function (a) {
+    var b = this.Ud;
+    a > (((b.sb - b.tb) | 0) & ((-1 + b.U.a.length) | 0)) &&
       a >= b.U.a.length &&
-      Pp(b, a);
+      Yp(b, a);
   };
-  Mp.prototype.$classData = v(
-    { Sq: 0 },
+  Vp.prototype.$classData = v(
+    { Uq: 0 },
     !1,
     "scala.collection.mutable.ArrayDeque$$anon$1",
-    { Sq: 1, Vh: 1, b: 1, Xc: 1, qc: 1, pc: 1 }
+    { Uq: 1, Rh: 1, b: 1, Qc: 1, oc: 1, nc: 1 }
   );
-  function $h() {
-    this.hd = null;
-    this.hd = Qp();
+  function hi() {
+    this.ad = null;
+    this.ad = Zp();
   }
-  $h.prototype = new Pl();
-  $h.prototype.constructor = $h;
-  $h.prototype.$classData = v(
-    { er: 0 },
+  hi.prototype = new Ul();
+  hi.prototype.constructor = hi;
+  hi.prototype.$classData = v(
+    { gr: 0 },
     !1,
     "scala.collection.mutable.Buffer$",
-    { er: 1, pj: 1, b: 1, Tc: 1, Hb: 1, c: 1 }
+    { gr: 1, lj: 1, b: 1, Nc: 1, Eb: 1, c: 1 }
   );
-  var Zh;
-  function fl(a, b) {
-    this.ee = null;
-    Im(this, hl(new gl(), a, b));
+  var gi;
+  function kl(a, b) {
+    this.Ud = null;
+    Pm(this, ml(new ll(), a, b));
   }
-  fl.prototype = new Km();
-  fl.prototype.constructor = fl;
-  fl.prototype.cc = function (a) {
-    this.ee.cc(a);
+  kl.prototype = new Rm();
+  kl.prototype.constructor = kl;
+  kl.prototype.ac = function (a) {
+    this.Ud.ac(a);
   };
-  fl.prototype.$classData = v(
-    { lr: 0 },
+  kl.prototype.$classData = v(
+    { nr: 0 },
     !1,
     "scala.collection.mutable.HashSet$$anon$4",
-    { lr: 1, Vh: 1, b: 1, Xc: 1, qc: 1, pc: 1 }
+    { nr: 1, Rh: 1, b: 1, Qc: 1, oc: 1, nc: 1 }
   );
-  function Rp(a, b) {
-    if (null === b) throw nb(null);
-    a.ah = b;
-    a.$e = 0;
-    a.we = null;
-    a.bh = b.yb.a.length;
+  function $p(a, b) {
+    if (null === b) throw lb(null);
+    a.Vg = b;
+    a.Se = 0;
+    a.qe = null;
+    a.Wg = b.ub.a.length;
   }
-  function Sp() {
-    this.$e = 0;
-    this.we = null;
-    this.bh = 0;
-    this.ah = null;
+  function aq() {
+    this.Se = 0;
+    this.qe = null;
+    this.Wg = 0;
+    this.Vg = null;
   }
-  Sp.prototype = new Kl();
-  Sp.prototype.constructor = Sp;
-  function Tp() {}
-  Tp.prototype = Sp.prototype;
-  Sp.prototype.m = function () {
-    if (null !== this.we) return !0;
-    for (; this.$e < this.bh; ) {
-      var a = this.ah.yb.a[this.$e];
-      this.$e = (1 + this.$e) | 0;
-      if (null !== a) return (this.we = a), !0;
+  aq.prototype = new Pl();
+  aq.prototype.constructor = aq;
+  function bq() {}
+  bq.prototype = aq.prototype;
+  aq.prototype.l = function () {
+    if (null !== this.qe) return !0;
+    for (; this.Se < this.Wg; ) {
+      var a = this.Vg.ub.a[this.Se];
+      this.Se = (1 + this.Se) | 0;
+      if (null !== a) return (this.qe = a), !0;
     }
     return !1;
   };
-  Sp.prototype.k = function () {
-    if (this.m()) {
-      var a = this.Qi(this.we);
-      this.we = this.we.pb;
+  aq.prototype.k = function () {
+    if (this.l()) {
+      var a = this.Li(this.qe);
+      this.qe = this.qe.jb;
       return a;
     }
-    return W().Y.k();
+    return W().Z.k();
   };
-  function Up() {
-    this.ch = null;
+  function cq() {
+    this.Xg = null;
   }
-  Up.prototype = new q();
-  Up.prototype.constructor = Up;
-  function Vp() {}
-  Vp.prototype = Up.prototype;
-  Up.prototype.cc = function () {};
-  Up.prototype.qb = function (a) {
-    return Yh(this, a);
-  };
-  Up.prototype.Ua = function () {
-    return this.ch;
-  };
-  function Wp() {
-    this.hd = null;
-    this.hd = Dp();
-  }
-  Wp.prototype = new Pl();
-  Wp.prototype.constructor = Wp;
-  Wp.prototype.$classData = v(
-    { nr: 0 },
-    !1,
-    "scala.collection.mutable.IndexedSeq$",
-    { nr: 1, pj: 1, b: 1, Tc: 1, Hb: 1, c: 1 }
-  );
-  var Xp;
-  function Yp() {}
-  Yp.prototype = new q();
-  Yp.prototype.constructor = Yp;
-  e = Yp.prototype;
-  e.nd = function (a) {
-    return Zp(new gp(), a);
-  };
-  e.X = function () {
-    return Im(new Jm(), new gp());
-  };
-  e.Fb = function () {
-    return new gp();
-  };
-  e.ga = function (a) {
-    return Zp(new gp(), a);
-  };
-  e.$classData = v({ pr: 0 }, !1, "scala.collection.mutable.ListBuffer$", {
-    pr: 1,
-    b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
-    c: 1,
-  });
-  var $p;
-  function aq() {
-    $p || ($p = new Yp());
-    return $p;
-  }
-  function bq(a, b) {
-    this.Il = 0;
-    this.Jl = a;
-    this.sr = b;
-    this.Il = Zd(b) | 0;
-  }
-  bq.prototype = new Kl();
-  bq.prototype.constructor = bq;
-  bq.prototype.m = function () {
-    kf || (kf = new jf());
-    var a = this.Il;
-    if ((Zd(this.sr) | 0) !== a) throw new uo();
-    return this.Jl.m();
-  };
-  bq.prototype.k = function () {
-    return this.Jl.k();
-  };
-  bq.prototype.$classData = v(
-    { rr: 0 },
-    !1,
-    "scala.collection.mutable.MutationTracker$CheckedIterator",
-    { rr: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
-  );
-  function cq() {}
   cq.prototype = new q();
   cq.prototype.constructor = cq;
-  e = cq.prototype;
-  e.nd = function (a) {
-    return Kp(new Ck(16), a);
+  function dq() {}
+  dq.prototype = cq.prototype;
+  cq.prototype.ac = function () {};
+  cq.prototype.wb = function (a) {
+    return fi(this, a);
   };
-  e.X = function () {
-    return Im(new Jm(), new Ck(16));
+  cq.prototype.Wa = function () {
+    return this.Xg;
   };
-  e.Fb = function () {
-    return new Ck(16);
-  };
-  e.ga = function (a) {
-    return Kp(new Ck(16), a);
-  };
-  e.$classData = v({ ur: 0 }, !1, "scala.collection.mutable.Queue$", {
-    ur: 1,
-    b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
-    c: 1,
-  });
-  var dq;
   function eq() {
-    dq || (dq = new cq());
-    return dq;
+    this.ad = null;
+    this.ad = Mp();
   }
-  var gq = function fq(a, b) {
-    return b.Cc.isArrayClass ? "Array[" + fq(a, Kc(b)) + "]" : b.Cc.name;
-  };
-  function hg(a) {
-    this.Kl = 0;
-    this.Tr = a;
-    this.Yh = 0;
-    this.Kl = a.rb();
-  }
-  hg.prototype = new Kl();
-  hg.prototype.constructor = hg;
-  hg.prototype.m = function () {
-    return this.Yh < this.Kl;
-  };
-  hg.prototype.k = function () {
-    var a = this.Tr.sb(this.Yh);
-    this.Yh = (1 + this.Yh) | 0;
-    return a;
-  };
-  hg.prototype.$classData = v(
-    { Sr: 0 },
+  eq.prototype = new Ul();
+  eq.prototype.constructor = eq;
+  eq.prototype.$classData = v(
+    { pr: 0 },
     !1,
-    "scala.runtime.ScalaRunTime$$anon$1",
-    { Sr: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    "scala.collection.mutable.IndexedSeq$",
+    { pr: 1, lj: 1, b: 1, Nc: 1, Eb: 1, c: 1 }
   );
-  function hq() {}
-  hq.prototype = new q();
-  hq.prototype.constructor = hq;
-  e = hq.prototype;
-  e.nd = function (a) {
-    return iq(a);
+  var fq;
+  function gq() {}
+  gq.prototype = new q();
+  gq.prototype.constructor = gq;
+  e = gq.prototype;
+  e.gd = function (a) {
+    return hq(new pp(), a);
   };
-  e.X = function () {
-    return jq();
+  e.ea = function () {
+    return Pm(new Qm(), new pp());
   };
-  function iq(a) {
-    var b = jq();
-    return Yh(b, a).Ua();
-  }
-  e.ga = function (a) {
-    return iq(a);
+  e.Bb = function () {
+    return new pp();
   };
-  e.Fb = function () {
-    return jq();
+  e.W = function (a) {
+    return hq(new pp(), a);
   };
-  e.$classData = v({ Ar: 0 }, !1, "scala.scalajs.js.WrappedArray$", {
-    Ar: 1,
+  e.$classData = v({ rr: 0 }, !1, "scala.collection.mutable.ListBuffer$", {
+    rr: 1,
     b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
     c: 1,
   });
-  var kq;
-  function Qp() {
-    kq || (kq = new hq());
-    return kq;
+  var iq;
+  function jq() {
+    iq || (iq = new gq());
+    return iq;
   }
+  function kq(a, b) {
+    this.Il = 0;
+    this.Jl = a;
+    this.ur = b;
+    this.Il = je(b) | 0;
+  }
+  kq.prototype = new Pl();
+  kq.prototype.constructor = kq;
+  kq.prototype.l = function () {
+    vf || (vf = new uf());
+    var a = this.Il;
+    if ((je(this.ur) | 0) !== a) throw new Bo();
+    return this.Jl.l();
+  };
+  kq.prototype.k = function () {
+    return this.Jl.k();
+  };
+  kq.prototype.$classData = v(
+    { tr: 0 },
+    !1,
+    "scala.collection.mutable.MutationTracker$CheckedIterator",
+    { tr: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
   function lq() {}
   lq.prototype = new q();
   lq.prototype.constructor = lq;
   e = lq.prototype;
-  e.nd = function (a) {
-    return mq(this, a);
+  e.gd = function (a) {
+    return Tp(new Fk(16), a);
   };
-  function mq(a, b) {
-    return a.X().qb(b).Ua();
+  e.ea = function () {
+    return Pm(new Qm(), new Fk(16));
+  };
+  e.Bb = function () {
+    return new Fk(16);
+  };
+  e.W = function (a) {
+    return Tp(new Fk(16), a);
+  };
+  e.$classData = v({ wr: 0 }, !1, "scala.collection.mutable.Queue$", {
+    wr: 1,
+    b: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
+    c: 1,
+  });
+  var mq;
+  function nq() {
+    mq || (mq = new lq());
+    return mq;
   }
-  e.X = function () {
-    return new Yi(nq(new oq()), new E((() => (a) => B(new C(), a.xe))(this)));
+  var pq = function oq(a, b) {
+    return b.xc.isArrayClass ? "Array[" + oq(a, Ic(b)) + "]" : b.xc.name;
   };
-  e.ga = function (a) {
-    return mq(this, a);
+  function qg(a) {
+    this.Kl = 0;
+    this.Vr = a;
+    this.Uh = 0;
+    this.Kl = a.lb();
+  }
+  qg.prototype = new Pl();
+  qg.prototype.constructor = qg;
+  qg.prototype.l = function () {
+    return this.Uh < this.Kl;
   };
-  e.Fb = function () {
+  qg.prototype.k = function () {
+    var a = this.Vr.mb(this.Uh);
+    this.Uh = (1 + this.Uh) | 0;
+    return a;
+  };
+  qg.prototype.$classData = v(
+    { Ur: 0 },
+    !1,
+    "scala.runtime.ScalaRunTime$$anon$1",
+    { Ur: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
+  function qq() {}
+  qq.prototype = new q();
+  qq.prototype.constructor = qq;
+  e = qq.prototype;
+  e.gd = function (a) {
+    return rq(a);
+  };
+  e.ea = function () {
+    return sq();
+  };
+  function rq(a) {
+    var b = sq();
+    return fi(b, a).Wa();
+  }
+  e.W = function (a) {
+    return rq(a);
+  };
+  e.Bb = function () {
+    return sq();
+  };
+  e.$classData = v({ Cr: 0 }, !1, "scala.scalajs.js.WrappedArray$", {
+    Cr: 1,
+    b: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
+    c: 1,
+  });
+  var tq;
+  function Zp() {
+    tq || (tq = new qq());
+    return tq;
+  }
+  function uq() {}
+  uq.prototype = new q();
+  uq.prototype.constructor = uq;
+  e = uq.prototype;
+  e.gd = function (a) {
+    return vq(this, a);
+  };
+  function vq(a, b) {
+    return a.ea().wb(b).Wa();
+  }
+  e.ea = function () {
+    return new dj(wq(new xq()), new D((() => (a) => B(new C(), a.re))(this)));
+  };
+  e.W = function (a) {
+    return vq(this, a);
+  };
+  e.Bb = function () {
     var a = new C();
     B(a, []);
     return a;
   };
-  e.$classData = v({ Jr: 0 }, !1, "scala.scalajs.runtime.WrappedVarArgs$", {
-    Jr: 1,
+  e.$classData = v({ Lr: 0 }, !1, "scala.scalajs.runtime.WrappedVarArgs$", {
+    Lr: 1,
     b: 1,
-    sf: 1,
-    Tc: 1,
-    Hb: 1,
+    kf: 1,
+    Nc: 1,
+    Eb: 1,
     c: 1,
   });
-  var pq;
-  function qq() {
-    pq || (pq = new lq());
-    return pq;
+  var yq;
+  function zq() {
+    yq || (yq = new uq());
+    return yq;
   }
-  function Vo() {
-    var a = new ne();
-    oe(a, null);
+  function dp() {
+    var a = new ye();
+    ze(a, null);
     return a;
   }
-  class ne extends pg {}
-  ne.prototype.$classData = v(
+  class ye extends yg {}
+  ye.prototype.$classData = v(
     { Dm: 0 },
     !1,
     "java.lang.ArrayIndexOutOfBoundsException",
-    { Dm: 1, Wi: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { Dm: 1, Ri: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  class Fg extends so {
+  class Og extends zo {
     constructor(a) {
       super();
-      oe(this, a);
+      ze(this, a);
     }
   }
-  Fg.prototype.$classData = v(
+  Og.prototype.$classData = v(
     { Wm: 0 },
     !1,
     "java.lang.NumberFormatException",
-    { Wm: 1, Jk: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { Wm: 1, Jk: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  class Fl extends pg {}
-  Fl.prototype.$classData = v(
+  class Kl extends yg {}
+  Kl.prototype.$classData = v(
     { $m: 0 },
     !1,
     "java.lang.StringIndexOutOfBoundsException",
-    { $m: 1, Wi: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1 }
+    { $m: 1, Ri: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1 }
   );
-  function rq() {}
-  rq.prototype = new xo();
-  rq.prototype.constructor = rq;
-  e = rq.prototype;
-  e.ib = function () {
+  function Aq() {}
+  Aq.prototype = new Fo();
+  Aq.prototype.constructor = Aq;
+  e = Aq.prototype;
+  e.cb = function () {
     return "None";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 0;
   };
-  e.sb = function (a) {
-    return ng(X(), a);
+  e.mb = function (a) {
+    return wg(Y(), a);
   };
   e.H = function () {
     return 2433880;
@@ -9566,528 +9600,537 @@ let ScalaJSExample;
   e.z = function () {
     return "None";
   };
-  e.Fg = function () {
-    throw Th(new Uh(), "None.get");
+  e.zg = function () {
+    throw Uk("None.get");
   };
   e.$classData = v({ xn: 0 }, !1, "scala.None$", {
     xn: 1,
     yn: 1,
     b: 1,
     r: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  var sq;
-  function Ob() {
-    sq || (sq = new rq());
-    return sq;
+  var Bq;
+  function Mb() {
+    Bq || (Bq = new Aq());
+    return Bq;
   }
-  function Tm(a) {
-    this.vh = a;
+  function $m(a) {
+    this.qh = a;
   }
-  Tm.prototype = new xo();
-  Tm.prototype.constructor = Tm;
-  e = Tm.prototype;
-  e.Fg = function () {
-    return this.vh;
+  $m.prototype = new Fo();
+  $m.prototype.constructor = $m;
+  e = $m.prototype;
+  e.zg = function () {
+    return this.qh;
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Some";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 1;
   };
-  e.sb = function (a) {
-    return 0 === a ? this.vh : ng(X(), a);
+  e.mb = function (a) {
+    return 0 === a ? this.qh : wg(Y(), a);
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.z = function () {
-    return gg(this);
+    return pg(this);
   };
   e.y = function (a) {
-    return this === a ? !0 : a instanceof Tm ? L(M(), this.vh, a.vh) : !1;
+    return this === a ? !0 : a instanceof $m ? J(L(), this.qh, a.qh) : !1;
   };
   e.$classData = v({ Bn: 0 }, !1, "scala.Some", {
     Bn: 1,
     yn: 1,
     b: 1,
     r: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
   });
-  function tq() {}
-  tq.prototype = new q();
-  tq.prototype.constructor = tq;
-  function uq() {}
-  e = uq.prototype = tq.prototype;
-  e.Qc = function () {
-    return this.Mb();
+  function Cq() {}
+  Cq.prototype = new q();
+  Cq.prototype.constructor = Cq;
+  function Dq() {}
+  e = Dq.prototype = Cq.prototype;
+  e.Wc = function () {
+    return this.Ob();
   };
-  e.oh = function (a) {
-    return this.ha().ga(a);
+  e.jh = function (a) {
+    return this.X().W(a);
   };
-  e.aj = function () {
-    return this.ha().X();
+  e.Wi = function () {
+    return this.X().ea();
   };
   e.u = function () {
-    return this.i().k();
+    return this.h().k();
   };
-  e.Pj = function (a) {
-    return bj(this, a);
+  e.Oj = function (a) {
+    return gj(this, a);
   };
-  e.Pb = function (a) {
-    return this.Be(new nj(this, a, !1));
+  e.Qb = function (a) {
+    return this.ve(new pj(this, a, !1));
   };
-  e.Vd = function (a) {
-    return new mj(this, a);
+  e.Hc = function (a) {
+    return new oj(this, a);
   };
-  e.Eb = function (a) {
-    return this.Be(vq(new wq(), this, a));
+  e.Jb = function (a) {
+    return this.ve(Eq(new Fq(), this, a));
   };
   e.w = function () {
-    return cj(this);
+    return hj(this);
   };
-  e.Wb = function (a) {
-    return this.ha().ga(new xq(this, a));
+  e.Cb = function (a) {
+    return this.X().W(new qj(this, a));
   };
-  e.Rf = function (a) {
-    return this.Wb(a);
-  };
-  e.Pf = function (a) {
-    return ej(this, a);
-  };
-  e.ai = function (a) {
-    var b = this.ha();
-    if (fj(a)) a = new yq(this, a);
-    else {
-      var c = this.i();
-      a = new Io(c, a);
-    }
-    return b.ga(a);
+  e.wg = function (a) {
+    return this.Cb(a);
   };
   e.Ff = function (a) {
-    return hj(this, a);
+    return jj(this, a);
+  };
+  e.Sj = function (a) {
+    var b = this.X();
+    if (Td(a)) a = new Gq(this, a);
+    else {
+      var c = this.h();
+      a = new Qo(c, a);
+    }
+    return b.W(a);
+  };
+  e.hg = function () {
+    return this.X().W(new Hq(this));
+  };
+  e.fg = function (a) {
+    return lj(this, a);
   };
   e.N = function (a) {
-    Ed(this, a);
+    Vd(this, a);
   };
-  e.Dg = function (a) {
-    for (var b = !0, c = this.i(); b && c.m(); ) b = !!a.l(c.k());
+  e.xg = function (a) {
+    for (var b = !0, c = this.h(); b && c.l(); ) b = !!a.m(c.k());
     return b;
   };
-  e.Qf = function (a) {
-    return Fd(this, a);
+  e.Gf = function (a) {
+    return Wd(this, a);
   };
-  e.Fe = function (a) {
-    return Kd(this, a);
+  e.ze = function (a) {
+    return Xd(this, a);
   };
   e.e = function () {
-    return !this.i().m();
+    return !this.h().l();
   };
-  e.Ob = function (a, b, c) {
-    return Md(this, a, b, c);
+  e.Pb = function (a, b, c) {
+    return Zd(this, a, b, c);
   };
-  e.le = function (a, b, c, d) {
-    return Vd(this, a, b, c, d);
+  e.ae = function (a, b, c, d) {
+    return fe(this, a, b, c, d);
   };
-  e.v = function () {
+  e.t = function () {
     return -1;
   };
-  e.Be = function (a) {
-    return this.oh(a);
+  e.ve = function (a) {
+    return this.jh(a);
   };
-  function zq(a, b) {
-    a.fd = b;
+  function Iq(a, b) {
+    a.Zc = b;
     a.M = 0;
-    a.sd = Nd(Od(), a.fd);
+    a.kd = Bd(Gd(), a.Zc);
     return a;
   }
-  function Aq() {
-    this.fd = null;
-    this.sd = this.M = 0;
+  function Jq() {
+    this.Zc = null;
+    this.kd = this.M = 0;
   }
-  Aq.prototype = new Kl();
-  Aq.prototype.constructor = Aq;
-  function Bq() {}
-  e = Bq.prototype = Aq.prototype;
-  e.v = function () {
-    return (this.sd - this.M) | 0;
+  Jq.prototype = new Pl();
+  Jq.prototype.constructor = Jq;
+  function Kq() {}
+  e = Kq.prototype = Jq.prototype;
+  e.t = function () {
+    return (this.kd - this.M) | 0;
   };
-  e.m = function () {
-    return this.M < this.sd;
+  e.l = function () {
+    return this.M < this.kd;
   };
   e.k = function () {
     try {
-      var a = eg(Od(), this.fd, this.M);
+      var a = Jd(Gd(), this.Zc, this.M);
       this.M = (1 + this.M) | 0;
       return a;
     } catch (b) {
-      if (b instanceof ne) return W().Y.k();
+      if (b instanceof ye) return W().Z.k();
       throw b;
     }
   };
-  e.Ed = function (a) {
+  e.xd = function (a) {
     if (0 < a) {
-      var b = Nd(Od(), this.fd);
+      var b = Bd(Gd(), this.Zc);
       a = (this.M + a) | 0;
       this.M = b < a ? b : a;
     }
     return this;
   };
-  e.$classData = v({ Zd: 0 }, !1, "scala.collection.ArrayOps$ArrayIterator", {
-    Zd: 1,
-    pa: 1,
+  e.$classData = v({ Pd: 0 }, !1, "scala.collection.ArrayOps$ArrayIterator", {
+    Pd: 1,
+    la: 1,
     b: 1,
-    ca: 1,
+    Y: 1,
     r: 1,
     s: 1,
     c: 1,
   });
-  function yk(a) {
-    this.mf = 0;
-    this.Go = a;
-    this.Kg = 0;
-    this.mf = a.n();
+  function Bk(a) {
+    this.df = 0;
+    this.Io = a;
+    this.Fg = 0;
+    this.df = a.q();
   }
-  yk.prototype = new Kl();
-  yk.prototype.constructor = yk;
-  e = yk.prototype;
-  e.v = function () {
-    return this.mf;
+  Bk.prototype = new Pl();
+  Bk.prototype.constructor = Bk;
+  e = Bk.prototype;
+  e.t = function () {
+    return this.df;
   };
-  e.m = function () {
-    return 0 < this.mf;
+  e.l = function () {
+    return 0 < this.df;
   };
   e.k = function () {
-    if (this.m()) {
-      var a = this.Go.t(this.Kg);
-      this.Kg = (1 + this.Kg) | 0;
-      this.mf = (-1 + this.mf) | 0;
+    if (this.l()) {
+      var a = this.Io.v(this.Fg);
+      this.Fg = (1 + this.Fg) | 0;
+      this.df = (-1 + this.df) | 0;
       return a;
     }
-    return W().Y.k();
+    return W().Z.k();
   };
-  e.Ed = function (a) {
+  e.xd = function (a) {
     0 < a &&
-      ((this.Kg = (this.Kg + a) | 0),
-      (a = (this.mf - a) | 0),
-      (this.mf = 0 > a ? 0 : a));
+      ((this.Fg = (this.Fg + a) | 0),
+      (a = (this.df - a) | 0),
+      (this.df = 0 > a ? 0 : a));
     return this;
   };
   e.$classData = v(
-    { Fo: 0 },
+    { Ho: 0 },
     !1,
     "scala.collection.IndexedSeqView$IndexedSeqViewIterator",
-    { Fo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { Ho: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function uj() {
-    this.ch = null;
-    this.ch = W().Y;
+  function xj() {
+    this.Xg = null;
+    this.Xg = W().Z;
   }
-  uj.prototype = new Vp();
-  uj.prototype.constructor = uj;
-  function Cq(a, b) {
-    a.ch = a.ch.Dd(
+  xj.prototype = new dq();
+  xj.prototype.constructor = xj;
+  function Lq(a, b) {
+    a.Xg = a.Xg.wd(
       new H(
         ((c, d) => () => {
           W();
-          return new yo(d);
+          return new Go(d);
         })(a, b)
       )
     );
     return a;
   }
-  uj.prototype.Oa = function (a) {
-    return Cq(this, a);
+  xj.prototype.Ia = function (a) {
+    return Lq(this, a);
   };
-  uj.prototype.$classData = v(
-    { Qo: 0 },
+  xj.prototype.$classData = v(
+    { Uo: 0 },
     !1,
     "scala.collection.Iterator$$anon$21",
-    { Qo: 1, Os: 1, b: 1, Ef: 1, Xc: 1, qc: 1, pc: 1 }
+    { Uo: 1, Qs: 1, b: 1, vf: 1, Qc: 1, oc: 1, nc: 1 }
   );
-  function Dq(a, b) {
-    var c = a.qd().X();
-    0 <= a.v() && c.cc((1 + a.n()) | 0);
-    c.qb(a);
-    c.Oa(b);
-    return c.Ua();
+  function Mq(a, b) {
+    var c = a.Ad().ea();
+    0 <= a.t() && c.ac((1 + a.q()) | 0);
+    c.wb(a);
+    c.Ia(b);
+    return c.Wa();
   }
-  function Eq(a, b) {
-    var c = a.qd().X();
-    c.qb(a);
-    c.qb(b);
-    return c.Ua();
+  function Nq(a, b) {
+    var c = a.Ad().ea();
+    c.wb(a);
+    c.wb(b);
+    return c.Wa();
   }
-  function ff(a) {
-    return !!(a && a.$classData && a.$classData.Nb.Ib);
+  function rf(a) {
+    return !!(a && a.$classData && a.$classData.Ib.Sb);
   }
-  function Rn(a, b, c, d) {
-    this.Ug = b;
-    this.gg = c;
-    this.Md = !d;
-    this.fg = a;
+  function Zn(a, b, c, d) {
+    this.Qg = b;
+    this.Xf = c;
+    this.je = !d;
+    this.Wf = a;
   }
-  Rn.prototype = new Kl();
-  Rn.prototype.constructor = Rn;
-  e = Rn.prototype;
-  e.v = function () {
-    return this.Md ? (1 + Fa((this.gg - this.fg) | 0, this.Ug)) | 0 : 0;
+  Zn.prototype = new Pl();
+  Zn.prototype.constructor = Zn;
+  e = Zn.prototype;
+  e.t = function () {
+    if (this.je) {
+      var a = (this.Xf - this.Wf) | 0;
+      var b = this.Qg;
+      if (0 === b) throw new uh();
+      a = (1 + ((a / b) | 0)) | 0;
+    } else a = 0;
+    return a;
   };
-  e.m = function () {
-    return this.Md;
+  e.l = function () {
+    return this.je;
   };
-  function Sn(a) {
-    a.Md || W().Y.k();
-    var b = a.fg;
-    a.Md = b !== a.gg;
-    a.fg = (b + a.Ug) | 0;
+  function $n(a) {
+    a.je || W().Z.k();
+    var b = a.Wf;
+    a.je = b !== a.Xf;
+    a.Wf = (b + a.Qg) | 0;
     return b;
   }
-  e.Ed = function (a) {
+  e.xd = function (a) {
     if (0 < a) {
-      var b = this.fg,
+      var b = this.Wf,
         c = b >> 31;
-      a = ba(this.Ug, a);
+      a = ca(this.Qg, a);
       var d = a >> 31;
       a = (b + a) | 0;
       b =
         (-2147483648 ^ a) < (-2147483648 ^ b)
           ? (1 + ((c + d) | 0)) | 0
           : (c + d) | 0;
-      0 < this.Ug
-        ? ((c = this.gg),
+      0 < this.Qg
+        ? ((c = this.Xf),
           (d = c >> 31),
-          (this.fg = (d === b ? (-2147483648 ^ c) < (-2147483648 ^ a) : d < b)
+          (this.Wf = (d === b ? (-2147483648 ^ c) < (-2147483648 ^ a) : d < b)
             ? c
             : a),
-          (c = this.gg),
+          (c = this.Xf),
           (d = c >> 31),
-          (this.Md = b === d ? (-2147483648 ^ a) <= (-2147483648 ^ c) : b < d))
-        : 0 > this.Ug &&
-          ((c = this.gg),
+          (this.je = b === d ? (-2147483648 ^ a) <= (-2147483648 ^ c) : b < d))
+        : 0 > this.Qg &&
+          ((c = this.Xf),
           (d = c >> 31),
-          (this.fg = (d === b ? (-2147483648 ^ c) > (-2147483648 ^ a) : d > b)
+          (this.Wf = (d === b ? (-2147483648 ^ c) > (-2147483648 ^ a) : d > b)
             ? c
             : a),
-          (c = this.gg),
+          (c = this.Xf),
           (d = c >> 31),
-          (this.Md = b === d ? (-2147483648 ^ a) >= (-2147483648 ^ c) : b > d));
+          (this.je = b === d ? (-2147483648 ^ a) >= (-2147483648 ^ c) : b > d));
     }
     return this;
   };
   e.k = function () {
-    return Sn(this);
+    return $n(this);
   };
-  e.$classData = v({ bq: 0 }, !1, "scala.collection.immutable.RangeIterator", {
-    bq: 1,
-    pa: 1,
+  e.$classData = v({ dq: 0 }, !1, "scala.collection.immutable.RangeIterator", {
+    dq: 1,
+    la: 1,
     b: 1,
-    ca: 1,
+    Y: 1,
     r: 1,
     s: 1,
     c: 1,
   });
-  function Fq() {
-    this.td = this.Qd = 0;
+  function Oq() {
+    this.md = this.Hd = 0;
   }
-  Fq.prototype = new Kl();
-  Fq.prototype.constructor = Fq;
-  function Gq() {}
-  Gq.prototype = Fq.prototype;
-  Fq.prototype.v = function () {
-    return this.td;
+  Oq.prototype = new Pl();
+  Oq.prototype.constructor = Oq;
+  function Pq() {}
+  Pq.prototype = Oq.prototype;
+  Oq.prototype.t = function () {
+    return this.md;
   };
-  Fq.prototype.m = function () {
-    return 0 < this.td;
+  Oq.prototype.l = function () {
+    return 0 < this.md;
   };
-  Fq.prototype.k = function () {
-    if (this.m()) {
-      var a = this.t(this.Qd);
-      this.Qd = (1 + this.Qd) | 0;
-      this.td = (-1 + this.td) | 0;
+  Oq.prototype.k = function () {
+    if (this.l()) {
+      var a = this.v(this.Hd);
+      this.Hd = (1 + this.Hd) | 0;
+      this.md = (-1 + this.md) | 0;
       return a;
     }
-    return W().Y.k();
+    return W().Z.k();
   };
-  Fq.prototype.Ed = function (a) {
+  Oq.prototype.xd = function (a) {
     0 < a &&
-      ((this.Qd = (this.Qd + a) | 0),
-      (a = (this.td - a) | 0),
-      (this.td = 0 > a ? 0 : a));
+      ((this.Hd = (this.Hd + a) | 0),
+      (a = (this.md - a) | 0),
+      (this.md = 0 > a ? 0 : a));
     return this;
   };
-  function Hq() {}
-  Hq.prototype = new q();
-  Hq.prototype.constructor = Hq;
-  function Iq() {}
-  Iq.prototype = Hq.prototype;
-  Hq.prototype.cc = function () {};
-  function Jq() {
-    this.Fl = this.Kj = null;
-    Kq = this;
-    this.Kj = new Ao(this);
-    this.Fl = new Lq(new r(0));
+  function Qq() {}
+  Qq.prototype = new q();
+  Qq.prototype.constructor = Qq;
+  function Rq() {}
+  Rq.prototype = Qq.prototype;
+  Qq.prototype.ac = function () {};
+  function Sq() {
+    this.Ij = this.Jj = null;
+    Tq = this;
+    this.Jj = new Io(this);
+    this.Ij = new Qh(new r(0));
   }
-  Jq.prototype = new q();
-  Jq.prototype.constructor = Jq;
-  function Mq(a, b) {
-    b = new Xi(b.kc());
-    return new Yi(b, new E((() => (c) => Wi(Zi(), c))(a)));
+  Sq.prototype = new q();
+  Sq.prototype.constructor = Sq;
+  function Uq(a, b) {
+    b = new cj(b.ic());
+    return new dj(b, new D((() => (c) => bj(Oh(), c))(a)));
   }
-  function Wi(a, b) {
+  function bj(a, b) {
     if (null === b) return null;
-    if (b instanceof r) return new Lq(b);
-    if (b instanceof t) return new Hh(b);
-    if (b instanceof Ya) return new Nq(b);
-    if (b instanceof Wa) return new Oq(b);
-    if (b instanceof Xa) return new Pq(b);
-    if (b instanceof Ta) return new Qq(b);
-    if (b instanceof Ua) return new Rq(b);
-    if (b instanceof Va) return new Sq(b);
-    if (b instanceof Sa) return new Tq(b);
-    if (b && b.$classData && 1 === b.$classData.Of && b.$classData.Nf.Nb.Ok)
-      return new Uq(b);
+    if (b instanceof r) return new Qh(b);
+    if (b instanceof t) return new Sh(b);
+    if (b instanceof Wa) return new Vq(b);
+    if (b instanceof Ua) return new Wq(b);
+    if (b instanceof Va) return new Xq(b);
+    if (b instanceof Ra) return new Yq(b);
+    if (b instanceof Sa) return new Zq(b);
+    if (b instanceof Ta) return new $q(b);
+    if (b instanceof Qa) return new ar(b);
+    if (b && b.$classData && 1 === b.$classData.Ef && b.$classData.Df.Ib.Ok)
+      return new br(b);
     throw new T(b);
   }
-  Jq.prototype.$classData = v(
-    { Uq: 0 },
+  Sq.prototype.$classData = v(
+    { Wq: 0 },
     !1,
     "scala.collection.mutable.ArraySeq$",
-    { Uq: 1, b: 1, Is: 1, Ds: 1, Bs: 1, Es: 1, c: 1 }
+    { Wq: 1, b: 1, Ks: 1, Fs: 1, Ds: 1, Gs: 1, c: 1 }
   );
-  var Kq;
-  function Zi() {
-    Kq || (Kq = new Jq());
-    return Kq;
+  var Tq;
+  function Oh() {
+    Tq || (Tq = new Sq());
+    return Tq;
   }
-  function Vq(a) {
-    this.$e = 0;
-    this.we = null;
-    this.bh = 0;
-    this.ah = null;
-    Rp(this, a);
+  function cr(a) {
+    this.Se = 0;
+    this.qe = null;
+    this.Wg = 0;
+    this.Vg = null;
+    $p(this, a);
   }
-  Vq.prototype = new Tp();
-  Vq.prototype.constructor = Vq;
-  Vq.prototype.Qi = function (a) {
-    return a.af;
+  cr.prototype = new bq();
+  cr.prototype.constructor = cr;
+  cr.prototype.Li = function (a) {
+    return a.Te;
   };
-  Vq.prototype.$classData = v(
-    { ir: 0 },
-    !1,
-    "scala.collection.mutable.HashSet$$anon$1",
-    { ir: 1, Hl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
-  );
-  function Wq(a) {
-    this.$e = 0;
-    this.we = null;
-    this.bh = 0;
-    this.ah = null;
-    Rp(this, a);
-  }
-  Wq.prototype = new Tp();
-  Wq.prototype.constructor = Wq;
-  Wq.prototype.Qi = function (a) {
-    return a;
-  };
-  Wq.prototype.$classData = v(
-    { jr: 0 },
-    !1,
-    "scala.collection.mutable.HashSet$$anon$2",
-    { jr: 1, Hl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
-  );
-  function Xq(a) {
-    this.$e = 0;
-    this.we = null;
-    this.bh = 0;
-    this.ah = null;
-    this.Lj = 0;
-    if (null === a) throw nb(null);
-    Rp(this, a);
-    this.Lj = 0;
-  }
-  Xq.prototype = new Tp();
-  Xq.prototype.constructor = Xq;
-  Xq.prototype.H = function () {
-    return this.Lj;
-  };
-  Xq.prototype.Qi = function (a) {
-    this.Lj = Yq(a.Td);
-    return this;
-  };
-  Xq.prototype.$classData = v(
+  cr.prototype.$classData = v(
     { kr: 0 },
     !1,
-    "scala.collection.mutable.HashSet$$anon$3",
-    { kr: 1, Hl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
+    "scala.collection.mutable.HashSet$$anon$1",
+    { kr: 1, Hl: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
   );
-  function qi(a) {
-    this.wh = a;
+  function dr(a) {
+    this.Se = 0;
+    this.qe = null;
+    this.Wg = 0;
+    this.Vg = null;
+    $p(this, a);
   }
-  qi.prototype = new q();
-  qi.prototype.constructor = qi;
-  e = qi.prototype;
+  dr.prototype = new bq();
+  dr.prototype.constructor = dr;
+  dr.prototype.Li = function (a) {
+    return a;
+  };
+  dr.prototype.$classData = v(
+    { lr: 0 },
+    !1,
+    "scala.collection.mutable.HashSet$$anon$2",
+    { lr: 1, Hl: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
+  function er(a) {
+    this.Se = 0;
+    this.qe = null;
+    this.Wg = 0;
+    this.Vg = null;
+    this.Kj = 0;
+    if (null === a) throw lb(null);
+    $p(this, a);
+    this.Kj = 0;
+  }
+  er.prototype = new bq();
+  er.prototype.constructor = er;
+  er.prototype.H = function () {
+    return this.Kj;
+  };
+  er.prototype.Li = function (a) {
+    this.Kj = fr(a.Jd);
+    return this;
+  };
+  er.prototype.$classData = v(
+    { mr: 0 },
+    !1,
+    "scala.collection.mutable.HashSet$$anon$3",
+    { mr: 1, Hl: 1, la: 1, b: 1, Y: 1, r: 1, s: 1 }
+  );
+  function wi(a) {
+    this.rh = a;
+  }
+  wi.prototype = new q();
+  wi.prototype.constructor = wi;
+  e = wi.prototype;
   e.y = function (a) {
-    if (a && a.$classData && a.$classData.Nb.Rc) {
-      var b = this.kc();
-      a = a.kc();
+    if (a && a.$classData && a.$classData.Ib.Kc) {
+      var b = this.ic();
+      a = a.ic();
       b = b === a;
     } else b = !1;
     return b;
   };
   e.H = function () {
-    var a = this.wh;
-    return mg(X(), a);
+    var a = this.rh;
+    return vg(Y(), a);
   };
   e.z = function () {
-    return gq(this, this.wh);
+    return pq(this, this.rh);
   };
-  e.kc = function () {
-    return this.wh;
+  e.ic = function () {
+    return this.rh;
   };
-  e.Dc = function (a) {
-    var b = this.wh;
-    dd();
-    return Lc(b, [a]);
+  e.yc = function (a) {
+    var b = this.rh;
+    bd();
+    return Jc(b, [a]);
   };
   e.$classData = v({ Mn: 0 }, !1, "scala.reflect.ClassTag$GenericClassTag", {
     Mn: 1,
     b: 1,
-    Rc: 1,
-    ed: 1,
-    Sc: 1,
+    Kc: 1,
+    Yc: 1,
+    Lc: 1,
     c: 1,
     x: 1,
   });
-  function Zq() {}
-  Zq.prototype = new ro();
-  Zq.prototype.constructor = Zq;
-  function $q() {}
-  $q.prototype = Zq.prototype;
-  function ao(a, b) {
-    this.Oi = this.Ni = null;
+  function gr() {}
+  gr.prototype = new yo();
+  gr.prototype.constructor = gr;
+  function hr() {}
+  hr.prototype = gr.prototype;
+  function io(a, b) {
+    this.Ji = this.Ii = null;
     this.wk = a;
     this.xk = b;
-    kj(this, null, null);
+    Hd(this, null, null);
   }
-  ao.prototype = new zo();
-  ao.prototype.constructor = ao;
-  e = ao.prototype;
-  e.mh = function () {
+  io.prototype = new Ho();
+  io.prototype.constructor = io;
+  e = io.prototype;
+  e.qg = function () {
     return this.wk;
   };
-  e.nh = function () {
+  e.Cf = function () {
     return this.xk;
   };
-  e.Bc = function () {
+  e.qc = function () {
     return this.xk;
   };
-  e.Ac = function () {
+  e.dc = function () {
     return this.wk;
   };
   e.$classData = v({ ym: 0 }, !1, "scala.Tuple2$mcII$sp", {
@@ -10095,287 +10138,287 @@ let ScalaJSExample;
     vk: 1,
     b: 1,
     An: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
     c: 1,
-    ds: 1,
+    fs: 1,
   });
-  class F extends Al {
+  class E extends Fl {
     constructor(a) {
       super();
-      this.fj = a;
-      oe(this, a);
+      this.bj = a;
+      ze(this, a);
     }
-    ib() {
+    cb() {
       return "UninitializedFieldError";
     }
-    rb() {
+    lb() {
       return 1;
     }
-    sb(a) {
-      return 0 === a ? this.fj : ng(X(), a);
+    mb(a) {
+      return 0 === a ? this.bj : wg(Y(), a);
     }
     H() {
-      return yg(this);
+      return Hg(this);
     }
     y(a) {
-      return this === a ? !0 : a instanceof F ? this.fj === a.fj : !1;
+      return this === a ? !0 : a instanceof E ? this.bj === a.bj : !1;
     }
   }
-  F.prototype.$classData = v({ Cn: 0 }, !1, "scala.UninitializedFieldError", {
+  E.prototype.$classData = v({ Cn: 0 }, !1, "scala.UninitializedFieldError", {
     Cn: 1,
-    sc: 1,
-    jc: 1,
-    fc: 1,
+    rc: 1,
+    hc: 1,
+    ec: 1,
     b: 1,
     c: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
   });
-  function ar(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.ko = a;
-    zq(this, a);
+  function ir(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.lo = a;
+    Iq(this, a);
   }
-  ar.prototype = new Bq();
-  ar.prototype.constructor = ar;
-  ar.prototype.k = function () {
+  ir.prototype = new Kq();
+  ir.prototype.constructor = ir;
+  ir.prototype.k = function () {
     try {
-      var a = this.ko.a[this.M];
+      var a = this.lo.a[this.M];
       this.M = (1 + this.M) | 0;
       var b = a;
     } catch (c) {
-      if (c instanceof ne) b = W().Y.k() | 0;
+      if (c instanceof ye) b = W().Z.k() | 0;
       else throw c;
     }
     return b;
   };
-  ar.prototype.$classData = v(
-    { jo: 0 },
+  ir.prototype.$classData = v(
+    { ko: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcB$sp",
-    { jo: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { ko: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function br(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.mo = a;
-    zq(this, a);
+  function jr(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.no = a;
+    Iq(this, a);
   }
-  br.prototype = new Bq();
-  br.prototype.constructor = br;
-  br.prototype.k = function () {
+  jr.prototype = new Kq();
+  jr.prototype.constructor = jr;
+  jr.prototype.k = function () {
     try {
-      var a = this.mo.a[this.M];
+      var a = this.no.a[this.M];
       this.M = (1 + this.M) | 0;
       var b = a;
     } catch (c) {
-      if (c instanceof ne) b = za(W().Y.k());
+      if (c instanceof ye) b = Aa(W().Z.k());
       else throw c;
     }
-    return Pa(b);
+    return Na(b);
   };
-  br.prototype.$classData = v(
-    { lo: 0 },
+  jr.prototype.$classData = v(
+    { mo: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcC$sp",
-    { lo: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { mo: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function cr(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.oo = a;
-    zq(this, a);
+  function kr(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.po = a;
+    Iq(this, a);
   }
-  cr.prototype = new Bq();
-  cr.prototype.constructor = cr;
-  cr.prototype.k = function () {
+  kr.prototype = new Kq();
+  kr.prototype.constructor = kr;
+  kr.prototype.k = function () {
     try {
-      var a = this.oo.a[this.M];
+      var a = this.po.a[this.M];
       this.M = (1 + this.M) | 0;
       var b = a;
     } catch (c) {
-      if (c instanceof ne) b = +W().Y.k();
+      if (c instanceof ye) b = +W().Z.k();
       else throw c;
     }
     return b;
   };
-  cr.prototype.$classData = v(
-    { no: 0 },
+  kr.prototype.$classData = v(
+    { oo: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcD$sp",
-    { no: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { oo: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function dr(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.qo = a;
-    zq(this, a);
+  function lr(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.ro = a;
+    Iq(this, a);
   }
-  dr.prototype = new Bq();
-  dr.prototype.constructor = dr;
-  dr.prototype.k = function () {
+  lr.prototype = new Kq();
+  lr.prototype.constructor = lr;
+  lr.prototype.k = function () {
     try {
-      var a = this.qo.a[this.M];
+      var a = this.ro.a[this.M];
       this.M = (1 + this.M) | 0;
       var b = a;
     } catch (c) {
-      if (c instanceof ne) b = +W().Y.k();
+      if (c instanceof ye) b = +W().Z.k();
       else throw c;
     }
     return b;
   };
-  dr.prototype.$classData = v(
-    { po: 0 },
+  lr.prototype.$classData = v(
+    { qo: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcF$sp",
-    { po: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { qo: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function Kn(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.so = a;
-    zq(this, a);
+  function Rn(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.to = a;
+    Iq(this, a);
   }
-  Kn.prototype = new Bq();
-  Kn.prototype.constructor = Kn;
-  function Ln(a) {
+  Rn.prototype = new Kq();
+  Rn.prototype.constructor = Rn;
+  function Sn(a) {
     try {
-      var b = a.so.a[a.M];
+      var b = a.to.a[a.M];
       a.M = (1 + a.M) | 0;
       return b;
     } catch (c) {
-      if (c instanceof ne) return W().Y.k() | 0;
+      if (c instanceof ye) return W().Z.k() | 0;
       throw c;
     }
   }
-  Kn.prototype.k = function () {
-    return Ln(this);
+  Rn.prototype.k = function () {
+    return Sn(this);
   };
-  Kn.prototype.$classData = v(
-    { ro: 0 },
+  Rn.prototype.$classData = v(
+    { so: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcI$sp",
-    { ro: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { so: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function er(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.uo = a;
-    zq(this, a);
+  function mr(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.vo = a;
+    Iq(this, a);
   }
-  er.prototype = new Bq();
-  er.prototype.constructor = er;
-  er.prototype.k = function () {
+  mr.prototype = new Kq();
+  mr.prototype.constructor = mr;
+  mr.prototype.k = function () {
     try {
-      var a = this.uo.a[this.M],
-        b = a.Fa,
-        c = a.Ea;
+      var a = this.vo.a[this.M],
+        b = a.bb,
+        c = a.ab;
       this.M = (1 + this.M) | 0;
       var d = new n(b, c);
     } catch (f) {
-      if (f instanceof ne) d = Qa(W().Y.k());
+      if (f instanceof ye) d = Oa(W().Z.k());
       else throw f;
     }
     return d;
   };
-  er.prototype.$classData = v(
-    { to: 0 },
+  mr.prototype.$classData = v(
+    { uo: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcJ$sp",
-    { to: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { uo: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function fr(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.wo = a;
-    zq(this, a);
+  function nr(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.xo = a;
+    Iq(this, a);
   }
-  fr.prototype = new Bq();
-  fr.prototype.constructor = fr;
-  fr.prototype.k = function () {
+  nr.prototype = new Kq();
+  nr.prototype.constructor = nr;
+  nr.prototype.k = function () {
     try {
-      var a = this.wo.a[this.M];
+      var a = this.xo.a[this.M];
       this.M = (1 + this.M) | 0;
       var b = a;
     } catch (c) {
-      if (c instanceof ne) b = W().Y.k() | 0;
+      if (c instanceof ye) b = W().Z.k() | 0;
       else throw c;
     }
     return b;
   };
-  fr.prototype.$classData = v(
-    { vo: 0 },
+  nr.prototype.$classData = v(
+    { wo: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcS$sp",
-    { vo: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { wo: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function gr(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    zq(this, a);
+  function or(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    Iq(this, a);
   }
-  gr.prototype = new Bq();
-  gr.prototype.constructor = gr;
-  gr.prototype.k = function () {
+  or.prototype = new Kq();
+  or.prototype.constructor = or;
+  or.prototype.k = function () {
     try {
       this.M = (1 + this.M) | 0;
     } catch (a) {
-      if (a instanceof ne) W().Y.k();
+      if (a instanceof ye) W().Z.k();
       else throw a;
     }
   };
-  gr.prototype.$classData = v(
-    { xo: 0 },
+  or.prototype.$classData = v(
+    { yo: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcV$sp",
-    { xo: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { yo: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function hr(a) {
-    this.fd = null;
-    this.sd = this.M = 0;
-    this.zo = a;
-    zq(this, a);
+  function pr(a) {
+    this.Zc = null;
+    this.kd = this.M = 0;
+    this.Ao = a;
+    Iq(this, a);
   }
-  hr.prototype = new Bq();
-  hr.prototype.constructor = hr;
-  hr.prototype.k = function () {
+  pr.prototype = new Kq();
+  pr.prototype.constructor = pr;
+  pr.prototype.k = function () {
     try {
-      var a = this.zo.a[this.M];
+      var a = this.Ao.a[this.M];
       this.M = (1 + this.M) | 0;
       var b = a;
     } catch (c) {
-      if (c instanceof ne) b = !!W().Y.k();
+      if (c instanceof ye) b = !!W().Z.k();
       else throw c;
     }
     return b;
   };
-  hr.prototype.$classData = v(
-    { yo: 0 },
+  pr.prototype.$classData = v(
+    { zo: 0 },
     !1,
     "scala.collection.ArrayOps$ArrayIterator$mcZ$sp",
-    { yo: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { zo: 1, Pd: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function ir(a) {
-    this.td = this.Qd = 0;
+  function qr(a) {
+    this.md = this.Hd = 0;
     this.tl = null;
-    if (null === a) throw nb(null);
+    if (null === a) throw lb(null);
     this.tl = a;
-    this.Qd = 0;
-    this.td = 2;
+    this.Hd = 0;
+    this.md = 2;
   }
-  ir.prototype = new Gq();
-  ir.prototype.constructor = ir;
-  ir.prototype.t = function (a) {
+  qr.prototype = new Pq();
+  qr.prototype.constructor = qr;
+  qr.prototype.v = function (a) {
     a: {
       var b = this.tl;
       switch (a) {
         case 0:
-          a = b.Oe;
+          a = b.He;
           break a;
         case 1:
-          a = b.Pe;
+          a = b.Ie;
           break a;
         default:
           throw new T(a);
@@ -10383,34 +10426,34 @@ let ScalaJSExample;
     }
     return a;
   };
-  ir.prototype.$classData = v(
-    { hq: 0 },
+  qr.prototype.$classData = v(
+    { jq: 0 },
     !1,
     "scala.collection.immutable.Set$Set2$$anon$1",
-    { hq: 1, wl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    { jq: 1, wl: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function jr(a) {
-    this.td = this.Qd = 0;
+  function rr(a) {
+    this.md = this.Hd = 0;
     this.ul = null;
-    if (null === a) throw nb(null);
+    if (null === a) throw lb(null);
     this.ul = a;
-    this.Qd = 0;
-    this.td = 3;
+    this.Hd = 0;
+    this.md = 3;
   }
-  jr.prototype = new Gq();
-  jr.prototype.constructor = jr;
-  jr.prototype.t = function (a) {
+  rr.prototype = new Pq();
+  rr.prototype.constructor = rr;
+  rr.prototype.v = function (a) {
     a: {
       var b = this.ul;
       switch (a) {
         case 0:
-          a = b.Qe;
+          a = b.Je;
           break a;
         case 1:
-          a = b.se;
+          a = b.ke;
           break a;
         case 2:
-          a = b.te;
+          a = b.le;
           break a;
         default:
           throw new T(a);
@@ -10418,627 +10461,631 @@ let ScalaJSExample;
     }
     return a;
   };
-  jr.prototype.$classData = v(
-    { jq: 0 },
-    !1,
-    "scala.collection.immutable.Set$Set3$$anon$2",
-    { jq: 1, wl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
-  );
-  function kr(a) {
-    this.td = this.Qd = 0;
-    this.vl = null;
-    if (null === a) throw nb(null);
-    this.vl = a;
-    this.Qd = 0;
-    this.td = 4;
-  }
-  kr.prototype = new Gq();
-  kr.prototype.constructor = kr;
-  kr.prototype.t = function (a) {
-    return lr(this.vl, a);
-  };
-  kr.prototype.$classData = v(
+  rr.prototype.$classData = v(
     { lq: 0 },
     !1,
-    "scala.collection.immutable.Set$Set4$$anon$3",
-    { lq: 1, wl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
+    "scala.collection.immutable.Set$Set3$$anon$2",
+    { lq: 1, wl: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
   );
-  function Xi(a) {
-    this.Dl = !1;
-    this.Jj = null;
-    this.Zg = a;
-    this.Dl = a === m(fb);
-    this.Jj = [];
+  function sr(a) {
+    this.md = this.Hd = 0;
+    this.vl = null;
+    if (null === a) throw lb(null);
+    this.vl = a;
+    this.Hd = 0;
+    this.md = 4;
   }
-  Xi.prototype = new Iq();
-  Xi.prototype.constructor = Xi;
-  function mr(a, b) {
-    a.Jj.push(a.Dl ? za(b) : null === b ? a.Zg.Cc.$h : b);
+  sr.prototype = new Pq();
+  sr.prototype.constructor = sr;
+  sr.prototype.v = function (a) {
+    return tr(this.vl, a);
+  };
+  sr.prototype.$classData = v(
+    { nq: 0 },
+    !1,
+    "scala.collection.immutable.Set$Set4$$anon$3",
+    { nq: 1, wl: 1, la: 1, b: 1, Y: 1, r: 1, s: 1, c: 1 }
+  );
+  function cj(a) {
+    this.El = !1;
+    this.Hj = null;
+    this.Tg = a;
+    this.El = a === m(db);
+    this.Hj = [];
+  }
+  cj.prototype = new Rq();
+  cj.prototype.constructor = cj;
+  function ur(a, b) {
+    a.Hj.push(a.El ? Aa(b) : null === b ? a.Tg.xc.Wh : b);
     return a;
   }
-  e = Xi.prototype;
-  e.Ua = function () {
+  e = cj.prototype;
+  e.Wa = function () {
     return x(
-      (this.Zg === m(db)
-        ? m(ta)
-        : this.Zg === m(cg) || this.Zg === m(li)
+      (this.Tg === m(bb)
+        ? m(ua)
+        : this.Tg === m(mg) || this.Tg === m(ri)
         ? m(w)
-        : this.Zg
-      ).Cc
-    ).Zh(this.Jj);
+        : this.Tg
+      ).xc
+    ).Vh(this.Hj);
   };
   e.z = function () {
     return "ArrayBuilder.generic";
   };
-  e.qb = function (a) {
-    for (a = a.i(); a.m(); ) {
+  e.wb = function (a) {
+    for (a = a.h(); a.l(); ) {
       var b = a.k();
-      mr(this, b);
+      ur(this, b);
     }
     return this;
   };
-  e.Oa = function (a) {
-    return mr(this, a);
+  e.Ia = function (a) {
+    return ur(this, a);
   };
   e.$classData = v(
-    { Qq: 0 },
+    { Sq: 0 },
     !1,
     "scala.collection.mutable.ArrayBuilder$generic",
-    { Qq: 1, Ns: 1, b: 1, Ef: 1, Xc: 1, qc: 1, pc: 1, c: 1 }
+    { Sq: 1, Ps: 1, b: 1, vf: 1, Qc: 1, oc: 1, nc: 1, c: 1 }
   );
-  function nr(a, b, c, d) {
-    var f = (1 + Nd(Od(), b)) | 0;
+  function vr(a, b, c, d) {
+    var f = (1 + Bd(Gd(), b)) | 0;
     if (0 > c || c >= f)
-      throw og(
-        new pg(),
+      throw xg(
+        new yg(),
         c + " is out of bounds (min 0, max " + ((-1 + f) | 0) + ")"
       );
-    f = (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0)) | 0;
-    var g = (Nd(Od(), b) - c) | 0;
+    f = (((a.sb - a.tb) | 0) & ((-1 + a.U.a.length) | 0)) | 0;
+    var g = (Bd(Gd(), b) - c) | 0;
     f = f < g ? f : g;
     d = d < f ? d : f;
     if (0 < d) {
-      f = ((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0);
+      f = ((a.sb - a.tb) | 0) & ((-1 + a.U.a.length) | 0);
       if (0 >= f)
-        throw og(
-          new pg(),
+        throw xg(
+          new yg(),
           "0 is out of bounds (min 0, max " + ((-1 + f) | 0) + ")"
         );
-      f = ((a.xb + 0) | 0) & ((-1 + a.U.a.length) | 0);
+      f = ((a.tb + 0) | 0) & ((-1 + a.U.a.length) | 0);
       g = (a.U.a.length - f) | 0;
       g = d < g ? d : g;
-      zh(Bh(), a.U, f, b, c, g);
+      Gh(Ih(), a.U, f, b, c, g);
       d = (d - g) | 0;
-      0 < d && zh(Bh(), a.U, 0, b, (c + g) | 0, d);
+      0 < d && Gh(Ih(), a.U, 0, b, (c + g) | 0, d);
     }
     return b;
   }
-  function or() {
-    this.Yb = null;
-    this.Pa = 0;
+  function wr() {
+    this.Wb = null;
+    this.Ja = 0;
   }
-  or.prototype = new q();
-  or.prototype.constructor = or;
-  function pr() {}
-  pr.prototype = or.prototype;
-  or.prototype.z = function () {
-    return this.Yb;
+  wr.prototype = new q();
+  wr.prototype.constructor = wr;
+  function xr() {}
+  xr.prototype = wr.prototype;
+  wr.prototype.z = function () {
+    return this.Wb;
   };
-  or.prototype.y = function (a) {
+  wr.prototype.y = function (a) {
     return this === a;
   };
-  or.prototype.H = function () {
-    return this.Pa;
+  wr.prototype.H = function () {
+    return this.Ja;
   };
-  function qr() {}
-  qr.prototype = new q();
-  qr.prototype.constructor = qr;
-  function rr() {}
-  rr.prototype = qr.prototype;
-  class tg extends Al {
+  function yr() {}
+  yr.prototype = new q();
+  yr.prototype.constructor = yr;
+  function zr() {}
+  zr.prototype = yr.prototype;
+  class Cg extends Fl {
     constructor(a) {
       super();
-      this.eh = a;
-      oe(this, null);
+      this.Zg = a;
+      ze(this, null);
     }
-    ph() {
-      return Ea(this.eh);
+    kh() {
+      return Fa(this.Zg);
     }
     Ak() {}
-    ib() {
+    cb() {
       return "JavaScriptException";
     }
-    rb() {
+    lb() {
       return 1;
     }
-    sb(a) {
-      return 0 === a ? this.eh : ng(X(), a);
+    mb(a) {
+      return 0 === a ? this.Zg : wg(Y(), a);
     }
     H() {
-      return yg(this);
+      return Hg(this);
     }
     y(a) {
       if (this === a) return !0;
-      if (a instanceof tg) {
-        var b = this.eh;
-        a = a.eh;
-        return L(M(), b, a);
+      if (a instanceof Cg) {
+        var b = this.Zg;
+        a = a.Zg;
+        return J(L(), b, a);
       }
       return !1;
     }
   }
-  tg.prototype.$classData = v(
-    { yr: 0 },
+  Cg.prototype.$classData = v(
+    { Ar: 0 },
     !1,
     "scala.scalajs.js.JavaScriptException",
-    { yr: 1, sc: 1, jc: 1, fc: 1, b: 1, c: 1, Bb: 1, x: 1 }
+    { Ar: 1, rc: 1, hc: 1, ec: 1, b: 1, c: 1, yb: 1, x: 1 }
   );
-  function Sc(a) {
+  function Qc(a) {
     this.Sm = a;
-    this.sh = "";
+    this.nh = "";
   }
-  Sc.prototype = new $q();
-  Sc.prototype.constructor = Sc;
-  function fc(a) {
+  Qc.prototype = new hr();
+  Qc.prototype.constructor = Qc;
+  function dc(a) {
     var b;
-    Dh || (Dh = new Ch());
-    for (b = Dh.Sk.Uk; "" !== a; ) {
+    Kh || (Kh = new Jh());
+    for (b = Kh.Sk.Uk; "" !== a; ) {
       var c = a.indexOf("\n") | 0;
-      if (0 > c) (b.sh = "" + b.sh + a), (a = "");
+      if (0 > c) (b.nh = "" + b.nh + a), (a = "");
       else {
-        var d = "" + b.sh + a.substring(0, c);
+        var d = "" + b.nh + a.substring(0, c);
         "undefined" !== typeof console &&
           (b.Sm && console.error ? console.error(d) : console.log(d));
-        b.sh = "";
+        b.nh = "";
         a = a.substring((1 + c) | 0);
       }
     }
   }
-  Sc.prototype.$classData = v(
+  Qc.prototype.$classData = v(
     { Qm: 0 },
     !1,
     "java.lang.JSConsoleBasedPrintStream",
-    { Qm: 1, Xr: 1, Wr: 1, sm: 1, b: 1, qm: 1, Fm: 1, rm: 1, Bm: 1 }
+    { Qm: 1, Zr: 1, Yr: 1, sm: 1, b: 1, qm: 1, Fm: 1, rm: 1, Bm: 1 }
   );
-  function sr() {
-    this.Yb = null;
-    this.Pa = 0;
-  }
-  sr.prototype = new pr();
-  sr.prototype.constructor = sr;
-  function tr() {}
-  tr.prototype = sr.prototype;
-  sr.prototype.kc = function () {
-    return m(eb);
-  };
-  sr.prototype.Dc = function (a) {
-    return new Sa(a);
-  };
-  function ur() {
-    this.Yb = null;
-    this.Pa = 0;
-  }
-  ur.prototype = new pr();
-  ur.prototype.constructor = ur;
-  function vr() {}
-  vr.prototype = ur.prototype;
-  ur.prototype.kc = function () {
-    return m(gb);
-  };
-  ur.prototype.Dc = function (a) {
-    return new Ua(a);
-  };
-  function wr() {
-    this.Yb = null;
-    this.Pa = 0;
-  }
-  wr.prototype = new pr();
-  wr.prototype.constructor = wr;
-  function xr() {}
-  xr.prototype = wr.prototype;
-  wr.prototype.kc = function () {
-    return m(fb);
-  };
-  wr.prototype.Dc = function (a) {
-    return new Ta(a);
-  };
-  function yr() {
-    this.Yb = null;
-    this.Pa = 0;
-  }
-  yr.prototype = new pr();
-  yr.prototype.constructor = yr;
-  function zr() {}
-  zr.prototype = yr.prototype;
-  yr.prototype.kc = function () {
-    return m(lb);
-  };
-  yr.prototype.Dc = function (a) {
-    return new Ya(a);
-  };
   function Ar() {
-    this.Yb = null;
-    this.Pa = 0;
+    this.Wb = null;
+    this.Ja = 0;
   }
-  Ar.prototype = new pr();
+  Ar.prototype = new xr();
   Ar.prototype.constructor = Ar;
   function Br() {}
   Br.prototype = Ar.prototype;
-  Ar.prototype.kc = function () {
-    return m(kb);
+  Ar.prototype.ic = function () {
+    return m(cb);
   };
-  Ar.prototype.Dc = function (a) {
-    return new Xa(a);
+  Ar.prototype.yc = function (a) {
+    return new Qa(a);
   };
   function Cr() {
-    this.Yb = null;
-    this.Pa = 0;
+    this.Wb = null;
+    this.Ja = 0;
   }
-  Cr.prototype = new pr();
+  Cr.prototype = new xr();
   Cr.prototype.constructor = Cr;
   function Dr() {}
   Dr.prototype = Cr.prototype;
-  Cr.prototype.kc = function () {
-    return m(ib);
+  Cr.prototype.ic = function () {
+    return m(eb);
   };
-  Cr.prototype.Dc = function (a) {
-    return new t(a);
+  Cr.prototype.yc = function (a) {
+    return new Sa(a);
   };
   function Er() {
-    this.Yb = null;
-    this.Pa = 0;
+    this.Wb = null;
+    this.Ja = 0;
   }
-  Er.prototype = new pr();
+  Er.prototype = new xr();
   Er.prototype.constructor = Er;
   function Fr() {}
   Fr.prototype = Er.prototype;
-  Er.prototype.kc = function () {
-    return m(jb);
+  Er.prototype.ic = function () {
+    return m(db);
   };
-  Er.prototype.Dc = function (a) {
-    return new Wa(a);
+  Er.prototype.yc = function (a) {
+    return new Ra(a);
   };
   function Gr() {
-    this.Jg = null;
-    this.oe = 0;
+    this.Wb = null;
+    this.Ja = 0;
   }
-  Gr.prototype = new rr();
+  Gr.prototype = new xr();
   Gr.prototype.constructor = Gr;
   function Hr() {}
   Hr.prototype = Gr.prototype;
-  Gr.prototype.z = function () {
-    return this.Jg;
+  Gr.prototype.ic = function () {
+    return m(jb);
   };
-  Gr.prototype.y = function (a) {
-    return this === a;
-  };
-  Gr.prototype.H = function () {
-    return this.oe;
+  Gr.prototype.yc = function (a) {
+    return new Wa(a);
   };
   function Ir() {
-    this.Yb = null;
-    this.Pa = 0;
+    this.Wb = null;
+    this.Ja = 0;
   }
-  Ir.prototype = new pr();
+  Ir.prototype = new xr();
   Ir.prototype.constructor = Ir;
-  function Jr() {}
-  Jr.prototype = Ir.prototype;
-  Ir.prototype.kc = function () {
-    return m(hb);
+  function Or() {}
+  Or.prototype = Ir.prototype;
+  Ir.prototype.ic = function () {
+    return m(ib);
   };
-  Ir.prototype.Dc = function (a) {
+  Ir.prototype.yc = function (a) {
     return new Va(a);
   };
   function Pr() {
-    this.Yb = null;
-    this.Pa = 0;
+    this.Wb = null;
+    this.Ja = 0;
   }
-  Pr.prototype = new pr();
+  Pr.prototype = new xr();
   Pr.prototype.constructor = Pr;
   function Qr() {}
   Qr.prototype = Pr.prototype;
-  Pr.prototype.kc = function () {
-    return m(db);
+  Pr.prototype.ic = function () {
+    return m(gb);
   };
-  Pr.prototype.Dc = function (a) {
-    return new (x(ta).G)(a);
+  Pr.prototype.yc = function (a) {
+    return new t(a);
   };
-  function Rr() {}
-  Rr.prototype = new uq();
+  function Rr() {
+    this.Wb = null;
+    this.Ja = 0;
+  }
+  Rr.prototype = new xr();
   Rr.prototype.constructor = Rr;
   function Sr() {}
   Sr.prototype = Rr.prototype;
-  Rr.prototype.ha = function () {
-    return Cj();
+  Rr.prototype.ic = function () {
+    return m(hb);
   };
-  Rr.prototype.z = function () {
-    return this.Qc() + "(\x3cnot computed\x3e)";
+  Rr.prototype.yc = function (a) {
+    return new Ua(a);
   };
-  Rr.prototype.Mb = function () {
+  function Tr() {
+    this.Dg = null;
+    this.de = 0;
+  }
+  Tr.prototype = new zr();
+  Tr.prototype.constructor = Tr;
+  function Ur() {}
+  Ur.prototype = Tr.prototype;
+  Tr.prototype.z = function () {
+    return this.Dg;
+  };
+  Tr.prototype.y = function (a) {
+    return this === a;
+  };
+  Tr.prototype.H = function () {
+    return this.de;
+  };
+  function Vr() {
+    this.Wb = null;
+    this.Ja = 0;
+  }
+  Vr.prototype = new xr();
+  Vr.prototype.constructor = Vr;
+  function Wr() {}
+  Wr.prototype = Vr.prototype;
+  Vr.prototype.ic = function () {
+    return m(fb);
+  };
+  Vr.prototype.yc = function (a) {
+    return new Ta(a);
+  };
+  function Xr() {
+    this.Wb = null;
+    this.Ja = 0;
+  }
+  Xr.prototype = new xr();
+  Xr.prototype.constructor = Xr;
+  function Yr() {}
+  Yr.prototype = Xr.prototype;
+  Xr.prototype.ic = function () {
+    return m(bb);
+  };
+  Xr.prototype.yc = function (a) {
+    return new (x(ua).G)(a);
+  };
+  function Zr() {}
+  Zr.prototype = new Dq();
+  Zr.prototype.constructor = Zr;
+  function $r() {}
+  $r.prototype = Zr.prototype;
+  Zr.prototype.X = function () {
+    return Fj();
+  };
+  Zr.prototype.z = function () {
+    return this.Wc() + "(\x3cnot computed\x3e)";
+  };
+  Zr.prototype.Ob = function () {
     return "View";
   };
-  function Tr(a, b) {
+  function as(a, b) {
     return a === b
       ? !0
-      : b && b.$classData && b.$classData.Nb.rf
-      ? a.Xa() === b.Xa() && a.Ll(b)
+      : b && b.$classData && b.$classData.Ib.jf
+      ? a.Sa() === b.Sa() && a.Ll(b)
       : !1;
   }
-  function Ur() {
-    this.oe = 0;
-    this.Jg = "Any";
-    Ob();
-    xb();
+  function bs() {
+    this.de = 0;
+    this.Dg = "Any";
+    Mb();
+    vb();
     m(w);
-    this.oe = Oa(this);
+    this.de = La(this);
   }
-  Ur.prototype = new Hr();
-  Ur.prototype.constructor = Ur;
-  Ur.prototype.kc = function () {
+  bs.prototype = new Ur();
+  bs.prototype.constructor = bs;
+  bs.prototype.ic = function () {
     return m(w);
   };
-  Ur.prototype.Dc = function (a) {
+  bs.prototype.yc = function (a) {
     return new r(a);
   };
-  Ur.prototype.$classData = v(
+  bs.prototype.$classData = v(
     { On: 0 },
     !1,
     "scala.reflect.ManifestFactory$AnyManifest$",
-    { On: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
-  );
-  var Vr;
-  function De() {
-    Vr || (Vr = new Ur());
-  }
-  function Wr() {
-    this.Pa = 0;
-    this.Yb = "Boolean";
-    this.Pa = Oa(this);
-  }
-  Wr.prototype = new tr();
-  Wr.prototype.constructor = Wr;
-  Wr.prototype.$classData = v(
-    { Pn: 0 },
-    !1,
-    "scala.reflect.ManifestFactory$BooleanManifest$",
-    { Pn: 1, qs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
-  );
-  var Xr;
-  function hi() {
-    Xr || (Xr = new Wr());
-    return Xr;
-  }
-  function Yr() {
-    this.Pa = 0;
-    this.Yb = "Byte";
-    this.Pa = Oa(this);
-  }
-  Yr.prototype = new vr();
-  Yr.prototype.constructor = Yr;
-  Yr.prototype.$classData = v(
-    { Qn: 0 },
-    !1,
-    "scala.reflect.ManifestFactory$ByteManifest$",
-    { Qn: 1, rs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
-  );
-  var Zr;
-  function bi() {
-    Zr || (Zr = new Yr());
-    return Zr;
-  }
-  function $r() {
-    this.Pa = 0;
-    this.Yb = "Char";
-    this.Pa = Oa(this);
-  }
-  $r.prototype = new xr();
-  $r.prototype.constructor = $r;
-  $r.prototype.$classData = v(
-    { Rn: 0 },
-    !1,
-    "scala.reflect.ManifestFactory$CharManifest$",
-    { Rn: 1, ss: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
-  );
-  var as;
-  function di() {
-    as || (as = new $r());
-    return as;
-  }
-  function bs() {
-    this.Pa = 0;
-    this.Yb = "Double";
-    this.Pa = Oa(this);
-  }
-  bs.prototype = new zr();
-  bs.prototype.constructor = bs;
-  bs.prototype.$classData = v(
-    { Sn: 0 },
-    !1,
-    "scala.reflect.ManifestFactory$DoubleManifest$",
-    { Sn: 1, ts: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { On: 1, ej: 1, dj: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
   );
   var cs;
-  function gi() {
+  function Se() {
     cs || (cs = new bs());
-    return cs;
   }
   function ds() {
-    this.Pa = 0;
-    this.Yb = "Float";
-    this.Pa = Oa(this);
+    this.Ja = 0;
+    this.Wb = "Boolean";
+    this.Ja = La(this);
   }
   ds.prototype = new Br();
   ds.prototype.constructor = ds;
   ds.prototype.$classData = v(
-    { Tn: 0 },
+    { Pn: 0 },
     !1,
-    "scala.reflect.ManifestFactory$FloatManifest$",
-    { Tn: 1, us: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    "scala.reflect.ManifestFactory$BooleanManifest$",
+    { Pn: 1, ss: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
   );
   var es;
-  function fi() {
+  function pi() {
     es || (es = new ds());
     return es;
   }
   function fs() {
-    this.Pa = 0;
-    this.Yb = "Int";
-    this.Pa = Oa(this);
+    this.Ja = 0;
+    this.Wb = "Byte";
+    this.Ja = La(this);
   }
   fs.prototype = new Dr();
   fs.prototype.constructor = fs;
   fs.prototype.$classData = v(
-    { Un: 0 },
+    { Qn: 0 },
     !1,
-    "scala.reflect.ManifestFactory$IntManifest$",
-    { Un: 1, vs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    "scala.reflect.ManifestFactory$ByteManifest$",
+    { Qn: 1, ts: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
   );
   var gs;
-  function Ee() {
+  function ji() {
     gs || (gs = new fs());
     return gs;
   }
   function hs() {
-    this.Pa = 0;
-    this.Yb = "Long";
-    this.Pa = Oa(this);
+    this.Ja = 0;
+    this.Wb = "Char";
+    this.Ja = La(this);
   }
   hs.prototype = new Fr();
   hs.prototype.constructor = hs;
   hs.prototype.$classData = v(
-    { Vn: 0 },
+    { Rn: 0 },
     !1,
-    "scala.reflect.ManifestFactory$LongManifest$",
-    { Vn: 1, ws: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    "scala.reflect.ManifestFactory$CharManifest$",
+    { Rn: 1, us: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
   );
   var is;
-  function ei() {
+  function li() {
     is || (is = new hs());
     return is;
   }
-  function ni() {
-    this.oe = 0;
-    this.Jg = "Nothing";
-    Ob();
-    xb();
-    m(li);
-    this.oe = Oa(this);
-  }
-  ni.prototype = new Hr();
-  ni.prototype.constructor = ni;
-  ni.prototype.kc = function () {
-    return m(li);
-  };
-  ni.prototype.Dc = function (a) {
-    return new r(a);
-  };
-  ni.prototype.$classData = v(
-    { Wn: 0 },
-    !1,
-    "scala.reflect.ManifestFactory$NothingManifest$",
-    { Wn: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
-  );
-  var mi;
-  function pi() {
-    this.oe = 0;
-    this.Jg = "Null";
-    Ob();
-    xb();
-    m(cg);
-    this.oe = Oa(this);
-  }
-  pi.prototype = new Hr();
-  pi.prototype.constructor = pi;
-  pi.prototype.kc = function () {
-    return m(cg);
-  };
-  pi.prototype.Dc = function (a) {
-    return new r(a);
-  };
-  pi.prototype.$classData = v(
-    { Xn: 0 },
-    !1,
-    "scala.reflect.ManifestFactory$NullManifest$",
-    { Xn: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
-  );
-  var oi;
-  function ki() {
-    this.oe = 0;
-    this.Jg = "Object";
-    Ob();
-    xb();
-    m(w);
-    this.oe = Oa(this);
-  }
-  ki.prototype = new Hr();
-  ki.prototype.constructor = ki;
-  ki.prototype.kc = function () {
-    return m(w);
-  };
-  ki.prototype.Dc = function (a) {
-    return new r(a);
-  };
-  ki.prototype.$classData = v(
-    { Yn: 0 },
-    !1,
-    "scala.reflect.ManifestFactory$ObjectManifest$",
-    { Yn: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
-  );
-  var ji;
   function js() {
-    this.Pa = 0;
-    this.Yb = "Short";
-    this.Pa = Oa(this);
+    this.Ja = 0;
+    this.Wb = "Double";
+    this.Ja = La(this);
   }
-  js.prototype = new Jr();
+  js.prototype = new Hr();
   js.prototype.constructor = js;
   js.prototype.$classData = v(
-    { Zn: 0 },
+    { Sn: 0 },
     !1,
-    "scala.reflect.ManifestFactory$ShortManifest$",
-    { Zn: 1, xs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    "scala.reflect.ManifestFactory$DoubleManifest$",
+    { Sn: 1, vs: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
   );
   var ks;
-  function ci() {
+  function oi() {
     ks || (ks = new js());
     return ks;
   }
   function ls() {
-    this.Pa = 0;
-    this.Yb = "Unit";
-    this.Pa = Oa(this);
+    this.Ja = 0;
+    this.Wb = "Float";
+    this.Ja = La(this);
   }
-  ls.prototype = new Qr();
+  ls.prototype = new Or();
   ls.prototype.constructor = ls;
   ls.prototype.$classData = v(
-    { $n: 0 },
+    { Tn: 0 },
     !1,
-    "scala.reflect.ManifestFactory$UnitManifest$",
-    { $n: 1, ys: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    "scala.reflect.ManifestFactory$FloatManifest$",
+    { Tn: 1, ws: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
   );
   var ms;
-  function ii() {
+  function ni() {
     ms || (ms = new ls());
     return ms;
   }
-  function ns(a, b) {
+  function ns() {
+    this.Ja = 0;
+    this.Wb = "Int";
+    this.Ja = La(this);
+  }
+  ns.prototype = new Qr();
+  ns.prototype.constructor = ns;
+  ns.prototype.$classData = v(
+    { Un: 0 },
+    !1,
+    "scala.reflect.ManifestFactory$IntManifest$",
+    { Un: 1, xs: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
+  );
+  var os;
+  function Te() {
+    os || (os = new ns());
+    return os;
+  }
+  function ps() {
+    this.Ja = 0;
+    this.Wb = "Long";
+    this.Ja = La(this);
+  }
+  ps.prototype = new Sr();
+  ps.prototype.constructor = ps;
+  ps.prototype.$classData = v(
+    { Vn: 0 },
+    !1,
+    "scala.reflect.ManifestFactory$LongManifest$",
+    { Vn: 1, ys: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
+  );
+  var qs;
+  function mi() {
+    qs || (qs = new ps());
+    return qs;
+  }
+  function ti() {
+    this.de = 0;
+    this.Dg = "Nothing";
+    Mb();
+    vb();
+    m(ri);
+    this.de = La(this);
+  }
+  ti.prototype = new Ur();
+  ti.prototype.constructor = ti;
+  ti.prototype.ic = function () {
+    return m(ri);
+  };
+  ti.prototype.yc = function (a) {
+    return new r(a);
+  };
+  ti.prototype.$classData = v(
+    { Wn: 0 },
+    !1,
+    "scala.reflect.ManifestFactory$NothingManifest$",
+    { Wn: 1, ej: 1, dj: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
+  );
+  var si;
+  function vi() {
+    this.de = 0;
+    this.Dg = "Null";
+    Mb();
+    vb();
+    m(mg);
+    this.de = La(this);
+  }
+  vi.prototype = new Ur();
+  vi.prototype.constructor = vi;
+  vi.prototype.ic = function () {
+    return m(mg);
+  };
+  vi.prototype.yc = function (a) {
+    return new r(a);
+  };
+  vi.prototype.$classData = v(
+    { Xn: 0 },
+    !1,
+    "scala.reflect.ManifestFactory$NullManifest$",
+    { Xn: 1, ej: 1, dj: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
+  );
+  var ui;
+  function rs() {
+    this.de = 0;
+    this.Dg = "Object";
+    Mb();
+    vb();
+    m(w);
+    this.de = La(this);
+  }
+  rs.prototype = new Ur();
+  rs.prototype.constructor = rs;
+  rs.prototype.ic = function () {
+    return m(w);
+  };
+  rs.prototype.yc = function (a) {
+    return new r(a);
+  };
+  rs.prototype.$classData = v(
+    { Yn: 0 },
+    !1,
+    "scala.reflect.ManifestFactory$ObjectManifest$",
+    { Yn: 1, ej: 1, dj: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
+  );
+  var ss;
+  function Ph() {
+    ss || (ss = new rs());
+    return ss;
+  }
+  function ts() {
+    this.Ja = 0;
+    this.Wb = "Short";
+    this.Ja = La(this);
+  }
+  ts.prototype = new Wr();
+  ts.prototype.constructor = ts;
+  ts.prototype.$classData = v(
+    { Zn: 0 },
+    !1,
+    "scala.reflect.ManifestFactory$ShortManifest$",
+    { Zn: 1, zs: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
+  );
+  var us;
+  function ki() {
+    us || (us = new ts());
+    return us;
+  }
+  function vs() {
+    this.Ja = 0;
+    this.Wb = "Unit";
+    this.Ja = La(this);
+  }
+  vs.prototype = new Yr();
+  vs.prototype.constructor = vs;
+  vs.prototype.$classData = v(
+    { $n: 0 },
+    !1,
+    "scala.reflect.ManifestFactory$UnitManifest$",
+    { $n: 1, As: 1, Ce: 1, b: 1, jd: 1, Kc: 1, Yc: 1, Lc: 1, c: 1, x: 1 }
+  );
+  var ws;
+  function qi() {
+    ws || (ws = new vs());
+    return ws;
+  }
+  function xs(a, b) {
     return a === b
       ? !0
-      : b && b.$classData && b.$classData.Nb.la && b.Ag(a)
-      ? a.Je(b)
+      : b && b.$classData && b.$classData.Ib.ua && b.ih(a)
+      ? a.cf(b)
       : !1;
   }
-  function xj(a) {
-    this.ep = a;
+  function Aj(a) {
+    this.ip = a;
   }
-  xj.prototype = new Sr();
-  xj.prototype.constructor = xj;
-  xj.prototype.i = function () {
-    return Zd(this.ep);
+  Aj.prototype = new $r();
+  Aj.prototype.constructor = Aj;
+  Aj.prototype.h = function () {
+    return je(this.ip);
   };
-  xj.prototype.$classData = v({ dp: 0 }, !1, "scala.collection.View$$anon$1", {
-    dp: 1,
-    gc: 1,
+  Aj.prototype.$classData = v({ hp: 0 }, !1, "scala.collection.View$$anon$1", {
+    hp: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11046,28 +11093,28 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function os(a, b) {
+  function ys(a, b) {
     this.il = a;
-    this.gp = b;
+    this.kp = b;
   }
-  os.prototype = new Sr();
-  os.prototype.constructor = os;
-  os.prototype.i = function () {
-    return new gj(this.il, new ps(this.gp)).i();
+  ys.prototype = new $r();
+  ys.prototype.constructor = ys;
+  ys.prototype.h = function () {
+    return new kj(this.il, new zs(this.kp)).h();
   };
-  os.prototype.v = function () {
-    var a = this.il.v();
+  ys.prototype.t = function () {
+    var a = this.il.t();
     return 0 <= a ? (1 + a) | 0 : -1;
   };
-  os.prototype.e = function () {
+  ys.prototype.e = function () {
     return !1;
   };
-  os.prototype.$classData = v({ fp: 0 }, !1, "scala.collection.View$Appended", {
-    fp: 1,
-    gc: 1,
+  ys.prototype.$classData = v({ jp: 0 }, !1, "scala.collection.View$Appended", {
+    jp: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11075,32 +11122,32 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function gj(a, b) {
-    this.sj = a;
-    this.tj = b;
+  function kj(a, b) {
+    this.oj = a;
+    this.pj = b;
   }
-  gj.prototype = new Sr();
-  gj.prototype.constructor = gj;
-  gj.prototype.i = function () {
-    return this.sj.i().Dd(new H(((a) => () => a.tj.i())(this)));
+  kj.prototype = new $r();
+  kj.prototype.constructor = kj;
+  kj.prototype.h = function () {
+    return this.oj.h().wd(new H(((a) => () => a.pj.h())(this)));
   };
-  gj.prototype.v = function () {
-    var a = this.sj.v();
+  kj.prototype.t = function () {
+    var a = this.oj.t();
     if (0 <= a) {
-      var b = this.tj.v();
+      var b = this.pj.t();
       return 0 <= b ? (a + b) | 0 : -1;
     }
     return -1;
   };
-  gj.prototype.e = function () {
-    return this.sj.e() && this.tj.e();
+  kj.prototype.e = function () {
+    return this.oj.e() && this.pj.e();
   };
-  gj.prototype.$classData = v({ hp: 0 }, !1, "scala.collection.View$Concat", {
-    hp: 1,
-    gc: 1,
+  kj.prototype.$classData = v({ lp: 0 }, !1, "scala.collection.View$Concat", {
+    lp: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11108,36 +11155,36 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function vq(a, b, c) {
-    a.Og = b;
-    a.Lh = c;
-    a.Zf = 0 < c ? c : 0;
+  function Eq(a, b, c) {
+    a.Jg = b;
+    a.Ih = c;
+    a.Pf = 0 < c ? c : 0;
     return a;
   }
-  function wq() {
-    this.Og = null;
-    this.Zf = this.Lh = 0;
+  function Fq() {
+    this.Jg = null;
+    this.Pf = this.Ih = 0;
   }
-  wq.prototype = new Sr();
-  wq.prototype.constructor = wq;
-  function qs() {}
-  qs.prototype = wq.prototype;
-  wq.prototype.i = function () {
-    return this.Og.i().Ed(this.Lh);
+  Fq.prototype = new $r();
+  Fq.prototype.constructor = Fq;
+  function As() {}
+  As.prototype = Fq.prototype;
+  Fq.prototype.h = function () {
+    return this.Jg.h().xd(this.Ih);
   };
-  wq.prototype.v = function () {
-    var a = this.Og.v();
-    return 0 <= a ? ((a = (a - this.Zf) | 0), 0 < a ? a : 0) : -1;
+  Fq.prototype.t = function () {
+    var a = this.Jg.t();
+    return 0 <= a ? ((a = (a - this.Pf) | 0), 0 < a ? a : 0) : -1;
   };
-  wq.prototype.e = function () {
-    return !this.i().m();
+  Fq.prototype.e = function () {
+    return !this.h().l();
   };
-  wq.prototype.$classData = v({ uj: 0 }, !1, "scala.collection.View$Drop", {
-    uj: 1,
-    gc: 1,
+  Fq.prototype.$classData = v({ qj: 0 }, !1, "scala.collection.View$Drop", {
+    qj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11145,29 +11192,29 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function Lh(a, b) {
-    this.vj = a;
-    this.kp = b;
+  function Wh(a, b) {
+    this.rj = a;
+    this.op = b;
   }
-  Lh.prototype = new Sr();
-  Lh.prototype.constructor = Lh;
-  Lh.prototype.i = function () {
+  Wh.prototype = new $r();
+  Wh.prototype.constructor = Wh;
+  Wh.prototype.h = function () {
     W();
-    return new Jo(this.vj, this.kp);
+    return new So(this.rj, this.op);
   };
-  Lh.prototype.v = function () {
-    var a = this.vj;
+  Wh.prototype.t = function () {
+    var a = this.rj;
     return 0 > a ? 0 : a;
   };
-  Lh.prototype.e = function () {
-    return 0 >= this.vj;
+  Wh.prototype.e = function () {
+    return 0 >= this.rj;
   };
-  Lh.prototype.$classData = v({ jp: 0 }, !1, "scala.collection.View$Fill", {
-    jp: 1,
-    gc: 1,
+  Wh.prototype.$classData = v({ np: 0 }, !1, "scala.collection.View$Fill", {
+    np: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11175,29 +11222,29 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function nj(a, b, c) {
+  function pj(a, b, c) {
     this.jl = a;
-    this.np = b;
-    this.mp = c;
+    this.rp = b;
+    this.qp = c;
   }
-  nj.prototype = new Sr();
-  nj.prototype.constructor = nj;
-  nj.prototype.i = function () {
-    var a = this.jl.i();
-    return new Ko(a, this.np, this.mp);
+  pj.prototype = new $r();
+  pj.prototype.constructor = pj;
+  pj.prototype.h = function () {
+    var a = this.jl.h();
+    return new To(a, this.rp, this.qp);
   };
-  nj.prototype.v = function () {
-    return 0 === this.jl.v() ? 0 : -1;
+  pj.prototype.t = function () {
+    return 0 === this.jl.t() ? 0 : -1;
   };
-  nj.prototype.e = function () {
-    return !this.i().m();
+  pj.prototype.e = function () {
+    return !this.h().l();
   };
-  nj.prototype.$classData = v({ lp: 0 }, !1, "scala.collection.View$Filter", {
-    lp: 1,
-    gc: 1,
+  pj.prototype.$classData = v({ pp: 0 }, !1, "scala.collection.View$Filter", {
+    pp: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11205,28 +11252,28 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function xq(a, b) {
+  function qj(a, b) {
     this.kl = a;
-    this.pp = b;
+    this.tp = b;
   }
-  xq.prototype = new Sr();
-  xq.prototype.constructor = xq;
-  xq.prototype.i = function () {
-    var a = this.kl.i();
-    return new Ho(a, this.pp);
+  qj.prototype = new $r();
+  qj.prototype.constructor = qj;
+  qj.prototype.h = function () {
+    var a = this.kl.h();
+    return new Po(a, this.tp);
   };
-  xq.prototype.v = function () {
-    return 0 === this.kl.v() ? 0 : -1;
+  qj.prototype.t = function () {
+    return 0 === this.kl.t() ? 0 : -1;
   };
-  xq.prototype.e = function () {
-    return !this.i().m();
+  qj.prototype.e = function () {
+    return !this.h().l();
   };
-  xq.prototype.$classData = v({ op: 0 }, !1, "scala.collection.View$FlatMap", {
-    op: 1,
-    gc: 1,
+  qj.prototype.$classData = v({ sp: 0 }, !1, "scala.collection.View$FlatMap", {
+    sp: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11234,34 +11281,34 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function ij(a, b, c) {
-    a.$f = b;
-    a.Mh = c;
+  function mj(a, b, c) {
+    a.Qf = b;
+    a.Jh = c;
     return a;
   }
-  function jj() {
-    this.Mh = this.$f = null;
+  function nj() {
+    this.Jh = this.Qf = null;
   }
-  jj.prototype = new Sr();
-  jj.prototype.constructor = jj;
-  function rs() {}
-  rs.prototype = jj.prototype;
-  jj.prototype.i = function () {
-    var a = this.$f.i();
-    return new Lo(a, this.Mh);
+  nj.prototype = new $r();
+  nj.prototype.constructor = nj;
+  function Bs() {}
+  Bs.prototype = nj.prototype;
+  nj.prototype.h = function () {
+    var a = this.Qf.h();
+    return new Uo(a, this.Jh);
   };
-  jj.prototype.v = function () {
-    return this.$f.v();
+  nj.prototype.t = function () {
+    return this.Qf.t();
   };
-  jj.prototype.e = function () {
-    return this.$f.e();
+  nj.prototype.e = function () {
+    return this.Qf.e();
   };
-  jj.prototype.$classData = v({ wj: 0 }, !1, "scala.collection.View$Map", {
-    wj: 1,
-    gc: 1,
+  nj.prototype.$classData = v({ sj: 0 }, !1, "scala.collection.View$Map", {
+    sj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11269,27 +11316,27 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function ps(a) {
-    this.rp = a;
+  function zs(a) {
+    this.vp = a;
   }
-  ps.prototype = new Sr();
-  ps.prototype.constructor = ps;
-  ps.prototype.i = function () {
+  zs.prototype = new $r();
+  zs.prototype.constructor = zs;
+  zs.prototype.h = function () {
     W();
-    return new yo(this.rp);
+    return new Go(this.vp);
   };
-  ps.prototype.v = function () {
+  zs.prototype.t = function () {
     return 1;
   };
-  ps.prototype.e = function () {
+  zs.prototype.e = function () {
     return !1;
   };
-  ps.prototype.$classData = v({ qp: 0 }, !1, "scala.collection.View$Single", {
-    qp: 1,
-    gc: 1,
+  zs.prototype.$classData = v({ up: 0 }, !1, "scala.collection.View$Single", {
+    up: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11297,31 +11344,31 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function yq(a, b) {
-    this.yj = a;
-    this.xj = b;
+  function Gq(a, b) {
+    this.vj = a;
+    this.uj = b;
   }
-  yq.prototype = new Sr();
-  yq.prototype.constructor = yq;
-  yq.prototype.i = function () {
-    var a = this.yj.i();
-    return new Io(a, this.xj);
+  Gq.prototype = new $r();
+  Gq.prototype.constructor = Gq;
+  Gq.prototype.h = function () {
+    var a = this.vj.h();
+    return new Qo(a, this.uj);
   };
-  yq.prototype.v = function () {
-    var a = this.yj.v();
+  Gq.prototype.t = function () {
+    var a = this.vj.t();
     if (0 === a) return 0;
-    var b = this.xj.v();
+    var b = this.uj.t();
     return 0 === b ? 0 : a < b ? a : b;
   };
-  yq.prototype.e = function () {
-    return this.yj.e() || this.xj.e();
+  Gq.prototype.e = function () {
+    return this.vj.e() || this.uj.e();
   };
-  yq.prototype.$classData = v({ sp: 0 }, !1, "scala.collection.View$Zip", {
-    sp: 1,
-    gc: 1,
+  Gq.prototype.$classData = v({ wp: 0 }, !1, "scala.collection.View$Zip", {
+    wp: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11329,167 +11376,188 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
   });
-  function Mn() {}
-  Mn.prototype = new q();
-  Mn.prototype.constructor = Mn;
-  Mn.prototype.$classData = v(
+  function Hq(a) {
+    this.tj = a;
+  }
+  Hq.prototype = new $r();
+  Hq.prototype.constructor = Hq;
+  Hq.prototype.h = function () {
+    var a = this.tj.h();
+    return new Ro(a);
+  };
+  Hq.prototype.t = function () {
+    return this.tj.t();
+  };
+  Hq.prototype.e = function () {
+    return this.tj.e();
+  };
+  Hq.prototype.$classData = v(
+    { xp: 0 },
+    !1,
+    "scala.collection.View$ZipWithIndex",
+    { xp: 1, Xb: 1, E: 1, b: 1, B: 1, r: 1, D: 1, s: 1, C: 1, Rb: 1, c: 1 }
+  );
+  function Tn() {}
+  Tn.prototype = new q();
+  Tn.prototype.constructor = Tn;
+  Tn.prototype.$classData = v(
     { Hn: 0 },
     !1,
     "scala.math.Numeric$IntIsIntegral$",
     {
       Hn: 1,
       b: 1,
-      ms: 1,
-      hs: 1,
-      ls: 1,
-      ns: 1,
-      Zr: 1,
-      ps: 1,
-      gs: 1,
-      c: 1,
       os: 1,
+      ks: 1,
+      ns: 1,
+      ps: 1,
+      as: 1,
+      rs: 1,
+      js: 1,
+      c: 1,
+      qs: 1,
     }
   );
-  var Rd;
-  function ss() {}
-  ss.prototype = new uq();
-  ss.prototype.constructor = ss;
-  function ts() {}
-  e = ts.prototype = ss.prototype;
+  var be;
+  function Cs() {}
+  Cs.prototype = new Dq();
+  Cs.prototype.constructor = Cs;
+  function Ds() {}
+  e = Ds.prototype = Cs.prototype;
   e.y = function (a) {
-    return Tr(this, a);
+    return as(this, a);
   };
   e.H = function () {
-    var a = zg();
-    return Ag(a, this, a.xh);
+    var a = Ig();
+    return Jg(a, this, a.sh);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "Set";
   };
   e.z = function () {
-    return Go(this);
+    return Oo(this);
   };
   e.Ll = function (a) {
-    return this.Dg(a);
+    return this.xg(a);
   };
-  e.l = function (a) {
+  e.m = function (a) {
     return this.F(a);
   };
-  function us() {}
-  us.prototype = new uq();
-  us.prototype.constructor = us;
-  function vs() {}
-  e = vs.prototype = us.prototype;
-  e.Ag = function () {
+  function Es() {}
+  Es.prototype = new Dq();
+  Es.prototype.constructor = Es;
+  function Fs() {}
+  e = Fs.prototype = Es.prototype;
+  e.ih = function () {
     return !0;
   };
   e.y = function (a) {
-    return ns(this, a);
+    return xs(this, a);
   };
   e.H = function () {
-    return Hi(this);
+    return Ni(this);
   };
   e.z = function () {
-    return Go(this);
+    return Oo(this);
   };
-  e.md = function (a) {
-    return this.ha().ga(new os(this, a));
+  e.ud = function (a) {
+    return this.X().W(new ys(this, a));
   };
-  e.Bd = function (a) {
-    return ej(this, a);
+  e.Nd = function (a) {
+    return jj(this, a);
   };
-  e.Pf = function (a) {
-    return this.Bd(a);
+  e.Ff = function (a) {
+    return this.Nd(a);
   };
-  e.Xa = function () {
-    return this.n();
+  e.Sa = function () {
+    return this.q();
   };
-  e.De = function (a, b) {
-    var c = this.i();
-    return pj(c, a, b);
+  e.xe = function (a, b) {
+    var c = this.h();
+    return sj(c, a, b);
   };
   e.F = function (a) {
-    return Gk(this, a);
+    return Jk(this, a);
   };
-  e.Pj = function (a) {
-    return this.hb(a);
+  e.Oj = function (a) {
+    return this.kb(a);
   };
-  e.hb = function (a) {
-    return bj(this, a);
+  e.kb = function (a) {
+    return gj(this, a);
   };
   e.e = function () {
-    return 0 === this.hb(0);
+    return 0 === this.kb(0);
   };
-  e.Je = function (a) {
-    return Rl(this, a);
+  e.cf = function (a) {
+    return Wl(this, a);
   };
-  function ws() {}
-  ws.prototype = new Sr();
-  ws.prototype.constructor = ws;
-  function xs() {}
-  e = xs.prototype = ws.prototype;
-  e.ne = function (a) {
-    return ys(new zs(), this, a);
+  function Gs() {}
+  Gs.prototype = new $r();
+  Gs.prototype.constructor = Gs;
+  function Hs() {}
+  e = Hs.prototype = Gs.prototype;
+  e.ce = function (a) {
+    return Is(new Js(), this, a);
   };
-  e.me = function (a) {
-    return As(new Bs(), this, a);
+  e.be = function (a) {
+    return Ks(new Ls(), this, a);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "SeqView";
   };
-  e.Pf = function (a) {
-    return ej(this, a);
+  e.Ff = function (a) {
+    return jj(this, a);
   };
-  e.De = function (a, b) {
-    var c = this.i();
-    return pj(c, a, b);
+  e.xe = function (a, b) {
+    var c = this.h();
+    return sj(c, a, b);
   };
   e.F = function (a) {
-    return Gk(this, a);
+    return Jk(this, a);
   };
-  e.hb = function (a) {
-    return bj(this, a);
+  e.kb = function (a) {
+    return gj(this, a);
   };
   e.e = function () {
-    return 0 === this.hb(0);
+    return 0 === this.kb(0);
   };
-  e.Eb = function (a) {
-    return this.me(a);
+  e.Jb = function (a) {
+    return this.be(a);
   };
-  e.W = function (a) {
-    return this.ne(a);
+  e.da = function (a) {
+    return this.ce(a);
   };
-  function Ej() {}
-  Ej.prototype = new Sr();
-  Ej.prototype.constructor = Ej;
-  e = Ej.prototype;
-  e.i = function () {
-    return W().Y;
+  function Hj() {}
+  Hj.prototype = new $r();
+  Hj.prototype.constructor = Hj;
+  e = Hj.prototype;
+  e.h = function () {
+    return W().Z;
   };
-  e.v = function () {
+  e.t = function () {
     return 0;
   };
   e.e = function () {
     return !0;
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Empty";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 0;
   };
-  e.sb = function (a) {
-    return ng(X(), a);
+  e.mb = function (a) {
+    return wg(Y(), a);
   };
   e.H = function () {
     return 67081517;
   };
-  e.$classData = v({ ip: 0 }, !1, "scala.collection.View$Empty$", {
-    ip: 1,
-    gc: 1,
+  e.$classData = v({ mp: 0 }, !1, "scala.collection.View$Empty$", {
+    mp: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11497,70 +11565,70 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    Bb: 1,
+    yb: 1,
     x: 1,
   });
-  var Dj;
-  function As(a, b, c) {
-    a.Ng = b;
-    a.qj = c;
-    vq(a, b, c);
+  var Gj;
+  function Ks(a, b, c) {
+    a.Ig = b;
+    a.mj = c;
+    Eq(a, b, c);
     return a;
   }
-  function Bs() {
-    this.Og = null;
-    this.Zf = this.Lh = 0;
-    this.Ng = null;
-    this.qj = 0;
+  function Ls() {
+    this.Jg = null;
+    this.Pf = this.Ih = 0;
+    this.Ig = null;
+    this.mj = 0;
   }
-  Bs.prototype = new qs();
-  Bs.prototype.constructor = Bs;
-  function Cs() {}
-  e = Cs.prototype = Bs.prototype;
-  e.ne = function (a) {
-    return ys(new zs(), this, a);
+  Ls.prototype = new As();
+  Ls.prototype.constructor = Ls;
+  function Ms() {}
+  e = Ms.prototype = Ls.prototype;
+  e.ce = function (a) {
+    return Is(new Js(), this, a);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "SeqView";
   };
-  e.Pf = function (a) {
-    return ej(this, a);
+  e.Ff = function (a) {
+    return jj(this, a);
   };
-  e.De = function (a, b) {
-    var c = this.i();
-    return pj(c, a, b);
+  e.xe = function (a, b) {
+    var c = this.h();
+    return sj(c, a, b);
   };
   e.F = function (a) {
-    return Gk(this, a);
+    return Jk(this, a);
   };
-  e.hb = function (a) {
-    return bj(this, a);
+  e.kb = function (a) {
+    return gj(this, a);
   };
   e.e = function () {
-    return 0 === this.hb(0);
+    return 0 === this.kb(0);
   };
-  e.n = function () {
-    var a = (this.Ng.n() - this.Zf) | 0;
+  e.q = function () {
+    var a = (this.Ig.q() - this.Pf) | 0;
     return 0 < a ? a : 0;
   };
-  e.t = function (a) {
-    return this.Ng.t((a + this.Zf) | 0);
+  e.v = function (a) {
+    return this.Ig.v((a + this.Pf) | 0);
   };
-  e.me = function (a) {
-    return As(new Bs(), this.Ng, (this.qj + a) | 0);
+  e.be = function (a) {
+    return Ks(new Ls(), this.Ig, (this.mj + a) | 0);
   };
-  e.W = function (a) {
-    return this.ne(a);
+  e.da = function (a) {
+    return this.ce(a);
   };
-  e.Eb = function (a) {
-    return this.me(a);
+  e.Jb = function (a) {
+    return this.be(a);
   };
   e.$classData = v({ fl: 0 }, !1, "scala.collection.SeqView$Drop", {
     fl: 1,
-    uj: 1,
-    gc: 1,
+    qj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11568,41 +11636,41 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    pf: 1,
-    P: 1,
+    gf: 1,
+    Q: 1,
   });
-  function zj(a, b) {
-    a.qf = b;
+  function Cj(a, b) {
+    a.hf = b;
     return a;
   }
-  function Aj() {
-    this.qf = null;
+  function Dj() {
+    this.hf = null;
   }
-  Aj.prototype = new xs();
-  Aj.prototype.constructor = Aj;
-  function Ds() {}
-  e = Ds.prototype = Aj.prototype;
-  e.t = function (a) {
-    return this.qf.t(a);
+  Dj.prototype = new Hs();
+  Dj.prototype.constructor = Dj;
+  function Ns() {}
+  e = Ns.prototype = Dj.prototype;
+  e.v = function (a) {
+    return this.hf.v(a);
   };
-  e.n = function () {
-    return this.qf.n();
+  e.q = function () {
+    return this.hf.q();
   };
-  e.i = function () {
-    return this.qf.i();
+  e.h = function () {
+    return this.hf.h();
   };
-  e.v = function () {
-    return this.qf.v();
+  e.t = function () {
+    return this.hf.t();
   };
   e.e = function () {
-    return this.qf.e();
+    return this.hf.e();
   };
   e.$classData = v({ gl: 0 }, !1, "scala.collection.SeqView$Id", {
     gl: 1,
-    jj: 1,
-    gc: 1,
+    fj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11610,65 +11678,65 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    pf: 1,
-    P: 1,
+    gf: 1,
+    Q: 1,
   });
-  function ys(a, b, c) {
-    a.Jh = b;
-    a.rj = c;
-    ij(a, b, c);
+  function Is(a, b, c) {
+    a.Gh = b;
+    a.nj = c;
+    mj(a, b, c);
     return a;
   }
-  function zs() {
-    this.rj = this.Jh = this.Mh = this.$f = null;
+  function Js() {
+    this.nj = this.Gh = this.Jh = this.Qf = null;
   }
-  zs.prototype = new rs();
-  zs.prototype.constructor = zs;
-  function Es() {}
-  e = Es.prototype = zs.prototype;
-  e.ne = function (a) {
-    return ys(new zs(), this, a);
+  Js.prototype = new Bs();
+  Js.prototype.constructor = Js;
+  function Os() {}
+  e = Os.prototype = Js.prototype;
+  e.ce = function (a) {
+    return Is(new Js(), this, a);
   };
-  e.me = function (a) {
-    return As(new Bs(), this, a);
+  e.be = function (a) {
+    return Ks(new Ls(), this, a);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "SeqView";
   };
-  e.Pf = function (a) {
-    return ej(this, a);
+  e.Ff = function (a) {
+    return jj(this, a);
   };
-  e.De = function (a, b) {
-    var c = this.i();
-    return pj(c, a, b);
+  e.xe = function (a, b) {
+    var c = this.h();
+    return sj(c, a, b);
   };
   e.F = function (a) {
-    return Gk(this, a);
+    return Jk(this, a);
   };
-  e.hb = function (a) {
-    return bj(this, a);
+  e.kb = function (a) {
+    return gj(this, a);
   };
   e.e = function () {
-    return 0 === this.hb(0);
+    return 0 === this.kb(0);
   };
-  e.t = function (a) {
-    return this.rj.l(this.Jh.t(a));
+  e.v = function (a) {
+    return this.nj.m(this.Gh.v(a));
   };
-  e.n = function () {
-    return this.Jh.n();
+  e.q = function () {
+    return this.Gh.q();
   };
-  e.Eb = function (a) {
-    return this.me(a);
+  e.Jb = function (a) {
+    return this.be(a);
   };
-  e.W = function (a) {
-    return this.ne(a);
+  e.da = function (a) {
+    return this.ce(a);
   };
   e.$classData = v({ hl: 0 }, !1, "scala.collection.SeqView$Map", {
     hl: 1,
-    wj: 1,
-    gc: 1,
+    sj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11676,95 +11744,95 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    pf: 1,
-    P: 1,
+    gf: 1,
+    Q: 1,
   });
-  function Fs() {}
-  Fs.prototype = new xs();
-  Fs.prototype.constructor = Fs;
-  function Gs() {}
-  e = Gs.prototype = Fs.prototype;
-  e.i = function () {
-    return new yk(this);
+  function Ps() {}
+  Ps.prototype = new Hs();
+  Ps.prototype.constructor = Ps;
+  function Qs() {}
+  e = Qs.prototype = Ps.prototype;
+  e.h = function () {
+    return new Bk(this);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "IndexedSeqView";
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.hb = function (a) {
-    var b = this.n();
+  e.kb = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.n();
+  e.t = function () {
+    return this.q();
   };
-  e.ne = function (a) {
-    return new Eo(this, a);
+  e.ce = function (a) {
+    return new Mo(this, a);
   };
-  e.W = function (a) {
-    return new Eo(this, a);
+  e.da = function (a) {
+    return new Mo(this, a);
   };
-  e.me = function (a) {
-    return new Co(this, a);
+  e.be = function (a) {
+    return new Ko(this, a);
   };
-  e.Eb = function (a) {
-    return new Co(this, a);
+  e.Jb = function (a) {
+    return new Ko(this, a);
   };
-  function Hs() {}
-  Hs.prototype = new ts();
-  Hs.prototype.constructor = Hs;
-  function Is() {}
-  Is.prototype = Hs.prototype;
-  Hs.prototype.ha = function () {
-    return Ri();
+  function Rs() {}
+  Rs.prototype = new Ds();
+  Rs.prototype.constructor = Rs;
+  function Ss() {}
+  Ss.prototype = Rs.prototype;
+  Rs.prototype.X = function () {
+    return Xi();
   };
-  function Co(a, b) {
-    this.Og = null;
-    this.Zf = this.Lh = 0;
-    this.Ng = null;
-    this.qj = 0;
-    As(this, a, b);
+  function Ko(a, b) {
+    this.Jg = null;
+    this.Pf = this.Ih = 0;
+    this.Ig = null;
+    this.mj = 0;
+    Ks(this, a, b);
   }
-  Co.prototype = new Cs();
-  Co.prototype.constructor = Co;
-  e = Co.prototype;
-  e.i = function () {
-    return new yk(this);
+  Ko.prototype = new Ms();
+  Ko.prototype.constructor = Ko;
+  e = Ko.prototype;
+  e.h = function () {
+    return new Bk(this);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "IndexedSeqView";
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.hb = function (a) {
-    var b = this.n();
+  e.kb = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.n();
+  e.t = function () {
+    return this.q();
   };
-  e.ne = function (a) {
-    return new Eo(this, a);
+  e.ce = function (a) {
+    return new Mo(this, a);
   };
-  e.W = function (a) {
-    return new Eo(this, a);
+  e.da = function (a) {
+    return new Mo(this, a);
   };
-  e.me = function (a) {
-    return new Co(this, a);
+  e.be = function (a) {
+    return new Ko(this, a);
   };
-  e.Eb = function (a) {
-    return new Co(this, a);
+  e.Jb = function (a) {
+    return new Ko(this, a);
   };
-  e.$classData = v({ Do: 0 }, !1, "scala.collection.IndexedSeqView$Drop", {
-    Do: 1,
+  e.$classData = v({ Fo: 0 }, !1, "scala.collection.IndexedSeqView$Drop", {
+    Fo: 1,
     fl: 1,
-    uj: 1,
-    gc: 1,
+    qj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11772,53 +11840,53 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    pf: 1,
-    P: 1,
-    yh: 1,
-    ya: 1,
+    gf: 1,
+    Q: 1,
+    th: 1,
+    La: 1,
   });
-  function Mj(a) {
-    this.qf = null;
-    zj(this, a);
+  function Ak(a) {
+    this.hf = null;
+    Cj(this, a);
   }
-  Mj.prototype = new Ds();
-  Mj.prototype.constructor = Mj;
-  e = Mj.prototype;
-  e.i = function () {
-    return new yk(this);
+  Ak.prototype = new Ns();
+  Ak.prototype.constructor = Ak;
+  e = Ak.prototype;
+  e.h = function () {
+    return new Bk(this);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "IndexedSeqView";
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.hb = function (a) {
-    var b = this.n();
+  e.kb = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.n();
+  e.t = function () {
+    return this.q();
   };
-  e.ne = function (a) {
-    return new Eo(this, a);
+  e.ce = function (a) {
+    return new Mo(this, a);
   };
-  e.W = function (a) {
-    return new Eo(this, a);
+  e.da = function (a) {
+    return new Mo(this, a);
   };
-  e.me = function (a) {
-    return new Co(this, a);
+  e.be = function (a) {
+    return new Ko(this, a);
   };
-  e.Eb = function (a) {
-    return new Co(this, a);
+  e.Jb = function (a) {
+    return new Ko(this, a);
   };
-  e.$classData = v({ Eo: 0 }, !1, "scala.collection.IndexedSeqView$Id", {
-    Eo: 1,
+  e.$classData = v({ Go: 0 }, !1, "scala.collection.IndexedSeqView$Id", {
+    Go: 1,
     gl: 1,
-    jj: 1,
-    gc: 1,
+    fj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11826,53 +11894,53 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    pf: 1,
-    P: 1,
-    yh: 1,
-    ya: 1,
+    gf: 1,
+    Q: 1,
+    th: 1,
+    La: 1,
   });
-  function Eo(a, b) {
-    this.rj = this.Jh = this.Mh = this.$f = null;
-    ys(this, a, b);
+  function Mo(a, b) {
+    this.nj = this.Gh = this.Jh = this.Qf = null;
+    Is(this, a, b);
   }
-  Eo.prototype = new Es();
-  Eo.prototype.constructor = Eo;
-  e = Eo.prototype;
-  e.i = function () {
-    return new yk(this);
+  Mo.prototype = new Os();
+  Mo.prototype.constructor = Mo;
+  e = Mo.prototype;
+  e.h = function () {
+    return new Bk(this);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "IndexedSeqView";
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.hb = function (a) {
-    var b = this.n();
+  e.kb = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.n();
+  e.t = function () {
+    return this.q();
   };
-  e.ne = function (a) {
-    return new Eo(this, a);
+  e.ce = function (a) {
+    return new Mo(this, a);
   };
-  e.W = function (a) {
-    return new Eo(this, a);
+  e.da = function (a) {
+    return new Mo(this, a);
   };
-  e.me = function (a) {
-    return new Co(this, a);
+  e.be = function (a) {
+    return new Ko(this, a);
   };
-  e.Eb = function (a) {
-    return new Co(this, a);
+  e.Jb = function (a) {
+    return new Ko(this, a);
   };
-  e.$classData = v({ Ho: 0 }, !1, "scala.collection.IndexedSeqView$Map", {
-    Ho: 1,
+  e.$classData = v({ Jo: 0 }, !1, "scala.collection.IndexedSeqView$Map", {
+    Jo: 1,
     hl: 1,
-    wj: 1,
-    gc: 1,
+    sj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -11880,46 +11948,46 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    pf: 1,
-    P: 1,
-    yh: 1,
-    ya: 1,
+    gf: 1,
+    Q: 1,
+    th: 1,
+    La: 1,
   });
-  function Js() {}
-  Js.prototype = new vs();
-  Js.prototype.constructor = Js;
-  function Ks() {}
-  Ks.prototype = Js.prototype;
-  function Ls(a, b) {
-    this.Pq = a;
-    this.Ij = b;
+  function Ts() {}
+  Ts.prototype = new Fs();
+  Ts.prototype.constructor = Ts;
+  function Us() {}
+  Us.prototype = Ts.prototype;
+  function Vs(a, b) {
+    this.Rq = a;
+    this.Gj = b;
   }
-  Ls.prototype = new Gs();
-  Ls.prototype.constructor = Ls;
-  Ls.prototype.n = function () {
-    return this.Ij;
+  Vs.prototype = new Qs();
+  Vs.prototype.constructor = Vs;
+  Vs.prototype.q = function () {
+    return this.Gj;
   };
-  Ls.prototype.t = function (a) {
-    if (a < this.Ij) return this.Pq.a[a];
-    throw og(
-      new pg(),
-      a + " is out of bounds (min 0, max " + ((-1 + this.Ij) | 0) + ")"
+  Vs.prototype.v = function (a) {
+    if (a < this.Gj) return this.Rq.a[a];
+    throw xg(
+      new yg(),
+      a + " is out of bounds (min 0, max " + ((-1 + this.Gj) | 0) + ")"
     );
   };
-  Ls.prototype.Qc = function () {
+  Vs.prototype.Wc = function () {
     return "ArrayBufferView";
   };
-  Ls.prototype.$classData = v(
-    { Oq: 0 },
+  Vs.prototype.$classData = v(
+    { Qq: 0 },
     !1,
     "scala.collection.mutable.ArrayBufferView",
     {
-      Oq: 1,
+      Qq: 1,
       io: 1,
-      jj: 1,
-      gc: 1,
+      fj: 1,
+      Xb: 1,
       E: 1,
       b: 1,
       B: 1,
@@ -11927,26 +11995,26 @@ let ScalaJSExample;
       D: 1,
       s: 1,
       C: 1,
-      Zb: 1,
+      Rb: 1,
       c: 1,
-      pf: 1,
-      P: 1,
-      yh: 1,
-      ya: 1,
+      gf: 1,
+      Q: 1,
+      th: 1,
+      La: 1,
     }
   );
-  function Ms(a, b) {
-    return Yo(b) ? a.n() === b.n() : !0;
+  function Ws(a, b) {
+    return gp(b) ? a.q() === b.q() : !0;
   }
-  function Ns(a, b) {
-    if (Yo(b)) {
+  function Xs(a, b) {
+    if (gp(b)) {
       if (a === b) return !0;
-      var c = a.n(),
-        d = c === b.n();
+      var c = a.q(),
+        d = c === b.q();
       if (d) {
         var f = 0,
-          g = a.yg(),
-          h = b.yg();
+          g = a.hh(),
+          h = b.hh();
         g = g < h ? g : h;
         h = c >> 31;
         var k = (g >>> 31) | 0 | ((g >> 31) << 1);
@@ -11957,29 +12025,29 @@ let ScalaJSExample;
           f < g && d;
 
         )
-          (d = L(M(), a.t(f), b.t(f))), (f = (1 + f) | 0);
+          (d = J(L(), a.v(f), b.v(f))), (f = (1 + f) | 0);
         if (f < c && d)
-          for (a = a.i().Ed(f), b = b.i().Ed(f); d && a.m(); )
-            d = L(M(), a.k(), b.k());
+          for (a = a.h().xd(f), b = b.h().xd(f); d && a.l(); )
+            d = J(L(), a.k(), b.k());
       }
       return d;
     }
-    return Rl(a, b);
+    return Wl(a, b);
   }
-  function Yo(a) {
-    return !!(a && a.$classData && a.$classData.Nb.Kd);
+  function gp(a) {
+    return !!(a && a.$classData && a.$classData.Ib.he);
   }
-  function Os() {}
-  Os.prototype = new Is();
-  Os.prototype.constructor = Os;
-  e = Os.prototype;
-  e.Xa = function () {
+  function Ys() {}
+  Ys.prototype = new Ss();
+  Ys.prototype.constructor = Ys;
+  e = Ys.prototype;
+  e.Sa = function () {
     return 0;
   };
   e.e = function () {
     return !0;
   };
-  e.v = function () {
+  e.t = function () {
     return 0;
   };
   e.Ll = function () {
@@ -11988,20 +12056,20 @@ let ScalaJSExample;
   e.F = function () {
     return !1;
   };
-  e.i = function () {
-    return W().Y;
+  e.h = function () {
+    return W().Z;
   };
   e.N = function () {};
-  e.Sf = function (a) {
-    return new Ps(a);
+  e.Hf = function (a) {
+    return new Zs(a);
   };
-  e.Pb = function () {
+  e.Qb = function () {
     return this;
   };
-  e.$classData = v({ eq: 0 }, !1, "scala.collection.immutable.Set$EmptySet$", {
-    eq: 1,
-    Pg: 1,
-    Uf: 1,
+  e.$classData = v({ gq: 0 }, !1, "scala.collection.immutable.Set$EmptySet$", {
+    gq: 1,
+    Kg: 1,
+    Jf: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12009,55 +12077,55 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    rf: 1,
-    Xf: 1,
+    jf: 1,
+    Nf: 1,
     O: 1,
     x: 1,
-    hg: 1,
-    Ib: 1,
-    Wg: 1,
+    Yf: 1,
+    Sb: 1,
+    Sg: 1,
     c: 1,
   });
-  var Qs;
-  function Zk() {
-    Qs || (Qs = new Os());
-    return Qs;
+  var $s;
+  function cl() {
+    $s || ($s = new Ys());
+    return $s;
   }
-  function Rs(a) {
-    this.Yf = a;
+  function at(a) {
+    this.Of = a;
   }
-  Rs.prototype = new Gs();
-  Rs.prototype.constructor = Rs;
-  e = Rs.prototype;
-  e.n = function () {
-    return this.Yf.length | 0;
+  at.prototype = new Qs();
+  at.prototype.constructor = at;
+  e = at.prototype;
+  e.q = function () {
+    return this.Of.length | 0;
   };
   e.z = function () {
-    return "StringView(" + this.Yf + ")";
+    return "StringView(" + this.Of + ")";
   };
-  e.ib = function () {
+  e.cb = function () {
     return "StringView";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 1;
   };
-  e.sb = function (a) {
-    return 0 === a ? this.Yf : ng(X(), a);
+  e.mb = function (a) {
+    return 0 === a ? this.Of : wg(Y(), a);
   };
   e.H = function () {
-    return yg(this);
+    return Hg(this);
   };
   e.y = function (a) {
-    return this === a ? !0 : a instanceof Rs ? this.Yf === a.Yf : !1;
+    return this === a ? !0 : a instanceof at ? this.Of === a.Of : !1;
   };
-  e.t = function (a) {
-    return Pa(65535 & (this.Yf.charCodeAt(a) | 0));
+  e.v = function (a) {
+    return Na(65535 & (this.Of.charCodeAt(a) | 0));
   };
-  e.$classData = v({ bp: 0 }, !1, "scala.collection.StringView", {
-    bp: 1,
+  e.$classData = v({ fp: 0 }, !1, "scala.collection.StringView", {
+    fp: 1,
     io: 1,
-    jj: 1,
-    gc: 1,
+    fj: 1,
+    Xb: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12065,68 +12133,68 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    Zb: 1,
+    Rb: 1,
     c: 1,
-    pf: 1,
-    P: 1,
-    yh: 1,
-    ya: 1,
-    Bb: 1,
+    gf: 1,
+    Q: 1,
+    th: 1,
+    La: 1,
+    yb: 1,
     x: 1,
   });
-  function Ps(a) {
-    this.Bf = a;
+  function Zs(a) {
+    this.sf = a;
   }
-  Ps.prototype = new Is();
-  Ps.prototype.constructor = Ps;
-  e = Ps.prototype;
-  e.Wb = function (a) {
-    return Ul(this, a);
+  Zs.prototype = new Ss();
+  Zs.prototype.constructor = Zs;
+  e = Zs.prototype;
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return this.hf(a, !1);
+  e.Qb = function (a) {
+    return this.Ze(a, !1);
   };
-  e.Xa = function () {
+  e.Sa = function () {
     return 1;
   };
   e.e = function () {
     return !1;
   };
-  e.v = function () {
+  e.t = function () {
     return 1;
   };
   e.F = function (a) {
-    return L(M(), a, this.Bf);
+    return J(L(), a, this.sf);
   };
-  e.jf = function (a) {
-    return this.F(a) ? this : new Ss(this.Bf, a);
+  e.$e = function (a) {
+    return this.F(a) ? this : new bt(this.sf, a);
   };
-  e.i = function () {
+  e.h = function () {
     W();
-    return new yo(this.Bf);
+    return new Go(this.sf);
   };
   e.N = function (a) {
-    a.l(this.Bf);
+    a.m(this.sf);
   };
-  e.Dg = function (a) {
-    return !!a.l(this.Bf);
+  e.xg = function (a) {
+    return !!a.m(this.sf);
   };
-  e.hf = function (a, b) {
-    return !!a.l(this.Bf) !== b ? this : Zk();
+  e.Ze = function (a, b) {
+    return !!a.m(this.sf) !== b ? this : cl();
   };
   e.u = function () {
-    return this.Bf;
+    return this.sf;
   };
   e.w = function () {
-    return Zk();
+    return cl();
   };
-  e.Sf = function (a) {
-    return this.jf(a);
+  e.Hf = function (a) {
+    return this.$e(a);
   };
-  e.$classData = v({ fq: 0 }, !1, "scala.collection.immutable.Set$Set1", {
-    fq: 1,
-    Pg: 1,
-    Uf: 1,
+  e.$classData = v({ hq: 0 }, !1, "scala.collection.immutable.Set$Set1", {
+    hq: 1,
+    Kg: 1,
+    Jf: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12134,65 +12202,65 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    rf: 1,
-    Xf: 1,
+    jf: 1,
+    Nf: 1,
     O: 1,
     x: 1,
-    hg: 1,
-    Ib: 1,
-    Wg: 1,
-    ma: 1,
+    Yf: 1,
+    Sb: 1,
+    Sg: 1,
+    va: 1,
     c: 1,
   });
-  function Ss(a, b) {
-    this.Oe = a;
-    this.Pe = b;
+  function bt(a, b) {
+    this.He = a;
+    this.Ie = b;
   }
-  Ss.prototype = new Is();
-  Ss.prototype.constructor = Ss;
-  e = Ss.prototype;
-  e.Wb = function (a) {
-    return Ul(this, a);
+  bt.prototype = new Ss();
+  bt.prototype.constructor = bt;
+  e = bt.prototype;
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return this.hf(a, !1);
+  e.Qb = function (a) {
+    return this.Ze(a, !1);
   };
-  e.Xa = function () {
+  e.Sa = function () {
     return 2;
   };
   e.e = function () {
     return !1;
   };
-  e.v = function () {
+  e.t = function () {
     return 2;
   };
   e.F = function (a) {
-    return L(M(), a, this.Oe) || L(M(), a, this.Pe);
+    return J(L(), a, this.He) || J(L(), a, this.Ie);
   };
-  e.jf = function (a) {
-    return this.F(a) ? this : new Ts(this.Oe, this.Pe, a);
+  e.$e = function (a) {
+    return this.F(a) ? this : new ct(this.He, this.Ie, a);
   };
-  e.i = function () {
-    return new ir(this);
+  e.h = function () {
+    return new qr(this);
   };
   e.N = function (a) {
-    a.l(this.Oe);
-    a.l(this.Pe);
+    a.m(this.He);
+    a.m(this.Ie);
   };
-  e.Dg = function (a) {
-    return !!a.l(this.Oe) && !!a.l(this.Pe);
+  e.xg = function (a) {
+    return !!a.m(this.He) && !!a.m(this.Ie);
   };
-  e.hf = function (a, b) {
+  e.Ze = function (a, b) {
     var c = null,
       d = 0;
-    !!a.l(this.Oe) !== b && ((c = this.Oe), (d = (1 + d) | 0));
-    !!a.l(this.Pe) !== b && (0 === d && (c = this.Pe), (d = (1 + d) | 0));
+    !!a.m(this.He) !== b && ((c = this.He), (d = (1 + d) | 0));
+    !!a.m(this.Ie) !== b && (0 === d && (c = this.Ie), (d = (1 + d) | 0));
     a = d;
     switch (a) {
       case 0:
-        return Zk();
+        return cl();
       case 1:
-        return new Ps(c);
+        return new Zs(c);
       case 2:
         return this;
       default:
@@ -12200,21 +12268,21 @@ let ScalaJSExample;
     }
   };
   e.u = function () {
-    return this.Oe;
+    return this.He;
   };
-  e.fh = function () {
-    return new Ps(this.Pe);
+  e.$g = function () {
+    return new Zs(this.Ie);
   };
   e.w = function () {
-    return this.fh();
+    return this.$g();
   };
-  e.Sf = function (a) {
-    return this.jf(a);
+  e.Hf = function (a) {
+    return this.$e(a);
   };
-  e.$classData = v({ gq: 0 }, !1, "scala.collection.immutable.Set$Set2", {
-    gq: 1,
-    Pg: 1,
-    Uf: 1,
+  e.$classData = v({ iq: 0 }, !1, "scala.collection.immutable.Set$Set2", {
+    iq: 1,
+    Kg: 1,
+    Jf: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12222,73 +12290,73 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    rf: 1,
-    Xf: 1,
+    jf: 1,
+    Nf: 1,
     O: 1,
     x: 1,
-    hg: 1,
-    Ib: 1,
-    Wg: 1,
-    ma: 1,
+    Yf: 1,
+    Sb: 1,
+    Sg: 1,
+    va: 1,
     c: 1,
   });
-  function Ts(a, b, c) {
-    this.Qe = a;
-    this.se = b;
-    this.te = c;
+  function ct(a, b, c) {
+    this.Je = a;
+    this.ke = b;
+    this.le = c;
   }
-  Ts.prototype = new Is();
-  Ts.prototype.constructor = Ts;
-  e = Ts.prototype;
-  e.Wb = function (a) {
-    return Ul(this, a);
+  ct.prototype = new Ss();
+  ct.prototype.constructor = ct;
+  e = ct.prototype;
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return this.hf(a, !1);
+  e.Qb = function (a) {
+    return this.Ze(a, !1);
   };
-  e.Xa = function () {
+  e.Sa = function () {
     return 3;
   };
   e.e = function () {
     return !1;
   };
-  e.v = function () {
+  e.t = function () {
     return 3;
   };
   e.F = function (a) {
-    return L(M(), a, this.Qe) || L(M(), a, this.se) || L(M(), a, this.te);
+    return J(L(), a, this.Je) || J(L(), a, this.ke) || J(L(), a, this.le);
   };
-  e.jf = function (a) {
-    return this.F(a) ? this : new Us(this.Qe, this.se, this.te, a);
+  e.$e = function (a) {
+    return this.F(a) ? this : new dt(this.Je, this.ke, this.le, a);
   };
-  e.i = function () {
-    return new jr(this);
+  e.h = function () {
+    return new rr(this);
   };
   e.N = function (a) {
-    a.l(this.Qe);
-    a.l(this.se);
-    a.l(this.te);
+    a.m(this.Je);
+    a.m(this.ke);
+    a.m(this.le);
   };
-  e.Dg = function (a) {
-    return !!a.l(this.Qe) && !!a.l(this.se) && !!a.l(this.te);
+  e.xg = function (a) {
+    return !!a.m(this.Je) && !!a.m(this.ke) && !!a.m(this.le);
   };
-  e.hf = function (a, b) {
+  e.Ze = function (a, b) {
     var c = null,
       d = null,
       f = 0;
-    !!a.l(this.Qe) !== b && ((c = this.Qe), (f = (1 + f) | 0));
-    !!a.l(this.se) !== b &&
-      (0 === f ? (c = this.se) : (d = this.se), (f = (1 + f) | 0));
-    !!a.l(this.te) !== b &&
-      (0 === f ? (c = this.te) : 1 === f && (d = this.te), (f = (1 + f) | 0));
+    !!a.m(this.Je) !== b && ((c = this.Je), (f = (1 + f) | 0));
+    !!a.m(this.ke) !== b &&
+      (0 === f ? (c = this.ke) : (d = this.ke), (f = (1 + f) | 0));
+    !!a.m(this.le) !== b &&
+      (0 === f ? (c = this.le) : 1 === f && (d = this.le), (f = (1 + f) | 0));
     a = f;
     switch (a) {
       case 0:
-        return Zk();
+        return cl();
       case 1:
-        return new Ps(c);
+        return new Zs(c);
       case 2:
-        return new Ss(c, d);
+        return new bt(c, d);
       case 3:
         return this;
       default:
@@ -12296,21 +12364,21 @@ let ScalaJSExample;
     }
   };
   e.u = function () {
-    return this.Qe;
+    return this.Je;
   };
-  e.fh = function () {
-    return new Ss(this.se, this.te);
+  e.$g = function () {
+    return new bt(this.ke, this.le);
   };
   e.w = function () {
-    return this.fh();
+    return this.$g();
   };
-  e.Sf = function (a) {
-    return this.jf(a);
+  e.Hf = function (a) {
+    return this.$e(a);
   };
-  e.$classData = v({ iq: 0 }, !1, "scala.collection.immutable.Set$Set3", {
-    iq: 1,
-    Pg: 1,
-    Uf: 1,
+  e.$classData = v({ kq: 0 }, !1, "scala.collection.immutable.Set$Set3", {
+    kq: 1,
+    Kg: 1,
+    Jf: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12318,107 +12386,107 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    rf: 1,
-    Xf: 1,
+    jf: 1,
+    Nf: 1,
     O: 1,
     x: 1,
-    hg: 1,
-    Ib: 1,
-    Wg: 1,
-    ma: 1,
+    Yf: 1,
+    Sb: 1,
+    Sg: 1,
+    va: 1,
     c: 1,
   });
-  function Us(a, b, c, d) {
-    this.ue = a;
-    this.ce = b;
-    this.Od = c;
-    this.Pd = d;
+  function dt(a, b, c, d) {
+    this.me = a;
+    this.Sd = b;
+    this.Fd = c;
+    this.Gd = d;
   }
-  Us.prototype = new Is();
-  Us.prototype.constructor = Us;
-  e = Us.prototype;
-  e.Wb = function (a) {
-    return Ul(this, a);
+  dt.prototype = new Ss();
+  dt.prototype.constructor = dt;
+  e = dt.prototype;
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return this.hf(a, !1);
+  e.Qb = function (a) {
+    return this.Ze(a, !1);
   };
-  e.Xa = function () {
+  e.Sa = function () {
     return 4;
   };
   e.e = function () {
     return !1;
   };
-  e.v = function () {
+  e.t = function () {
     return 4;
   };
   e.F = function (a) {
     return (
-      L(M(), a, this.ue) ||
-      L(M(), a, this.ce) ||
-      L(M(), a, this.Od) ||
-      L(M(), a, this.Pd)
+      J(L(), a, this.me) ||
+      J(L(), a, this.Sd) ||
+      J(L(), a, this.Fd) ||
+      J(L(), a, this.Gd)
     );
   };
-  e.jf = function (a) {
+  e.$e = function (a) {
     return this.F(a)
       ? this
-      : Vs(Vs(Vs(Vs(Vs(Ok().bg, this.ue), this.ce), this.Od), this.Pd), a);
+      : et(et(et(et(et(Rk().Sf, this.me), this.Sd), this.Fd), this.Gd), a);
   };
-  e.i = function () {
-    return new kr(this);
+  e.h = function () {
+    return new sr(this);
   };
-  function lr(a, b) {
+  function tr(a, b) {
     switch (b) {
       case 0:
-        return a.ue;
+        return a.me;
       case 1:
-        return a.ce;
+        return a.Sd;
       case 2:
-        return a.Od;
+        return a.Fd;
       case 3:
-        return a.Pd;
+        return a.Gd;
       default:
         throw new T(b);
     }
   }
   e.N = function (a) {
-    a.l(this.ue);
-    a.l(this.ce);
-    a.l(this.Od);
-    a.l(this.Pd);
+    a.m(this.me);
+    a.m(this.Sd);
+    a.m(this.Fd);
+    a.m(this.Gd);
   };
-  e.Dg = function (a) {
-    return !!a.l(this.ue) && !!a.l(this.ce) && !!a.l(this.Od) && !!a.l(this.Pd);
+  e.xg = function (a) {
+    return !!a.m(this.me) && !!a.m(this.Sd) && !!a.m(this.Fd) && !!a.m(this.Gd);
   };
-  e.hf = function (a, b) {
+  e.Ze = function (a, b) {
     var c = null,
       d = null,
       f = null,
       g = 0;
-    !!a.l(this.ue) !== b && ((c = this.ue), (g = (1 + g) | 0));
-    !!a.l(this.ce) !== b &&
-      (0 === g ? (c = this.ce) : (d = this.ce), (g = (1 + g) | 0));
-    !!a.l(this.Od) !== b &&
-      (0 === g ? (c = this.Od) : 1 === g ? (d = this.Od) : (f = this.Od),
+    !!a.m(this.me) !== b && ((c = this.me), (g = (1 + g) | 0));
+    !!a.m(this.Sd) !== b &&
+      (0 === g ? (c = this.Sd) : (d = this.Sd), (g = (1 + g) | 0));
+    !!a.m(this.Fd) !== b &&
+      (0 === g ? (c = this.Fd) : 1 === g ? (d = this.Fd) : (f = this.Fd),
       (g = (1 + g) | 0));
-    !!a.l(this.Pd) !== b &&
+    !!a.m(this.Gd) !== b &&
       (0 === g
-        ? (c = this.Pd)
+        ? (c = this.Gd)
         : 1 === g
-        ? (d = this.Pd)
-        : 2 === g && (f = this.Pd),
+        ? (d = this.Gd)
+        : 2 === g && (f = this.Gd),
       (g = (1 + g) | 0));
     a = g;
     switch (a) {
       case 0:
-        return Zk();
+        return cl();
       case 1:
-        return new Ps(c);
+        return new Zs(c);
       case 2:
-        return new Ss(c, d);
+        return new bt(c, d);
       case 3:
-        return new Ts(c, d, f);
+        return new ct(c, d, f);
       case 4:
         return this;
       default:
@@ -12426,21 +12494,21 @@ let ScalaJSExample;
     }
   };
   e.u = function () {
-    return this.ue;
+    return this.me;
   };
-  e.fh = function () {
-    return new Ts(this.ce, this.Od, this.Pd);
+  e.$g = function () {
+    return new ct(this.Sd, this.Fd, this.Gd);
   };
   e.w = function () {
-    return this.fh();
+    return this.$g();
   };
-  e.Sf = function (a) {
-    return this.jf(a);
+  e.Hf = function (a) {
+    return this.$e(a);
   };
-  e.$classData = v({ kq: 0 }, !1, "scala.collection.immutable.Set$Set4", {
-    kq: 1,
-    Pg: 1,
-    Uf: 1,
+  e.$classData = v({ mq: 0 }, !1, "scala.collection.immutable.Set$Set4", {
+    mq: 1,
+    Kg: 1,
+    Jf: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12448,99 +12516,99 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    rf: 1,
-    Xf: 1,
+    jf: 1,
+    Nf: 1,
     O: 1,
     x: 1,
-    hg: 1,
-    Ib: 1,
-    Wg: 1,
-    ma: 1,
+    Yf: 1,
+    Sb: 1,
+    Sg: 1,
+    va: 1,
     c: 1,
   });
-  function Ws() {}
-  Ws.prototype = new vs();
-  Ws.prototype.constructor = Ws;
-  function Xs() {}
-  Xs.prototype = Ws.prototype;
-  function Kk(a) {
-    this.mc = a;
+  function ft() {}
+  ft.prototype = new Fs();
+  ft.prototype.constructor = ft;
+  function gt() {}
+  gt.prototype = ft.prototype;
+  function Nk(a) {
+    this.kc = a;
   }
-  Kk.prototype = new Is();
-  Kk.prototype.constructor = Kk;
-  e = Kk.prototype;
-  e.Wb = function (a) {
-    return Ul(this, a);
+  Nk.prototype = new Ss();
+  Nk.prototype.constructor = Nk;
+  e = Nk.prototype;
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    a = Bk(this.mc, a, !1);
-    return a === this.mc ? this : 0 === a.bb ? Ok().bg : new Kk(a);
+  e.Qb = function (a) {
+    a = Ek(this.kc, a, !1);
+    return a === this.kc ? this : 0 === a.Xa ? Rk().Sf : new Nk(a);
   };
-  e.ha = function () {
-    return Ok();
+  e.X = function () {
+    return Rk();
   };
-  e.v = function () {
-    return this.mc.bb;
+  e.t = function () {
+    return this.kc.Xa;
   };
-  e.Xa = function () {
-    return this.mc.bb;
+  e.Sa = function () {
+    return this.kc.Xa;
   };
   e.e = function () {
-    return 0 === this.mc.bb;
+    return 0 === this.kc.Xa;
   };
-  e.i = function () {
-    return this.e() ? W().Y : new lp(this.mc);
+  e.h = function () {
+    return this.e() ? W().Z : new up(this.kc);
   };
   e.F = function (a) {
-    var b = mg(X(), a),
-      c = Bd(Dd(), b);
-    return this.mc.Cg(a, b, c, 0);
+    var b = vg(Y(), a),
+      c = Od(Qd(), b);
+    return this.kc.ug(a, b, c, 0);
   };
-  function Vs(a, b) {
-    var c = mg(X(), b),
-      d = Bd(Dd(), c);
-    b = Gj(a.mc, b, c, d, 0);
-    return a.mc === b ? a : new Kk(b);
+  function et(a, b) {
+    var c = vg(Y(), b),
+      d = Od(Qd(), c);
+    b = uk(a.kc, b, c, d, 0);
+    return a.kc === b ? a : new Nk(b);
   }
   e.u = function () {
-    return this.i().k();
+    return this.h().k();
   };
   e.N = function (a) {
-    this.mc.N(a);
+    this.kc.N(a);
   };
   e.y = function (a) {
-    if (a instanceof Kk) {
+    if (a instanceof Nk) {
       if (this === a) return !0;
-      var b = this.mc;
-      a = a.mc;
+      var b = this.kc;
+      a = a.kc;
       return null === b ? null === a : b.y(a);
     }
-    return Tr(this, a);
+    return as(this, a);
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "HashSet";
   };
   e.H = function () {
-    var a = new kp(this.mc);
-    return Ag(zg(), a, zg().xh);
+    var a = new tp(this.kc);
+    return Jg(Ig(), a, Ig().sh);
   };
-  e.Eb = function (a) {
-    return this.Be(vq(new wq(), this, a));
+  e.Jb = function (a) {
+    return this.ve(Eq(new Fq(), this, a));
   };
   e.w = function () {
-    var a = this.i().k(),
-      b = mg(X(), a),
-      c = Bd(Dd(), b);
-    a = Lj(this.mc, a, b, c, 0);
-    return this.mc === a ? this : new Kk(a);
+    var a = this.h().k(),
+      b = vg(Y(), a),
+      c = Od(Qd(), b);
+    a = zk(this.kc, a, b, c, 0);
+    return this.kc === a ? this : new Nk(a);
   };
-  e.Sf = function (a) {
-    return Vs(this, a);
+  e.Hf = function (a) {
+    return et(this, a);
   };
-  e.$classData = v({ zp: 0 }, !1, "scala.collection.immutable.HashSet", {
-    zp: 1,
-    Pg: 1,
-    Uf: 1,
+  e.$classData = v({ Ep: 0 }, !1, "scala.collection.immutable.HashSet", {
+    Ep: 1,
+    Kg: 1,
+    Jf: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12548,301 +12616,311 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    rf: 1,
-    Xf: 1,
+    jf: 1,
+    Nf: 1,
     O: 1,
     x: 1,
-    hg: 1,
-    Ib: 1,
-    Wg: 1,
+    Yf: 1,
+    Sb: 1,
+    Sg: 1,
+    Ns: 1,
     Ls: 1,
-    Js: 1,
-    ma: 1,
-    id: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function Ys() {}
-  Ys.prototype = new ts();
-  Ys.prototype.constructor = Ys;
-  function Zs() {}
-  Zs.prototype = Ys.prototype;
-  Ys.prototype.Ua = function () {
+  function ht() {}
+  ht.prototype = new Ds();
+  ht.prototype.constructor = ht;
+  function it() {}
+  it.prototype = ht.prototype;
+  ht.prototype.Wa = function () {
     return this;
   };
-  var at = function $s(a, b) {
-    Bf();
-    return new am(
-      new H(
-        ((d, f) => () => {
-          if (d.e()) return Sk();
-          Bf();
-          var g = f.l(Y(d).u()),
-            h = $s(Y(d).gb(), f);
-          return new Pk(g, h);
-        })(a, b)
-      )
-    );
-  };
-  function bt(a, b, c, d, f) {
-    b.o = "" + b.o + c;
-    if (!a.uc) b.o += "\x3cnot computed\x3e";
+  var kt = function jt(a, b) {
+      X();
+      return new gm(
+        new H(
+          ((d, f) => () => {
+            if (d.e()) return Wk();
+            X();
+            var g = f.m(Z(d).u()),
+              h = jt(Z(d).Ta(), f);
+            return new Sk(g, h);
+          })(a, b)
+        )
+      );
+    },
+    mt = function lt(a, b) {
+      if (a.e() || !b.l()) return Wk();
+      X();
+      var d = Hd(new Id(), Z(a).u(), b.k());
+      X();
+      return new Sk(d, new gm(new H(((f, g) => () => lt(Z(f).Ta(), g))(a, b))));
+    };
+  function nt(a, b, c, d, f) {
+    b.n = "" + b.n + c;
+    if (!a.lc) b.n += "\x3cnot computed\x3e";
     else if (!a.e()) {
-      c = Y(a).u();
-      b.o = "" + b.o + c;
+      c = Z(a).u();
+      b.n = "" + b.n + c;
       c = a;
-      var g = Y(a).gb();
-      if (c !== g && (!g.uc || Y(c) !== Y(g)) && ((c = g), g.uc && !g.e()))
-        for (g = Y(g).gb(); c !== g && g.uc && !g.e() && Y(c) !== Y(g); ) {
-          b.o = "" + b.o + d;
-          var h = Y(c).u();
-          b.o = "" + b.o + h;
-          c = Y(c).gb();
-          g = Y(g).gb();
-          g.uc && !g.e() && (g = Y(g).gb());
+      var g = Z(a).Ta();
+      if (c !== g && (!g.lc || Z(c) !== Z(g)) && ((c = g), g.lc && !g.e()))
+        for (g = Z(g).Ta(); c !== g && g.lc && !g.e() && Z(c) !== Z(g); ) {
+          b.n = "" + b.n + d;
+          var h = Z(c).u();
+          b.n = "" + b.n + h;
+          c = Z(c).Ta();
+          g = Z(g).Ta();
+          g.lc && !g.e() && (g = Z(g).Ta());
         }
-      if (!g.uc || g.e()) {
+      if (!g.lc || g.e()) {
         for (; c !== g; )
-          (b.o = "" + b.o + d),
-            (a = Y(c).u()),
-            (b.o = "" + b.o + a),
-            (c = Y(c).gb());
-        c.uc || ((b.o = "" + b.o + d), (b.o += "\x3cnot computed\x3e"));
+          (b.n = "" + b.n + d),
+            (a = Z(c).u()),
+            (b.n = "" + b.n + a),
+            (c = Z(c).Ta());
+        c.lc || ((b.n = "" + b.n + d), (b.n += "\x3cnot computed\x3e"));
       } else {
         h = a;
         for (a = 0; ; ) {
           var k = h,
             l = g;
-          if (k !== l && Y(k) !== Y(l))
-            (h = Y(h).gb()), (g = Y(g).gb()), (a = (1 + a) | 0);
+          if (k !== l && Z(k) !== Z(l))
+            (h = Z(h).Ta()), (g = Z(g).Ta()), (a = (1 + a) | 0);
           else break;
         }
         h = c;
         k = g;
-        (h === k || Y(h) === Y(k)) &&
+        (h === k || Z(h) === Z(k)) &&
           0 < a &&
-          ((b.o = "" + b.o + d),
-          (a = Y(c).u()),
-          (b.o = "" + b.o + a),
-          (c = Y(c).gb()));
+          ((b.n = "" + b.n + d),
+          (a = Z(c).u()),
+          (b.n = "" + b.n + a),
+          (c = Z(c).Ta()));
         for (;;)
-          if (((a = c), (h = g), a !== h && Y(a) !== Y(h)))
-            (b.o = "" + b.o + d),
-              (a = Y(c).u()),
-              (b.o = "" + b.o + a),
-              (c = Y(c).gb());
+          if (((a = c), (h = g), a !== h && Z(a) !== Z(h)))
+            (b.n = "" + b.n + d),
+              (a = Z(c).u()),
+              (b.n = "" + b.n + a),
+              (c = Z(c).Ta());
           else break;
-        b.o = "" + b.o + d;
-        b.o += "\x3ccycle\x3e";
+        b.n = "" + b.n + d;
+        b.n += "\x3ccycle\x3e";
       }
     }
-    b.o = "" + b.o + f;
+    b.n = "" + b.n + f;
     return b;
   }
-  function am(a) {
+  function gm(a) {
     this.ql = null;
-    this.Aj = !1;
+    this.xj = !1;
     this.pl = a;
-    this.Bj = this.uc = !1;
+    this.yj = this.lc = !1;
   }
-  am.prototype = new Ks();
-  am.prototype.constructor = am;
-  e = am.prototype;
-  e.Mb = function () {
+  gm.prototype = new Us();
+  gm.prototype.constructor = gm;
+  e = gm.prototype;
+  e.Ob = function () {
     return "LinearSeq";
   };
-  e.n = function () {
-    return No(this);
+  e.q = function () {
+    return Wo(this);
   };
-  e.dd = function () {
-    return Oo(this);
+  e.id = function () {
+    return Xo(this);
   };
-  e.hb = function (a) {
-    return 0 > a ? 1 : To(this, a);
+  e.kb = function (a) {
+    return 0 > a ? 1 : bp(this, a);
   };
-  e.t = function (a) {
-    return en(this, a);
+  e.v = function (a) {
+    return mn(this, a);
   };
-  e.Qf = function (a) {
-    return Po(this, a);
+  e.Gf = function (a) {
+    return Yo(this, a);
   };
   e.F = function (a) {
-    return Qo(this, a);
+    return Zo(this, a);
   };
-  e.Je = function (a) {
-    return Ro(this, a);
+  e.cf = function (a) {
+    return $o(this, a);
   };
-  e.De = function (a, b) {
-    return So(this, a, b);
+  e.xe = function (a, b) {
+    return ap(this, a, b);
   };
-  function Y(a) {
-    if (!a.Aj && !a.Aj) {
-      if (a.Bj)
+  function Z(a) {
+    if (!a.xj && !a.xj) {
+      if (a.yj)
         throw (
-          ((a = new Al()),
-          oe(
+          ((a = new Fl()),
+          ze(
             a,
             "self-referential LazyList or a derivation thereof has no more elements"
           ),
-          nb(a))
+          lb(a))
         );
-      a.Bj = !0;
+      a.yj = !0;
       try {
-        var b = Zd(a.pl);
+        var b = je(a.pl);
       } finally {
-        a.Bj = !1;
+        a.yj = !1;
       }
-      a.uc = !0;
+      a.lc = !0;
       a.pl = null;
       a.ql = b;
-      a.Aj = !0;
+      a.xj = !0;
     }
     return a.ql;
   }
   e.e = function () {
-    return Y(this) === Sk();
+    return Z(this) === Wk();
   };
-  e.v = function () {
-    return this.uc && this.e() ? 0 : -1;
+  e.t = function () {
+    return this.lc && this.e() ? 0 : -1;
   };
   e.u = function () {
-    return Y(this).u();
+    return Z(this).u();
   };
-  function $l(a) {
+  function fm(a) {
     var b = a,
       c = a;
-    for (b.e() || (b = Y(b).gb()); c !== b && !b.e(); ) {
-      b = Y(b).gb();
+    for (b.e() || (b = Z(b).Ta()); c !== b && !b.e(); ) {
+      b = Z(b).Ta();
       if (b.e()) break;
-      b = Y(b).gb();
+      b = Z(b).Ta();
       if (b === c) break;
-      c = Y(c).gb();
+      c = Z(c).Ta();
     }
     return a;
   }
-  e.i = function () {
-    return this.uc && this.e() ? W().Y : new dp(this);
+  e.h = function () {
+    return this.lc && this.e() ? W().Z : new mp(this);
   };
   e.N = function (a) {
-    for (var b = this; !b.e(); ) a.l(Y(b).u()), (b = Y(b).gb());
+    for (var b = this; !b.e(); ) a.m(Z(b).u()), (b = Z(b).Ta());
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "LazyList";
   };
-  function ct(a, b) {
-    Bf();
-    return new am(
+  function ot(a, b) {
+    X();
+    return new gm(
       new H(
         ((c, d) => () => {
           if (c.e()) {
-            var f = Zd(d);
-            return f instanceof am
-              ? Y(f)
-              : 0 === f.v()
-              ? Sk()
-              : fm(Bf(), f.i());
+            var f = je(d);
+            return f instanceof gm ? Z(f) : 0 === f.t() ? Wk() : zm(X(), f.h());
           }
-          Bf();
-          f = Y(c).u();
-          var g = ct(Y(c).gb(), d);
-          return new Pk(f, g);
+          X();
+          f = Z(c).u();
+          var g = ot(Z(c).Ta(), d);
+          return new Sk(f, g);
         })(a, b)
       )
     );
   }
-  function dt(a, b) {
-    return a.uc && a.e()
-      ? yj(Bf(), b)
-      : ct(a, new H(((c, d) => () => d)(a, b)));
+  function pt(a, b) {
+    return a.lc && a.e() ? Bj(X(), b) : ot(a, new H(((c, d) => () => d)(a, b)));
   }
-  function et(a, b) {
-    return a.uc && a.e()
-      ? (Bf(),
-        new am(
+  function qt(a, b) {
+    return a.lc && a.e()
+      ? (X(),
+        new gm(
           new H(
             ((c, d) => () => {
-              Bf();
-              var f = Bf().Le;
-              return new Pk(d, f);
+              X();
+              var f = X().ie;
+              return new Sk(d, f);
             })(a, b)
           )
         ))
-      : ct(
+      : ot(
           a,
           new H(
             ((c, d) => () => {
               W();
-              return new yo(d);
+              return new Go(d);
             })(a, b)
           )
         );
   }
-  e.Fe = function (a) {
-    if (this.e()) throw Ld("empty.reduceLeft");
-    for (var b = Y(this).u(), c = Y(this).gb(); !c.e(); )
-      (b = a.ad(b, Y(c).u())), (c = Y(c).gb());
+  e.ze = function (a) {
+    if (this.e()) throw Yd("empty.reduceLeft");
+    for (var b = Z(this).u(), c = Z(this).Ta(); !c.e(); )
+      (b = a.Uc(b, Z(c).u())), (c = Z(c).Ta());
     return b;
   };
-  function Uk(a, b) {
-    return a.uc && a.e() ? Bf().Le : bm(Bf(), a, b, !1);
+  function Yk(a, b) {
+    return a.lc && a.e() ? X().ie : hm(X(), a, b, !1);
   }
-  e.Vd = function (a) {
-    return new Tk(this, a);
+  e.Hc = function (a) {
+    return new Xk(this, a);
   };
-  e.Tf = function (a) {
-    return this.uc && this.e() ? Bf().Le : at(this, a);
+  e.If = function (a) {
+    return this.lc && this.e() ? X().ie : kt(this, a);
   };
-  function ft(a, b) {
-    return a.uc && a.e() ? Bf().Le : cm(Bf(), a, b);
+  e.vg = function (a) {
+    return this.lc && this.e() ? X().ie : im(X(), this, a);
+  };
+  function rt(a, b) {
+    if ((a.lc && a.e()) || 0 === b.t()) return X().ie;
+    X();
+    return new gm(new H(((c, d) => () => mt(c, d.h()))(a, b)));
   }
-  e.Ff = function (a) {
-    return kj(
-      new lj(),
-      this.Tf(new E(((b, c) => (d) => c.l(d).Ac())(this, a))),
-      this.Tf(new E(((b, c) => (d) => c.l(d).Bc())(this, a)))
+  e.fg = function (a) {
+    return Hd(
+      new Id(),
+      this.If(new D(((b, c) => (d) => c.m(d).dc())(this, a))),
+      this.If(new D(((b, c) => (d) => c.m(d).qc())(this, a)))
     );
   };
-  e.le = function (a, b, c, d) {
-    $l(this);
-    bt(this, a.Tb, b, c, d);
+  e.ae = function (a, b, c, d) {
+    fm(this);
+    nt(this, a.Nb, b, c, d);
     return a;
   };
   e.z = function () {
-    return bt(this, Cl("LazyList"), "(", ", ", ")").o;
+    return nt(this, Hl("LazyList"), "(", ", ", ")").n;
   };
-  e.l = function (a) {
-    return en(this, a | 0);
+  e.m = function (a) {
+    return mn(this, a | 0);
   };
-  e.Eb = function (a) {
-    return 0 >= a ? this : this.uc && this.e() ? Bf().Le : em(Bf(), this, a);
+  e.Jb = function (a) {
+    return 0 >= a ? this : this.lc && this.e() ? X().ie : ym(X(), this, a);
   };
-  e.Rf = function (a) {
-    return ft(this, a);
+  e.hg = function () {
+    var a = X();
+    return rt(this, Am(a, 0, 1));
   };
-  e.Wb = function (a) {
-    return ft(this, a);
+  e.wg = function (a) {
+    return this.vg(a);
   };
-  e.W = function (a) {
-    return this.Tf(a);
+  e.Cb = function (a) {
+    return this.vg(a);
   };
-  e.Pb = function (a) {
-    return Uk(this, a);
+  e.da = function (a) {
+    return this.If(a);
   };
-  e.md = function (a) {
-    return et(this, a);
+  e.Qb = function (a) {
+    return Yk(this, a);
   };
-  e.Bd = function (a) {
-    return dt(this, a);
+  e.ud = function (a) {
+    return qt(this, a);
+  };
+  e.Nd = function (a) {
+    return pt(this, a);
   };
   e.w = function () {
-    return Y(this).gb();
+    return Z(this).Ta();
   };
-  e.ha = function () {
-    return Bf();
+  e.X = function () {
+    return X();
   };
-  e.$classData = v({ Gp: 0 }, !1, "scala.collection.immutable.LazyList", {
-    Gp: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Lp: 0 }, !1, "scala.collection.immutable.LazyList", {
+    Lp: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -12850,257 +12928,269 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Ph: 1,
-    Mg: 1,
-    Ih: 1,
-    Qh: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    Lh: 1,
+    Hg: 1,
+    Fh: 1,
+    Mh: 1,
     c: 1,
   });
-  function gt(a, b, c, d, f) {
-    b.o = "" + b.o + c;
+  function st(a, b, c, d, f) {
+    b.n = "" + b.n + c;
     if (!a.e()) {
       c = a.u();
-      b.o = "" + b.o + c;
+      b.n = "" + b.n + c;
       c = a;
-      if (a.ye()) {
+      if (a.se()) {
         var g = a.w();
-        if (c !== g && ((c = g), g.ye()))
-          for (g = g.w(); c !== g && g.ye(); ) {
-            b.o = "" + b.o + d;
+        if (c !== g && ((c = g), g.se()))
+          for (g = g.w(); c !== g && g.se(); ) {
+            b.n = "" + b.n + d;
             var h = c.u();
-            b.o = "" + b.o + h;
+            b.n = "" + b.n + h;
             c = c.w();
             g = g.w();
-            g.ye() && (g = g.w());
+            g.se() && (g = g.w());
           }
-        if (g.ye()) {
+        if (g.se()) {
           for (h = 0; a !== g; ) (a = a.w()), (g = g.w()), (h = (1 + h) | 0);
           c === g &&
             0 < h &&
-            ((b.o = "" + b.o + d),
+            ((b.n = "" + b.n + d),
             (a = c.u()),
-            (b.o = "" + b.o + a),
+            (b.n = "" + b.n + a),
             (c = c.w()));
           for (; c !== g; )
-            (b.o = "" + b.o + d),
+            (b.n = "" + b.n + d),
               (a = c.u()),
-              (b.o = "" + b.o + a),
+              (b.n = "" + b.n + a),
               (c = c.w());
         } else {
           for (; c !== g; )
-            (b.o = "" + b.o + d),
+            (b.n = "" + b.n + d),
               (a = c.u()),
-              (b.o = "" + b.o + a),
+              (b.n = "" + b.n + a),
               (c = c.w());
-          c.e() || ((b.o = "" + b.o + d), (g = c.u()), (b.o = "" + b.o + g));
+          c.e() || ((b.n = "" + b.n + d), (g = c.u()), (b.n = "" + b.n + g));
         }
       }
       c.e() ||
-        (c.ye()
-          ? ((b.o = "" + b.o + d), (b.o += "\x3ccycle\x3e"))
-          : ((b.o = "" + b.o + d), (b.o += "\x3cnot computed\x3e")));
+        (c.se()
+          ? ((b.n = "" + b.n + d), (b.n += "\x3ccycle\x3e"))
+          : ((b.n = "" + b.n + d), (b.n += "\x3cnot computed\x3e")));
     }
-    b.o = "" + b.o + f;
+    b.n = "" + b.n + f;
     return b;
   }
-  function jm() {}
-  jm.prototype = new Ks();
-  jm.prototype.constructor = jm;
-  function ht() {}
-  e = ht.prototype = jm.prototype;
-  e.Mb = function () {
+  function Em() {}
+  Em.prototype = new Us();
+  Em.prototype.constructor = Em;
+  function tt() {}
+  e = tt.prototype = Em.prototype;
+  e.Ob = function () {
     return "LinearSeq";
   };
-  e.i = function () {
-    return 0 === this.v() ? W().Y : new Mo(this);
+  e.h = function () {
+    return 0 === this.t() ? W().Z : new Vo(this);
   };
-  e.n = function () {
-    return No(this);
+  e.q = function () {
+    return Wo(this);
   };
-  e.dd = function () {
-    return Oo(this);
+  e.id = function () {
+    return Xo(this);
   };
-  e.hb = function (a) {
-    return 0 > a ? 1 : To(this, a);
+  e.kb = function (a) {
+    return 0 > a ? 1 : bp(this, a);
   };
-  e.t = function (a) {
-    return en(this, a);
+  e.v = function (a) {
+    return mn(this, a);
   };
-  e.Qf = function (a) {
-    return Po(this, a);
+  e.Gf = function (a) {
+    return Yo(this, a);
   };
   e.F = function (a) {
-    return Qo(this, a);
+    return Zo(this, a);
   };
-  e.Je = function (a) {
-    return Ro(this, a);
+  e.cf = function (a) {
+    return $o(this, a);
   };
-  e.De = function (a, b) {
-    return So(this, a, b);
+  e.xe = function (a, b) {
+    return ap(this, a, b);
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "Stream";
   };
   e.N = function (a) {
-    for (var b = this; !b.e(); ) a.l(b.u()), (b = b.w());
+    for (var b = this; !b.e(); ) a.m(b.u()), (b = b.w());
   };
-  function it(a, b) {
-    if (a.e()) return (a = Af()), (b = Zd(b)), im(a, b);
+  function ut(a, b) {
+    if (a.e()) return (a = Lf()), (b = je(b)), Dm(a, b);
     var c = a.u();
-    return new lm(c, new H(((d, f) => () => it(d.w(), f))(a, b)));
+    return new Gm(c, new H(((d, f) => () => ut(d.w(), f))(a, b)));
   }
-  e.Fe = function (a) {
-    if (this.e()) throw Ld("empty.reduceLeft");
+  e.ze = function (a) {
+    if (this.e()) throw Yd("empty.reduceLeft");
     for (var b = this.u(), c = this.w(); !c.e(); )
-      (b = a.ad(b, c.u())), (c = c.w());
+      (b = a.Uc(b, c.u())), (c = c.w());
     return b;
   };
-  function bl(a, b, c) {
-    for (; !a.e() && !!b.l(a.u()) === c; ) a = a.w();
-    return a.e() ? mm() : nm(Af(), a, b, c);
+  function fl(a, b, c) {
+    for (; !a.e() && !!b.m(a.u()) === c; ) a = a.w();
+    return a.e() ? Hm() : Im(Lf(), a, b, c);
   }
-  e.Vd = function (a) {
-    return new cl(this, a);
+  e.Hc = function (a) {
+    return new gl(this, a);
   };
-  function dl(a, b) {
-    if (a.e()) return mm();
-    var c = b.l(a.u());
-    return new lm(c, new H(((d, f) => () => dl(d.w(), f))(a, b)));
+  function il(a, b) {
+    if (a.e()) return Hm();
+    var c = b.m(a.u());
+    return new Gm(c, new H(((d, f) => () => il(d.w(), f))(a, b)));
   }
-  function jt(a, b) {
-    if (a.e()) return mm();
-    var c = new Ci(a),
-      d = Af(),
-      f = b.l(c.fa.u());
-    for (d = im(d, f); !c.fa.e() && d.e(); )
-      (c.fa = c.fa.w()),
-        c.fa.e() || ((d = Af()), (f = b.l(c.fa.u())), (d = im(d, f)));
-    return c.fa.e()
-      ? mm()
-      : it(d, new H(((g, h, k) => () => jt(h.fa.w(), k))(a, c, b)));
+  function hl(a, b) {
+    if (a.e()) return Hm();
+    var c = new Ii(a),
+      d = Lf(),
+      f = b.m(c.ha.u());
+    for (d = Dm(d, f); !c.ha.e() && d.e(); )
+      (c.ha = c.ha.w()),
+        c.ha.e() || ((d = Lf()), (f = b.m(c.ha.u())), (d = Dm(d, f)));
+    return c.ha.e()
+      ? Hm()
+      : ut(d, new H(((g, h, k) => () => hl(h.ha.w(), k))(a, c, b)));
   }
-  e.le = function (a, b, c, d) {
+  function vt(a, b) {
+    var c;
+    (c = a.e()) || (Ud || (Ud = new Rd()), (c = Sd(b)));
+    if (c) return Hm();
+    b = Td(b) ? b : Bj(X(), b);
+    c = Hd(new Id(), a.u(), b.u());
+    return new Gm(c, new H(((d, f) => () => vt(d.w(), f.w()))(a, b)));
+  }
+  e.ae = function (a, b, c, d) {
     this.Ck();
-    gt(this, a.Tb, b, c, d);
+    st(this, a.Nb, b, c, d);
     return a;
   };
   e.z = function () {
-    return gt(this, Cl("Stream"), "(", ", ", ")").o;
+    return st(this, Hl("Stream"), "(", ", ", ")").n;
   };
-  e.l = function (a) {
-    return en(this, a | 0);
+  e.m = function (a) {
+    return mn(this, a | 0);
   };
-  e.Wb = function (a) {
-    return jt(this, a);
+  e.hg = function () {
+    var a = X();
+    return vt(this, Am(a, 0, 1));
   };
-  e.W = function (a) {
-    return dl(this, a);
+  e.Cb = function (a) {
+    return hl(this, a);
   };
-  e.Pb = function (a) {
-    return bl(this, a, !1);
+  e.da = function (a) {
+    return il(this, a);
   };
-  e.ha = function () {
-    return Af();
+  e.Qb = function (a) {
+    return fl(this, a, !1);
   };
-  function Gm(a) {
-    this.oc = a;
+  e.X = function () {
+    return Lf();
+  };
+  function Nm(a) {
+    this.mc = a;
   }
-  Gm.prototype = new Ks();
-  Gm.prototype.constructor = Gm;
-  e = Gm.prototype;
-  e.Ag = function (a) {
-    return Ms(this, a);
+  Nm.prototype = new Us();
+  Nm.prototype.constructor = Nm;
+  e = Nm.prototype;
+  e.ih = function (a) {
+    return Ws(this, a);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "IndexedSeq";
   };
-  e.i = function () {
-    return new yk(new Rs(this.oc));
+  e.h = function () {
+    return new Bk(new at(this.mc));
   };
-  e.Eb = function (a) {
-    return Bo(this, a);
+  e.Jb = function (a) {
+    return Jo(this, a);
   };
-  e.W = function (a) {
-    return Do(this, a);
+  e.da = function (a) {
+    return Lo(this, a);
   };
   e.u = function () {
-    return Pa(65535 & (this.oc.charCodeAt(0) | 0));
+    return Na(65535 & (this.mc.charCodeAt(0) | 0));
   };
-  e.dd = function () {
-    return this.t((-1 + this.n()) | 0);
+  e.id = function () {
+    return this.v((-1 + this.q()) | 0);
   };
-  e.hb = function (a) {
-    var b = this.oc.length | 0;
+  e.kb = function (a) {
+    var b = this.mc.length | 0;
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.oc.length | 0;
+  e.t = function () {
+    return this.mc.length | 0;
   };
-  e.n = function () {
-    return this.oc.length | 0;
+  e.q = function () {
+    return this.mc.length | 0;
   };
   e.z = function () {
-    return this.oc;
+    return this.mc;
   };
-  e.Ob = function (a, b, c) {
-    if (a instanceof Ta) {
-      var d = this.oc.length | 0;
+  e.Pb = function (a, b, c) {
+    if (a instanceof Ra) {
+      var d = this.mc.length | 0;
       c = c < d ? c : d;
       d = (a.a.length - b) | 0;
       c = c < d ? c : d;
       c = 0 < c ? c : 0;
-      d = this.oc;
+      d = this.mc;
       if (c > (d.length | 0) || 0 > c || 0 > c)
-        throw ((a = new Fl()), oe(a, "Index out of Bound"), a);
+        throw ((a = new Kl()), ze(a, "Index out of Bound"), a);
       b = (b - 0) | 0;
       for (var f = 0; f < c; )
         (a.a[(f + b) | 0] = 65535 & (d.charCodeAt(f) | 0)), (f = (1 + f) | 0);
       return c;
     }
-    return Md(this, a, b, c);
+    return Zd(this, a, b, c);
   };
-  e.Je = function (a) {
-    return a instanceof Gm ? this.oc === a.oc : Ns(this, a);
+  e.cf = function (a) {
+    return a instanceof Nm ? this.mc === a.mc : Xs(this, a);
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "WrappedString";
   };
-  e.yg = function () {
+  e.hh = function () {
     return 2147483647;
   };
   e.y = function (a) {
-    return a instanceof Gm ? this.oc === a.oc : ns(this, a);
+    return a instanceof Nm ? this.mc === a.mc : xs(this, a);
   };
-  e.ha = function () {
-    return xf();
+  e.X = function () {
+    return If();
   };
-  e.Bd = function (a) {
-    return a instanceof Gm ? new Gm("" + this.oc + a.oc) : ej(this, a);
+  e.Nd = function (a) {
+    return a instanceof Nm ? new Nm("" + this.mc + a.mc) : jj(this, a);
   };
-  e.Be = function (a) {
-    return Fm(Hm(), a);
+  e.ve = function (a) {
+    return Mm(Om(), a);
   };
-  e.oh = function (a) {
-    return Fm(Hm(), a);
+  e.jh = function (a) {
+    return Mm(Om(), a);
   };
-  e.l = function (a) {
-    return Pa(65535 & (this.oc.charCodeAt(a | 0) | 0));
+  e.m = function (a) {
+    return Na(65535 & (this.mc.charCodeAt(a | 0) | 0));
   };
-  e.t = function (a) {
-    return Pa(65535 & (this.oc.charCodeAt(a) | 0));
+  e.v = function (a) {
+    return Na(65535 & (this.mc.charCodeAt(a) | 0));
   };
-  e.$classData = v({ Jq: 0 }, !1, "scala.collection.immutable.WrappedString", {
-    Jq: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Lq: 0 }, !1, "scala.collection.immutable.WrappedString", {
+    Lq: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -13108,200 +13198,203 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
     c: 1,
   });
   function B(a, b) {
-    a.Qj = b;
+    a.Pj = b;
     return a;
   }
   function C() {
-    this.Qj = null;
+    this.Pj = null;
   }
   C.prototype = new q();
   C.prototype.constructor = C;
   e = C.prototype;
-  e.md = function (a) {
-    return Dq(this, a);
+  e.ud = function (a) {
+    return Mq(this, a);
   };
-  e.Ff = function (a) {
-    return Sl(this, a);
-  };
-  e.W = function (a) {
-    return Tl(this, a);
-  };
-  e.Wb = function (a) {
-    return Ul(this, a);
-  };
-  e.Rf = function (a) {
-    return Vl(this, a);
-  };
-  e.ai = function (a) {
-    return Wl(this, a);
-  };
-  e.Pb = function (a) {
+  e.fg = function (a) {
     return Xl(this, a);
   };
-  e.Ag = function (a) {
-    return Ms(this, a);
+  e.da = function (a) {
+    return Yl(this, a);
   };
-  e.Je = function (a) {
-    return Ns(this, a);
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.yg = function () {
-    fe || (fe = new ee());
-    return fe.nl;
+  e.wg = function (a) {
+    return $l(this, a);
   };
-  e.i = function () {
-    var a = new Mj(this);
-    return new yk(a);
+  e.Sj = function (a) {
+    return am(this, a);
   };
-  e.Eb = function (a) {
-    return Bo(this, a);
+  e.hg = function () {
+    return bm(this);
+  };
+  e.Qb = function (a) {
+    return cm(this, a);
+  };
+  e.ih = function (a) {
+    return Ws(this, a);
+  };
+  e.cf = function (a) {
+    return Xs(this, a);
+  };
+  e.hh = function () {
+    qe || (qe = new pe());
+    return qe.nl;
+  };
+  e.h = function () {
+    var a = new Ak(this);
+    return new Bk(a);
+  };
+  e.Jb = function (a) {
+    return Jo(this, a);
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.dd = function () {
-    return this.t((-1 + this.n()) | 0);
+  e.id = function () {
+    return this.v((-1 + this.q()) | 0);
   };
-  e.hb = function (a) {
-    var b = this.n();
+  e.kb = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.n();
+  e.t = function () {
+    return this.q();
   };
   e.y = function (a) {
-    return ns(this, a);
+    return xs(this, a);
   };
   e.H = function () {
-    return Hi(this);
+    return Ni(this);
   };
   e.z = function () {
-    return Go(this);
+    return Oo(this);
   };
-  e.Pf = function (a) {
-    return Eq(this, a);
+  e.Ff = function (a) {
+    return Nq(this, a);
   };
-  e.Xa = function () {
-    return this.n();
+  e.Sa = function () {
+    return this.q();
   };
-  e.De = function (a, b) {
-    var c = new Mj(this);
-    c = new yk(c);
-    return pj(c, a, b);
+  e.xe = function (a, b) {
+    var c = new Ak(this);
+    c = new Bk(c);
+    return sj(c, a, b);
   };
   e.F = function (a) {
-    return Gk(this, a);
+    return Jk(this, a);
   };
-  e.Pj = function (a) {
-    var b = this.n();
+  e.Oj = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
   e.e = function () {
-    return 0 === this.hb(0);
+    return 0 === this.kb(0);
   };
-  e.aj = function () {
-    return qq().X();
+  e.Wi = function () {
+    return zq().ea();
   };
-  e.Vd = function (a) {
-    return new mj(this, a);
+  e.Hc = function (a) {
+    return new oj(this, a);
   };
   e.w = function () {
-    return cj(this);
+    return hj(this);
   };
   e.N = function (a) {
-    Ed(this, a);
+    Vd(this, a);
   };
-  e.Qf = function (a) {
-    return Fd(this, a);
+  e.Gf = function (a) {
+    return Wd(this, a);
   };
-  e.Fe = function (a) {
-    return Kd(this, a);
+  e.ze = function (a) {
+    return Xd(this, a);
   };
-  e.Ob = function (a, b, c) {
-    return Md(this, a, b, c);
+  e.Pb = function (a, b, c) {
+    return Zd(this, a, b, c);
   };
-  e.le = function (a, b, c, d) {
-    return Vd(this, a, b, c, d);
+  e.ae = function (a, b, c, d) {
+    return fe(this, a, b, c, d);
   };
-  e.qd = function () {
-    return qq();
+  e.Ad = function () {
+    return zq();
   };
-  e.n = function () {
-    return this.Qj.length | 0;
+  e.q = function () {
+    return this.Pj.length | 0;
   };
-  e.t = function (a) {
-    return this.Qj[a];
+  e.v = function (a) {
+    return this.Pj[a];
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "WrappedVarArgs";
   };
-  e.Be = function (a) {
-    return mq(qq(), a);
+  e.ve = function (a) {
+    return vq(zq(), a);
   };
-  e.l = function (a) {
-    return this.t(a | 0);
+  e.m = function (a) {
+    return this.v(a | 0);
   };
-  e.ha = function () {
-    return qq();
+  e.X = function () {
+    return zq();
   };
-  e.$classData = v({ Ir: 0 }, !1, "scala.scalajs.runtime.WrappedVarArgs", {
-    Ir: 1,
+  e.$classData = v({ Kr: 0 }, !1, "scala.scalajs.runtime.WrappedVarArgs", {
+    Kr: 1,
     b: 1,
-    Kd: 1,
-    nc: 1,
-    Ib: 1,
+    he: 1,
+    Bc: 1,
+    Sb: 1,
     B: 1,
     r: 1,
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Ic: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
+    cd: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function lm(a, b) {
+  function Gm(a, b) {
     this.xl = null;
-    this.uq = a;
-    this.Gj = b;
+    this.wq = a;
+    this.Dj = b;
   }
-  lm.prototype = new ht();
-  lm.prototype.constructor = lm;
-  e = lm.prototype;
+  Gm.prototype = new tt();
+  Gm.prototype.constructor = Gm;
+  e = Gm.prototype;
   e.u = function () {
-    return this.uq;
+    return this.wq;
   };
   e.e = function () {
     return !1;
   };
-  e.ye = function () {
-    return null === this.Gj;
+  e.se = function () {
+    return null === this.Dj;
   };
-  e.Sj = function () {
-    this.ye() || this.ye() || ((this.xl = Zd(this.Gj)), (this.Gj = null));
+  e.Rj = function () {
+    this.se() || this.se() || ((this.xl = je(this.Dj)), (this.Dj = null));
     return this.xl;
   };
   e.Ck = function () {
@@ -13316,13 +13409,13 @@ let ScalaJSExample;
     }
   };
   e.w = function () {
-    return this.Sj();
+    return this.Rj();
   };
-  e.$classData = v({ tq: 0 }, !1, "scala.collection.immutable.Stream$Cons", {
+  e.$classData = v({ vq: 0 }, !1, "scala.collection.immutable.Stream$Cons", {
+    vq: 1,
     tq: 1,
-    rq: 1,
-    Uc: 1,
-    xa: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -13330,51 +13423,51 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Ph: 1,
-    Mg: 1,
-    Ih: 1,
-    Qh: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    Lh: 1,
+    Hg: 1,
+    Fh: 1,
+    Mh: 1,
     c: 1,
   });
-  function kt() {}
-  kt.prototype = new ht();
-  kt.prototype.constructor = kt;
-  e = kt.prototype;
+  function wt() {}
+  wt.prototype = new tt();
+  wt.prototype.constructor = wt;
+  e = wt.prototype;
   e.e = function () {
     return !0;
   };
-  e.Gg = function () {
-    throw Th(new Uh(), "head of empty stream");
+  e.Ag = function () {
+    throw Uk("head of empty stream");
   };
-  e.Sj = function () {
-    throw Ld("tail of empty stream");
+  e.Rj = function () {
+    throw Yd("tail of empty stream");
   };
-  e.v = function () {
+  e.t = function () {
     return 0;
   };
-  e.ye = function () {
+  e.se = function () {
     return !1;
   };
   e.Ck = function () {};
   e.w = function () {
-    return this.Sj();
+    return this.Rj();
   };
   e.u = function () {
-    this.Gg();
+    this.Ag();
   };
-  e.$classData = v({ vq: 0 }, !1, "scala.collection.immutable.Stream$Empty$", {
-    vq: 1,
-    rq: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ xq: 0 }, !1, "scala.collection.immutable.Stream$Empty$", {
+    xq: 1,
+    tq: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -13382,69 +13475,69 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Ph: 1,
-    Mg: 1,
-    Ih: 1,
-    Qh: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    Lh: 1,
+    Hg: 1,
+    Fh: 1,
+    Mh: 1,
     c: 1,
   });
-  var lt;
-  function mm() {
-    lt || (lt = new kt());
-    return lt;
+  var xt;
+  function Hm() {
+    xt || (xt = new wt());
+    return xt;
   }
-  function mt() {}
-  mt.prototype = new Xs();
-  mt.prototype.constructor = mt;
-  function nt() {}
-  nt.prototype = mt.prototype;
-  mt.prototype.qb = function (a) {
-    return Yh(this, a);
+  function yt() {}
+  yt.prototype = new gt();
+  yt.prototype.constructor = yt;
+  function zt() {}
+  zt.prototype = yt.prototype;
+  yt.prototype.wb = function (a) {
+    return fi(this, a);
   };
-  function ot(a, b, c) {
-    var d = c & ((-1 + a.yb.a.length) | 0),
-      f = a.yb.a[d];
-    if (null === f) a.yb.a[d] = new gf(b, c, null);
+  function At(a, b, c) {
+    var d = c & ((-1 + a.ub.a.length) | 0),
+      f = a.ub.a[d];
+    if (null === f) a.ub.a[d] = new sf(b, c, null);
     else {
-      for (var g = null, h = f; null !== h && h.Td <= c; ) {
-        if (h.Td === c && L(M(), b, h.af)) return;
+      for (var g = null, h = f; null !== h && h.Jd <= c; ) {
+        if (h.Jd === c && J(L(), b, h.Te)) return;
         g = h;
-        h = h.pb;
+        h = h.jb;
       }
-      null === g ? (a.yb.a[d] = new gf(b, c, f)) : (g.pb = new gf(b, c, g.pb));
+      null === g ? (a.ub.a[d] = new sf(b, c, f)) : (g.jb = new sf(b, c, g.jb));
     }
-    a.ud = (1 + a.ud) | 0;
+    a.nd = (1 + a.nd) | 0;
   }
-  function pt(a, b) {
-    var c = a.yb.a.length;
-    a.Mj = Ja(b * a.Wh);
-    if (0 === a.ud) a.yb = new (x(hf).G)(b);
+  function Bt(a, b) {
+    var c = a.ub.a.length;
+    a.Lj = Ga(b * a.Sh);
+    if (0 === a.nd) a.ub = new (x(tf).G)(b);
     else {
-      var d = a.yb;
-      a.yb = nd(O(), d, b);
-      d = new gf(null, 0, null);
-      for (var f = new gf(null, 0, null); c < b; ) {
+      var d = a.ub;
+      a.ub = ld(O(), d, b);
+      d = new sf(null, 0, null);
+      for (var f = new sf(null, 0, null); c < b; ) {
         for (var g = 0; g < c; ) {
-          var h = a.yb.a[g];
+          var h = a.ub.a[g];
           if (null !== h) {
-            d.pb = null;
-            f.pb = null;
+            d.jb = null;
+            f.jb = null;
             for (var k = d, l = f, p = h; null !== p; ) {
-              var u = p.pb;
-              0 === (p.Td & c) ? (k = k.pb = p) : (l = l.pb = p);
+              var u = p.jb;
+              0 === (p.Jd & c) ? (k = k.jb = p) : (l = l.jb = p);
               p = u;
             }
-            k.pb = null;
-            h !== d.pb && (a.yb.a[g] = d.pb);
-            null !== f.pb && ((a.yb.a[(g + c) | 0] = f.pb), (l.pb = null));
+            k.jb = null;
+            h !== d.jb && (a.ub.a[g] = d.jb);
+            null !== f.jb && ((a.ub.a[(g + c) | 0] = f.jb), (l.jb = null));
           }
           g = (1 + g) | 0;
         }
@@ -13452,145 +13545,145 @@ let ScalaJSExample;
       }
     }
   }
-  function qt(a) {
+  function Ct(a) {
     a = (-1 + a) | 0;
     a = 4 < a ? a : 4;
-    a = ((-2147483648 >> ca(a)) & a) << 1;
+    a = ((-2147483648 >> da(a)) & a) << 1;
     return 1073741824 > a ? a : 1073741824;
   }
-  function hl(a, b, c) {
-    a.Wh = c;
-    a.yb = new (x(hf).G)(qt(b));
-    a.Mj = Ja(a.yb.a.length * a.Wh);
-    a.ud = 0;
+  function ml(a, b, c) {
+    a.Sh = c;
+    a.ub = new (x(tf).G)(Ct(b));
+    a.Lj = Ga(a.ub.a.length * a.Sh);
+    a.nd = 0;
     return a;
   }
-  function gl() {
-    this.Wh = 0;
-    this.yb = null;
-    this.ud = this.Mj = 0;
+  function ll() {
+    this.Sh = 0;
+    this.ub = null;
+    this.nd = this.Lj = 0;
   }
-  gl.prototype = new Zs();
-  gl.prototype.constructor = gl;
-  e = gl.prototype;
-  e.Wb = function (a) {
-    return Ul(this, a);
+  ll.prototype = new it();
+  ll.prototype.constructor = ll;
+  e = ll.prototype;
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return Xl(this, a);
+  e.Qb = function (a) {
+    return cm(this, a);
   };
-  e.Xa = function () {
-    return this.ud;
+  e.Sa = function () {
+    return this.nd;
   };
-  function Yq(a) {
+  function fr(a) {
     return a ^ ((a >>> 16) | 0);
   }
   e.F = function (a) {
-    var b = Yq(mg(X(), a)),
-      c = this.yb.a[b & ((-1 + this.yb.a.length) | 0)];
+    var b = fr(vg(Y(), a)),
+      c = this.ub.a[b & ((-1 + this.ub.a.length) | 0)];
     if (null === c) a = null;
     else
       a: for (;;) {
-        if (b === c.Td && L(M(), a, c.af)) {
+        if (b === c.Jd && J(L(), a, c.Te)) {
           a = c;
           break a;
         }
-        if (null === c.pb || c.Td > b) {
+        if (null === c.jb || c.Jd > b) {
           a = null;
           break a;
         }
-        c = c.pb;
+        c = c.jb;
       }
     return null !== a;
   };
-  e.cc = function (a) {
-    a = qt(Ja(((1 + a) | 0) / this.Wh));
-    a > this.yb.a.length && pt(this, a);
+  e.ac = function (a) {
+    a = Ct(Ga(((1 + a) | 0) / this.Sh));
+    a > this.ub.a.length && Bt(this, a);
   };
-  function $b(a, b) {
-    ((1 + a.ud) | 0) >= a.Mj && pt(a, a.yb.a.length << 1);
-    ot(a, b, Yq(mg(X(), b)));
+  function Yb(a, b) {
+    ((1 + a.nd) | 0) >= a.Lj && Bt(a, a.ub.a.length << 1);
+    At(a, b, fr(vg(Y(), b)));
   }
-  function il(a, b) {
-    a.cc(b.v());
-    if (b instanceof Kk)
+  function nl(a, b) {
+    a.ac(b.t());
+    if (b instanceof Nk)
       return (
-        b.mc.Ri(
-          new Sd(
+        b.kc.Mi(
+          new ce(
             ((d) => (f, g) => {
-              ot(d, f, Yq(g | 0));
+              At(d, f, fr(g | 0));
             })(a)
           )
         ),
         a
       );
-    if (b instanceof gl) {
-      for (b = new Wq(b); b.m(); ) {
+    if (b instanceof ll) {
+      for (b = new dr(b); b.l(); ) {
         var c = b.k();
-        ot(a, c.af, c.Td);
+        At(a, c.Te, c.Jd);
       }
       return a;
     }
-    return Yh(a, b);
+    return fi(a, b);
   }
-  function bc(a, b) {
+  function $b(a, b) {
     a: {
-      var c = Yq(mg(X(), b)),
-        d = c & ((-1 + a.yb.a.length) | 0),
-        f = a.yb.a[d];
+      var c = fr(vg(Y(), b)),
+        d = c & ((-1 + a.ub.a.length) | 0),
+        f = a.ub.a[d];
       if (null !== f)
-        if (f.Td === c && L(M(), f.af, b))
-          (a.yb.a[d] = f.pb), (a.ud = (-1 + a.ud) | 0);
+        if (f.Jd === c && J(L(), f.Te, b))
+          (a.ub.a[d] = f.jb), (a.nd = (-1 + a.nd) | 0);
         else
-          for (d = f, f = f.pb; null !== f && f.Td <= c; ) {
-            if (f.Td === c && L(M(), f.af, b)) {
-              d.pb = f.pb;
-              a.ud = (-1 + a.ud) | 0;
+          for (d = f, f = f.jb; null !== f && f.Jd <= c; ) {
+            if (f.Jd === c && J(L(), f.Te, b)) {
+              d.jb = f.jb;
+              a.nd = (-1 + a.nd) | 0;
               break a;
             }
             d = f;
-            f = f.pb;
+            f = f.jb;
           }
     }
   }
-  e.i = function () {
-    return new Vq(this);
+  e.h = function () {
+    return new cr(this);
   };
-  e.ha = function () {
-    return kl();
+  e.X = function () {
+    return pl();
   };
-  e.v = function () {
-    return this.ud;
+  e.t = function () {
+    return this.nd;
   };
   e.e = function () {
-    return 0 === this.ud;
+    return 0 === this.nd;
   };
   e.N = function (a) {
-    for (var b = this.yb.a.length, c = 0; c < b; ) {
-      var d = this.yb.a[c];
+    for (var b = this.ub.a.length, c = 0; c < b; ) {
+      var d = this.ub.a[c];
       null !== d && d.N(a);
       c = (1 + c) | 0;
     }
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "HashSet";
   };
   e.H = function () {
-    var a = new Vq(this);
-    a = a.m() ? new Xq(this) : a;
-    return Ag(zg(), a, zg().xh);
+    var a = new cr(this);
+    a = a.l() ? new er(this) : a;
+    return Jg(Ig(), a, Ig().sh);
   };
-  e.Oa = function (a) {
-    $b(this, a);
+  e.Ia = function (a) {
+    Yb(this, a);
     return this;
   };
-  e.qb = function (a) {
-    return il(this, a);
+  e.wb = function (a) {
+    return nl(this, a);
   };
-  e.$classData = v({ gr: 0 }, !1, "scala.collection.mutable.HashSet", {
-    gr: 1,
-    Ms: 1,
-    Uf: 1,
+  e.$classData = v({ ir: 0 }, !1, "scala.collection.mutable.HashSet", {
+    ir: 1,
+    Os: 1,
+    Jf: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -13598,429 +13691,89 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    rf: 1,
-    Xf: 1,
+    jf: 1,
+    Nf: 1,
     O: 1,
     x: 1,
-    Ps: 1,
-    yc: 1,
-    Qs: 1,
-    xc: 1,
-    Xb: 1,
-    Xc: 1,
-    qc: 1,
-    pc: 1,
-    dh: 1,
-    ma: 1,
+    Rs: 1,
+    vc: 1,
+    Ss: 1,
+    uc: 1,
+    Vb: 1,
+    Qc: 1,
+    oc: 1,
+    nc: 1,
+    Yg: 1,
+    va: 1,
     c: 1,
   });
-  function rt(a) {
-    var b = a.Hc,
-      c = b >> 31,
-      d = a.cb;
-    a = d >> 31;
-    d = (b - d) | 0;
-    return new n(
-      d,
-      (-2147483648 ^ d) > (-2147483648 ^ b)
-        ? (-1 + ((c - a) | 0)) | 0
-        : (c - a) | 0
-    );
-  }
-  function st(a) {
-    var b = rt(a),
-      c = a.za,
-      d = c >> 31;
-    a = ag();
-    b = sh(a, b.Fa, b.Ea, c, d);
-    a = a.Na;
-    return 0 === b && 0 === a;
-  }
-  function tt(a, b, c, d) {
-    a.cb = b;
-    a.Hc = c;
-    a.za = d;
-    a.vc = (b > c && 0 < d) || (b < c && 0 > d) || (b === c && !a.pd());
-    if (0 === d) throw rd("step cannot be 0.");
-    if (a.vc) b = 0;
-    else {
-      b = rt(a);
-      var f = a.za,
-        g = f >> 31;
-      var h = ag();
-      b = rh(h, b.Fa, b.Ea, f, g);
-      h = h.Na;
-      g = a.pd() || !st(a) ? 1 : 0;
-      f = g >> 31;
-      g = (b + g) | 0;
-      h = new n(
-        g,
-        (-2147483648 ^ g) < (-2147483648 ^ b)
-          ? (1 + ((h + f) | 0)) | 0
-          : (h + f) | 0
-      );
-      b = h.Fa;
-      h = h.Ea;
-      b = (0 === h ? -1 < (-2147483648 ^ b) : 0 < h) ? -1 : b;
-    }
-    a.Nd = b;
-    switch (d) {
-      case 1:
-        c = a.pd() ? c : (-1 + c) | 0;
-        break;
-      case -1:
-        c = a.pd() ? c : (1 + c) | 0;
-        break;
-      default:
-        (b = rt(a)),
-          (h = d >> 31),
-          (b = sh(ag(), b.Fa, b.Ea, d, h)),
-          (c = 0 !== b ? (c - b) | 0 : a.pd() ? c : (c - d) | 0);
-    }
-    a.Af = c;
-  }
-  function ut() {
-    this.za = this.Hc = this.cb = 0;
-    this.vc = !1;
-    this.Af = this.Nd = 0;
-  }
-  ut.prototype = new Ks();
-  ut.prototype.constructor = ut;
-  function vt() {}
-  e = vt.prototype = ut.prototype;
-  e.md = function (a) {
-    return Dq(this, a);
-  };
-  e.Bd = function (a) {
-    return Eq(this, a);
-  };
-  e.Ff = function (a) {
-    return Sl(this, a);
-  };
-  e.Wb = function (a) {
-    return Ul(this, a);
-  };
-  e.Rf = function (a) {
-    return Vl(this, a);
-  };
-  e.ai = function (a) {
-    return Wl(this, a);
-  };
-  e.Pb = function (a) {
-    return Xl(this, a);
-  };
-  e.Ag = function (a) {
-    return Ms(this, a);
-  };
-  e.qd = function () {
-    return xf();
-  };
-  e.Mb = function () {
-    return "IndexedSeq";
-  };
-  e.hb = function (a) {
-    var b = this.n();
-    return b === a ? 0 : b < a ? -1 : 1;
-  };
-  e.v = function () {
-    return this.n();
-  };
-  e.i = function () {
-    return new Rn(this.cb, this.za, this.Af, this.vc);
-  };
-  e.e = function () {
-    return this.vc;
-  };
-  e.n = function () {
-    return 0 > this.Nd
-      ? Rh(Ff(), this.cb, this.Hc, this.za, this.pd())
-      : this.Nd;
-  };
-  function wt(a) {
-    if (a.vc) throw nb(Sh("last"));
-    return a.Af;
-  }
-  function xt(a) {
-    0 > a.Nd && Rh(Ff(), a.cb, a.Hc, a.za, a.pd());
-  }
-  e.N = function (a) {
-    if (!this.vc)
-      for (var b = this.cb; ; ) {
-        a.l(b);
-        if (b === this.Af) break;
-        b = (b + this.za) | 0;
-      }
-  };
-  e.Je = function (a) {
-    if (a instanceof ut) {
-      var b = this.n();
-      switch (b) {
-        case 0:
-          return a.vc;
-        case 1:
-          return 1 === a.n() && this.cb === a.cb;
-        default:
-          return a.n() === b && this.cb === a.cb && this.za === a.za;
-      }
-    } else return Ns(this, a);
-  };
-  e.F = function (a) {
-    ma(a)
-      ? ((a |= 0),
-        (a =
-          !(a === this.Hc && !this.pd()) &&
-          (0 < this.za
-            ? !(a < this.cb || a > this.Hc) &&
-              (1 === this.za || 0 === Ia((a - this.cb) | 0, this.za))
-            : !(a < this.Hc || a > this.cb) &&
-              (-1 === this.za || 0 === Ia((a - this.cb) | 0, this.za)))))
-      : (a = Gk(this, a));
-    return a;
-  };
-  e.yg = function () {
-    return 2147483647;
-  };
-  e.y = function (a) {
-    if (a instanceof ut) {
-      if (this.vc) return a.vc;
-      if (a.vc || this.cb !== a.cb) return !1;
-      var b = wt(this);
-      return b === wt(a) && (this.cb === b || this.za === a.za);
-    }
-    return ns(this, a);
-  };
-  e.H = function () {
-    if (2 <= this.n()) {
-      var a = zg(),
-        b = this.za,
-        c = this.Af;
-      return xg(a.p(a.p(a.p(a.Ec, this.cb), b), c));
-    }
-    return Hi(this);
-  };
-  e.z = function () {
-    var a = this.pd() ? "to" : "until",
-      b = 1 === this.za ? "" : " by " + this.za;
-    return (
-      (this.vc ? "empty " : st(this) ? "" : "inexact ") +
-      "Range " +
-      this.cb +
-      " " +
-      a +
-      " " +
-      this.Hc +
-      b
-    );
-  };
-  e.Qc = function () {
-    return "Range";
-  };
-  e.xg = function (a) {
-    xt(this);
-    if (0 > a || a >= this.Nd)
-      throw og(
-        new pg(),
-        a + " is out of bounds (min 0, max " + ((-1 + this.Nd) | 0) + ")"
-      );
-    return (this.cb + ba(this.za, a)) | 0;
-  };
-  e.ha = function () {
-    return xf();
-  };
-  e.Eb = function (a) {
-    if (0 >= a || this.vc) a = this;
-    else if (a >= this.Nd && 0 <= this.Nd)
-      (a = this.Hc), (a = new $n(a, a, this.za));
-    else {
-      a = (this.cb + ba(this.za, a)) | 0;
-      var b = this.Hc,
-        c = this.za;
-      a = this.pd() ? new yt(a, b, c) : new $n(a, b, c);
-    }
-    return a;
-  };
-  e.l = function (a) {
-    return this.xg(a | 0);
-  };
-  e.t = function (a) {
-    return this.xg(a);
-  };
-  e.W = function (a) {
-    xt(this);
-    return Tl(this, a);
-  };
-  e.w = function () {
-    if (this.vc) throw nb(Sh("tail"));
-    if (1 === this.Nd) {
-      var a = this.Hc;
-      a = new $n(a, a, this.za);
-    } else
-      a = this.pd()
-        ? new yt((this.cb + this.za) | 0, this.Hc, this.za)
-        : new $n((this.cb + this.za) | 0, this.Hc, this.za);
-    return a;
-  };
-  e.u = function () {
-    if (this.vc) throw nb(Sh("head"));
-    return this.cb;
-  };
-  e.dd = function () {
-    return wt(this);
-  };
-  function $n(a, b, c) {
-    this.za = this.Hc = this.cb = 0;
-    this.vc = !1;
-    this.Af = this.Nd = 0;
-    tt(this, a, b, c);
-  }
-  $n.prototype = new vt();
-  $n.prototype.constructor = $n;
-  $n.prototype.pd = function () {
-    return !1;
-  };
-  $n.prototype.$classData = v(
-    { $p: 0 },
-    !1,
-    "scala.collection.immutable.Range$Exclusive",
-    {
-      $p: 1,
-      Yp: 1,
-      Uc: 1,
-      xa: 1,
-      E: 1,
-      b: 1,
-      B: 1,
-      r: 1,
-      D: 1,
-      s: 1,
-      C: 1,
-      la: 1,
-      oa: 1,
-      O: 1,
-      P: 1,
-      x: 1,
-      nc: 1,
-      Ib: 1,
-      Ic: 1,
-      Kd: 1,
-      $a: 1,
-      ya: 1,
-      be: 1,
-      Rd: 1,
-      ab: 1,
-      ma: 1,
-      c: 1,
-    }
-  );
-  function yt(a, b, c) {
-    this.za = this.Hc = this.cb = 0;
-    this.vc = !1;
-    this.Af = this.Nd = 0;
-    tt(this, a, b, c);
-  }
-  yt.prototype = new vt();
-  yt.prototype.constructor = yt;
-  yt.prototype.pd = function () {
-    return !0;
-  };
-  yt.prototype.$classData = v(
-    { aq: 0 },
-    !1,
-    "scala.collection.immutable.Range$Inclusive",
-    {
-      aq: 1,
-      Yp: 1,
-      Uc: 1,
-      xa: 1,
-      E: 1,
-      b: 1,
-      B: 1,
-      r: 1,
-      D: 1,
-      s: 1,
-      C: 1,
-      la: 1,
-      oa: 1,
-      O: 1,
-      P: 1,
-      x: 1,
-      nc: 1,
-      Ib: 1,
-      Ic: 1,
-      Kd: 1,
-      $a: 1,
-      ya: 1,
-      be: 1,
-      Rd: 1,
-      ab: 1,
-      ma: 1,
-      c: 1,
-    }
-  );
-  function op() {
+  function xp() {
     this.d = null;
   }
-  op.prototype = new Ks();
-  op.prototype.constructor = op;
-  function zt() {}
-  e = zt.prototype = op.prototype;
-  e.Ff = function (a) {
-    return Sl(this, a);
+  xp.prototype = new Us();
+  xp.prototype.constructor = xp;
+  function Dt() {}
+  e = Dt.prototype = xp.prototype;
+  e.fg = function (a) {
+    return Xl(this, a);
   };
-  e.Wb = function (a) {
-    return Ul(this, a);
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Rf = function (a) {
-    return Vl(this, a);
+  e.wg = function (a) {
+    return $l(this, a);
   };
-  e.ai = function (a) {
-    return Wl(this, a);
+  e.Sj = function (a) {
+    return am(this, a);
   };
-  e.Pb = function (a) {
-    return Hk(this, a, !1);
+  e.hg = function () {
+    return bm(this);
   };
-  e.Ag = function (a) {
-    return Ms(this, a);
+  e.Qb = function (a) {
+    return Kk(this, a, !1);
   };
-  e.Je = function (a) {
-    return Ns(this, a);
+  e.ih = function (a) {
+    return Ws(this, a);
   };
-  e.Mb = function () {
+  e.cf = function (a) {
+    return Xs(this, a);
+  };
+  e.Ob = function () {
     return "IndexedSeq";
   };
-  e.hb = function (a) {
-    var b = this.n();
+  e.kb = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.n();
+  e.t = function () {
+    return this.q();
   };
-  e.qd = function () {
-    return Cf();
+  e.Ad = function () {
+    return Mf();
   };
-  e.n = function () {
-    return this instanceof At ? this.j : this.d.a.length;
+  e.q = function () {
+    return this instanceof Et ? this.j : this.d.a.length;
   };
-  e.i = function () {
-    return Oe() === this ? Cf().Al : new jp(this, this.n(), this.xd());
+  e.h = function () {
+    return cf() === this ? Mf().Bl : new sp(this, this.q(), this.qd());
   };
-  function Hk(a, b, c) {
+  function Kk(a, b, c) {
     for (var d = 0, f = a.d.a.length; d !== f; ) {
-      if (!!b.l(a.d.a[d]) === c) {
+      if (!!b.m(a.d.a[d]) === c) {
         for (var g = 0, h = (1 + d) | 0; h < f; )
-          !!b.l(a.d.a[h]) !== c && (g |= 1 << h), (h = (1 + h) | 0);
+          !!b.m(a.d.a[h]) !== c && (g |= 1 << h), (h = (1 + h) | 0);
         f = g;
-        f = (d + ye(he(), f)) | 0;
-        if (a instanceof At) {
-          h = new qp();
-          for (var k = 0; k < d; ) wp(h, a.d.a[k]), (k = (1 + k) | 0);
+        f = (d + Je(se(), f)) | 0;
+        if (a instanceof Et) {
+          h = new zp();
+          for (var k = 0; k < d; ) Fp(h, a.d.a[k]), (k = (1 + k) | 0);
           for (k = (1 + d) | 0; d !== f; )
-            0 !== ((1 << k) & g) && (wp(h, a.d.a[k]), (d = (1 + d) | 0)),
+            0 !== ((1 << k) & g) && (Fp(h, a.d.a[k]), (d = (1 + d) | 0)),
               (k = (1 + k) | 0);
-          Bt(
+          Ft(
             a,
-            new E(
-              ((l, p, u, y) => (D) => (!!p.l(D) !== u ? wp(y, D) : void 0))(
+            new D(
+              ((l, p, u, A) => (G) => (!!p.m(G) !== u ? Fp(A, G) : void 0))(
                 a,
                 b,
                 c,
@@ -14028,25 +13781,25 @@ let ScalaJSExample;
               )
             )
           );
-          return h.Id();
+          return h.Cd();
         }
-        if (0 === f) return Oe();
+        if (0 === f) return cf();
         b = new r(f);
         a.d.I(0, b, 0, d);
         for (c = (1 + d) | 0; d !== f; )
           0 !== ((1 << c) & g) && ((b.a[d] = a.d.a[c]), (d = (1 + d) | 0)),
             (c = (1 + c) | 0);
-        return new Pe(b);
+        return new df(b);
       }
       d = (1 + d) | 0;
     }
-    return a instanceof At
-      ? ((d = new qp()),
-        up(d, a.d),
-        Bt(
+    return a instanceof Et
+      ? ((d = new zp()),
+        Dp(d, a.d),
+        Ft(
           a,
-          new E(
-            ((l, p, u, y) => (D) => (!!p.l(D) !== u ? wp(y, D) : void 0))(
+          new D(
+            ((l, p, u, A) => (G) => (!!p.m(G) !== u ? Fp(A, G) : void 0))(
               a,
               b,
               c,
@@ -14054,204 +13807,207 @@ let ScalaJSExample;
             )
           )
         ),
-        d.Id())
+        d.Cd())
       : a;
   }
-  e.Pc = function (a, b) {
-    var c = (4 + this.xd()) | 0;
+  e.Jc = function (a, b) {
+    var c = (4 + this.qd()) | 0;
     if (0 < b && b < c) {
-      b = new Ci(this);
-      if (ff(a))
+      b = new Ii(this);
+      if (rf(a))
         a.N(
-          new E(
+          new D(
             ((d, f) => (g) => {
-              f.fa = f.fa.hc(g);
+              f.ha = f.ha.fc(g);
             })(this, b)
           )
         );
-      else for (a = a.i(); a.m(); ) (c = a.k()), (b.fa = b.fa.hc(c));
-      return b.fa;
+      else for (a = a.h(); a.l(); ) (c = a.k()), (b.ha = b.ha.fc(c));
+      return b.ha;
     }
-    if (this.n() < ((b >>> 5) | 0) && a instanceof op) {
-      for (b = new Fo(this); b.m(); ) a = a.lf(b.k());
+    if (this.q() < ((b >>> 5) | 0) && a instanceof xp) {
+      for (b = new No(this); b.l(); ) a = a.bf(b.k());
       return a;
     }
-    return pp(vp(new qp(), this), a).Id();
+    return yp(Ep(new zp(), this), a).Cd();
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "Vector";
   };
-  e.Ob = function (a, b, c) {
-    return this.i().Ob(a, b, c);
+  e.Pb = function (a, b, c) {
+    return this.h().Pb(a, b, c);
   };
-  e.yg = function () {
-    return Cf().zl;
+  e.hh = function () {
+    return Mf().Al;
   };
-  e.Gb = function (a) {
-    return og(
-      new pg(),
-      a + " is out of bounds (min 0, max " + ((-1 + this.n()) | 0) + ")"
+  e.Db = function (a) {
+    return xg(
+      new yg(),
+      a + " is out of bounds (min 0, max " + ((-1 + this.q()) | 0) + ")"
     );
   };
   e.u = function () {
-    if (0 === this.d.a.length) throw Th(new Uh(), "empty.head");
+    if (0 === this.d.a.length) throw Uk("empty.head");
     return this.d.a[0];
   };
-  e.dd = function () {
-    if (this instanceof At) {
+  e.id = function () {
+    if (this instanceof Et) {
       var a = this.f;
-      if (0 === a.a.length) throw Th(new Uh(), "empty.tail");
+      if (0 === a.a.length) throw Uk("empty.tail");
       return a.a[(-1 + a.a.length) | 0];
     }
     return this.d.a[(-1 + this.d.a.length) | 0];
   };
   e.N = function (a) {
-    for (var b = this.xd(), c = 0; c < b; ) {
+    for (var b = this.qd(), c = 0; c < b; ) {
       var d = R(),
         f = (b / 2) | 0,
         g = (c - f) | 0;
-      bf(
+      nf(
         d,
         (-1 + ((((1 + f) | 0) - (0 > g ? -g | 0 : g)) | 0)) | 0,
-        this.Ud(c),
+        this.Kd(c),
         a
       );
       c = (1 + c) | 0;
     }
   };
-  e.Eb = function (a) {
-    var b = this.n();
+  e.Jb = function (a) {
+    var b = this.q();
     a = 0 < a ? a : 0;
-    var c = this.n();
+    var c = this.q();
     b = b < c ? b : c;
-    return ((b - a) | 0) === this.n() ? this : b <= a ? Oe() : this.wd(a, b);
+    return ((b - a) | 0) === this.q() ? this : b <= a ? cf() : this.pd(a, b);
   };
-  e.Bd = function (a) {
-    var b = a.v();
-    return 0 === b ? this : this.Pc(a, b);
+  e.Nd = function (a) {
+    var b = a.t();
+    return 0 === b ? this : this.Jc(a, b);
   };
-  e.ha = function () {
-    return Cf();
+  e.X = function () {
+    return Mf();
   };
-  function Ct() {}
-  Ct.prototype = new Xs();
-  Ct.prototype.constructor = Ct;
-  function Dt() {}
-  e = Dt.prototype = Ct.prototype;
-  e.Bd = function (a) {
-    return Eq(this, a);
+  function Gt() {}
+  Gt.prototype = new gt();
+  Gt.prototype.constructor = Gt;
+  function Ht() {}
+  e = Ht.prototype = Gt.prototype;
+  e.Nd = function (a) {
+    return Nq(this, a);
   };
-  e.W = function (a) {
-    return Tl(this, a);
+  e.da = function (a) {
+    return Yl(this, a);
   };
-  e.Wb = function (a) {
-    return Ul(this, a);
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return Xl(this, a);
+  e.Qb = function (a) {
+    return cm(this, a);
   };
-  e.Mb = function () {
+  e.Ob = function () {
     return "IndexedSeq";
   };
-  e.Eb = function (a) {
-    return Bo(this, a);
+  e.Jb = function (a) {
+    return Jo(this, a);
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.hb = function (a) {
-    var b = this.n();
+  e.kb = function (a) {
+    var b = this.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.n();
+  e.t = function () {
+    return this.q();
   };
-  e.qd = function () {
-    return Zi().Kj;
+  e.Ad = function () {
+    return Oh().Jj;
   };
-  function Et(a, b) {
-    var c = a.Fd().kc(),
-      d = c === m(fb);
+  function It(a, b) {
+    var c = a.yd().ic(),
+      d = c === m(db);
     a = [];
-    b.v();
-    for (b = b.i(); b.m(); ) {
+    b.t();
+    for (b = b.h(); b.l(); ) {
       var f = b.k();
-      a.push(d ? za(f) : null === f ? c.Cc.$h : f);
+      a.push(d ? Aa(f) : null === f ? c.xc.Wh : f);
     }
-    Zi();
-    c = c === m(db) ? m(ta) : c === m(cg) || c === m(li) ? m(w) : c;
-    return Wi(0, x(c.Cc).Zh(a));
+    Oh();
+    c = c === m(bb) ? m(ua) : c === m(mg) || c === m(ri) ? m(w) : c;
+    return bj(0, x(c.xc).Vh(a));
   }
-  e.aj = function () {
-    return Mq(Zi(), this.Fd());
+  e.Wi = function () {
+    return Uq(Oh(), this.yd());
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "ArraySeq";
   };
-  e.Ob = function (a, b, c) {
-    var d = this.n(),
-      f = Nd(Od(), a);
+  e.Pb = function (a, b, c) {
+    var d = this.q(),
+      f = Bd(Gd(), a);
     c = c < d ? c : d;
     f = (f - b) | 0;
     f = c < f ? c : f;
     f = 0 < f ? f : 0;
-    0 < f && zh(Bh(), this.od(), 0, a, b, f);
+    0 < f && Gh(Ih(), this.hd(), 0, a, b, f);
     return f;
   };
   e.y = function (a) {
-    return a instanceof Ct && Nd(Od(), this.od()) !== Nd(Od(), a.od())
+    return a instanceof Gt && Bd(Gd(), this.hd()) !== Bd(Gd(), a.hd())
       ? !1
-      : ns(this, a);
+      : xs(this, a);
   };
-  e.Be = function (a) {
-    return Et(this, a);
+  e.ve = function (a) {
+    return It(this, a);
   };
-  e.oh = function (a) {
-    return Et(this, a);
+  e.jh = function (a) {
+    return It(this, a);
   };
-  e.ha = function () {
-    return Zi().Kj;
+  e.X = function () {
+    return Oh().Jj;
   };
-  function Ii() {}
-  Ii.prototype = new Ks();
-  Ii.prototype.constructor = Ii;
-  function Ft() {}
-  e = Ft.prototype = Ii.prototype;
-  e.i = function () {
-    return new Uo(this);
+  function Oi() {}
+  Oi.prototype = new Us();
+  Oi.prototype.constructor = Oi;
+  function Jt() {}
+  e = Jt.prototype = Oi.prototype;
+  e.h = function () {
+    return new cp(this);
   };
-  e.md = function (a) {
-    return Dq(this, a);
+  e.ud = function (a) {
+    return Mq(this, a);
   };
-  e.Ff = function (a) {
-    return Sl(this, a);
+  e.fg = function (a) {
+    return Xl(this, a);
   };
-  e.Rf = function (a) {
-    return Vl(this, a);
+  e.wg = function (a) {
+    return $l(this, a);
   };
-  e.Mb = function () {
+  e.hg = function () {
+    return bm(this);
+  };
+  e.Ob = function () {
     return "LinearSeq";
   };
-  e.t = function (a) {
-    return en(this, a);
+  e.v = function (a) {
+    return mn(this, a);
   };
-  e.Je = function (a) {
-    return Ro(this, a);
+  e.cf = function (a) {
+    return $o(this, a);
   };
-  e.De = function (a, b) {
-    return So(this, a, b);
+  e.xe = function (a, b) {
+    return ap(this, a, b);
   };
-  e.qd = function () {
-    return zc();
+  e.Ad = function () {
+    return xc();
   };
-  function Gt(a, b) {
+  function Kt(a, b) {
     if (a.e()) return b;
     if (b.e()) return a;
-    var c = new Wm(b.u(), a),
+    var c = new cn(b.u(), a),
       d = c;
     for (b = b.w(); !b.e(); ) {
-      var f = new Wm(b.u(), a);
-      d = d.tc = f;
+      var f = new cn(b.u(), a);
+      d = d.sc = f;
       b = b.w();
     }
     return c;
@@ -14259,28 +14015,28 @@ let ScalaJSExample;
   e.e = function () {
     return this === I();
   };
-  function Ac(a, b) {
-    if (b instanceof Ii) return Gt(a, b);
-    if (0 === b.v()) return a;
-    if (b instanceof gp && a.e()) return Ht(b);
-    b = b.i();
-    if (b.m()) {
-      for (var c = new Wm(b.k(), a), d = c; b.m(); ) {
-        var f = new Wm(b.k(), a);
-        d = d.tc = f;
+  function yc(a, b) {
+    if (b instanceof Oi) return Kt(a, b);
+    if (0 === b.t()) return a;
+    if (b instanceof pp && a.e()) return Lt(b);
+    b = b.h();
+    if (b.l()) {
+      for (var c = new cn(b.k(), a), d = c; b.l(); ) {
+        var f = new cn(b.k(), a);
+        d = d.sc = f;
       }
       return c;
     }
     return a;
   }
   e.N = function (a) {
-    for (var b = this; !b.e(); ) a.l(b.u()), (b = b.w());
+    for (var b = this; !b.e(); ) a.m(b.u()), (b = b.w());
   };
-  e.n = function () {
+  e.q = function () {
     for (var a = this, b = 0; !a.e(); ) (b = (1 + b) | 0), (a = a.w());
     return b;
   };
-  e.hb = function (a) {
+  e.kb = function (a) {
     if (0 > a) a = 1;
     else
       a: for (var b = this, c = 0; ; ) {
@@ -14297,31 +14053,31 @@ let ScalaJSExample;
       }
     return a;
   };
-  e.Qf = function (a) {
+  e.Gf = function (a) {
     for (var b = this; !b.e(); ) {
-      if (a.l(b.u())) return !0;
+      if (a.m(b.u())) return !0;
       b = b.w();
     }
     return !1;
   };
   e.F = function (a) {
     for (var b = this; !b.e(); ) {
-      if (L(M(), b.u(), a)) return !0;
+      if (J(L(), b.u(), a)) return !0;
       b = b.w();
     }
     return !1;
   };
-  e.dd = function () {
-    if (this.e()) throw Th(new Uh(), "List.last");
+  e.id = function () {
+    if (this.e()) throw Uk("List.last");
     for (var a = this, b = this.w(); !b.e(); ) (a = b), (b = b.w());
     return a.u();
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "List";
   };
   e.y = function (a) {
     var b;
-    if (a instanceof Ii)
+    if (a instanceof Oi)
       a: for (b = this; ; ) {
         if (b === a) {
           b = !0;
@@ -14329,20 +14085,20 @@ let ScalaJSExample;
         }
         var c = b.e(),
           d = a.e();
-        if (c || d || !L(M(), b.u(), a.u())) {
+        if (c || d || !J(L(), b.u(), a.u())) {
           b = c && d;
           break a;
         }
         b = b.w();
         a = a.w();
       }
-    else b = ns(this, a);
+    else b = xs(this, a);
     return b;
   };
-  e.l = function (a) {
-    return en(this, a | 0);
+  e.m = function (a) {
+    return mn(this, a | 0);
   };
-  e.Eb = function (a) {
+  e.Jb = function (a) {
     a: for (var b = this; ; ) {
       if (0 >= a || b.e()) break a;
       a = (-1 + a) | 0;
@@ -14350,7 +14106,7 @@ let ScalaJSExample;
     }
     return b;
   };
-  e.Pb = function (a) {
+  e.Qb = function (a) {
     a: for (var b = this; ; ) {
       if (b.e()) {
         a = I();
@@ -14358,34 +14114,34 @@ let ScalaJSExample;
       }
       var c = b.u(),
         d = b.w();
-      if (!1 !== !!a.l(c)) {
+      if (!1 !== !!a.m(c)) {
         b: for (;;) {
           if (d.e()) {
             a = b;
             break b;
           }
           c = d.u();
-          if (!1 !== !!a.l(c)) d = d.w();
+          if (!1 !== !!a.m(c)) d = d.w();
           else {
             var f = b;
             c = d;
-            b = new Wm(f.u(), I());
+            b = new cn(f.u(), I());
             f = f.w();
             for (d = b; f !== c; ) {
-              var g = new Wm(f.u(), I());
-              d = d.tc = g;
+              var g = new cn(f.u(), I());
+              d = d.sc = g;
               f = f.w();
             }
             for (f = c = c.w(); !c.e(); ) {
               g = c.u();
-              if (!1 === !!a.l(g)) {
+              if (!1 === !!a.m(g)) {
                 for (; f !== c; )
-                  (g = new Wm(f.u(), I())), (d = d.tc = g), (f = f.w());
+                  (g = new cn(f.u(), I())), (d = d.sc = g), (f = f.w());
                 f = c.w();
               }
               c = c.w();
             }
-            f.e() || (d.tc = f);
+            f.e() || (d.sc = f);
             a = b;
             break b;
           }
@@ -14396,60 +14152,60 @@ let ScalaJSExample;
     }
     return a;
   };
-  e.Wb = function (a) {
+  e.Cb = function (a) {
     for (var b = this, c = null, d = null; b !== I(); ) {
-      for (var f = a.l(b.u()).i(); f.m(); ) {
-        var g = new Wm(f.k(), I());
-        null === d ? (c = g) : (d.tc = g);
+      for (var f = a.m(b.u()).h(); f.l(); ) {
+        var g = new cn(f.k(), I());
+        null === d ? (c = g) : (d.sc = g);
         d = g;
       }
       b = b.w();
     }
     return null === c ? I() : c;
   };
-  e.W = function (a) {
+  e.da = function (a) {
     if (this === I()) a = I();
     else {
       for (
-        var b = new Wm(a.l(this.u()), I()), c = b, d = this.w();
+        var b = new cn(a.m(this.u()), I()), c = b, d = this.w();
         d !== I();
 
       ) {
-        var f = new Wm(a.l(d.u()), I());
-        c = c.tc = f;
+        var f = new cn(a.m(d.u()), I());
+        c = c.sc = f;
         d = d.w();
       }
       a = b;
     }
     return a;
   };
-  e.Bd = function (a) {
-    return a instanceof Ii ? Gt(a, this) : Eq(this, a);
+  e.Nd = function (a) {
+    return a instanceof Oi ? Kt(a, this) : Nq(this, a);
   };
-  e.ha = function () {
-    return zc();
+  e.X = function () {
+    return xc();
   };
-  function It() {
+  function Mt() {
     this.d = null;
   }
-  It.prototype = new zt();
-  It.prototype.constructor = It;
-  function Jt() {}
-  Jt.prototype = It.prototype;
-  function Tq(a) {
-    this.Se = a;
+  Mt.prototype = new Dt();
+  Mt.prototype.constructor = Mt;
+  function Qt() {}
+  Qt.prototype = Mt.prototype;
+  function ar(a) {
+    this.Le = a;
   }
-  Tq.prototype = new Dt();
-  Tq.prototype.constructor = Tq;
-  e = Tq.prototype;
-  e.n = function () {
-    return this.Se.a.length;
+  ar.prototype = new Ht();
+  ar.prototype.constructor = ar;
+  e = ar.prototype;
+  e.q = function () {
+    return this.Le.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.Se,
-        c = a.Ec,
+      var b = this.Le,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -14476,43 +14232,43 @@ let ScalaJSExample;
             h = l;
             k = (1 + k) | 0;
           }
-          a = xg(a.p(a.p(g, f), h));
+          a = Gg(a.p(a.p(g, f), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Tq) {
-      var b = this.Se;
-      a = a.Se;
-      return kd(O(), b, a);
+    if (a instanceof ar) {
+      var b = this.Le;
+      a = a.Le;
+      return id(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new hr(this.Se);
+  e.h = function () {
+    return new pr(this.Le);
   };
-  e.l = function (a) {
-    return this.Se.a[a | 0];
+  e.m = function (a) {
+    return this.Le.a[a | 0];
   };
-  e.t = function (a) {
-    return this.Se.a[a];
+  e.v = function (a) {
+    return this.Le.a[a];
   };
-  e.Fd = function () {
-    return hi();
+  e.yd = function () {
+    return pi();
   };
-  e.od = function () {
-    return this.Se;
+  e.hd = function () {
+    return this.Le;
   };
   e.$classData = v(
-    { Vq: 0 },
+    { Xq: 0 },
     !1,
     "scala.collection.mutable.ArraySeq$ofBoolean",
     {
-      Vq: 1,
-      ve: 1,
-      Kc: 1,
-      xa: 1,
+      Xq: 1,
+      oe: 1,
+      Dc: 1,
+      Ka: 1,
       E: 1,
       b: 1,
       B: 1,
@@ -14520,39 +14276,39 @@ let ScalaJSExample;
       D: 1,
       s: 1,
       C: 1,
-      la: 1,
-      oa: 1,
+      ua: 1,
+      Aa: 1,
       O: 1,
-      P: 1,
+      Q: 1,
       x: 1,
-      Mc: 1,
-      yc: 1,
-      Nc: 1,
-      xc: 1,
-      Xb: 1,
-      Yc: 1,
-      $a: 1,
-      ya: 1,
-      Zc: 1,
-      ab: 1,
-      ma: 1,
+      Fc: 1,
+      vc: 1,
+      Gc: 1,
+      uc: 1,
+      Vb: 1,
+      Rc: 1,
+      nb: 1,
+      La: 1,
+      Sc: 1,
+      ob: 1,
+      va: 1,
       c: 1,
     }
   );
-  function Rq(a) {
-    this.Te = a;
+  function Zq(a) {
+    this.Me = a;
   }
-  Rq.prototype = new Dt();
-  Rq.prototype.constructor = Rq;
-  e = Rq.prototype;
-  e.n = function () {
-    return this.Te.a.length;
+  Zq.prototype = new Ht();
+  Zq.prototype.constructor = Zq;
+  e = Zq.prototype;
+  e.q = function () {
+    return this.Me.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.Te,
-        c = a.Ec,
+      var b = this.Me,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -14579,39 +14335,39 @@ let ScalaJSExample;
             h = l;
             k = (1 + k) | 0;
           }
-          a = xg(a.p(a.p(g, f), h));
+          a = Gg(a.p(a.p(g, f), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Rq) {
-      var b = this.Te;
-      a = a.Te;
-      return jd(O(), b, a);
+    if (a instanceof Zq) {
+      var b = this.Me;
+      a = a.Me;
+      return hd(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new ar(this.Te);
+  e.h = function () {
+    return new ir(this.Me);
   };
-  e.l = function (a) {
-    return this.Te.a[a | 0];
+  e.m = function (a) {
+    return this.Me.a[a | 0];
   };
-  e.t = function (a) {
-    return this.Te.a[a];
+  e.v = function (a) {
+    return this.Me.a[a];
   };
-  e.Fd = function () {
-    return bi();
+  e.yd = function () {
+    return ji();
   };
-  e.od = function () {
-    return this.Te;
+  e.hd = function () {
+    return this.Me;
   };
-  e.$classData = v({ Wq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofByte", {
-    Wq: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ Yq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofByte", {
+    Yq: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -14619,38 +14375,38 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Qq(a) {
-    this.jd = a;
+  function Yq(a) {
+    this.dd = a;
   }
-  Qq.prototype = new Dt();
-  Qq.prototype.constructor = Qq;
-  e = Qq.prototype;
-  e.n = function () {
-    return this.jd.a.length;
+  Yq.prototype = new Ht();
+  Yq.prototype.constructor = Yq;
+  e = Yq.prototype;
+  e.q = function () {
+    return this.dd.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.jd,
-        c = a.Ec,
+      var b = this.dd,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -14677,61 +14433,61 @@ let ScalaJSExample;
             h = l;
             k = (1 + k) | 0;
           }
-          a = xg(a.p(a.p(g, f), h));
+          a = Gg(a.p(a.p(g, f), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Qq) {
-      var b = this.jd;
-      a = a.jd;
-      return id(O(), b, a);
+    if (a instanceof Yq) {
+      var b = this.dd;
+      a = a.dd;
+      return gd(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new br(this.jd);
+  e.h = function () {
+    return new jr(this.dd);
   };
-  e.le = function (a, b, c, d) {
-    var f = a.Tb;
-    0 !== (b.length | 0) && (f.o = "" + f.o + b);
-    b = this.jd.a.length;
+  e.ae = function (a, b, c, d) {
+    var f = a.Nb;
+    0 !== (b.length | 0) && (f.n = "" + f.n + b);
+    b = this.dd.a.length;
     if (0 !== b)
-      if ("" === c) El(f, this.jd);
+      if ("" === c) Jl(f, this.dd);
       else {
-        f.n();
+        f.q();
         d.length | 0;
         c.length | 0;
-        var g = String.fromCharCode(this.jd.a[0]);
-        f.o = "" + f.o + g;
+        var g = String.fromCharCode(this.dd.a[0]);
+        f.n = "" + f.n + g;
         for (g = 1; g < b; ) {
-          f.o = "" + f.o + c;
-          var h = String.fromCharCode(this.jd.a[g]);
-          f.o = "" + f.o + h;
+          f.n = "" + f.n + c;
+          var h = String.fromCharCode(this.dd.a[g]);
+          f.n = "" + f.n + h;
           g = (1 + g) | 0;
         }
       }
-    0 !== (d.length | 0) && (f.o = "" + f.o + d);
+    0 !== (d.length | 0) && (f.n = "" + f.n + d);
     return a;
   };
-  e.l = function (a) {
-    return Pa(this.jd.a[a | 0]);
+  e.m = function (a) {
+    return Na(this.dd.a[a | 0]);
   };
-  e.t = function (a) {
-    return Pa(this.jd.a[a]);
+  e.v = function (a) {
+    return Na(this.dd.a[a]);
   };
-  e.Fd = function () {
-    return di();
+  e.yd = function () {
+    return li();
   };
-  e.od = function () {
-    return this.jd;
+  e.hd = function () {
+    return this.dd;
   };
-  e.$classData = v({ Xq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofChar", {
-    Xq: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ Zq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofChar", {
+    Zq: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -14739,38 +14495,38 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Nq(a) {
-    this.Ue = a;
+  function Vq(a) {
+    this.Ne = a;
   }
-  Nq.prototype = new Dt();
-  Nq.prototype.constructor = Nq;
-  e = Nq.prototype;
-  e.n = function () {
-    return this.Ue.a.length;
+  Vq.prototype = new Ht();
+  Vq.prototype.constructor = Vq;
+  e = Vq.prototype;
+  e.q = function () {
+    return this.Ne.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.Ue,
-        c = a.Ec,
+      var b = this.Ne,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -14778,66 +14534,66 @@ let ScalaJSExample;
           break a;
         case 1:
           b = b.a[0];
-          a = a.L(a.p(c, lg(X(), b)), 1);
+          a = a.L(a.p(c, ug(Y(), b)), 1);
           break a;
         default:
           var f = b.a[0],
-            g = lg(X(), f);
+            g = ug(Y(), f);
           f = c = a.p(c, g);
           var h = b.a[1];
-          h = lg(X(), h);
+          h = ug(Y(), h);
           var k = (h - g) | 0;
           for (g = 2; g < d; ) {
             c = a.p(c, h);
             var l = b.a[g];
-            l = lg(X(), l);
+            l = ug(Y(), l);
             if (k !== ((l - h) | 0)) {
               c = a.p(c, l);
               for (g = (1 + g) | 0; g < d; )
-                (f = b.a[g]), (c = a.p(c, lg(X(), f))), (g = (1 + g) | 0);
+                (f = b.a[g]), (c = a.p(c, ug(Y(), f))), (g = (1 + g) | 0);
               a = a.L(c, d);
               break a;
             }
             h = l;
             g = (1 + g) | 0;
           }
-          a = xg(a.p(a.p(f, k), h));
+          a = Gg(a.p(a.p(f, k), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Nq) {
-      var b = this.Ue;
-      a = a.Ue;
-      return ld(O(), b, a);
+    if (a instanceof Vq) {
+      var b = this.Ne;
+      a = a.Ne;
+      return jd(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new cr(this.Ue);
+  e.h = function () {
+    return new kr(this.Ne);
   };
-  e.l = function (a) {
-    return this.Ue.a[a | 0];
+  e.m = function (a) {
+    return this.Ne.a[a | 0];
   };
-  e.t = function (a) {
-    return this.Ue.a[a];
+  e.v = function (a) {
+    return this.Ne.a[a];
   };
-  e.Fd = function () {
-    return gi();
+  e.yd = function () {
+    return oi();
   };
-  e.od = function () {
-    return this.Ue;
+  e.hd = function () {
+    return this.Ne;
   };
   e.$classData = v(
-    { Yq: 0 },
+    { $q: 0 },
     !1,
     "scala.collection.mutable.ArraySeq$ofDouble",
     {
-      Yq: 1,
-      ve: 1,
-      Kc: 1,
-      xa: 1,
+      $q: 1,
+      oe: 1,
+      Dc: 1,
+      Ka: 1,
       E: 1,
       b: 1,
       B: 1,
@@ -14845,39 +14601,39 @@ let ScalaJSExample;
       D: 1,
       s: 1,
       C: 1,
-      la: 1,
-      oa: 1,
+      ua: 1,
+      Aa: 1,
       O: 1,
-      P: 1,
+      Q: 1,
       x: 1,
-      Mc: 1,
-      yc: 1,
-      Nc: 1,
-      xc: 1,
-      Xb: 1,
-      Yc: 1,
-      $a: 1,
-      ya: 1,
-      Zc: 1,
-      ab: 1,
-      ma: 1,
+      Fc: 1,
+      vc: 1,
+      Gc: 1,
+      uc: 1,
+      Vb: 1,
+      Rc: 1,
+      nb: 1,
+      La: 1,
+      Sc: 1,
+      ob: 1,
+      va: 1,
       c: 1,
     }
   );
-  function Pq(a) {
-    this.Ve = a;
+  function Xq(a) {
+    this.Oe = a;
   }
-  Pq.prototype = new Dt();
-  Pq.prototype.constructor = Pq;
-  e = Pq.prototype;
-  e.n = function () {
-    return this.Ve.a.length;
+  Xq.prototype = new Ht();
+  Xq.prototype.constructor = Xq;
+  e = Xq.prototype;
+  e.q = function () {
+    return this.Oe.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.Ve,
-        c = a.Ec,
+      var b = this.Oe,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -14886,63 +14642,63 @@ let ScalaJSExample;
         case 1:
           d = c;
           b = b.a[0];
-          X();
-          a = a.L(a.p(d, lg(0, b)), 1);
+          Y();
+          a = a.L(a.p(d, ug(0, b)), 1);
           break a;
         default:
           var f = b.a[0],
-            g = lg(X(), f);
+            g = ug(Y(), f);
           f = c = a.p(c, g);
           var h = b.a[1];
-          h = lg(X(), h);
+          h = ug(Y(), h);
           var k = (h - g) | 0;
           for (g = 2; g < d; ) {
             c = a.p(c, h);
             var l = b.a[g];
-            l = lg(X(), l);
+            l = ug(Y(), l);
             if (k !== ((l - h) | 0)) {
               c = a.p(c, l);
               for (g = (1 + g) | 0; g < d; )
-                (f = b.a[g]), X(), (c = a.p(c, lg(0, f))), (g = (1 + g) | 0);
+                (f = b.a[g]), Y(), (c = a.p(c, ug(0, f))), (g = (1 + g) | 0);
               a = a.L(c, d);
               break a;
             }
             h = l;
             g = (1 + g) | 0;
           }
-          a = xg(a.p(a.p(f, k), h));
+          a = Gg(a.p(a.p(f, k), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Pq) {
-      var b = this.Ve;
-      a = a.Ve;
-      return md(O(), b, a);
+    if (a instanceof Xq) {
+      var b = this.Oe;
+      a = a.Oe;
+      return kd(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new dr(this.Ve);
+  e.h = function () {
+    return new lr(this.Oe);
   };
-  e.l = function (a) {
-    return this.Ve.a[a | 0];
+  e.m = function (a) {
+    return this.Oe.a[a | 0];
   };
-  e.t = function (a) {
-    return this.Ve.a[a];
+  e.v = function (a) {
+    return this.Oe.a[a];
   };
-  e.Fd = function () {
-    return fi();
+  e.yd = function () {
+    return ni();
   };
-  e.od = function () {
-    return this.Ve;
+  e.hd = function () {
+    return this.Oe;
   };
-  e.$classData = v({ Zq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofFloat", {
-    Zq: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ ar: 0 }, !1, "scala.collection.mutable.ArraySeq$ofFloat", {
+    ar: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -14950,38 +14706,38 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Hh(a) {
-    this.We = a;
+  function Sh(a) {
+    this.pe = a;
   }
-  Hh.prototype = new Dt();
-  Hh.prototype.constructor = Hh;
-  e = Hh.prototype;
-  e.n = function () {
-    return this.We.a.length;
+  Sh.prototype = new Ht();
+  Sh.prototype.constructor = Sh;
+  e = Sh.prototype;
+  e.q = function () {
+    return this.pe.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.We,
-        c = a.Ec,
+      var b = this.pe,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -15008,42 +14764,39 @@ let ScalaJSExample;
             h = l;
             k = (1 + k) | 0;
           }
-          a = xg(a.p(a.p(g, f), h));
+          a = Gg(a.p(a.p(g, f), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Hh) {
-      var b = this.We;
-      a = a.We;
-      return gd(O(), b, a);
+    if (a instanceof Sh) {
+      var b = this.pe;
+      a = a.pe;
+      return ed(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new Kn(this.We);
+  e.h = function () {
+    return new Rn(this.pe);
   };
-  e.xg = function (a) {
-    return this.We.a[a];
+  e.m = function (a) {
+    return this.pe.a[a | 0];
   };
-  e.l = function (a) {
-    return this.xg(a | 0);
+  e.v = function (a) {
+    return this.pe.a[a];
   };
-  e.t = function (a) {
-    return this.xg(a);
+  e.yd = function () {
+    return Te();
   };
-  e.Fd = function () {
-    return Ee();
+  e.hd = function () {
+    return this.pe;
   };
-  e.od = function () {
-    return this.We;
-  };
-  e.$classData = v({ $q: 0 }, !1, "scala.collection.mutable.ArraySeq$ofInt", {
-    $q: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ br: 0 }, !1, "scala.collection.mutable.ArraySeq$ofInt", {
+    br: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15051,38 +14804,38 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Oq(a) {
-    this.Xe = a;
+  function Wq(a) {
+    this.Pe = a;
   }
-  Oq.prototype = new Dt();
-  Oq.prototype.constructor = Oq;
-  e = Oq.prototype;
-  e.n = function () {
-    return this.Xe.a.length;
+  Wq.prototype = new Ht();
+  Wq.prototype.constructor = Wq;
+  e = Wq.prototype;
+  e.q = function () {
+    return this.Pe.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.Xe,
-        c = a.Ec,
+      var b = this.Pe,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -15090,34 +14843,34 @@ let ScalaJSExample;
           break a;
         case 1:
           d = b.a[0];
-          b = d.Fa;
-          d = d.Ea;
-          a = a.L(a.p(c, kg(X(), new n(b, d))), 1);
+          b = d.bb;
+          d = d.ab;
+          a = a.L(a.p(c, tg(Y(), new n(b, d))), 1);
           break a;
         default:
           var f = b.a[0],
-            g = f.Fa;
-          f = f.Ea;
-          f = kg(X(), new n(g, f));
+            g = f.bb;
+          f = f.ab;
+          f = tg(Y(), new n(g, f));
           g = c = a.p(c, f);
           var h = b.a[1],
-            k = h.Fa;
-          h = h.Ea;
-          k = kg(X(), new n(k, h));
+            k = h.bb;
+          h = h.ab;
+          k = tg(Y(), new n(k, h));
           h = (k - f) | 0;
           for (f = 2; f < d; ) {
             c = a.p(c, k);
             var l = b.a[f],
-              p = l.Fa;
-            l = l.Ea;
-            p = kg(X(), new n(p, l));
+              p = l.bb;
+            l = l.ab;
+            p = tg(Y(), new n(p, l));
             if (h !== ((p - k) | 0)) {
               c = a.p(c, p);
               for (f = (1 + f) | 0; f < d; )
                 (k = b.a[f]),
-                  (g = k.Fa),
-                  (k = k.Ea),
-                  (c = a.p(c, kg(X(), new n(g, k)))),
+                  (g = k.bb),
+                  (k = k.ab),
+                  (c = a.p(c, tg(Y(), new n(g, k)))),
                   (f = (1 + f) | 0);
               a = a.L(c, d);
               break a;
@@ -15125,39 +14878,39 @@ let ScalaJSExample;
             k = p;
             f = (1 + f) | 0;
           }
-          a = xg(a.p(a.p(g, h), k));
+          a = Gg(a.p(a.p(g, h), k));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Oq) {
-      var b = this.Xe;
-      a = a.Xe;
-      return fd(O(), b, a);
+    if (a instanceof Wq) {
+      var b = this.Pe;
+      a = a.Pe;
+      return dd(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new er(this.Xe);
+  e.h = function () {
+    return new mr(this.Pe);
   };
-  e.l = function (a) {
-    return this.Xe.a[a | 0];
+  e.m = function (a) {
+    return this.Pe.a[a | 0];
   };
-  e.t = function (a) {
-    return this.Xe.a[a];
+  e.v = function (a) {
+    return this.Pe.a[a];
   };
-  e.Fd = function () {
-    return ei();
+  e.yd = function () {
+    return mi();
   };
-  e.od = function () {
-    return this.Xe;
+  e.hd = function () {
+    return this.Pe;
   };
-  e.$classData = v({ ar: 0 }, !1, "scala.collection.mutable.ArraySeq$ofLong", {
-    ar: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ cr: 0 }, !1, "scala.collection.mutable.ArraySeq$ofLong", {
+    cr: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15165,70 +14918,70 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Lq(a) {
-    this.Ye = a;
+  function Qh(a) {
+    this.Qe = a;
   }
-  Lq.prototype = new Dt();
-  Lq.prototype.constructor = Lq;
-  e = Lq.prototype;
-  e.Fd = function () {
-    return od(pd(), Kc(ja(this.Ye)));
+  Qh.prototype = new Ht();
+  Qh.prototype.constructor = Qh;
+  e = Qh.prototype;
+  e.yd = function () {
+    return md(nd(), Ic(ka(this.Qe)));
   };
-  e.n = function () {
-    return this.Ye.a.length;
+  e.q = function () {
+    return this.Qe.a.length;
   };
-  e.t = function (a) {
-    return this.Ye.a[a];
+  e.v = function (a) {
+    return this.Qe.a[a];
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.Ye,
-        c = a.Ec,
-        d = Nd(Od(), b);
+      var b = this.Qe,
+        c = a.Mc,
+        d = Bd(Gd(), b);
       switch (d) {
         case 0:
           a = a.L(c, 0);
           break a;
         case 1:
           d = c;
-          b = eg(Od(), b, 0);
-          a = a.L(a.p(d, mg(X(), b)), 1);
+          b = Jd(Gd(), b, 0);
+          a = a.L(a.p(d, vg(Y(), b)), 1);
           break a;
         default:
-          var f = eg(Od(), b, 0),
-            g = mg(X(), f);
+          var f = Jd(Gd(), b, 0),
+            g = vg(Y(), f);
           f = c = a.p(c, g);
-          var h = eg(Od(), b, 1);
-          h = mg(X(), h);
+          var h = Jd(Gd(), b, 1);
+          h = vg(Y(), h);
           var k = (h - g) | 0;
           for (g = 2; g < d; ) {
             c = a.p(c, h);
-            var l = eg(Od(), b, g);
-            l = mg(X(), l);
+            var l = Jd(Gd(), b, g);
+            l = vg(Y(), l);
             if (k !== ((l - h) | 0)) {
               c = a.p(c, l);
               for (g = (1 + g) | 0; g < d; )
-                (f = eg(Od(), b, g)),
-                  (c = a.p(c, mg(X(), f))),
+                (f = Jd(Gd(), b, g)),
+                  (c = a.p(c, vg(Y(), f))),
                   (g = (1 + g) | 0);
               a = a.L(c, d);
               break a;
@@ -15236,22 +14989,22 @@ let ScalaJSExample;
             h = l;
             g = (1 + g) | 0;
           }
-          a = xg(a.p(a.p(f, k), h));
+          a = Gg(a.p(a.p(f, k), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Lq)
+    if (a instanceof Qh)
       a: {
-        Bh();
-        var b = this.Ye;
-        a = a.Ye;
+        Ih();
+        var b = this.Qe;
+        a = a.Qe;
         if (b === a) b = !0;
         else if (b.a.length !== a.a.length) b = !1;
         else {
           for (var c = b.a.length, d = 0; d < c; ) {
-            if (!L(M(), b.a[d], a.a[d])) {
+            if (!J(L(), b.a[d], a.a[d])) {
               b = !1;
               break a;
             }
@@ -15260,23 +15013,23 @@ let ScalaJSExample;
           b = !0;
         }
       }
-    else b = Ct.prototype.y.call(this, a);
+    else b = Gt.prototype.y.call(this, a);
     return b;
   };
-  e.i = function () {
-    return zq(new Aq(), this.Ye);
+  e.h = function () {
+    return Iq(new Jq(), this.Qe);
   };
-  e.l = function (a) {
-    return this.t(a | 0);
+  e.m = function (a) {
+    return this.v(a | 0);
   };
-  e.od = function () {
-    return this.Ye;
+  e.hd = function () {
+    return this.Qe;
   };
-  e.$classData = v({ br: 0 }, !1, "scala.collection.mutable.ArraySeq$ofRef", {
-    br: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ dr: 0 }, !1, "scala.collection.mutable.ArraySeq$ofRef", {
+    dr: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15284,38 +15037,38 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Sq(a) {
-    this.Ze = a;
+  function $q(a) {
+    this.Re = a;
   }
-  Sq.prototype = new Dt();
-  Sq.prototype.constructor = Sq;
-  e = Sq.prototype;
-  e.n = function () {
-    return this.Ze.a.length;
+  $q.prototype = new Ht();
+  $q.prototype.constructor = $q;
+  e = $q.prototype;
+  e.q = function () {
+    return this.Re.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = this.Ze,
-        c = a.Ec,
+      var b = this.Re,
+        c = a.Mc,
         d = b.a.length;
       switch (d) {
         case 0:
@@ -15342,39 +15095,39 @@ let ScalaJSExample;
             h = l;
             k = (1 + k) | 0;
           }
-          a = xg(a.p(a.p(g, f), h));
+          a = Gg(a.p(a.p(g, f), h));
       }
     }
     return a;
   };
   e.y = function (a) {
-    if (a instanceof Sq) {
-      var b = this.Ze;
-      a = a.Ze;
-      return hd(O(), b, a);
+    if (a instanceof $q) {
+      var b = this.Re;
+      a = a.Re;
+      return fd(O(), b, a);
     }
-    return Ct.prototype.y.call(this, a);
+    return Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new fr(this.Ze);
+  e.h = function () {
+    return new nr(this.Re);
   };
-  e.l = function (a) {
-    return this.Ze.a[a | 0];
+  e.m = function (a) {
+    return this.Re.a[a | 0];
   };
-  e.t = function (a) {
-    return this.Ze.a[a];
+  e.v = function (a) {
+    return this.Re.a[a];
   };
-  e.Fd = function () {
-    return ci();
+  e.yd = function () {
+    return ki();
   };
-  e.od = function () {
-    return this.Ze;
+  e.hd = function () {
+    return this.Re;
   };
-  e.$classData = v({ cr: 0 }, !1, "scala.collection.mutable.ArraySeq$ofShort", {
-    cr: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ er: 0 }, !1, "scala.collection.mutable.ArraySeq$ofShort", {
+    er: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15382,38 +15135,38 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Uq(a) {
-    this.mg = a;
+  function br(a) {
+    this.cg = a;
   }
-  Uq.prototype = new Dt();
-  Uq.prototype.constructor = Uq;
-  e = Uq.prototype;
-  e.n = function () {
-    return this.mg.a.length;
+  br.prototype = new Ht();
+  br.prototype.constructor = br;
+  e = br.prototype;
+  e.q = function () {
+    return this.cg.a.length;
   };
   e.H = function () {
-    var a = zg();
+    var a = Ig();
     a: {
-      var b = a.Ec,
-        c = this.mg.a.length;
+      var b = a.Mc,
+        c = this.cg.a.length;
       switch (c) {
         case 0:
           a = a.L(b, 0);
@@ -15433,32 +15186,32 @@ let ScalaJSExample;
             f = 0;
             h = (1 + h) | 0;
           }
-          a = xg(a.p(a.p(d, g), f));
+          a = Gg(a.p(a.p(d, g), f));
       }
     }
     return a;
   };
   e.y = function (a) {
-    return a instanceof Uq
-      ? this.mg.a.length === a.mg.a.length
-      : Ct.prototype.y.call(this, a);
+    return a instanceof br
+      ? this.cg.a.length === a.cg.a.length
+      : Gt.prototype.y.call(this, a);
   };
-  e.i = function () {
-    return new gr(this.mg);
+  e.h = function () {
+    return new or(this.cg);
   };
-  e.l = function () {};
-  e.t = function () {};
-  e.Fd = function () {
-    return ii();
+  e.m = function () {};
+  e.v = function () {};
+  e.yd = function () {
+    return qi();
   };
-  e.od = function () {
-    return this.mg;
+  e.hd = function () {
+    return this.cg;
   };
-  e.$classData = v({ dr: 0 }, !1, "scala.collection.mutable.ArraySeq$ofUnit", {
-    dr: 1,
-    ve: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ fr: 0 }, !1, "scala.collection.mutable.ArraySeq$ofUnit", {
+    fr: 1,
+    oe: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15466,127 +15219,127 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
     c: 1,
   });
-  function Kt(a, b, c, d) {
+  function Rt(a, b, c, d) {
     a.f = c;
     a.j = d;
     a.d = b;
   }
-  function At() {
+  function Et() {
     this.f = this.d = null;
     this.j = 0;
   }
-  At.prototype = new Jt();
-  At.prototype.constructor = At;
-  function Lt() {}
-  Lt.prototype = At.prototype;
-  function Bt(a, b) {
-    for (var c = a.xd(), d = 1; d < c; ) {
+  Et.prototype = new Qt();
+  Et.prototype.constructor = Et;
+  function St() {}
+  St.prototype = Et.prototype;
+  function Ft(a, b) {
+    for (var c = a.qd(), d = 1; d < c; ) {
       var f = R(),
         g = (c / 2) | 0,
         h = (d - g) | 0;
-      bf(
+      nf(
         f,
         (-1 + ((((1 + g) | 0) - (0 > h ? -h | 0 : h)) | 0)) | 0,
-        a.Ud(d),
+        a.Kd(d),
         b
       );
       d = (1 + d) | 0;
     }
   }
-  function Pe(a) {
+  function df(a) {
     this.d = a;
   }
-  Pe.prototype = new Jt();
-  Pe.prototype.constructor = Pe;
-  e = Pe.prototype;
-  e.t = function (a) {
+  df.prototype = new Qt();
+  df.prototype.constructor = df;
+  e = df.prototype;
+  e.v = function (a) {
     if (0 <= a && a < this.d.a.length) return this.d.a[a];
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.Gf = function (a, b) {
+  e.wf = function (a, b) {
     if (0 <= a && a < this.d.a.length) {
-      var c = this.d.q();
+      var c = this.d.o();
       c.a[a] = b;
-      return new Pe(c);
+      return new df(c);
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.hc = function (a) {
-    if (32 > this.d.a.length) return new Pe($e(R(), this.d, a));
+  e.fc = function (a) {
+    if (32 > this.d.a.length) return new df(lf(R(), this.d, a));
     var b = this.d,
-      c = R().Q,
+      c = R().P,
       d = new r(1);
     d.a[0] = a;
-    return new Ue(b, 32, c, d, 33);
+    return new ef(b, 32, c, d, 33);
   };
-  e.lf = function (a) {
+  e.bf = function (a) {
     var b = this.d.a.length;
-    if (32 > b) return new Pe(af(R(), a, this.d));
+    if (32 > b) return new df(mf(R(), a, this.d));
     var c = new r(1);
     c.a[0] = a;
-    return new Ue(c, 1, R().Q, this.d, (1 + b) | 0);
+    return new ef(c, 1, R().P, this.d, (1 + b) | 0);
   };
-  e.Hd = function (a) {
-    return new Pe(cf(R(), this.d, a));
+  e.Bd = function (a) {
+    return new df(of(R(), this.d, a));
   };
-  e.wd = function (a, b) {
+  e.pd = function (a, b) {
     var c = this.d;
-    return new Pe(N(O(), c, a, b));
+    return new df(N(O(), c, a, b));
   };
-  e.kd = function () {
-    if (1 === this.d.a.length) return Oe();
+  e.ed = function () {
+    if (1 === this.d.a.length) return cf();
     var a = this.d,
       b = a.a.length;
-    return new Pe(N(O(), a, 1, b));
+    return new df(N(O(), a, 1, b));
   };
-  e.xd = function () {
+  e.qd = function () {
     return 1;
   };
-  e.Ud = function () {
+  e.Kd = function () {
     return this.d;
   };
-  e.Pc = function (a, b) {
-    var c = ef(R(), this.d, a);
-    return null !== c ? new Pe(c) : op.prototype.Pc.call(this, a, b);
+  e.Jc = function (a, b) {
+    var c = qf(R(), this.d, a);
+    return null !== c ? new df(c) : xp.prototype.Jc.call(this, a, b);
   };
   e.w = function () {
-    return this.kd();
+    return this.ed();
   };
-  e.W = function (a) {
-    return this.Hd(a);
+  e.da = function (a) {
+    return this.Bd(a);
   };
-  e.md = function (a) {
-    return this.hc(a);
+  e.ud = function (a) {
+    return this.fc(a);
   };
-  e.l = function (a) {
+  e.m = function (a) {
     a |= 0;
     if (0 <= a && a < this.d.a.length) return this.d.a[a];
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.$classData = v({ Aq: 0 }, !1, "scala.collection.immutable.Vector1", {
-    Aq: 1,
-    kg: 1,
-    jg: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Cq: 0 }, !1, "scala.collection.immutable.Vector1", {
+    Cq: 1,
+    ag: 1,
+    $f: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15594,61 +15347,61 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function Wm(a, b) {
-    this.Nh = a;
-    this.tc = b;
+  function cn(a, b) {
+    this.Kh = a;
+    this.sc = b;
   }
-  Wm.prototype = new Ft();
-  Wm.prototype.constructor = Wm;
-  e = Wm.prototype;
+  cn.prototype = new Jt();
+  cn.prototype.constructor = cn;
+  e = cn.prototype;
   e.u = function () {
-    return this.Nh;
+    return this.Kh;
   };
-  e.ib = function () {
+  e.cb = function () {
     return "::";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 2;
   };
-  e.sb = function (a) {
+  e.mb = function (a) {
     switch (a) {
       case 0:
-        return this.Nh;
+        return this.Kh;
       case 1:
-        return this.tc;
+        return this.sc;
       default:
-        return ng(X(), a);
+        return wg(Y(), a);
     }
   };
   e.w = function () {
-    return this.tc;
+    return this.sc;
   };
   e.Dk = function () {
-    return new Tm(this.Nh);
+    return new $m(this.Kh);
   };
-  e.$classData = v({ vp: 0 }, !1, "scala.collection.immutable.$colon$colon", {
-    vp: 1,
-    Rp: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Ap: 0 }, !1, "scala.collection.immutable.$colon$colon", {
+    Ap: 1,
+    Wp: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15656,72 +15409,72 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Ph: 1,
-    Mg: 1,
-    Ih: 1,
-    Qh: 1,
-    $o: 1,
-    ab: 1,
-    ma: 1,
-    Rd: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    Lh: 1,
+    Hg: 1,
+    Fh: 1,
+    Mh: 1,
+    dp: 1,
+    ob: 1,
+    va: 1,
+    ne: 1,
+    bd: 1,
     c: 1,
-    Bb: 1,
+    yb: 1,
   });
-  function Pt() {
+  function Tt() {
     this.sl = null;
-    Qt = this;
-    this.sl = kj(new lj(), I(), I());
+    Ut = this;
+    this.sl = Hd(new Id(), I(), I());
   }
-  Pt.prototype = new Ft();
-  Pt.prototype.constructor = Pt;
-  e = Pt.prototype;
-  e.Gg = function () {
-    throw Th(new Uh(), "head of empty list");
+  Tt.prototype = new Jt();
+  Tt.prototype.constructor = Tt;
+  e = Tt.prototype;
+  e.Ag = function () {
+    throw Uk("head of empty list");
   };
-  e.v = function () {
+  e.t = function () {
     return 0;
   };
-  e.i = function () {
-    return W().Y;
+  e.h = function () {
+    return W().Z;
   };
-  e.Ff = function () {
+  e.fg = function () {
     return this.sl;
   };
-  e.ib = function () {
+  e.cb = function () {
     return "Nil";
   };
-  e.rb = function () {
+  e.lb = function () {
     return 0;
   };
-  e.sb = function (a) {
-    return ng(X(), a);
+  e.mb = function (a) {
+    return wg(Y(), a);
   };
-  e.dd = function () {
-    throw Th(new Uh(), "last of empty list");
+  e.id = function () {
+    throw Uk("last of empty list");
   };
   e.w = function () {
-    throw Ld("tail of empty list");
+    throw Yd("tail of empty list");
   };
   e.Dk = function () {
-    return Ob();
+    return Mb();
   };
   e.u = function () {
-    this.Gg();
+    this.Ag();
   };
-  e.$classData = v({ Wp: 0 }, !1, "scala.collection.immutable.Nil$", {
+  e.$classData = v({ aq: 0 }, !1, "scala.collection.immutable.Nil$", {
+    aq: 1,
     Wp: 1,
-    Rp: 1,
-    Uc: 1,
-    xa: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15729,95 +15482,95 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Ph: 1,
-    Mg: 1,
-    Ih: 1,
-    Qh: 1,
-    $o: 1,
-    ab: 1,
-    ma: 1,
-    Rd: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    Lh: 1,
+    Hg: 1,
+    Fh: 1,
+    Mh: 1,
+    dp: 1,
+    ob: 1,
+    va: 1,
+    ne: 1,
+    bd: 1,
     c: 1,
-    Bb: 1,
+    yb: 1,
   });
-  var Qt;
+  var Ut;
   function I() {
-    Qt || (Qt = new Pt());
-    return Qt;
+    Ut || (Ut = new Tt());
+    return Ut;
   }
-  function Rt() {
+  function Vt() {
     this.f = this.d = null;
     this.j = 0;
-    Kt(this, R().Hj, R().Hj, 0);
+    Rt(this, R().Fj, R().Fj, 0);
   }
-  Rt.prototype = new Lt();
-  Rt.prototype.constructor = Rt;
-  e = Rt.prototype;
-  e.Gf = function (a) {
-    throw this.Gb(a);
+  Vt.prototype = new St();
+  Vt.prototype.constructor = Vt;
+  e = Vt.prototype;
+  e.wf = function (a) {
+    throw this.Db(a);
   };
-  e.hc = function (a) {
+  e.fc = function (a) {
     var b = new r(1);
     b.a[0] = a;
-    return new Pe(b);
+    return new df(b);
   };
-  e.lf = function (a) {
+  e.bf = function (a) {
     var b = new r(1);
     b.a[0] = a;
-    return new Pe(b);
+    return new df(b);
   };
-  e.kd = function () {
-    throw Ld("empty.tail");
+  e.ed = function () {
+    throw Yd("empty.tail");
   };
-  e.wd = function () {
+  e.pd = function () {
     return this;
   };
-  e.xd = function () {
+  e.qd = function () {
     return 0;
   };
-  e.Ud = function () {
+  e.Kd = function () {
     return null;
   };
   e.y = function (a) {
-    return this === a || (!(a instanceof op) && ns(this, a));
+    return this === a || (!(a instanceof xp) && xs(this, a));
   };
-  e.Pc = function (a) {
-    return Ak(Cf(), a);
+  e.Jc = function (a) {
+    return Dk(Mf(), a);
   };
-  e.Gb = function (a) {
-    return og(new pg(), a + " is out of bounds (empty vector)");
+  e.Db = function (a) {
+    return xg(new yg(), a + " is out of bounds (empty vector)");
   };
   e.w = function () {
-    return this.kd();
+    return this.ed();
   };
-  e.W = function () {
+  e.da = function () {
     return this;
   };
-  e.md = function (a) {
-    return this.hc(a);
+  e.ud = function (a) {
+    return this.fc(a);
   };
-  e.l = function (a) {
-    throw this.Gb(a | 0);
+  e.m = function (a) {
+    throw this.Db(a | 0);
   };
-  e.t = function (a) {
-    throw this.Gb(a);
+  e.v = function (a) {
+    throw this.Db(a);
   };
-  e.$classData = v({ zq: 0 }, !1, "scala.collection.immutable.Vector0$", {
-    zq: 1,
-    Qg: 1,
-    kg: 1,
-    jg: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Bq: 0 }, !1, "scala.collection.immutable.Vector0$", {
+    Bq: 1,
+    Lg: 1,
+    ag: 1,
+    $f: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -15825,201 +15578,201 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  var St;
-  function Oe() {
-    St || (St = new Rt());
-    return St;
+  var Wt;
+  function cf() {
+    Wt || (Wt = new Vt());
+    return Wt;
   }
-  function Ue(a, b, c, d, f) {
+  function ef(a, b, c, d, f) {
     this.f = this.d = null;
     this.j = 0;
-    this.ac = b;
-    this.Kb = c;
-    Kt(this, a, d, f);
+    this.Zb = b;
+    this.Gb = c;
+    Rt(this, a, d, f);
   }
-  Ue.prototype = new Lt();
-  Ue.prototype.constructor = Ue;
-  e = Ue.prototype;
-  e.t = function (a) {
+  ef.prototype = new St();
+  ef.prototype.constructor = ef;
+  e = ef.prototype;
+  e.v = function (a) {
     if (0 <= a && a < this.j) {
-      var b = (a - this.ac) | 0;
+      var b = (a - this.Zb) | 0;
       return 0 <= b
         ? ((a = (b >>> 5) | 0),
-          a < this.Kb.a.length ? this.Kb.a[a].a[31 & b] : this.f.a[31 & b])
+          a < this.Gb.a.length ? this.Gb.a[a].a[31 & b] : this.f.a[31 & b])
         : this.d.a[a];
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.Gf = function (a, b) {
+  e.wf = function (a, b) {
     if (0 <= a && a < this.j) {
-      if (a >= this.ac) {
-        var c = (a - this.ac) | 0;
+      if (a >= this.Zb) {
+        var c = (a - this.Zb) | 0;
         a = (c >>> 5) | 0;
         c &= 31;
-        if (a < this.Kb.a.length) {
-          var d = this.Kb.q(),
-            f = d.a[a].q();
+        if (a < this.Gb.a.length) {
+          var d = this.Gb.o(),
+            f = d.a[a].o();
           f.a[c] = b;
           d.a[a] = f;
-          return new Ue(this.d, this.ac, d, this.f, this.j);
+          return new ef(this.d, this.Zb, d, this.f, this.j);
         }
-        a = this.f.q();
+        a = this.f.o();
         a.a[c] = b;
-        return new Ue(this.d, this.ac, this.Kb, a, this.j);
+        return new ef(this.d, this.Zb, this.Gb, a, this.j);
       }
-      c = this.d.q();
+      c = this.d.o();
       c.a[a] = b;
-      return new Ue(c, this.ac, this.Kb, this.f, this.j);
+      return new ef(c, this.Zb, this.Gb, this.f, this.j);
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.hc = function (a) {
+  e.fc = function (a) {
     if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.f, a)),
-        new Ue(this.d, this.ac, this.Kb, a, (1 + this.j) | 0)
+        (a = lf(R(), this.f, a)),
+        new ef(this.d, this.Zb, this.Gb, a, (1 + this.j) | 0)
       );
-    if (30 > this.Kb.a.length) {
-      var b = U(R(), this.Kb, this.f),
+    if (30 > this.Gb.a.length) {
+      var b = U(R(), this.Gb, this.f),
         c = new r(1);
       c.a[0] = a;
-      return new Ue(this.d, this.ac, b, c, (1 + this.j) | 0);
+      return new ef(this.d, this.Zb, b, c, (1 + this.j) | 0);
     }
     b = this.d;
-    c = this.ac;
-    var d = this.Kb,
-      f = this.ac,
-      g = R().fb,
+    c = this.Zb;
+    var d = this.Gb,
+      f = this.Zb,
+      g = R().$a,
       h = this.f,
       k = new (x(x(w)).G)(1);
     k.a[0] = h;
     h = new r(1);
     h.a[0] = a;
-    return new Ve(b, c, d, (960 + f) | 0, g, k, h, (1 + this.j) | 0);
+    return new ff(b, c, d, (960 + f) | 0, g, k, h, (1 + this.j) | 0);
   };
-  e.lf = function (a) {
-    if (32 > this.ac) {
-      var b = af(R(), a, this.d);
-      return new Ue(b, (1 + this.ac) | 0, this.Kb, this.f, (1 + this.j) | 0);
+  e.bf = function (a) {
+    if (32 > this.Zb) {
+      var b = mf(R(), a, this.d);
+      return new ef(b, (1 + this.Zb) | 0, this.Gb, this.f, (1 + this.j) | 0);
     }
-    if (30 > this.Kb.a.length)
+    if (30 > this.Gb.a.length)
       return (
         (b = new r(1)),
         (b.a[0] = a),
-        (a = V(R(), this.d, this.Kb)),
-        new Ue(b, 1, a, this.f, (1 + this.j) | 0)
+        (a = V(R(), this.d, this.Gb)),
+        new ef(b, 1, a, this.f, (1 + this.j) | 0)
       );
     b = new r(1);
     b.a[0] = a;
     a = this.d;
     var c = new (x(x(w)).G)(1);
     c.a[0] = a;
-    return new Ve(
+    return new ff(
       b,
       1,
       c,
-      (1 + this.ac) | 0,
-      R().fb,
-      this.Kb,
+      (1 + this.Zb) | 0,
+      R().$a,
+      this.Gb,
       this.f,
       (1 + this.j) | 0
     );
   };
-  e.Hd = function (a) {
-    var b = cf(R(), this.d, a),
-      c = df(R(), 2, this.Kb, a);
-    a = cf(R(), this.f, a);
-    return new Ue(b, this.ac, c, a, this.j);
+  e.Bd = function (a) {
+    var b = of(R(), this.d, a),
+      c = pf(R(), 2, this.Gb, a);
+    a = of(R(), this.f, a);
+    return new ef(b, this.Zb, c, a, this.j);
   };
-  e.wd = function (a, b) {
-    a = new Ne(a, b);
+  e.pd = function (a, b) {
+    a = new bf(a, b);
     Q(a, 1, this.d);
-    Q(a, 2, this.Kb);
+    Q(a, 2, this.Gb);
     Q(a, 1, this.f);
-    return a.Id();
+    return a.Cd();
   };
-  e.kd = function () {
-    if (1 < this.ac) {
+  e.ed = function () {
+    if (1 < this.Zb) {
       var a = this.d,
         b = a.a.length;
       a = N(O(), a, 1, b);
-      return new Ue(a, (-1 + this.ac) | 0, this.Kb, this.f, (-1 + this.j) | 0);
+      return new ef(a, (-1 + this.Zb) | 0, this.Gb, this.f, (-1 + this.j) | 0);
     }
-    return this.wd(1, this.j);
+    return this.pd(1, this.j);
   };
-  e.xd = function () {
+  e.qd = function () {
     return 3;
   };
-  e.Ud = function (a) {
+  e.Kd = function (a) {
     switch (a) {
       case 0:
         return this.d;
       case 1:
-        return this.Kb;
+        return this.Gb;
       case 2:
         return this.f;
       default:
         throw new T(a);
     }
   };
-  e.Pc = function (a, b) {
-    var c = ef(R(), this.f, a);
+  e.Jc = function (a, b) {
+    var c = qf(R(), this.f, a);
     return null !== c
-      ? new Ue(
+      ? new ef(
           this.d,
-          this.ac,
-          this.Kb,
+          this.Zb,
+          this.Gb,
           c,
           (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
-      : op.prototype.Pc.call(this, a, b);
+      : xp.prototype.Jc.call(this, a, b);
   };
   e.w = function () {
-    return this.kd();
+    return this.ed();
   };
-  e.W = function (a) {
-    return this.Hd(a);
+  e.da = function (a) {
+    return this.Bd(a);
   };
-  e.md = function (a) {
-    return this.hc(a);
+  e.ud = function (a) {
+    return this.fc(a);
   };
-  e.l = function (a) {
+  e.m = function (a) {
     var b = a | 0;
     if (0 <= b && b < this.j)
       return (
-        (a = (b - this.ac) | 0),
+        (a = (b - this.Zb) | 0),
         0 <= a
           ? ((b = (a >>> 5) | 0),
-            b < this.Kb.a.length ? this.Kb.a[b].a[31 & a] : this.f.a[31 & a])
+            b < this.Gb.a.length ? this.Gb.a[b].a[31 & a] : this.f.a[31 & a])
           : this.d.a[b]
       );
-    throw this.Gb(b);
+    throw this.Db(b);
   };
-  e.$classData = v({ Bq: 0 }, !1, "scala.collection.immutable.Vector2", {
-    Bq: 1,
-    Qg: 1,
-    kg: 1,
-    jg: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Dq: 0 }, !1, "scala.collection.immutable.Vector2", {
+    Dq: 1,
+    Lg: 1,
+    ag: 1,
+    $f: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -16027,177 +15780,177 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function Ve(a, b, c, d, f, g, h, k) {
+  function ff(a, b, c, d, f, g, h, k) {
     this.f = this.d = null;
     this.j = 0;
-    this.Rb = b;
-    this.Sb = c;
-    this.Lb = d;
-    this.db = f;
-    this.kb = g;
-    Kt(this, a, h, k);
+    this.Lb = b;
+    this.Mb = c;
+    this.Hb = d;
+    this.Ya = f;
+    this.eb = g;
+    Rt(this, a, h, k);
   }
-  Ve.prototype = new Lt();
-  Ve.prototype.constructor = Ve;
-  e = Ve.prototype;
-  e.t = function (a) {
+  ff.prototype = new St();
+  ff.prototype.constructor = ff;
+  e = ff.prototype;
+  e.v = function (a) {
     if (0 <= a && a < this.j) {
-      var b = (a - this.Lb) | 0;
+      var b = (a - this.Hb) | 0;
       if (0 <= b) {
         a = (b >>> 10) | 0;
         var c = 31 & ((b >>> 5) | 0);
         b &= 31;
-        return a < this.db.a.length
-          ? this.db.a[a].a[c].a[b]
-          : c < this.kb.a.length
-          ? this.kb.a[c].a[b]
+        return a < this.Ya.a.length
+          ? this.Ya.a[a].a[c].a[b]
+          : c < this.eb.a.length
+          ? this.eb.a[c].a[b]
           : this.f.a[b];
       }
-      return a >= this.Rb
-        ? ((b = (a - this.Rb) | 0), this.Sb.a[(b >>> 5) | 0].a[31 & b])
+      return a >= this.Lb
+        ? ((b = (a - this.Lb) | 0), this.Mb.a[(b >>> 5) | 0].a[31 & b])
         : this.d.a[a];
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.Gf = function (a, b) {
+  e.wf = function (a, b) {
     if (0 <= a && a < this.j) {
-      if (a >= this.Lb) {
-        var c = (a - this.Lb) | 0,
+      if (a >= this.Hb) {
+        var c = (a - this.Hb) | 0,
           d = (c >>> 10) | 0;
         a = 31 & ((c >>> 5) | 0);
         c &= 31;
-        if (d < this.db.a.length) {
-          var f = this.db.q(),
-            g = f.a[d].q(),
-            h = g.a[a].q();
+        if (d < this.Ya.a.length) {
+          var f = this.Ya.o(),
+            g = f.a[d].o(),
+            h = g.a[a].o();
           h.a[c] = b;
           g.a[a] = h;
           f.a[d] = g;
-          return new Ve(
+          return new ff(
             this.d,
-            this.Rb,
-            this.Sb,
             this.Lb,
+            this.Mb,
+            this.Hb,
             f,
-            this.kb,
+            this.eb,
             this.f,
             this.j
           );
         }
-        if (a < this.kb.a.length)
+        if (a < this.eb.a.length)
           return (
-            (d = this.kb.q()),
-            (f = d.a[a].q()),
+            (d = this.eb.o()),
+            (f = d.a[a].o()),
             (f.a[c] = b),
             (d.a[a] = f),
-            new Ve(
+            new ff(
               this.d,
-              this.Rb,
-              this.Sb,
               this.Lb,
-              this.db,
+              this.Mb,
+              this.Hb,
+              this.Ya,
               d,
               this.f,
               this.j
             )
           );
-        a = this.f.q();
+        a = this.f.o();
         a.a[c] = b;
-        return new Ve(
+        return new ff(
           this.d,
-          this.Rb,
-          this.Sb,
           this.Lb,
-          this.db,
-          this.kb,
+          this.Mb,
+          this.Hb,
+          this.Ya,
+          this.eb,
           a,
           this.j
         );
       }
-      if (a >= this.Rb)
+      if (a >= this.Lb)
         return (
-          (c = (a - this.Rb) | 0),
+          (c = (a - this.Lb) | 0),
           (a = (c >>> 5) | 0),
           (c &= 31),
-          (d = this.Sb.q()),
-          (f = d.a[a].q()),
+          (d = this.Mb.o()),
+          (f = d.a[a].o()),
           (f.a[c] = b),
           (d.a[a] = f),
-          new Ve(this.d, this.Rb, d, this.Lb, this.db, this.kb, this.f, this.j)
+          new ff(this.d, this.Lb, d, this.Hb, this.Ya, this.eb, this.f, this.j)
         );
-      c = this.d.q();
+      c = this.d.o();
       c.a[a] = b;
-      return new Ve(
+      return new ff(
         c,
-        this.Rb,
-        this.Sb,
         this.Lb,
-        this.db,
-        this.kb,
+        this.Mb,
+        this.Hb,
+        this.Ya,
+        this.eb,
         this.f,
         this.j
       );
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.hc = function (a) {
+  e.fc = function (a) {
     if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.f, a)),
-        new Ve(
+        (a = lf(R(), this.f, a)),
+        new ff(
           this.d,
-          this.Rb,
-          this.Sb,
           this.Lb,
-          this.db,
-          this.kb,
+          this.Mb,
+          this.Hb,
+          this.Ya,
+          this.eb,
           a,
           (1 + this.j) | 0
         )
       );
-    if (31 > this.kb.a.length) {
-      var b = U(R(), this.kb, this.f),
+    if (31 > this.eb.a.length) {
+      var b = U(R(), this.eb, this.f),
         c = new r(1);
       c.a[0] = a;
-      return new Ve(
+      return new ff(
         this.d,
-        this.Rb,
-        this.Sb,
         this.Lb,
-        this.db,
+        this.Mb,
+        this.Hb,
+        this.Ya,
         b,
         c,
         (1 + this.j) | 0
       );
     }
-    if (30 > this.db.a.length) {
-      b = U(R(), this.db, U(R(), this.kb, this.f));
-      c = R().Q;
+    if (30 > this.Ya.a.length) {
+      b = U(R(), this.Ya, U(R(), this.eb, this.f));
+      c = R().P;
       var d = new r(1);
       d.a[0] = a;
-      return new Ve(
+      return new ff(
         this.d,
-        this.Rb,
-        this.Sb,
         this.Lb,
+        this.Mb,
+        this.Hb,
         b,
         c,
         d,
@@ -16205,182 +15958,182 @@ let ScalaJSExample;
       );
     }
     b = this.d;
-    c = this.Rb;
-    d = this.Sb;
-    var f = this.Lb,
-      g = this.db,
-      h = this.Lb,
-      k = R().wc,
-      l = U(R(), this.kb, this.f),
+    c = this.Lb;
+    d = this.Mb;
+    var f = this.Hb,
+      g = this.Ya,
+      h = this.Hb,
+      k = R().tc,
+      l = U(R(), this.eb, this.f),
       p = new (x(x(x(w))).G)(1);
     p.a[0] = l;
-    l = R().Q;
+    l = R().P;
     var u = new r(1);
     u.a[0] = a;
-    return new We(b, c, d, f, g, (30720 + h) | 0, k, p, l, u, (1 + this.j) | 0);
+    return new gf(b, c, d, f, g, (30720 + h) | 0, k, p, l, u, (1 + this.j) | 0);
   };
-  e.lf = function (a) {
-    if (32 > this.Rb) {
-      var b = af(R(), a, this.d);
-      return new Ve(
+  e.bf = function (a) {
+    if (32 > this.Lb) {
+      var b = mf(R(), a, this.d);
+      return new ff(
         b,
-        (1 + this.Rb) | 0,
-        this.Sb,
         (1 + this.Lb) | 0,
-        this.db,
-        this.kb,
+        this.Mb,
+        (1 + this.Hb) | 0,
+        this.Ya,
+        this.eb,
         this.f,
         (1 + this.j) | 0
       );
     }
-    if (1024 > this.Lb)
+    if (1024 > this.Hb)
       return (
         (b = new r(1)),
         (b.a[0] = a),
-        (a = V(R(), this.d, this.Sb)),
-        new Ve(
+        (a = V(R(), this.d, this.Mb)),
+        new ff(
           b,
           1,
           a,
-          (1 + this.Lb) | 0,
-          this.db,
-          this.kb,
+          (1 + this.Hb) | 0,
+          this.Ya,
+          this.eb,
           this.f,
           (1 + this.j) | 0
         )
       );
-    if (30 > this.db.a.length) {
+    if (30 > this.Ya.a.length) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      var c = V(R(), V(R(), this.d, this.Sb), this.db);
-      return new Ve(b, 1, a, 1, c, this.kb, this.f, (1 + this.j) | 0);
+      a = R().P;
+      var c = V(R(), V(R(), this.d, this.Mb), this.Ya);
+      return new ff(b, 1, a, 1, c, this.eb, this.f, (1 + this.j) | 0);
     }
     b = new r(1);
     b.a[0] = a;
-    a = R().Q;
-    c = V(R(), this.d, this.Sb);
+    a = R().P;
+    c = V(R(), this.d, this.Mb);
     var d = new (x(x(x(w))).G)(1);
     d.a[0] = c;
-    return new We(
+    return new gf(
       b,
       1,
       a,
       1,
       d,
-      (1 + this.Lb) | 0,
-      R().wc,
-      this.db,
-      this.kb,
+      (1 + this.Hb) | 0,
+      R().tc,
+      this.Ya,
+      this.eb,
       this.f,
       (1 + this.j) | 0
     );
   };
-  e.Hd = function (a) {
-    var b = cf(R(), this.d, a),
-      c = df(R(), 2, this.Sb, a),
-      d = df(R(), 3, this.db, a),
-      f = df(R(), 2, this.kb, a);
-    a = cf(R(), this.f, a);
-    return new Ve(b, this.Rb, c, this.Lb, d, f, a, this.j);
+  e.Bd = function (a) {
+    var b = of(R(), this.d, a),
+      c = pf(R(), 2, this.Mb, a),
+      d = pf(R(), 3, this.Ya, a),
+      f = pf(R(), 2, this.eb, a);
+    a = of(R(), this.f, a);
+    return new ff(b, this.Lb, c, this.Hb, d, f, a, this.j);
   };
-  e.wd = function (a, b) {
-    a = new Ne(a, b);
+  e.pd = function (a, b) {
+    a = new bf(a, b);
     Q(a, 1, this.d);
-    Q(a, 2, this.Sb);
-    Q(a, 3, this.db);
-    Q(a, 2, this.kb);
+    Q(a, 2, this.Mb);
+    Q(a, 3, this.Ya);
+    Q(a, 2, this.eb);
     Q(a, 1, this.f);
-    return a.Id();
+    return a.Cd();
   };
-  e.kd = function () {
-    if (1 < this.Rb) {
+  e.ed = function () {
+    if (1 < this.Lb) {
       var a = this.d,
         b = a.a.length;
       a = N(O(), a, 1, b);
-      return new Ve(
+      return new ff(
         a,
-        (-1 + this.Rb) | 0,
-        this.Sb,
         (-1 + this.Lb) | 0,
-        this.db,
-        this.kb,
+        this.Mb,
+        (-1 + this.Hb) | 0,
+        this.Ya,
+        this.eb,
         this.f,
         (-1 + this.j) | 0
       );
     }
-    return this.wd(1, this.j);
+    return this.pd(1, this.j);
   };
-  e.xd = function () {
+  e.qd = function () {
     return 5;
   };
-  e.Ud = function (a) {
+  e.Kd = function (a) {
     switch (a) {
       case 0:
         return this.d;
       case 1:
-        return this.Sb;
+        return this.Mb;
       case 2:
-        return this.db;
+        return this.Ya;
       case 3:
-        return this.kb;
+        return this.eb;
       case 4:
         return this.f;
       default:
         throw new T(a);
     }
   };
-  e.Pc = function (a, b) {
-    var c = ef(R(), this.f, a);
+  e.Jc = function (a, b) {
+    var c = qf(R(), this.f, a);
     return null !== c
-      ? new Ve(
+      ? new ff(
           this.d,
-          this.Rb,
-          this.Sb,
           this.Lb,
-          this.db,
-          this.kb,
+          this.Mb,
+          this.Hb,
+          this.Ya,
+          this.eb,
           c,
           (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
-      : op.prototype.Pc.call(this, a, b);
+      : xp.prototype.Jc.call(this, a, b);
   };
   e.w = function () {
-    return this.kd();
+    return this.ed();
   };
-  e.W = function (a) {
-    return this.Hd(a);
+  e.da = function (a) {
+    return this.Bd(a);
   };
-  e.md = function (a) {
-    return this.hc(a);
+  e.ud = function (a) {
+    return this.fc(a);
   };
-  e.l = function (a) {
+  e.m = function (a) {
     var b = a | 0;
     if (0 <= b && b < this.j) {
-      a = (b - this.Lb) | 0;
+      a = (b - this.Hb) | 0;
       if (0 <= a) {
         b = (a >>> 10) | 0;
         var c = 31 & ((a >>> 5) | 0);
         a &= 31;
-        return b < this.db.a.length
-          ? this.db.a[b].a[c].a[a]
-          : c < this.kb.a.length
-          ? this.kb.a[c].a[a]
+        return b < this.Ya.a.length
+          ? this.Ya.a[b].a[c].a[a]
+          : c < this.eb.a.length
+          ? this.eb.a[c].a[a]
           : this.f.a[a];
       }
-      return b >= this.Rb
-        ? ((a = (b - this.Rb) | 0), this.Sb.a[(a >>> 5) | 0].a[31 & a])
+      return b >= this.Lb
+        ? ((a = (b - this.Lb) | 0), this.Mb.a[(a >>> 5) | 0].a[31 & a])
         : this.d.a[b];
     }
-    throw this.Gb(b);
+    throw this.Db(b);
   };
-  e.$classData = v({ Cq: 0 }, !1, "scala.collection.immutable.Vector3", {
-    Cq: 1,
-    Qg: 1,
-    kg: 1,
-    jg: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Eq: 0 }, !1, "scala.collection.immutable.Vector3", {
+    Eq: 1,
+    Lg: 1,
+    ag: 1,
+    $f: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -16388,289 +16141,289 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function We(a, b, c, d, f, g, h, k, l, p, u) {
+  function gf(a, b, c, d, f, g, h, k, l, p, u) {
     this.f = this.d = null;
     this.j = 0;
-    this.tb = b;
-    this.lb = c;
-    this.ub = d;
-    this.mb = f;
-    this.eb = g;
-    this.Aa = h;
-    this.Ha = k;
-    this.Ga = l;
-    Kt(this, a, p, u);
+    this.pb = b;
+    this.fb = c;
+    this.qb = d;
+    this.gb = f;
+    this.Za = g;
+    this.wa = h;
+    this.Ca = k;
+    this.Ba = l;
+    Rt(this, a, p, u);
   }
-  We.prototype = new Lt();
-  We.prototype.constructor = We;
-  e = We.prototype;
-  e.t = function (a) {
+  gf.prototype = new St();
+  gf.prototype.constructor = gf;
+  e = gf.prototype;
+  e.v = function (a) {
     if (0 <= a && a < this.j) {
-      var b = (a - this.eb) | 0;
+      var b = (a - this.Za) | 0;
       if (0 <= b) {
         a = (b >>> 15) | 0;
         var c = 31 & ((b >>> 10) | 0),
           d = 31 & ((b >>> 5) | 0);
         b &= 31;
-        return a < this.Aa.a.length
-          ? this.Aa.a[a].a[c].a[d].a[b]
-          : c < this.Ha.a.length
-          ? this.Ha.a[c].a[d].a[b]
-          : d < this.Ga.a.length
-          ? this.Ga.a[d].a[b]
+        return a < this.wa.a.length
+          ? this.wa.a[a].a[c].a[d].a[b]
+          : c < this.Ca.a.length
+          ? this.Ca.a[c].a[d].a[b]
+          : d < this.Ba.a.length
+          ? this.Ba.a[d].a[b]
           : this.f.a[b];
       }
-      return a >= this.ub
-        ? ((b = (a - this.ub) | 0),
-          this.mb.a[(b >>> 10) | 0].a[31 & ((b >>> 5) | 0)].a[31 & b])
-        : a >= this.tb
-        ? ((b = (a - this.tb) | 0), this.lb.a[(b >>> 5) | 0].a[31 & b])
+      return a >= this.qb
+        ? ((b = (a - this.qb) | 0),
+          this.gb.a[(b >>> 10) | 0].a[31 & ((b >>> 5) | 0)].a[31 & b])
+        : a >= this.pb
+        ? ((b = (a - this.pb) | 0), this.fb.a[(b >>> 5) | 0].a[31 & b])
         : this.d.a[a];
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.Gf = function (a, b) {
+  e.wf = function (a, b) {
     if (0 <= a && a < this.j) {
-      if (a >= this.eb) {
-        var c = (a - this.eb) | 0,
+      if (a >= this.Za) {
+        var c = (a - this.Za) | 0,
           d = (c >>> 15) | 0,
           f = 31 & ((c >>> 10) | 0);
         a = 31 & ((c >>> 5) | 0);
         c &= 31;
-        if (d < this.Aa.a.length) {
-          var g = this.Aa.q(),
-            h = g.a[d].q(),
-            k = h.a[f].q(),
-            l = k.a[a].q();
+        if (d < this.wa.a.length) {
+          var g = this.wa.o(),
+            h = g.a[d].o(),
+            k = h.a[f].o(),
+            l = k.a[a].o();
           l.a[c] = b;
           k.a[a] = l;
           h.a[f] = k;
           g.a[d] = h;
-          return new We(
+          return new gf(
             this.d,
-            this.tb,
-            this.lb,
-            this.ub,
-            this.mb,
-            this.eb,
+            this.pb,
+            this.fb,
+            this.qb,
+            this.gb,
+            this.Za,
             g,
-            this.Ha,
-            this.Ga,
+            this.Ca,
+            this.Ba,
             this.f,
             this.j
           );
         }
-        if (f < this.Ha.a.length)
+        if (f < this.Ca.a.length)
           return (
-            (d = this.Ha.q()),
-            (g = d.a[f].q()),
-            (h = g.a[a].q()),
+            (d = this.Ca.o()),
+            (g = d.a[f].o()),
+            (h = g.a[a].o()),
             (h.a[c] = b),
             (g.a[a] = h),
             (d.a[f] = g),
-            new We(
+            new gf(
               this.d,
-              this.tb,
-              this.lb,
-              this.ub,
-              this.mb,
-              this.eb,
-              this.Aa,
+              this.pb,
+              this.fb,
+              this.qb,
+              this.gb,
+              this.Za,
+              this.wa,
               d,
-              this.Ga,
+              this.Ba,
               this.f,
               this.j
             )
           );
-        if (a < this.Ga.a.length)
+        if (a < this.Ba.a.length)
           return (
-            (f = this.Ga.q()),
-            (d = f.a[a].q()),
+            (f = this.Ba.o()),
+            (d = f.a[a].o()),
             (d.a[c] = b),
             (f.a[a] = d),
-            new We(
+            new gf(
               this.d,
-              this.tb,
-              this.lb,
-              this.ub,
-              this.mb,
-              this.eb,
-              this.Aa,
-              this.Ha,
+              this.pb,
+              this.fb,
+              this.qb,
+              this.gb,
+              this.Za,
+              this.wa,
+              this.Ca,
               f,
               this.f,
               this.j
             )
           );
-        a = this.f.q();
+        a = this.f.o();
         a.a[c] = b;
-        return new We(
+        return new gf(
           this.d,
-          this.tb,
-          this.lb,
-          this.ub,
-          this.mb,
-          this.eb,
-          this.Aa,
-          this.Ha,
-          this.Ga,
+          this.pb,
+          this.fb,
+          this.qb,
+          this.gb,
+          this.Za,
+          this.wa,
+          this.Ca,
+          this.Ba,
           a,
           this.j
         );
       }
-      if (a >= this.ub)
+      if (a >= this.qb)
         return (
-          (f = (a - this.ub) | 0),
+          (f = (a - this.qb) | 0),
           (a = (f >>> 10) | 0),
           (c = 31 & ((f >>> 5) | 0)),
           (f &= 31),
-          (d = this.mb.q()),
-          (g = d.a[a].q()),
-          (h = g.a[c].q()),
+          (d = this.gb.o()),
+          (g = d.a[a].o()),
+          (h = g.a[c].o()),
           (h.a[f] = b),
           (g.a[c] = h),
           (d.a[a] = g),
-          new We(
+          new gf(
             this.d,
-            this.tb,
-            this.lb,
-            this.ub,
+            this.pb,
+            this.fb,
+            this.qb,
             d,
-            this.eb,
-            this.Aa,
-            this.Ha,
-            this.Ga,
+            this.Za,
+            this.wa,
+            this.Ca,
+            this.Ba,
             this.f,
             this.j
           )
         );
-      if (a >= this.tb)
+      if (a >= this.pb)
         return (
-          (c = (a - this.tb) | 0),
+          (c = (a - this.pb) | 0),
           (a = (c >>> 5) | 0),
           (c &= 31),
-          (f = this.lb.q()),
-          (d = f.a[a].q()),
+          (f = this.fb.o()),
+          (d = f.a[a].o()),
           (d.a[c] = b),
           (f.a[a] = d),
-          new We(
+          new gf(
             this.d,
-            this.tb,
+            this.pb,
             f,
-            this.ub,
-            this.mb,
-            this.eb,
-            this.Aa,
-            this.Ha,
-            this.Ga,
+            this.qb,
+            this.gb,
+            this.Za,
+            this.wa,
+            this.Ca,
+            this.Ba,
             this.f,
             this.j
           )
         );
-      c = this.d.q();
+      c = this.d.o();
       c.a[a] = b;
-      return new We(
+      return new gf(
         c,
-        this.tb,
-        this.lb,
-        this.ub,
-        this.mb,
-        this.eb,
-        this.Aa,
-        this.Ha,
-        this.Ga,
+        this.pb,
+        this.fb,
+        this.qb,
+        this.gb,
+        this.Za,
+        this.wa,
+        this.Ca,
+        this.Ba,
         this.f,
         this.j
       );
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.hc = function (a) {
+  e.fc = function (a) {
     if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.f, a)),
-        new We(
+        (a = lf(R(), this.f, a)),
+        new gf(
           this.d,
-          this.tb,
-          this.lb,
-          this.ub,
-          this.mb,
-          this.eb,
-          this.Aa,
-          this.Ha,
-          this.Ga,
+          this.pb,
+          this.fb,
+          this.qb,
+          this.gb,
+          this.Za,
+          this.wa,
+          this.Ca,
+          this.Ba,
           a,
           (1 + this.j) | 0
         )
       );
-    if (31 > this.Ga.a.length) {
-      var b = U(R(), this.Ga, this.f),
+    if (31 > this.Ba.a.length) {
+      var b = U(R(), this.Ba, this.f),
         c = new r(1);
       c.a[0] = a;
-      return new We(
+      return new gf(
         this.d,
-        this.tb,
-        this.lb,
-        this.ub,
-        this.mb,
-        this.eb,
-        this.Aa,
-        this.Ha,
+        this.pb,
+        this.fb,
+        this.qb,
+        this.gb,
+        this.Za,
+        this.wa,
+        this.Ca,
         b,
         c,
         (1 + this.j) | 0
       );
     }
-    if (31 > this.Ha.a.length) {
-      b = U(R(), this.Ha, U(R(), this.Ga, this.f));
-      c = R().Q;
+    if (31 > this.Ca.a.length) {
+      b = U(R(), this.Ca, U(R(), this.Ba, this.f));
+      c = R().P;
       var d = new r(1);
       d.a[0] = a;
-      return new We(
+      return new gf(
         this.d,
-        this.tb,
-        this.lb,
-        this.ub,
-        this.mb,
-        this.eb,
-        this.Aa,
+        this.pb,
+        this.fb,
+        this.qb,
+        this.gb,
+        this.Za,
+        this.wa,
         b,
         c,
         d,
         (1 + this.j) | 0
       );
     }
-    if (30 > this.Aa.a.length) {
-      b = U(R(), this.Aa, U(R(), this.Ha, U(R(), this.Ga, this.f)));
-      c = R().fb;
-      d = R().Q;
+    if (30 > this.wa.a.length) {
+      b = U(R(), this.wa, U(R(), this.Ca, U(R(), this.Ba, this.f)));
+      c = R().$a;
+      d = R().P;
       var f = new r(1);
       f.a[0] = a;
-      return new We(
+      return new gf(
         this.d,
-        this.tb,
-        this.lb,
-        this.ub,
-        this.mb,
-        this.eb,
+        this.pb,
+        this.fb,
+        this.qb,
+        this.gb,
+        this.Za,
         b,
         c,
         d,
@@ -16679,22 +16432,22 @@ let ScalaJSExample;
       );
     }
     b = this.d;
-    c = this.tb;
-    d = this.lb;
-    f = this.ub;
-    var g = this.mb,
-      h = this.eb,
-      k = this.Aa,
-      l = this.eb,
-      p = R().Re,
-      u = U(R(), this.Ha, U(R(), this.Ga, this.f)),
-      y = new (x(x(x(x(w)))).G)(1);
-    y.a[0] = u;
-    u = R().fb;
-    var D = R().Q,
+    c = this.pb;
+    d = this.fb;
+    f = this.qb;
+    var g = this.gb,
+      h = this.Za,
+      k = this.wa,
+      l = this.Za,
+      p = R().Ke,
+      u = U(R(), this.Ca, U(R(), this.Ba, this.f)),
+      A = new (x(x(x(x(w)))).G)(1);
+    A.a[0] = u;
+    u = R().$a;
+    var G = R().P,
       K = new r(1);
     K.a[0] = a;
-    return new Xe(
+    return new hf(
       b,
       c,
       d,
@@ -16704,75 +16457,75 @@ let ScalaJSExample;
       k,
       (983040 + l) | 0,
       p,
-      y,
+      A,
       u,
-      D,
+      G,
       K,
       (1 + this.j) | 0
     );
   };
-  e.lf = function (a) {
-    if (32 > this.tb) {
-      var b = af(R(), a, this.d);
-      return new We(
+  e.bf = function (a) {
+    if (32 > this.pb) {
+      var b = mf(R(), a, this.d);
+      return new gf(
         b,
-        (1 + this.tb) | 0,
-        this.lb,
-        (1 + this.ub) | 0,
-        this.mb,
-        (1 + this.eb) | 0,
-        this.Aa,
-        this.Ha,
-        this.Ga,
+        (1 + this.pb) | 0,
+        this.fb,
+        (1 + this.qb) | 0,
+        this.gb,
+        (1 + this.Za) | 0,
+        this.wa,
+        this.Ca,
+        this.Ba,
         this.f,
         (1 + this.j) | 0
       );
     }
-    if (1024 > this.ub)
+    if (1024 > this.qb)
       return (
         (b = new r(1)),
         (b.a[0] = a),
-        (a = V(R(), this.d, this.lb)),
-        new We(
+        (a = V(R(), this.d, this.fb)),
+        new gf(
           b,
           1,
           a,
-          (1 + this.ub) | 0,
-          this.mb,
-          (1 + this.eb) | 0,
-          this.Aa,
-          this.Ha,
-          this.Ga,
+          (1 + this.qb) | 0,
+          this.gb,
+          (1 + this.Za) | 0,
+          this.wa,
+          this.Ca,
+          this.Ba,
           this.f,
           (1 + this.j) | 0
         )
       );
-    if (32768 > this.eb) {
+    if (32768 > this.Za) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      var c = V(R(), V(R(), this.d, this.lb), this.mb);
-      return new We(
+      a = R().P;
+      var c = V(R(), V(R(), this.d, this.fb), this.gb);
+      return new gf(
         b,
         1,
         a,
         1,
         c,
-        (1 + this.eb) | 0,
-        this.Aa,
-        this.Ha,
-        this.Ga,
+        (1 + this.Za) | 0,
+        this.wa,
+        this.Ca,
+        this.Ba,
         this.f,
         (1 + this.j) | 0
       );
     }
-    if (30 > this.Aa.a.length) {
+    if (30 > this.wa.a.length) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      c = R().fb;
-      var d = V(R(), V(R(), V(R(), this.d, this.lb), this.mb), this.Aa);
-      return new We(
+      a = R().P;
+      c = R().$a;
+      var d = V(R(), V(R(), V(R(), this.d, this.fb), this.gb), this.wa);
+      return new gf(
         b,
         1,
         a,
@@ -16780,20 +16533,20 @@ let ScalaJSExample;
         c,
         1,
         d,
-        this.Ha,
-        this.Ga,
+        this.Ca,
+        this.Ba,
         this.f,
         (1 + this.j) | 0
       );
     }
     b = new r(1);
     b.a[0] = a;
-    a = R().Q;
-    c = R().fb;
-    d = V(R(), V(R(), this.d, this.lb), this.mb);
+    a = R().P;
+    c = R().$a;
+    d = V(R(), V(R(), this.d, this.fb), this.gb);
     var f = new (x(x(x(x(w)))).G)(1);
     f.a[0] = d;
-    return new Xe(
+    return new hf(
       b,
       1,
       a,
@@ -16801,140 +16554,140 @@ let ScalaJSExample;
       c,
       1,
       f,
-      (1 + this.eb) | 0,
-      R().Re,
-      this.Aa,
-      this.Ha,
-      this.Ga,
+      (1 + this.Za) | 0,
+      R().Ke,
+      this.wa,
+      this.Ca,
+      this.Ba,
       this.f,
       (1 + this.j) | 0
     );
   };
-  e.Hd = function (a) {
-    var b = cf(R(), this.d, a),
-      c = df(R(), 2, this.lb, a),
-      d = df(R(), 3, this.mb, a),
-      f = df(R(), 4, this.Aa, a),
-      g = df(R(), 3, this.Ha, a),
-      h = df(R(), 2, this.Ga, a);
-    a = cf(R(), this.f, a);
-    return new We(b, this.tb, c, this.ub, d, this.eb, f, g, h, a, this.j);
+  e.Bd = function (a) {
+    var b = of(R(), this.d, a),
+      c = pf(R(), 2, this.fb, a),
+      d = pf(R(), 3, this.gb, a),
+      f = pf(R(), 4, this.wa, a),
+      g = pf(R(), 3, this.Ca, a),
+      h = pf(R(), 2, this.Ba, a);
+    a = of(R(), this.f, a);
+    return new gf(b, this.pb, c, this.qb, d, this.Za, f, g, h, a, this.j);
   };
-  e.wd = function (a, b) {
-    a = new Ne(a, b);
+  e.pd = function (a, b) {
+    a = new bf(a, b);
     Q(a, 1, this.d);
-    Q(a, 2, this.lb);
-    Q(a, 3, this.mb);
-    Q(a, 4, this.Aa);
-    Q(a, 3, this.Ha);
-    Q(a, 2, this.Ga);
+    Q(a, 2, this.fb);
+    Q(a, 3, this.gb);
+    Q(a, 4, this.wa);
+    Q(a, 3, this.Ca);
+    Q(a, 2, this.Ba);
     Q(a, 1, this.f);
-    return a.Id();
+    return a.Cd();
   };
-  e.kd = function () {
-    if (1 < this.tb) {
+  e.ed = function () {
+    if (1 < this.pb) {
       var a = this.d,
         b = a.a.length;
       a = N(O(), a, 1, b);
-      return new We(
+      return new gf(
         a,
-        (-1 + this.tb) | 0,
-        this.lb,
-        (-1 + this.ub) | 0,
-        this.mb,
-        (-1 + this.eb) | 0,
-        this.Aa,
-        this.Ha,
-        this.Ga,
+        (-1 + this.pb) | 0,
+        this.fb,
+        (-1 + this.qb) | 0,
+        this.gb,
+        (-1 + this.Za) | 0,
+        this.wa,
+        this.Ca,
+        this.Ba,
         this.f,
         (-1 + this.j) | 0
       );
     }
-    return this.wd(1, this.j);
+    return this.pd(1, this.j);
   };
-  e.xd = function () {
+  e.qd = function () {
     return 7;
   };
-  e.Ud = function (a) {
+  e.Kd = function (a) {
     switch (a) {
       case 0:
         return this.d;
       case 1:
-        return this.lb;
+        return this.fb;
       case 2:
-        return this.mb;
+        return this.gb;
       case 3:
-        return this.Aa;
+        return this.wa;
       case 4:
-        return this.Ha;
+        return this.Ca;
       case 5:
-        return this.Ga;
+        return this.Ba;
       case 6:
         return this.f;
       default:
         throw new T(a);
     }
   };
-  e.Pc = function (a, b) {
-    var c = ef(R(), this.f, a);
+  e.Jc = function (a, b) {
+    var c = qf(R(), this.f, a);
     return null !== c
-      ? new We(
+      ? new gf(
           this.d,
-          this.tb,
-          this.lb,
-          this.ub,
-          this.mb,
-          this.eb,
-          this.Aa,
-          this.Ha,
-          this.Ga,
+          this.pb,
+          this.fb,
+          this.qb,
+          this.gb,
+          this.Za,
+          this.wa,
+          this.Ca,
+          this.Ba,
           c,
           (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
-      : op.prototype.Pc.call(this, a, b);
+      : xp.prototype.Jc.call(this, a, b);
   };
   e.w = function () {
-    return this.kd();
+    return this.ed();
   };
-  e.W = function (a) {
-    return this.Hd(a);
+  e.da = function (a) {
+    return this.Bd(a);
   };
-  e.md = function (a) {
-    return this.hc(a);
+  e.ud = function (a) {
+    return this.fc(a);
   };
-  e.l = function (a) {
+  e.m = function (a) {
     var b = a | 0;
     if (0 <= b && b < this.j) {
-      a = (b - this.eb) | 0;
+      a = (b - this.Za) | 0;
       if (0 <= a) {
         b = (a >>> 15) | 0;
         var c = 31 & ((a >>> 10) | 0),
           d = 31 & ((a >>> 5) | 0);
         a &= 31;
-        return b < this.Aa.a.length
-          ? this.Aa.a[b].a[c].a[d].a[a]
-          : c < this.Ha.a.length
-          ? this.Ha.a[c].a[d].a[a]
-          : d < this.Ga.a.length
-          ? this.Ga.a[d].a[a]
+        return b < this.wa.a.length
+          ? this.wa.a[b].a[c].a[d].a[a]
+          : c < this.Ca.a.length
+          ? this.Ca.a[c].a[d].a[a]
+          : d < this.Ba.a.length
+          ? this.Ba.a[d].a[a]
           : this.f.a[a];
       }
-      return b >= this.ub
-        ? ((a = (b - this.ub) | 0),
-          this.mb.a[(a >>> 10) | 0].a[31 & ((a >>> 5) | 0)].a[31 & a])
-        : b >= this.tb
-        ? ((a = (b - this.tb) | 0), this.lb.a[(a >>> 5) | 0].a[31 & a])
+      return b >= this.qb
+        ? ((a = (b - this.qb) | 0),
+          this.gb.a[(a >>> 10) | 0].a[31 & ((a >>> 5) | 0)].a[31 & a])
+        : b >= this.pb
+        ? ((a = (b - this.pb) | 0), this.fb.a[(a >>> 5) | 0].a[31 & a])
         : this.d.a[b];
     }
-    throw this.Gb(b);
+    throw this.Db(b);
   };
-  e.$classData = v({ Dq: 0 }, !1, "scala.collection.immutable.Vector4", {
-    Dq: 1,
-    Qg: 1,
-    kg: 1,
-    jg: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Fq: 0 }, !1, "scala.collection.immutable.Vector4", {
+    Fq: 1,
+    Lg: 1,
+    ag: 1,
+    $f: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -16942,54 +16695,54 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function Xe(a, b, c, d, f, g, h, k, l, p, u, y, D, K) {
+  function hf(a, b, c, d, f, g, h, k, l, p, u, A, G, K) {
     this.f = this.d = null;
     this.j = 0;
-    this.Va = b;
-    this.Ia = c;
-    this.Wa = d;
-    this.Ja = f;
-    this.Ra = g;
-    this.Ka = h;
-    this.Ba = k;
-    this.da = l;
+    this.Qa = b;
+    this.Da = c;
+    this.Ra = d;
+    this.Ea = f;
+    this.Na = g;
+    this.Fa = h;
+    this.xa = k;
+    this.fa = l;
     this.ka = p;
     this.ja = u;
-    this.ia = y;
-    Kt(this, a, D, K);
+    this.ia = A;
+    Rt(this, a, G, K);
   }
-  Xe.prototype = new Lt();
-  Xe.prototype.constructor = Xe;
-  e = Xe.prototype;
-  e.t = function (a) {
+  hf.prototype = new St();
+  hf.prototype.constructor = hf;
+  e = hf.prototype;
+  e.v = function (a) {
     if (0 <= a && a < this.j) {
-      var b = (a - this.Ba) | 0;
+      var b = (a - this.xa) | 0;
       if (0 <= b) {
         a = (b >>> 20) | 0;
         var c = 31 & ((b >>> 15) | 0),
           d = 31 & ((b >>> 10) | 0),
           f = 31 & ((b >>> 5) | 0);
         b &= 31;
-        return a < this.da.a.length
-          ? this.da.a[a].a[c].a[d].a[f].a[b]
+        return a < this.fa.a.length
+          ? this.fa.a[a].a[c].a[d].a[f].a[b]
           : c < this.ka.a.length
           ? this.ka.a[c].a[d].a[f].a[b]
           : d < this.ja.a.length
@@ -16998,49 +16751,49 @@ let ScalaJSExample;
           ? this.ia.a[f].a[b]
           : this.f.a[b];
       }
-      return a >= this.Ra
-        ? ((b = (a - this.Ra) | 0),
-          this.Ka.a[(b >>> 15) | 0].a[31 & ((b >>> 10) | 0)].a[
+      return a >= this.Na
+        ? ((b = (a - this.Na) | 0),
+          this.Fa.a[(b >>> 15) | 0].a[31 & ((b >>> 10) | 0)].a[
             31 & ((b >>> 5) | 0)
           ].a[31 & b])
-        : a >= this.Wa
-        ? ((b = (a - this.Wa) | 0),
-          this.Ja.a[(b >>> 10) | 0].a[31 & ((b >>> 5) | 0)].a[31 & b])
-        : a >= this.Va
-        ? ((b = (a - this.Va) | 0), this.Ia.a[(b >>> 5) | 0].a[31 & b])
+        : a >= this.Ra
+        ? ((b = (a - this.Ra) | 0),
+          this.Ea.a[(b >>> 10) | 0].a[31 & ((b >>> 5) | 0)].a[31 & b])
+        : a >= this.Qa
+        ? ((b = (a - this.Qa) | 0), this.Da.a[(b >>> 5) | 0].a[31 & b])
         : this.d.a[a];
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.Gf = function (a, b) {
+  e.wf = function (a, b) {
     if (0 <= a && a < this.j) {
-      if (a >= this.Ba) {
-        var c = (a - this.Ba) | 0,
+      if (a >= this.xa) {
+        var c = (a - this.xa) | 0,
           d = (c >>> 20) | 0,
           f = 31 & ((c >>> 15) | 0),
           g = 31 & ((c >>> 10) | 0);
         a = 31 & ((c >>> 5) | 0);
         c &= 31;
-        if (d < this.da.a.length) {
-          var h = this.da.q(),
-            k = h.a[d].q(),
-            l = k.a[f].q(),
-            p = l.a[g].q(),
-            u = p.a[a].q();
+        if (d < this.fa.a.length) {
+          var h = this.fa.o(),
+            k = h.a[d].o(),
+            l = k.a[f].o(),
+            p = l.a[g].o(),
+            u = p.a[a].o();
           u.a[c] = b;
           p.a[a] = u;
           l.a[g] = p;
           k.a[f] = l;
           h.a[d] = k;
-          return new Xe(
+          return new hf(
             this.d,
-            this.Va,
-            this.Ia,
-            this.Wa,
-            this.Ja,
+            this.Qa,
+            this.Da,
             this.Ra,
-            this.Ka,
-            this.Ba,
+            this.Ea,
+            this.Na,
+            this.Fa,
+            this.xa,
             h,
             this.ka,
             this.ja,
@@ -17051,24 +16804,24 @@ let ScalaJSExample;
         }
         if (f < this.ka.a.length)
           return (
-            (d = this.ka.q()),
-            (h = d.a[f].q()),
-            (k = h.a[g].q()),
-            (l = k.a[a].q()),
+            (d = this.ka.o()),
+            (h = d.a[f].o()),
+            (k = h.a[g].o()),
+            (l = k.a[a].o()),
             (l.a[c] = b),
             (k.a[a] = l),
             (h.a[g] = k),
             (d.a[f] = h),
-            new Xe(
+            new hf(
               this.d,
-              this.Va,
-              this.Ia,
-              this.Wa,
-              this.Ja,
+              this.Qa,
+              this.Da,
               this.Ra,
-              this.Ka,
-              this.Ba,
-              this.da,
+              this.Ea,
+              this.Na,
+              this.Fa,
+              this.xa,
+              this.fa,
               d,
               this.ja,
               this.ia,
@@ -17078,22 +16831,22 @@ let ScalaJSExample;
           );
         if (g < this.ja.a.length)
           return (
-            (f = this.ja.q()),
-            (d = f.a[g].q()),
-            (h = d.a[a].q()),
+            (f = this.ja.o()),
+            (d = f.a[g].o()),
+            (h = d.a[a].o()),
             (h.a[c] = b),
             (d.a[a] = h),
             (f.a[g] = d),
-            new Xe(
+            new hf(
               this.d,
-              this.Va,
-              this.Ia,
-              this.Wa,
-              this.Ja,
+              this.Qa,
+              this.Da,
               this.Ra,
-              this.Ka,
-              this.Ba,
-              this.da,
+              this.Ea,
+              this.Na,
+              this.Fa,
+              this.xa,
+              this.fa,
               this.ka,
               f,
               this.ia,
@@ -17103,20 +16856,20 @@ let ScalaJSExample;
           );
         if (a < this.ia.a.length)
           return (
-            (g = this.ia.q()),
-            (f = g.a[a].q()),
+            (g = this.ia.o()),
+            (f = g.a[a].o()),
             (f.a[c] = b),
             (g.a[a] = f),
-            new Xe(
+            new hf(
               this.d,
-              this.Va,
-              this.Ia,
-              this.Wa,
-              this.Ja,
+              this.Qa,
+              this.Da,
               this.Ra,
-              this.Ka,
-              this.Ba,
-              this.da,
+              this.Ea,
+              this.Na,
+              this.Fa,
+              this.xa,
+              this.fa,
               this.ka,
               this.ja,
               g,
@@ -17124,18 +16877,18 @@ let ScalaJSExample;
               this.j
             )
           );
-        a = this.f.q();
+        a = this.f.o();
         a.a[c] = b;
-        return new Xe(
+        return new hf(
           this.d,
-          this.Va,
-          this.Ia,
-          this.Wa,
-          this.Ja,
+          this.Qa,
+          this.Da,
           this.Ra,
-          this.Ka,
-          this.Ba,
-          this.da,
+          this.Ea,
+          this.Na,
+          this.Fa,
+          this.xa,
+          this.fa,
           this.ka,
           this.ja,
           this.ia,
@@ -17143,31 +16896,31 @@ let ScalaJSExample;
           this.j
         );
       }
-      if (a >= this.Ra)
+      if (a >= this.Na)
         return (
-          (f = (a - this.Ra) | 0),
+          (f = (a - this.Na) | 0),
           (a = (f >>> 15) | 0),
           (c = 31 & ((f >>> 10) | 0)),
           (g = 31 & ((f >>> 5) | 0)),
           (f &= 31),
-          (d = this.Ka.q()),
-          (h = d.a[a].q()),
-          (k = h.a[c].q()),
-          (l = k.a[g].q()),
+          (d = this.Fa.o()),
+          (h = d.a[a].o()),
+          (k = h.a[c].o()),
+          (l = k.a[g].o()),
           (l.a[f] = b),
           (k.a[g] = l),
           (h.a[c] = k),
           (d.a[a] = h),
-          new Xe(
+          new hf(
             this.d,
-            this.Va,
-            this.Ia,
-            this.Wa,
-            this.Ja,
+            this.Qa,
+            this.Da,
             this.Ra,
+            this.Ea,
+            this.Na,
             d,
-            this.Ba,
-            this.da,
+            this.xa,
+            this.fa,
             this.ka,
             this.ja,
             this.ia,
@@ -17175,28 +16928,28 @@ let ScalaJSExample;
             this.j
           )
         );
-      if (a >= this.Wa)
+      if (a >= this.Ra)
         return (
-          (g = (a - this.Wa) | 0),
+          (g = (a - this.Ra) | 0),
           (a = (g >>> 10) | 0),
           (c = 31 & ((g >>> 5) | 0)),
           (g &= 31),
-          (f = this.Ja.q()),
-          (d = f.a[a].q()),
-          (h = d.a[c].q()),
+          (f = this.Ea.o()),
+          (d = f.a[a].o()),
+          (h = d.a[c].o()),
           (h.a[g] = b),
           (d.a[c] = h),
           (f.a[a] = d),
-          new Xe(
+          new hf(
             this.d,
-            this.Va,
-            this.Ia,
-            this.Wa,
-            f,
+            this.Qa,
+            this.Da,
             this.Ra,
-            this.Ka,
-            this.Ba,
-            this.da,
+            f,
+            this.Na,
+            this.Fa,
+            this.xa,
+            this.fa,
             this.ka,
             this.ja,
             this.ia,
@@ -17204,25 +16957,25 @@ let ScalaJSExample;
             this.j
           )
         );
-      if (a >= this.Va)
+      if (a >= this.Qa)
         return (
-          (c = (a - this.Va) | 0),
+          (c = (a - this.Qa) | 0),
           (a = (c >>> 5) | 0),
           (c &= 31),
-          (g = this.Ia.q()),
-          (f = g.a[a].q()),
+          (g = this.Da.o()),
+          (f = g.a[a].o()),
           (f.a[c] = b),
           (g.a[a] = f),
-          new Xe(
+          new hf(
             this.d,
-            this.Va,
+            this.Qa,
             g,
-            this.Wa,
-            this.Ja,
             this.Ra,
-            this.Ka,
-            this.Ba,
-            this.da,
+            this.Ea,
+            this.Na,
+            this.Fa,
+            this.xa,
+            this.fa,
             this.ka,
             this.ja,
             this.ia,
@@ -17230,18 +16983,18 @@ let ScalaJSExample;
             this.j
           )
         );
-      c = this.d.q();
+      c = this.d.o();
       c.a[a] = b;
-      return new Xe(
+      return new hf(
         c,
-        this.Va,
-        this.Ia,
-        this.Wa,
-        this.Ja,
+        this.Qa,
+        this.Da,
         this.Ra,
-        this.Ka,
-        this.Ba,
-        this.da,
+        this.Ea,
+        this.Na,
+        this.Fa,
+        this.xa,
+        this.fa,
         this.ka,
         this.ja,
         this.ia,
@@ -17249,22 +17002,22 @@ let ScalaJSExample;
         this.j
       );
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.hc = function (a) {
+  e.fc = function (a) {
     if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.f, a)),
-        new Xe(
+        (a = lf(R(), this.f, a)),
+        new hf(
           this.d,
-          this.Va,
-          this.Ia,
-          this.Wa,
-          this.Ja,
+          this.Qa,
+          this.Da,
           this.Ra,
-          this.Ka,
-          this.Ba,
-          this.da,
+          this.Ea,
+          this.Na,
+          this.Fa,
+          this.xa,
+          this.fa,
           this.ka,
           this.ja,
           this.ia,
@@ -17276,16 +17029,16 @@ let ScalaJSExample;
       var b = U(R(), this.ia, this.f),
         c = new r(1);
       c.a[0] = a;
-      return new Xe(
+      return new hf(
         this.d,
-        this.Va,
-        this.Ia,
-        this.Wa,
-        this.Ja,
+        this.Qa,
+        this.Da,
         this.Ra,
-        this.Ka,
-        this.Ba,
-        this.da,
+        this.Ea,
+        this.Na,
+        this.Fa,
+        this.xa,
+        this.fa,
         this.ka,
         this.ja,
         b,
@@ -17295,19 +17048,19 @@ let ScalaJSExample;
     }
     if (31 > this.ja.a.length) {
       b = U(R(), this.ja, U(R(), this.ia, this.f));
-      c = R().Q;
+      c = R().P;
       var d = new r(1);
       d.a[0] = a;
-      return new Xe(
+      return new hf(
         this.d,
-        this.Va,
-        this.Ia,
-        this.Wa,
-        this.Ja,
+        this.Qa,
+        this.Da,
         this.Ra,
-        this.Ka,
-        this.Ba,
-        this.da,
+        this.Ea,
+        this.Na,
+        this.Fa,
+        this.xa,
+        this.fa,
         this.ka,
         b,
         c,
@@ -17317,20 +17070,20 @@ let ScalaJSExample;
     }
     if (31 > this.ka.a.length) {
       b = U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.f)));
-      c = R().fb;
-      d = R().Q;
+      c = R().$a;
+      d = R().P;
       var f = new r(1);
       f.a[0] = a;
-      return new Xe(
+      return new hf(
         this.d,
-        this.Va,
-        this.Ia,
-        this.Wa,
-        this.Ja,
+        this.Qa,
+        this.Da,
         this.Ra,
-        this.Ka,
-        this.Ba,
-        this.da,
+        this.Ea,
+        this.Na,
+        this.Fa,
+        this.xa,
+        this.fa,
         b,
         c,
         d,
@@ -17338,26 +17091,26 @@ let ScalaJSExample;
         (1 + this.j) | 0
       );
     }
-    if (30 > this.da.a.length) {
+    if (30 > this.fa.a.length) {
       b = U(
         R(),
-        this.da,
+        this.fa,
         U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.f)))
       );
-      c = R().wc;
-      d = R().fb;
-      f = R().Q;
+      c = R().tc;
+      d = R().$a;
+      f = R().P;
       var g = new r(1);
       g.a[0] = a;
-      return new Xe(
+      return new hf(
         this.d,
-        this.Va,
-        this.Ia,
-        this.Wa,
-        this.Ja,
+        this.Qa,
+        this.Da,
         this.Ra,
-        this.Ka,
-        this.Ba,
+        this.Ea,
+        this.Na,
+        this.Fa,
+        this.xa,
         b,
         c,
         d,
@@ -17367,22 +17120,22 @@ let ScalaJSExample;
       );
     }
     b = this.d;
-    c = this.Va;
-    d = this.Ia;
-    f = this.Wa;
-    g = this.Ja;
-    var h = this.Ra,
-      k = this.Ka,
-      l = this.Ba,
-      p = this.da,
-      u = this.Ba,
-      y = R().Sh,
-      D = U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.f))),
+    c = this.Qa;
+    d = this.Da;
+    f = this.Ra;
+    g = this.Ea;
+    var h = this.Na,
+      k = this.Fa,
+      l = this.xa,
+      p = this.fa,
+      u = this.xa,
+      A = R().Oh,
+      G = U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.f))),
       K = new (x(x(x(x(x(w))))).G)(1);
-    K.a[0] = D;
-    D = R().wc;
-    var J = R().fb,
-      Z = R().Q,
+    K.a[0] = G;
+    G = R().tc;
+    var M = R().$a,
+      aa = R().P,
       wa = new r(1);
     wa.a[0] = a;
     return new S(
@@ -17396,28 +17149,28 @@ let ScalaJSExample;
       l,
       p,
       (31457280 + u) | 0,
-      y,
+      A,
       K,
-      D,
-      J,
-      Z,
+      G,
+      M,
+      aa,
       wa,
       (1 + this.j) | 0
     );
   };
-  e.lf = function (a) {
-    if (32 > this.Va) {
-      var b = af(R(), a, this.d);
-      return new Xe(
+  e.bf = function (a) {
+    if (32 > this.Qa) {
+      var b = mf(R(), a, this.d);
+      return new hf(
         b,
-        (1 + this.Va) | 0,
-        this.Ia,
-        (1 + this.Wa) | 0,
-        this.Ja,
+        (1 + this.Qa) | 0,
+        this.Da,
         (1 + this.Ra) | 0,
-        this.Ka,
-        (1 + this.Ba) | 0,
-        this.da,
+        this.Ea,
+        (1 + this.Na) | 0,
+        this.Fa,
+        (1 + this.xa) | 0,
+        this.fa,
         this.ka,
         this.ja,
         this.ia,
@@ -17425,21 +17178,21 @@ let ScalaJSExample;
         (1 + this.j) | 0
       );
     }
-    if (1024 > this.Wa)
+    if (1024 > this.Ra)
       return (
         (b = new r(1)),
         (b.a[0] = a),
-        (a = V(R(), this.d, this.Ia)),
-        new Xe(
+        (a = V(R(), this.d, this.Da)),
+        new hf(
           b,
           1,
           a,
-          (1 + this.Wa) | 0,
-          this.Ja,
           (1 + this.Ra) | 0,
-          this.Ka,
-          (1 + this.Ba) | 0,
-          this.da,
+          this.Ea,
+          (1 + this.Na) | 0,
+          this.Fa,
+          (1 + this.xa) | 0,
+          this.fa,
           this.ka,
           this.ja,
           this.ia,
@@ -17447,21 +17200,21 @@ let ScalaJSExample;
           (1 + this.j) | 0
         )
       );
-    if (32768 > this.Ra) {
+    if (32768 > this.Na) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      var c = V(R(), V(R(), this.d, this.Ia), this.Ja);
-      return new Xe(
+      a = R().P;
+      var c = V(R(), V(R(), this.d, this.Da), this.Ea);
+      return new hf(
         b,
         1,
         a,
         1,
         c,
-        (1 + this.Ra) | 0,
-        this.Ka,
-        (1 + this.Ba) | 0,
-        this.da,
+        (1 + this.Na) | 0,
+        this.Fa,
+        (1 + this.xa) | 0,
+        this.fa,
         this.ka,
         this.ja,
         this.ia,
@@ -17469,13 +17222,13 @@ let ScalaJSExample;
         (1 + this.j) | 0
       );
     }
-    if (1048576 > this.Ba) {
+    if (1048576 > this.xa) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      c = R().fb;
-      var d = V(R(), V(R(), V(R(), this.d, this.Ia), this.Ja), this.Ka);
-      return new Xe(
+      a = R().P;
+      c = R().$a;
+      var d = V(R(), V(R(), V(R(), this.d, this.Da), this.Ea), this.Fa);
+      return new hf(
         b,
         1,
         a,
@@ -17483,8 +17236,8 @@ let ScalaJSExample;
         c,
         1,
         d,
-        (1 + this.Ba) | 0,
-        this.da,
+        (1 + this.xa) | 0,
+        this.fa,
         this.ka,
         this.ja,
         this.ia,
@@ -17492,18 +17245,18 @@ let ScalaJSExample;
         (1 + this.j) | 0
       );
     }
-    if (30 > this.da.a.length) {
+    if (30 > this.fa.a.length) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      c = R().fb;
-      d = R().wc;
+      a = R().P;
+      c = R().$a;
+      d = R().tc;
       var f = V(
         R(),
-        V(R(), V(R(), V(R(), this.d, this.Ia), this.Ja), this.Ka),
-        this.da
+        V(R(), V(R(), V(R(), this.d, this.Da), this.Ea), this.Fa),
+        this.fa
       );
-      return new Xe(
+      return new hf(
         b,
         1,
         a,
@@ -17522,10 +17275,10 @@ let ScalaJSExample;
     }
     b = new r(1);
     b.a[0] = a;
-    a = R().Q;
-    c = R().fb;
-    d = R().wc;
-    f = V(R(), V(R(), V(R(), this.d, this.Ia), this.Ja), this.Ka);
+    a = R().P;
+    c = R().$a;
+    d = R().tc;
+    f = V(R(), V(R(), V(R(), this.d, this.Da), this.Ea), this.Fa);
     var g = new (x(x(x(x(x(w))))).G)(1);
     g.a[0] = f;
     return new S(
@@ -17538,9 +17291,9 @@ let ScalaJSExample;
       d,
       1,
       g,
-      (1 + this.Ba) | 0,
-      R().Sh,
-      this.da,
+      (1 + this.xa) | 0,
+      R().Oh,
+      this.fa,
       this.ka,
       this.ja,
       this.ia,
@@ -17548,25 +17301,25 @@ let ScalaJSExample;
       (1 + this.j) | 0
     );
   };
-  e.Hd = function (a) {
-    var b = cf(R(), this.d, a),
-      c = df(R(), 2, this.Ia, a),
-      d = df(R(), 3, this.Ja, a),
-      f = df(R(), 4, this.Ka, a),
-      g = df(R(), 5, this.da, a),
-      h = df(R(), 4, this.ka, a),
-      k = df(R(), 3, this.ja, a),
-      l = df(R(), 2, this.ia, a);
-    a = cf(R(), this.f, a);
-    return new Xe(
+  e.Bd = function (a) {
+    var b = of(R(), this.d, a),
+      c = pf(R(), 2, this.Da, a),
+      d = pf(R(), 3, this.Ea, a),
+      f = pf(R(), 4, this.Fa, a),
+      g = pf(R(), 5, this.fa, a),
+      h = pf(R(), 4, this.ka, a),
+      k = pf(R(), 3, this.ja, a),
+      l = pf(R(), 2, this.ia, a);
+    a = of(R(), this.f, a);
+    return new hf(
       b,
-      this.Va,
+      this.Qa,
       c,
-      this.Wa,
-      d,
       this.Ra,
+      d,
+      this.Na,
       f,
-      this.Ba,
+      this.xa,
       g,
       h,
       k,
@@ -17575,34 +17328,34 @@ let ScalaJSExample;
       this.j
     );
   };
-  e.wd = function (a, b) {
-    a = new Ne(a, b);
+  e.pd = function (a, b) {
+    a = new bf(a, b);
     Q(a, 1, this.d);
-    Q(a, 2, this.Ia);
-    Q(a, 3, this.Ja);
-    Q(a, 4, this.Ka);
-    Q(a, 5, this.da);
+    Q(a, 2, this.Da);
+    Q(a, 3, this.Ea);
+    Q(a, 4, this.Fa);
+    Q(a, 5, this.fa);
     Q(a, 4, this.ka);
     Q(a, 3, this.ja);
     Q(a, 2, this.ia);
     Q(a, 1, this.f);
-    return a.Id();
+    return a.Cd();
   };
-  e.kd = function () {
-    if (1 < this.Va) {
+  e.ed = function () {
+    if (1 < this.Qa) {
       var a = this.d,
         b = a.a.length;
       a = N(O(), a, 1, b);
-      return new Xe(
+      return new hf(
         a,
-        (-1 + this.Va) | 0,
-        this.Ia,
-        (-1 + this.Wa) | 0,
-        this.Ja,
+        (-1 + this.Qa) | 0,
+        this.Da,
         (-1 + this.Ra) | 0,
-        this.Ka,
-        (-1 + this.Ba) | 0,
-        this.da,
+        this.Ea,
+        (-1 + this.Na) | 0,
+        this.Fa,
+        (-1 + this.xa) | 0,
+        this.fa,
         this.ka,
         this.ja,
         this.ia,
@@ -17610,23 +17363,23 @@ let ScalaJSExample;
         (-1 + this.j) | 0
       );
     }
-    return this.wd(1, this.j);
+    return this.pd(1, this.j);
   };
-  e.xd = function () {
+  e.qd = function () {
     return 9;
   };
-  e.Ud = function (a) {
+  e.Kd = function (a) {
     switch (a) {
       case 0:
         return this.d;
       case 1:
-        return this.Ia;
+        return this.Da;
       case 2:
-        return this.Ja;
+        return this.Ea;
       case 3:
-        return this.Ka;
+        return this.Fa;
       case 4:
-        return this.da;
+        return this.fa;
       case 5:
         return this.ka;
       case 6:
@@ -17639,48 +17392,48 @@ let ScalaJSExample;
         throw new T(a);
     }
   };
-  e.Pc = function (a, b) {
-    var c = ef(R(), this.f, a);
+  e.Jc = function (a, b) {
+    var c = qf(R(), this.f, a);
     return null !== c
-      ? new Xe(
+      ? new hf(
           this.d,
-          this.Va,
-          this.Ia,
-          this.Wa,
-          this.Ja,
+          this.Qa,
+          this.Da,
           this.Ra,
-          this.Ka,
-          this.Ba,
-          this.da,
+          this.Ea,
+          this.Na,
+          this.Fa,
+          this.xa,
+          this.fa,
           this.ka,
           this.ja,
           this.ia,
           c,
           (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
-      : op.prototype.Pc.call(this, a, b);
+      : xp.prototype.Jc.call(this, a, b);
   };
   e.w = function () {
-    return this.kd();
+    return this.ed();
   };
-  e.W = function (a) {
-    return this.Hd(a);
+  e.da = function (a) {
+    return this.Bd(a);
   };
-  e.md = function (a) {
-    return this.hc(a);
+  e.ud = function (a) {
+    return this.fc(a);
   };
-  e.l = function (a) {
+  e.m = function (a) {
     var b = a | 0;
     if (0 <= b && b < this.j) {
-      a = (b - this.Ba) | 0;
+      a = (b - this.xa) | 0;
       if (0 <= a) {
         b = (a >>> 20) | 0;
         var c = 31 & ((a >>> 15) | 0),
           d = 31 & ((a >>> 10) | 0),
           f = 31 & ((a >>> 5) | 0);
         a &= 31;
-        return b < this.da.a.length
-          ? this.da.a[b].a[c].a[d].a[f].a[a]
+        return b < this.fa.a.length
+          ? this.fa.a[b].a[c].a[d].a[f].a[a]
           : c < this.ka.a.length
           ? this.ka.a[c].a[d].a[f].a[a]
           : d < this.ja.a.length
@@ -17689,27 +17442,27 @@ let ScalaJSExample;
           ? this.ia.a[f].a[a]
           : this.f.a[a];
       }
-      return b >= this.Ra
-        ? ((a = (b - this.Ra) | 0),
-          this.Ka.a[(a >>> 15) | 0].a[31 & ((a >>> 10) | 0)].a[
+      return b >= this.Na
+        ? ((a = (b - this.Na) | 0),
+          this.Fa.a[(a >>> 15) | 0].a[31 & ((a >>> 10) | 0)].a[
             31 & ((a >>> 5) | 0)
           ].a[31 & a])
-        : b >= this.Wa
-        ? ((a = (b - this.Wa) | 0),
-          this.Ja.a[(a >>> 10) | 0].a[31 & ((a >>> 5) | 0)].a[31 & a])
-        : b >= this.Va
-        ? ((a = (b - this.Va) | 0), this.Ia.a[(a >>> 5) | 0].a[31 & a])
+        : b >= this.Ra
+        ? ((a = (b - this.Ra) | 0),
+          this.Ea.a[(a >>> 10) | 0].a[31 & ((a >>> 5) | 0)].a[31 & a])
+        : b >= this.Qa
+        ? ((a = (b - this.Qa) | 0), this.Da.a[(a >>> 5) | 0].a[31 & a])
         : this.d.a[b];
     }
-    throw this.Gb(b);
+    throw this.Db(b);
   };
-  e.$classData = v({ Eq: 0 }, !1, "scala.collection.immutable.Vector5", {
-    Eq: 1,
-    Qg: 1,
-    kg: 1,
-    jg: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Gq: 0 }, !1, "scala.collection.immutable.Vector5", {
+    Gq: 1,
+    Lg: 1,
+    ag: 1,
+    $f: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -17717,49 +17470,49 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function S(a, b, c, d, f, g, h, k, l, p, u, y, D, K, J, Z, wa) {
+  function S(a, b, c, d, f, g, h, k, l, p, u, A, G, K, M, aa, wa) {
     this.f = this.d = null;
     this.j = 0;
-    this.La = b;
-    this.sa = c;
-    this.Ma = d;
-    this.ta = f;
-    this.Ca = g;
-    this.ua = h;
-    this.qa = k;
-    this.va = l;
-    this.ra = p;
+    this.Ga = b;
+    this.pa = c;
+    this.Ha = d;
+    this.qa = f;
+    this.ya = g;
+    this.ra = h;
+    this.na = k;
+    this.sa = l;
+    this.oa = p;
     this.S = u;
-    this.ba = y;
-    this.aa = D;
-    this.$ = K;
-    this.Z = J;
-    Kt(this, a, Z, wa);
+    this.ca = A;
+    this.ba = G;
+    this.aa = K;
+    this.$ = M;
+    Rt(this, a, aa, wa);
   }
-  S.prototype = new Lt();
+  S.prototype = new St();
   S.prototype.constructor = S;
   e = S.prototype;
-  e.t = function (a) {
+  e.v = function (a) {
     if (0 <= a && a < this.j) {
-      var b = (a - this.ra) | 0;
+      var b = (a - this.oa) | 0;
       if (0 <= b) {
         a = (b >>> 25) | 0;
         var c = 31 & ((b >>> 20) | 0),
@@ -17769,39 +17522,39 @@ let ScalaJSExample;
         b &= 31;
         return a < this.S.a.length
           ? this.S.a[a].a[c].a[d].a[f].a[g].a[b]
-          : c < this.ba.a.length
-          ? this.ba.a[c].a[d].a[f].a[g].a[b]
-          : d < this.aa.a.length
-          ? this.aa.a[d].a[f].a[g].a[b]
-          : f < this.$.a.length
-          ? this.$.a[f].a[g].a[b]
-          : g < this.Z.a.length
-          ? this.Z.a[g].a[b]
+          : c < this.ca.a.length
+          ? this.ca.a[c].a[d].a[f].a[g].a[b]
+          : d < this.ba.a.length
+          ? this.ba.a[d].a[f].a[g].a[b]
+          : f < this.aa.a.length
+          ? this.aa.a[f].a[g].a[b]
+          : g < this.$.a.length
+          ? this.$.a[g].a[b]
           : this.f.a[b];
       }
-      return a >= this.qa
-        ? ((b = (a - this.qa) | 0),
-          this.va.a[(b >>> 20) | 0].a[31 & ((b >>> 15) | 0)].a[
+      return a >= this.na
+        ? ((b = (a - this.na) | 0),
+          this.sa.a[(b >>> 20) | 0].a[31 & ((b >>> 15) | 0)].a[
             31 & ((b >>> 10) | 0)
           ].a[31 & ((b >>> 5) | 0)].a[31 & b])
-        : a >= this.Ca
-        ? ((b = (a - this.Ca) | 0),
-          this.ua.a[(b >>> 15) | 0].a[31 & ((b >>> 10) | 0)].a[
+        : a >= this.ya
+        ? ((b = (a - this.ya) | 0),
+          this.ra.a[(b >>> 15) | 0].a[31 & ((b >>> 10) | 0)].a[
             31 & ((b >>> 5) | 0)
           ].a[31 & b])
-        : a >= this.Ma
-        ? ((b = (a - this.Ma) | 0),
-          this.ta.a[(b >>> 10) | 0].a[31 & ((b >>> 5) | 0)].a[31 & b])
-        : a >= this.La
-        ? ((b = (a - this.La) | 0), this.sa.a[(b >>> 5) | 0].a[31 & b])
+        : a >= this.Ha
+        ? ((b = (a - this.Ha) | 0),
+          this.qa.a[(b >>> 10) | 0].a[31 & ((b >>> 5) | 0)].a[31 & b])
+        : a >= this.Ga
+        ? ((b = (a - this.Ga) | 0), this.pa.a[(b >>> 5) | 0].a[31 & b])
         : this.d.a[a];
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.Gf = function (a, b) {
+  e.wf = function (a, b) {
     if (0 <= a && a < this.j) {
-      if (a >= this.ra) {
-        var c = (a - this.ra) | 0,
+      if (a >= this.oa) {
+        var c = (a - this.oa) | 0,
           d = (c >>> 25) | 0,
           f = 31 & ((c >>> 20) | 0),
           g = 31 & ((c >>> 15) | 0),
@@ -17809,45 +17562,45 @@ let ScalaJSExample;
         a = 31 & ((c >>> 5) | 0);
         c &= 31;
         if (d < this.S.a.length) {
-          var k = this.S.q(),
-            l = k.a[d].q(),
-            p = l.a[f].q(),
-            u = p.a[g].q(),
-            y = u.a[h].q(),
-            D = y.a[a].q();
-          D.a[c] = b;
-          y.a[a] = D;
-          u.a[h] = y;
+          var k = this.S.o(),
+            l = k.a[d].o(),
+            p = l.a[f].o(),
+            u = p.a[g].o(),
+            A = u.a[h].o(),
+            G = A.a[a].o();
+          G.a[c] = b;
+          A.a[a] = G;
+          u.a[h] = A;
           p.a[g] = u;
           l.a[f] = p;
           k.a[d] = l;
           return new S(
             this.d,
-            this.La,
-            this.sa,
-            this.Ma,
-            this.ta,
-            this.Ca,
-            this.ua,
+            this.Ga,
+            this.pa,
+            this.Ha,
             this.qa,
-            this.va,
+            this.ya,
             this.ra,
+            this.na,
+            this.sa,
+            this.oa,
             k,
+            this.ca,
             this.ba,
             this.aa,
             this.$,
-            this.Z,
             this.f,
             this.j
           );
         }
-        if (f < this.ba.a.length)
+        if (f < this.ca.a.length)
           return (
-            (d = this.ba.q()),
-            (k = d.a[f].q()),
-            (l = k.a[g].q()),
-            (p = l.a[h].q()),
-            (u = p.a[a].q()),
+            (d = this.ca.o()),
+            (k = d.a[f].o()),
+            (l = k.a[g].o()),
+            (p = l.a[h].o()),
+            (u = p.a[a].o()),
             (u.a[c] = b),
             (p.a[a] = u),
             (l.a[h] = p),
@@ -17855,143 +17608,143 @@ let ScalaJSExample;
             (d.a[f] = k),
             new S(
               this.d,
-              this.La,
-              this.sa,
-              this.Ma,
-              this.ta,
-              this.Ca,
-              this.ua,
+              this.Ga,
+              this.pa,
+              this.Ha,
               this.qa,
-              this.va,
+              this.ya,
               this.ra,
+              this.na,
+              this.sa,
+              this.oa,
               this.S,
               d,
+              this.ba,
               this.aa,
               this.$,
-              this.Z,
               this.f,
               this.j
             )
           );
-        if (g < this.aa.a.length)
+        if (g < this.ba.a.length)
           return (
-            (f = this.aa.q()),
-            (d = f.a[g].q()),
-            (k = d.a[h].q()),
-            (l = k.a[a].q()),
+            (f = this.ba.o()),
+            (d = f.a[g].o()),
+            (k = d.a[h].o()),
+            (l = k.a[a].o()),
             (l.a[c] = b),
             (k.a[a] = l),
             (d.a[h] = k),
             (f.a[g] = d),
             new S(
               this.d,
-              this.La,
-              this.sa,
-              this.Ma,
-              this.ta,
-              this.Ca,
-              this.ua,
+              this.Ga,
+              this.pa,
+              this.Ha,
               this.qa,
-              this.va,
+              this.ya,
               this.ra,
+              this.na,
+              this.sa,
+              this.oa,
               this.S,
-              this.ba,
+              this.ca,
               f,
+              this.aa,
               this.$,
-              this.Z,
               this.f,
               this.j
             )
           );
-        if (h < this.$.a.length)
+        if (h < this.aa.a.length)
           return (
-            (g = this.$.q()),
-            (f = g.a[h].q()),
-            (d = f.a[a].q()),
+            (g = this.aa.o()),
+            (f = g.a[h].o()),
+            (d = f.a[a].o()),
             (d.a[c] = b),
             (f.a[a] = d),
             (g.a[h] = f),
             new S(
               this.d,
-              this.La,
-              this.sa,
-              this.Ma,
-              this.ta,
-              this.Ca,
-              this.ua,
+              this.Ga,
+              this.pa,
+              this.Ha,
               this.qa,
-              this.va,
+              this.ya,
               this.ra,
+              this.na,
+              this.sa,
+              this.oa,
               this.S,
+              this.ca,
               this.ba,
-              this.aa,
               g,
-              this.Z,
+              this.$,
               this.f,
               this.j
             )
           );
-        if (a < this.Z.a.length)
+        if (a < this.$.a.length)
           return (
-            (h = this.Z.q()),
-            (g = h.a[a].q()),
+            (h = this.$.o()),
+            (g = h.a[a].o()),
             (g.a[c] = b),
             (h.a[a] = g),
             new S(
               this.d,
-              this.La,
-              this.sa,
-              this.Ma,
-              this.ta,
-              this.Ca,
-              this.ua,
+              this.Ga,
+              this.pa,
+              this.Ha,
               this.qa,
-              this.va,
+              this.ya,
               this.ra,
+              this.na,
+              this.sa,
+              this.oa,
               this.S,
+              this.ca,
               this.ba,
               this.aa,
-              this.$,
               h,
               this.f,
               this.j
             )
           );
-        a = this.f.q();
+        a = this.f.o();
         a.a[c] = b;
         return new S(
           this.d,
-          this.La,
-          this.sa,
-          this.Ma,
-          this.ta,
-          this.Ca,
-          this.ua,
+          this.Ga,
+          this.pa,
+          this.Ha,
           this.qa,
-          this.va,
+          this.ya,
           this.ra,
+          this.na,
+          this.sa,
+          this.oa,
           this.S,
+          this.ca,
           this.ba,
           this.aa,
           this.$,
-          this.Z,
           a,
           this.j
         );
       }
-      if (a >= this.qa)
+      if (a >= this.na)
         return (
-          (f = (a - this.qa) | 0),
+          (f = (a - this.na) | 0),
           (a = (f >>> 20) | 0),
           (c = 31 & ((f >>> 15) | 0)),
           (h = 31 & ((f >>> 10) | 0)),
           (g = 31 & ((f >>> 5) | 0)),
           (f &= 31),
-          (d = this.va.q()),
-          (k = d.a[a].q()),
-          (l = k.a[c].q()),
-          (p = l.a[h].q()),
-          (u = p.a[g].q()),
+          (d = this.sa.o()),
+          (k = d.a[a].o()),
+          (l = k.a[c].o()),
+          (p = l.a[h].o()),
+          (u = p.a[g].o()),
           (u.a[f] = b),
           (p.a[g] = u),
           (l.a[h] = p),
@@ -17999,236 +17752,236 @@ let ScalaJSExample;
           (d.a[a] = k),
           new S(
             this.d,
-            this.La,
-            this.sa,
-            this.Ma,
-            this.ta,
-            this.Ca,
-            this.ua,
+            this.Ga,
+            this.pa,
+            this.Ha,
             this.qa,
-            d,
+            this.ya,
             this.ra,
+            this.na,
+            d,
+            this.oa,
             this.S,
+            this.ca,
             this.ba,
             this.aa,
             this.$,
-            this.Z,
             this.f,
             this.j
           )
         );
-      if (a >= this.Ca)
+      if (a >= this.ya)
         return (
-          (g = (a - this.Ca) | 0),
+          (g = (a - this.ya) | 0),
           (a = (g >>> 15) | 0),
           (c = 31 & ((g >>> 10) | 0)),
           (h = 31 & ((g >>> 5) | 0)),
           (g &= 31),
-          (f = this.ua.q()),
-          (d = f.a[a].q()),
-          (k = d.a[c].q()),
-          (l = k.a[h].q()),
+          (f = this.ra.o()),
+          (d = f.a[a].o()),
+          (k = d.a[c].o()),
+          (l = k.a[h].o()),
           (l.a[g] = b),
           (k.a[h] = l),
           (d.a[c] = k),
           (f.a[a] = d),
           new S(
             this.d,
-            this.La,
-            this.sa,
-            this.Ma,
-            this.ta,
-            this.Ca,
-            f,
+            this.Ga,
+            this.pa,
+            this.Ha,
             this.qa,
-            this.va,
-            this.ra,
+            this.ya,
+            f,
+            this.na,
+            this.sa,
+            this.oa,
             this.S,
+            this.ca,
             this.ba,
             this.aa,
             this.$,
-            this.Z,
             this.f,
             this.j
           )
         );
-      if (a >= this.Ma)
+      if (a >= this.Ha)
         return (
-          (h = (a - this.Ma) | 0),
+          (h = (a - this.Ha) | 0),
           (a = (h >>> 10) | 0),
           (c = 31 & ((h >>> 5) | 0)),
           (h &= 31),
-          (g = this.ta.q()),
-          (f = g.a[a].q()),
-          (d = f.a[c].q()),
+          (g = this.qa.o()),
+          (f = g.a[a].o()),
+          (d = f.a[c].o()),
           (d.a[h] = b),
           (f.a[c] = d),
           (g.a[a] = f),
           new S(
             this.d,
-            this.La,
-            this.sa,
-            this.Ma,
+            this.Ga,
+            this.pa,
+            this.Ha,
             g,
-            this.Ca,
-            this.ua,
-            this.qa,
-            this.va,
+            this.ya,
             this.ra,
+            this.na,
+            this.sa,
+            this.oa,
             this.S,
+            this.ca,
             this.ba,
             this.aa,
             this.$,
-            this.Z,
             this.f,
             this.j
           )
         );
-      if (a >= this.La)
+      if (a >= this.Ga)
         return (
-          (c = (a - this.La) | 0),
+          (c = (a - this.Ga) | 0),
           (a = (c >>> 5) | 0),
           (c &= 31),
-          (h = this.sa.q()),
-          (g = h.a[a].q()),
+          (h = this.pa.o()),
+          (g = h.a[a].o()),
           (g.a[c] = b),
           (h.a[a] = g),
           new S(
             this.d,
-            this.La,
+            this.Ga,
             h,
-            this.Ma,
-            this.ta,
-            this.Ca,
-            this.ua,
+            this.Ha,
             this.qa,
-            this.va,
+            this.ya,
             this.ra,
+            this.na,
+            this.sa,
+            this.oa,
             this.S,
+            this.ca,
             this.ba,
             this.aa,
             this.$,
-            this.Z,
             this.f,
             this.j
           )
         );
-      c = this.d.q();
+      c = this.d.o();
       c.a[a] = b;
       return new S(
         c,
-        this.La,
-        this.sa,
-        this.Ma,
-        this.ta,
-        this.Ca,
-        this.ua,
+        this.Ga,
+        this.pa,
+        this.Ha,
         this.qa,
-        this.va,
+        this.ya,
         this.ra,
+        this.na,
+        this.sa,
+        this.oa,
         this.S,
+        this.ca,
         this.ba,
         this.aa,
         this.$,
-        this.Z,
         this.f,
         this.j
       );
     }
-    throw this.Gb(a);
+    throw this.Db(a);
   };
-  e.hc = function (a) {
+  e.fc = function (a) {
     if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.f, a)),
+        (a = lf(R(), this.f, a)),
         new S(
           this.d,
-          this.La,
-          this.sa,
-          this.Ma,
-          this.ta,
-          this.Ca,
-          this.ua,
+          this.Ga,
+          this.pa,
+          this.Ha,
           this.qa,
-          this.va,
+          this.ya,
           this.ra,
+          this.na,
+          this.sa,
+          this.oa,
           this.S,
+          this.ca,
           this.ba,
           this.aa,
           this.$,
-          this.Z,
           a,
           (1 + this.j) | 0
         )
       );
-    if (31 > this.Z.a.length) {
-      var b = U(R(), this.Z, this.f),
+    if (31 > this.$.a.length) {
+      var b = U(R(), this.$, this.f),
         c = new r(1);
       c.a[0] = a;
       return new S(
         this.d,
-        this.La,
-        this.sa,
-        this.Ma,
-        this.ta,
-        this.Ca,
-        this.ua,
+        this.Ga,
+        this.pa,
+        this.Ha,
         this.qa,
-        this.va,
+        this.ya,
         this.ra,
+        this.na,
+        this.sa,
+        this.oa,
         this.S,
+        this.ca,
         this.ba,
         this.aa,
-        this.$,
         b,
         c,
         (1 + this.j) | 0
       );
     }
-    if (31 > this.$.a.length) {
-      b = U(R(), this.$, U(R(), this.Z, this.f));
-      c = R().Q;
+    if (31 > this.aa.a.length) {
+      b = U(R(), this.aa, U(R(), this.$, this.f));
+      c = R().P;
       var d = new r(1);
       d.a[0] = a;
       return new S(
         this.d,
-        this.La,
-        this.sa,
-        this.Ma,
-        this.ta,
-        this.Ca,
-        this.ua,
+        this.Ga,
+        this.pa,
+        this.Ha,
         this.qa,
-        this.va,
+        this.ya,
         this.ra,
+        this.na,
+        this.sa,
+        this.oa,
         this.S,
+        this.ca,
         this.ba,
-        this.aa,
         b,
         c,
         d,
         (1 + this.j) | 0
       );
     }
-    if (31 > this.aa.a.length) {
-      b = U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.f)));
-      c = R().fb;
-      d = R().Q;
+    if (31 > this.ba.a.length) {
+      b = U(R(), this.ba, U(R(), this.aa, U(R(), this.$, this.f)));
+      c = R().$a;
+      d = R().P;
       var f = new r(1);
       f.a[0] = a;
       return new S(
         this.d,
-        this.La,
-        this.sa,
-        this.Ma,
-        this.ta,
-        this.Ca,
-        this.ua,
+        this.Ga,
+        this.pa,
+        this.Ha,
         this.qa,
-        this.va,
+        this.ya,
         this.ra,
+        this.na,
+        this.sa,
+        this.oa,
         this.S,
-        this.ba,
+        this.ca,
         b,
         c,
         d,
@@ -18236,28 +17989,28 @@ let ScalaJSExample;
         (1 + this.j) | 0
       );
     }
-    if (31 > this.ba.a.length) {
+    if (31 > this.ca.a.length) {
       b = U(
         R(),
-        this.ba,
-        U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.f)))
+        this.ca,
+        U(R(), this.ba, U(R(), this.aa, U(R(), this.$, this.f)))
       );
-      c = R().wc;
-      d = R().fb;
-      f = R().Q;
+      c = R().tc;
+      d = R().$a;
+      f = R().P;
       var g = new r(1);
       g.a[0] = a;
       return new S(
         this.d,
-        this.La,
-        this.sa,
-        this.Ma,
-        this.ta,
-        this.Ca,
-        this.ua,
+        this.Ga,
+        this.pa,
+        this.Ha,
         this.qa,
-        this.va,
+        this.ya,
         this.ra,
+        this.na,
+        this.sa,
+        this.oa,
         this.S,
         b,
         c,
@@ -18271,25 +18024,29 @@ let ScalaJSExample;
       b = U(
         R(),
         this.S,
-        U(R(), this.ba, U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.f))))
+        U(
+          R(),
+          this.ca,
+          U(R(), this.ba, U(R(), this.aa, U(R(), this.$, this.f)))
+        )
       );
-      c = R().Re;
-      d = R().wc;
-      f = R().fb;
-      g = R().Q;
+      c = R().Ke;
+      d = R().tc;
+      f = R().$a;
+      g = R().P;
       var h = new r(1);
       h.a[0] = a;
       return new S(
         this.d,
-        this.La,
-        this.sa,
-        this.Ma,
-        this.ta,
-        this.Ca,
-        this.ua,
+        this.Ga,
+        this.pa,
+        this.Ha,
         this.qa,
-        this.va,
+        this.ya,
         this.ra,
+        this.na,
+        this.sa,
+        this.oa,
         b,
         c,
         d,
@@ -18299,87 +18056,87 @@ let ScalaJSExample;
         (1 + this.j) | 0
       );
     }
-    throw to();
+    throw Ao();
   };
-  e.lf = function (a) {
-    if (32 > this.La) {
-      var b = af(R(), a, this.d);
+  e.bf = function (a) {
+    if (32 > this.Ga) {
+      var b = mf(R(), a, this.d);
       return new S(
         b,
-        (1 + this.La) | 0,
+        (1 + this.Ga) | 0,
+        this.pa,
+        (1 + this.Ha) | 0,
+        this.qa,
+        (1 + this.ya) | 0,
+        this.ra,
+        (1 + this.na) | 0,
         this.sa,
-        (1 + this.Ma) | 0,
-        this.ta,
-        (1 + this.Ca) | 0,
-        this.ua,
-        (1 + this.qa) | 0,
-        this.va,
-        (1 + this.ra) | 0,
+        (1 + this.oa) | 0,
         this.S,
+        this.ca,
         this.ba,
         this.aa,
         this.$,
-        this.Z,
         this.f,
         (1 + this.j) | 0
       );
     }
-    if (1024 > this.Ma)
+    if (1024 > this.Ha)
       return (
         (b = new r(1)),
         (b.a[0] = a),
-        (a = V(R(), this.d, this.sa)),
+        (a = V(R(), this.d, this.pa)),
         new S(
           b,
           1,
           a,
-          (1 + this.Ma) | 0,
-          this.ta,
-          (1 + this.Ca) | 0,
-          this.ua,
-          (1 + this.qa) | 0,
-          this.va,
-          (1 + this.ra) | 0,
+          (1 + this.Ha) | 0,
+          this.qa,
+          (1 + this.ya) | 0,
+          this.ra,
+          (1 + this.na) | 0,
+          this.sa,
+          (1 + this.oa) | 0,
           this.S,
+          this.ca,
           this.ba,
           this.aa,
           this.$,
-          this.Z,
           this.f,
           (1 + this.j) | 0
         )
       );
-    if (32768 > this.Ca) {
+    if (32768 > this.ya) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      var c = V(R(), V(R(), this.d, this.sa), this.ta);
+      a = R().P;
+      var c = V(R(), V(R(), this.d, this.pa), this.qa);
       return new S(
         b,
         1,
         a,
         1,
         c,
-        (1 + this.Ca) | 0,
-        this.ua,
-        (1 + this.qa) | 0,
-        this.va,
-        (1 + this.ra) | 0,
+        (1 + this.ya) | 0,
+        this.ra,
+        (1 + this.na) | 0,
+        this.sa,
+        (1 + this.oa) | 0,
         this.S,
+        this.ca,
         this.ba,
         this.aa,
         this.$,
-        this.Z,
         this.f,
         (1 + this.j) | 0
       );
     }
-    if (1048576 > this.qa) {
+    if (1048576 > this.na) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      c = R().fb;
-      var d = V(R(), V(R(), V(R(), this.d, this.sa), this.ta), this.ua);
+      a = R().P;
+      c = R().$a;
+      var d = V(R(), V(R(), V(R(), this.d, this.pa), this.qa), this.ra);
       return new S(
         b,
         1,
@@ -18388,28 +18145,28 @@ let ScalaJSExample;
         c,
         1,
         d,
-        (1 + this.qa) | 0,
-        this.va,
-        (1 + this.ra) | 0,
+        (1 + this.na) | 0,
+        this.sa,
+        (1 + this.oa) | 0,
         this.S,
+        this.ca,
         this.ba,
         this.aa,
         this.$,
-        this.Z,
         this.f,
         (1 + this.j) | 0
       );
     }
-    if (33554432 > this.ra) {
+    if (33554432 > this.oa) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      c = R().fb;
-      d = R().wc;
+      a = R().P;
+      c = R().$a;
+      d = R().tc;
       var f = V(
         R(),
-        V(R(), V(R(), V(R(), this.d, this.sa), this.ta), this.ua),
-        this.va
+        V(R(), V(R(), V(R(), this.d, this.pa), this.qa), this.ra),
+        this.sa
       );
       return new S(
         b,
@@ -18421,12 +18178,12 @@ let ScalaJSExample;
         d,
         1,
         f,
-        (1 + this.ra) | 0,
+        (1 + this.oa) | 0,
         this.S,
+        this.ca,
         this.ba,
         this.aa,
         this.$,
-        this.Z,
         this.f,
         (1 + this.j) | 0
       );
@@ -18434,16 +18191,16 @@ let ScalaJSExample;
     if (62 > this.S.a.length) {
       b = new r(1);
       b.a[0] = a;
-      a = R().Q;
-      c = R().fb;
-      d = R().wc;
-      f = R().Re;
+      a = R().P;
+      c = R().$a;
+      d = R().tc;
+      f = R().Ke;
       var g = V(
         R(),
         V(
           R(),
-          V(R(), V(R(), V(R(), this.d, this.sa), this.ta), this.ua),
-          this.va
+          V(R(), V(R(), V(R(), this.d, this.pa), this.qa), this.ra),
+          this.sa
         ),
         this.S
       );
@@ -18459,39 +18216,39 @@ let ScalaJSExample;
         f,
         1,
         g,
+        this.ca,
         this.ba,
         this.aa,
         this.$,
-        this.Z,
         this.f,
         (1 + this.j) | 0
       );
     }
-    throw to();
+    throw Ao();
   };
-  e.Hd = function (a) {
-    var b = cf(R(), this.d, a),
-      c = df(R(), 2, this.sa, a),
-      d = df(R(), 3, this.ta, a),
-      f = df(R(), 4, this.ua, a),
-      g = df(R(), 5, this.va, a),
-      h = df(R(), 6, this.S, a),
-      k = df(R(), 5, this.ba, a),
-      l = df(R(), 4, this.aa, a),
-      p = df(R(), 3, this.$, a),
-      u = df(R(), 2, this.Z, a);
-    a = cf(R(), this.f, a);
+  e.Bd = function (a) {
+    var b = of(R(), this.d, a),
+      c = pf(R(), 2, this.pa, a),
+      d = pf(R(), 3, this.qa, a),
+      f = pf(R(), 4, this.ra, a),
+      g = pf(R(), 5, this.sa, a),
+      h = pf(R(), 6, this.S, a),
+      k = pf(R(), 5, this.ca, a),
+      l = pf(R(), 4, this.ba, a),
+      p = pf(R(), 3, this.aa, a),
+      u = pf(R(), 2, this.$, a);
+    a = of(R(), this.f, a);
     return new S(
       b,
-      this.La,
+      this.Ga,
       c,
-      this.Ma,
+      this.Ha,
       d,
-      this.Ca,
+      this.ya,
       f,
-      this.qa,
+      this.na,
       g,
-      this.ra,
+      this.oa,
       h,
       k,
       l,
@@ -18501,116 +18258,116 @@ let ScalaJSExample;
       this.j
     );
   };
-  e.wd = function (a, b) {
-    a = new Ne(a, b);
+  e.pd = function (a, b) {
+    a = new bf(a, b);
     Q(a, 1, this.d);
-    Q(a, 2, this.sa);
-    Q(a, 3, this.ta);
-    Q(a, 4, this.ua);
-    Q(a, 5, this.va);
+    Q(a, 2, this.pa);
+    Q(a, 3, this.qa);
+    Q(a, 4, this.ra);
+    Q(a, 5, this.sa);
     Q(a, 6, this.S);
-    Q(a, 5, this.ba);
-    Q(a, 4, this.aa);
-    Q(a, 3, this.$);
-    Q(a, 2, this.Z);
+    Q(a, 5, this.ca);
+    Q(a, 4, this.ba);
+    Q(a, 3, this.aa);
+    Q(a, 2, this.$);
     Q(a, 1, this.f);
-    return a.Id();
+    return a.Cd();
   };
-  e.kd = function () {
-    if (1 < this.La) {
+  e.ed = function () {
+    if (1 < this.Ga) {
       var a = this.d,
         b = a.a.length;
       a = N(O(), a, 1, b);
       return new S(
         a,
-        (-1 + this.La) | 0,
+        (-1 + this.Ga) | 0,
+        this.pa,
+        (-1 + this.Ha) | 0,
+        this.qa,
+        (-1 + this.ya) | 0,
+        this.ra,
+        (-1 + this.na) | 0,
         this.sa,
-        (-1 + this.Ma) | 0,
-        this.ta,
-        (-1 + this.Ca) | 0,
-        this.ua,
-        (-1 + this.qa) | 0,
-        this.va,
-        (-1 + this.ra) | 0,
+        (-1 + this.oa) | 0,
         this.S,
+        this.ca,
         this.ba,
         this.aa,
         this.$,
-        this.Z,
         this.f,
         (-1 + this.j) | 0
       );
     }
-    return this.wd(1, this.j);
+    return this.pd(1, this.j);
   };
-  e.xd = function () {
+  e.qd = function () {
     return 11;
   };
-  e.Ud = function (a) {
+  e.Kd = function (a) {
     switch (a) {
       case 0:
         return this.d;
       case 1:
-        return this.sa;
+        return this.pa;
       case 2:
-        return this.ta;
+        return this.qa;
       case 3:
-        return this.ua;
+        return this.ra;
       case 4:
-        return this.va;
+        return this.sa;
       case 5:
         return this.S;
       case 6:
-        return this.ba;
+        return this.ca;
       case 7:
-        return this.aa;
+        return this.ba;
       case 8:
-        return this.$;
+        return this.aa;
       case 9:
-        return this.Z;
+        return this.$;
       case 10:
         return this.f;
       default:
         throw new T(a);
     }
   };
-  e.Pc = function (a, b) {
-    var c = ef(R(), this.f, a);
+  e.Jc = function (a, b) {
+    var c = qf(R(), this.f, a);
     return null !== c
       ? new S(
           this.d,
-          this.La,
-          this.sa,
-          this.Ma,
-          this.ta,
-          this.Ca,
-          this.ua,
+          this.Ga,
+          this.pa,
+          this.Ha,
           this.qa,
-          this.va,
+          this.ya,
           this.ra,
+          this.na,
+          this.sa,
+          this.oa,
           this.S,
+          this.ca,
           this.ba,
           this.aa,
           this.$,
-          this.Z,
           c,
           (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
-      : op.prototype.Pc.call(this, a, b);
+      : xp.prototype.Jc.call(this, a, b);
   };
   e.w = function () {
-    return this.kd();
+    return this.ed();
   };
-  e.W = function (a) {
-    return this.Hd(a);
+  e.da = function (a) {
+    return this.Bd(a);
   };
-  e.md = function (a) {
-    return this.hc(a);
+  e.ud = function (a) {
+    return this.fc(a);
   };
-  e.l = function (a) {
+  e.m = function (a) {
     var b = a | 0;
     if (0 <= b && b < this.j) {
-      a = (b - this.ra) | 0;
+      a = (b - this.oa) | 0;
       if (0 <= a) {
         b = (a >>> 25) | 0;
         var c = 31 & ((a >>> 20) | 0),
@@ -18620,42 +18377,42 @@ let ScalaJSExample;
         a &= 31;
         return b < this.S.a.length
           ? this.S.a[b].a[c].a[d].a[f].a[g].a[a]
-          : c < this.ba.a.length
-          ? this.ba.a[c].a[d].a[f].a[g].a[a]
-          : d < this.aa.a.length
-          ? this.aa.a[d].a[f].a[g].a[a]
-          : f < this.$.a.length
-          ? this.$.a[f].a[g].a[a]
-          : g < this.Z.a.length
-          ? this.Z.a[g].a[a]
+          : c < this.ca.a.length
+          ? this.ca.a[c].a[d].a[f].a[g].a[a]
+          : d < this.ba.a.length
+          ? this.ba.a[d].a[f].a[g].a[a]
+          : f < this.aa.a.length
+          ? this.aa.a[f].a[g].a[a]
+          : g < this.$.a.length
+          ? this.$.a[g].a[a]
           : this.f.a[a];
       }
-      return b >= this.qa
-        ? ((a = (b - this.qa) | 0),
-          this.va.a[(a >>> 20) | 0].a[31 & ((a >>> 15) | 0)].a[
+      return b >= this.na
+        ? ((a = (b - this.na) | 0),
+          this.sa.a[(a >>> 20) | 0].a[31 & ((a >>> 15) | 0)].a[
             31 & ((a >>> 10) | 0)
           ].a[31 & ((a >>> 5) | 0)].a[31 & a])
-        : b >= this.Ca
-        ? ((a = (b - this.Ca) | 0),
-          this.ua.a[(a >>> 15) | 0].a[31 & ((a >>> 10) | 0)].a[
+        : b >= this.ya
+        ? ((a = (b - this.ya) | 0),
+          this.ra.a[(a >>> 15) | 0].a[31 & ((a >>> 10) | 0)].a[
             31 & ((a >>> 5) | 0)
           ].a[31 & a])
-        : b >= this.Ma
-        ? ((a = (b - this.Ma) | 0),
-          this.ta.a[(a >>> 10) | 0].a[31 & ((a >>> 5) | 0)].a[31 & a])
-        : b >= this.La
-        ? ((a = (b - this.La) | 0), this.sa.a[(a >>> 5) | 0].a[31 & a])
+        : b >= this.Ha
+        ? ((a = (b - this.Ha) | 0),
+          this.qa.a[(a >>> 10) | 0].a[31 & ((a >>> 5) | 0)].a[31 & a])
+        : b >= this.Ga
+        ? ((a = (b - this.Ga) | 0), this.pa.a[(a >>> 5) | 0].a[31 & a])
         : this.d.a[b];
     }
-    throw this.Gb(b);
+    throw this.Db(b);
   };
-  e.$classData = v({ Fq: 0 }, !1, "scala.collection.immutable.Vector6", {
-    Fq: 1,
-    Qg: 1,
-    kg: 1,
-    jg: 1,
-    Uc: 1,
-    xa: 1,
+  e.$classData = v({ Hq: 0 }, !1, "scala.collection.immutable.Vector6", {
+    Hq: 1,
+    Lg: 1,
+    ag: 1,
+    $f: 1,
+    ld: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -18663,115 +18420,115 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    nc: 1,
-    Ib: 1,
-    Ic: 1,
-    Kd: 1,
-    $a: 1,
-    ya: 1,
-    be: 1,
-    Rd: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Bc: 1,
+    Sb: 1,
+    cd: 1,
+    he: 1,
+    nb: 1,
+    La: 1,
+    Ee: 1,
+    ne: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function Ud() {
-    var a = new Tt();
-    a.Tb = Bl(new Dl());
+  function ee() {
+    var a = new Xt();
+    a.Nb = Gl(new Il());
     return a;
   }
-  function Tt() {
-    this.Tb = null;
+  function Xt() {
+    this.Nb = null;
   }
-  Tt.prototype = new Xs();
-  Tt.prototype.constructor = Tt;
-  e = Tt.prototype;
-  e.Mb = function () {
+  Xt.prototype = new gt();
+  Xt.prototype.constructor = Xt;
+  e = Xt.prototype;
+  e.Ob = function () {
     return "IndexedSeq";
   };
-  e.i = function () {
-    var a = new Mj(this);
-    return new yk(a);
+  e.h = function () {
+    var a = new Ak(this);
+    return new Bk(a);
   };
-  e.Eb = function (a) {
-    return Bo(this, a);
+  e.Jb = function (a) {
+    return Jo(this, a);
   };
-  e.W = function (a) {
-    return Do(this, a);
+  e.da = function (a) {
+    return Lo(this, a);
   };
   e.u = function () {
-    return Pa(Gl(this.Tb, 0));
+    return Na(Ll(this.Nb, 0));
   };
-  e.hb = function (a) {
-    var b = this.Tb.n();
+  e.kb = function (a) {
+    var b = this.Nb.q();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.cc = function () {};
-  e.qb = function (a) {
-    return Yh(this, a);
+  e.ac = function () {};
+  e.wb = function (a) {
+    return fi(this, a);
   };
-  e.n = function () {
-    return this.Tb.n();
+  e.q = function () {
+    return this.Nb.q();
   };
-  e.v = function () {
-    return this.Tb.n();
+  e.t = function () {
+    return this.Nb.q();
   };
   e.z = function () {
-    return this.Tb.o;
+    return this.Nb.n;
   };
-  function Ut(a, b) {
-    if (b instanceof Gm) {
-      var c = a.Tb;
-      Hm();
-      c.o = "" + c.o + b.oc;
-    } else if (b instanceof Qq) El(a.Tb, b.jd);
-    else if (b instanceof Tt) (c = a.Tb), (c.o = "" + c.o + b.Tb);
+  function Yt(a, b) {
+    if (b instanceof Nm) {
+      var c = a.Nb;
+      Om();
+      c.n = "" + c.n + b.mc;
+    } else if (b instanceof Yq) Jl(a.Nb, b.dd);
+    else if (b instanceof Xt) (c = a.Nb), (c.n = "" + c.n + b.Nb);
     else {
-      var d = b.v();
+      var d = b.t();
       if (0 !== d)
-        for (c = a.Tb, 0 < d && c.n(), b = b.i(); b.m(); )
-          (d = za(b.k())), (d = String.fromCharCode(d)), (c.o = "" + c.o + d);
+        for (c = a.Nb, 0 < d && c.q(), b = b.h(); b.l(); )
+          (d = Aa(b.k())), (d = String.fromCharCode(d)), (c.n = "" + c.n + d);
     }
     return a;
   }
   e.e = function () {
-    return 0 === this.Tb.n();
+    return 0 === this.Nb.q();
   };
-  e.ha = function () {
-    Xp || (Xp = new Wp());
-    return Xp;
+  e.X = function () {
+    fq || (fq = new eq());
+    return fq;
   };
-  e.Ua = function () {
-    return this.Tb.o;
+  e.Wa = function () {
+    return this.Nb.n;
   };
-  e.Oa = function (a) {
-    var b = this.Tb;
-    a = String.fromCharCode(za(a));
-    b.o = "" + b.o + a;
+  e.Ia = function (a) {
+    var b = this.Nb;
+    a = String.fromCharCode(Aa(a));
+    b.n = "" + b.n + a;
     return this;
   };
-  e.Be = function (a) {
-    return Ut(Ud(), a);
+  e.ve = function (a) {
+    return Yt(ee(), a);
   };
-  e.oh = function (a) {
-    return Ut(Ud(), a);
+  e.jh = function (a) {
+    return Yt(ee(), a);
   };
-  e.l = function (a) {
-    return Pa(Gl(this.Tb, a | 0));
+  e.m = function (a) {
+    return Na(Ll(this.Nb, a | 0));
   };
-  e.t = function (a) {
-    return Pa(Gl(this.Tb, a));
+  e.v = function (a) {
+    return Na(Ll(this.Nb, a));
   };
-  e.$classData = v({ wr: 0 }, !1, "scala.collection.mutable.StringBuilder", {
-    wr: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ yr: 0 }, !1, "scala.collection.mutable.StringBuilder", {
+    yr: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -18779,132 +18536,132 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Ef: 1,
-    Xc: 1,
-    qc: 1,
-    pc: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    vf: 1,
+    Qc: 1,
+    oc: 1,
+    nc: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
     Ek: 1,
     c: 1,
   });
-  function Vt(a) {
-    a.Oj = (1 + a.Oj) | 0;
-    if (a.Xh) {
-      var b = Zp(new gp(), a);
-      a.fe = b.fe;
-      a.vd = b.vd;
-      a.Xh = !1;
+  function Zt(a) {
+    a.Nj = (1 + a.Nj) | 0;
+    if (a.Th) {
+      var b = hq(new pp(), a);
+      a.Vd = b.Vd;
+      a.od = b.od;
+      a.Th = !1;
     }
   }
-  function gp() {
-    this.vd = this.fe = null;
-    this.Xh = !1;
-    this.Oj = this.Lc = 0;
-    this.fe = I();
-    this.vd = null;
-    this.Xh = !1;
-    this.Lc = 0;
+  function pp() {
+    this.od = this.Vd = null;
+    this.Th = !1;
+    this.Nj = this.Ec = 0;
+    this.Vd = I();
+    this.od = null;
+    this.Th = !1;
+    this.Ec = 0;
   }
-  gp.prototype = new nt();
-  gp.prototype.constructor = gp;
-  e = gp.prototype;
-  e.cc = function () {};
-  e.Bd = function (a) {
-    return Eq(this, a);
+  pp.prototype = new zt();
+  pp.prototype.constructor = pp;
+  e = pp.prototype;
+  e.ac = function () {};
+  e.Nd = function (a) {
+    return Nq(this, a);
   };
-  e.W = function (a) {
-    return Tl(this, a);
+  e.da = function (a) {
+    return Yl(this, a);
   };
-  e.Wb = function (a) {
-    return Ul(this, a);
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return Xl(this, a);
+  e.Qb = function (a) {
+    return cm(this, a);
   };
-  e.i = function () {
-    return new bq(this.fe.i(), new H(((a) => () => a.Oj)(this)));
+  e.h = function () {
+    return new kq(this.Vd.h(), new H(((a) => () => a.Nj)(this)));
   };
-  e.qd = function () {
-    return aq();
+  e.Ad = function () {
+    return jq();
   };
-  e.t = function (a) {
-    return en(this.fe, a);
+  e.v = function (a) {
+    return mn(this.Vd, a);
   };
-  e.n = function () {
-    return this.Lc;
+  e.q = function () {
+    return this.Ec;
   };
-  e.v = function () {
-    return this.Lc;
+  e.t = function () {
+    return this.Ec;
   };
   e.e = function () {
-    return 0 === this.Lc;
+    return 0 === this.Ec;
   };
-  function Ht(a) {
-    a.Xh = !a.e();
-    return a.fe;
+  function Lt(a) {
+    a.Th = !a.e();
+    return a.Vd;
   }
-  function Zp(a, b) {
+  function hq(a, b) {
     if (b === a)
-      0 < a.Lc &&
-        (Vt(a),
-        (b = Zp(new gp(), a)),
-        (a.vd.tc = b.fe),
-        (a.vd = b.vd),
-        (a.Lc <<= 1));
-    else if (((b = b.i()), b.m())) {
-      Vt(a);
-      var c = new Wm(b.k(), I());
-      0 === a.Lc ? (a.fe = c) : (a.vd.tc = c);
-      a.vd = c;
-      for (a.Lc = (1 + a.Lc) | 0; b.m(); )
-        (c = new Wm(b.k(), I())),
-          (a.vd.tc = c),
-          (a.vd = c),
-          (a.Lc = (1 + a.Lc) | 0);
+      0 < a.Ec &&
+        (Zt(a),
+        (b = hq(new pp(), a)),
+        (a.od.sc = b.Vd),
+        (a.od = b.od),
+        (a.Ec <<= 1));
+    else if (((b = b.h()), b.l())) {
+      Zt(a);
+      var c = new cn(b.k(), I());
+      0 === a.Ec ? (a.Vd = c) : (a.od.sc = c);
+      a.od = c;
+      for (a.Ec = (1 + a.Ec) | 0; b.l(); )
+        (c = new cn(b.k(), I())),
+          (a.od.sc = c),
+          (a.od = c),
+          (a.Ec = (1 + a.Ec) | 0);
     }
     return a;
   }
-  e.Mb = function () {
+  e.Ob = function () {
     return "ListBuffer";
   };
-  e.qb = function (a) {
-    return Zp(this, a);
+  e.wb = function (a) {
+    return hq(this, a);
   };
-  e.Oa = function (a) {
-    Vt(this);
-    a = new Wm(a, I());
-    0 === this.Lc ? (this.fe = a) : (this.vd.tc = a);
-    this.vd = a;
-    this.Lc = (1 + this.Lc) | 0;
+  e.Ia = function (a) {
+    Zt(this);
+    a = new cn(a, I());
+    0 === this.Ec ? (this.Vd = a) : (this.od.sc = a);
+    this.od = a;
+    this.Ec = (1 + this.Ec) | 0;
     return this;
   };
-  e.Ua = function () {
-    return Ht(this);
+  e.Wa = function () {
+    return Lt(this);
   };
-  e.l = function (a) {
-    return en(this.fe, a | 0);
+  e.m = function (a) {
+    return mn(this.Vd, a | 0);
   };
-  e.ha = function () {
-    return aq();
+  e.X = function () {
+    return jq();
   };
-  e.$classData = v({ or: 0 }, !1, "scala.collection.mutable.ListBuffer", {
-    or: 1,
-    Th: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ qr: 0 }, !1, "scala.collection.mutable.ListBuffer", {
+    qr: 1,
+    Ph: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -18912,86 +18669,86 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Uh: 1,
-    qc: 1,
-    pc: 1,
-    dh: 1,
-    ab: 1,
-    ma: 1,
-    Ef: 1,
-    Xc: 1,
-    id: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Qh: 1,
+    oc: 1,
+    nc: 1,
+    Yg: 1,
+    ob: 1,
+    va: 1,
+    vf: 1,
+    Qc: 1,
+    bd: 1,
     c: 1,
   });
-  function Bp() {
-    var a = new zp(),
+  function Kp() {
+    var a = new Ip(),
       b = new r(16);
-    a.de = b;
-    a.ob = 0;
+    a.Td = b;
+    a.ib = 0;
     return a;
   }
-  function zp() {
-    this.de = null;
-    this.ob = 0;
+  function Ip() {
+    this.Td = null;
+    this.ib = 0;
   }
-  zp.prototype = new nt();
-  zp.prototype.constructor = zp;
-  e = zp.prototype;
-  e.Bd = function (a) {
-    return Eq(this, a);
+  Ip.prototype = new zt();
+  Ip.prototype.constructor = Ip;
+  e = Ip.prototype;
+  e.Nd = function (a) {
+    return Nq(this, a);
   };
-  e.W = function (a) {
-    return Tl(this, a);
+  e.da = function (a) {
+    return Yl(this, a);
   };
-  e.Wb = function (a) {
-    return Ul(this, a);
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return Xl(this, a);
+  e.Qb = function (a) {
+    return cm(this, a);
   };
-  e.i = function () {
-    return new yk(new Ls(this.de, this.ob));
+  e.h = function () {
+    return new Bk(new Vs(this.Td, this.ib));
   };
-  e.Eb = function (a) {
-    return Bo(this, a);
+  e.Jb = function (a) {
+    return Jo(this, a);
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.hb = function (a) {
-    var b = this.ob;
+  e.kb = function (a) {
+    var b = this.ib;
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return this.ob;
+  e.t = function () {
+    return this.ib;
   };
-  function Ep(a, b) {
-    Dp();
-    var c = a.de,
+  function Np(a, b) {
+    Mp();
+    var c = a.Td,
       d = c.a.length,
       f = d >> 31,
       g = b >> 31;
     if (!(g === f ? (-2147483648 ^ b) <= (-2147483648 ^ d) : g < f)) {
       g = new n(d, f);
-      d = a.ob;
-      var h = g.Fa;
+      d = a.ib;
+      var h = g.bb;
       f = h << 1;
-      g = (h >>> 31) | 0 | (g.Ea << 1);
+      g = (h >>> 31) | 0 | (g.ab << 1);
       g = (0 === g ? -2147483632 < (-2147483648 ^ f) : 0 < g)
         ? new n(f, g)
         : new n(16, 0);
-      f = g.Fa;
-      for (g = g.Ea; ; ) {
+      f = g.bb;
+      for (g = g.ab; ; ) {
         h = b >> 31;
         var k = f,
           l = g;
@@ -19003,97 +18760,97 @@ let ScalaJSExample;
       if (0 === b ? -1 < (-2147483648 ^ f) : 0 < b) {
         if (2147483647 === d)
           throw (
-            ((a = new Ki()),
-            oe(a, "Collections can not have more than 2147483647 elements"),
-            nb(a))
+            ((a = new Qi()),
+            ze(a, "Collections can not have more than 2147483647 elements"),
+            lb(a))
           );
         f = 2147483647;
       }
       b = new r(f);
-      zh(Bh(), c, 0, b, 0, d);
+      Gh(Ih(), c, 0, b, 0, d);
       c = b;
     }
-    a.de = c;
+    a.Td = c;
   }
-  e.t = function (a) {
+  e.v = function (a) {
     var b = (1 + a) | 0;
     if (0 > a)
-      throw og(
-        new pg(),
-        a + " is out of bounds (min 0, max " + ((-1 + this.ob) | 0) + ")"
+      throw xg(
+        new yg(),
+        a + " is out of bounds (min 0, max " + ((-1 + this.ib) | 0) + ")"
       );
-    if (b > this.ob)
-      throw og(
-        new pg(),
+    if (b > this.ib)
+      throw xg(
+        new yg(),
         ((-1 + b) | 0) +
           " is out of bounds (min 0, max " +
-          ((-1 + this.ob) | 0) +
+          ((-1 + this.ib) | 0) +
           ")"
       );
-    return this.de.a[a];
+    return this.Td.a[a];
   };
-  e.n = function () {
-    return this.ob;
+  e.q = function () {
+    return this.ib;
   };
-  e.qd = function () {
-    return Dp();
+  e.Ad = function () {
+    return Mp();
   };
-  function Ap(a, b) {
-    b instanceof zp
-      ? (Ep(a, (a.ob + b.ob) | 0),
-        zh(Bh(), b.de, 0, a.de, a.ob, b.ob),
-        (a.ob = (a.ob + b.ob) | 0))
-      : Yh(a, b);
+  function Jp(a, b) {
+    b instanceof Ip
+      ? (Np(a, (a.ib + b.ib) | 0),
+        Gh(Ih(), b.Td, 0, a.Td, a.ib, b.ib),
+        (a.ib = (a.ib + b.ib) | 0))
+      : fi(a, b);
     return a;
   }
-  e.Mb = function () {
+  e.Ob = function () {
     return "ArrayBuffer";
   };
-  e.Ob = function (a, b, c) {
-    var d = this.ob,
-      f = Nd(Od(), a);
+  e.Pb = function (a, b, c) {
+    var d = this.ib,
+      f = Bd(Gd(), a);
     c = c < d ? c : d;
     f = (f - b) | 0;
     f = c < f ? c : f;
     f = 0 < f ? f : 0;
-    0 < f && zh(Bh(), this.de, 0, a, b, f);
+    0 < f && Gh(Ih(), this.Td, 0, a, b, f);
     return f;
   };
-  e.qb = function (a) {
-    return Ap(this, a);
+  e.wb = function (a) {
+    return Jp(this, a);
   };
-  e.Oa = function (a) {
-    var b = this.ob;
-    Ep(this, (1 + this.ob) | 0);
-    this.ob = (1 + this.ob) | 0;
+  e.Ia = function (a) {
+    var b = this.ib;
+    Np(this, (1 + this.ib) | 0);
+    this.ib = (1 + this.ib) | 0;
     var c = (1 + b) | 0;
     if (0 > b)
-      throw og(
-        new pg(),
-        b + " is out of bounds (min 0, max " + ((-1 + this.ob) | 0) + ")"
+      throw xg(
+        new yg(),
+        b + " is out of bounds (min 0, max " + ((-1 + this.ib) | 0) + ")"
       );
-    if (c > this.ob)
-      throw og(
-        new pg(),
+    if (c > this.ib)
+      throw xg(
+        new yg(),
         ((-1 + c) | 0) +
           " is out of bounds (min 0, max " +
-          ((-1 + this.ob) | 0) +
+          ((-1 + this.ib) | 0) +
           ")"
       );
-    this.de.a[b] = a;
+    this.Td.a[b] = a;
     return this;
   };
-  e.ha = function () {
-    return Dp();
+  e.X = function () {
+    return Mp();
   };
-  e.l = function (a) {
-    return this.t(a | 0);
+  e.m = function (a) {
+    return this.v(a | 0);
   };
-  e.$classData = v({ Lq: 0 }, !1, "scala.collection.mutable.ArrayBuffer", {
-    Lq: 1,
-    Th: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ Nq: 0 }, !1, "scala.collection.mutable.ArrayBuffer", {
+    Nq: 1,
+    Ph: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -19101,108 +18858,108 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Uh: 1,
-    qc: 1,
-    pc: 1,
-    dh: 1,
-    Nj: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
-    id: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Qh: 1,
+    oc: 1,
+    nc: 1,
+    Yg: 1,
+    Mj: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
+    bd: 1,
     c: 1,
   });
-  function nq(a) {
-    a.xe = [];
+  function wq(a) {
+    a.re = [];
     return a;
   }
-  function jq() {
-    var a = new oq();
-    nq(a);
+  function sq() {
+    var a = new xq();
+    wq(a);
     return a;
   }
-  function oq() {
-    this.xe = null;
+  function xq() {
+    this.re = null;
   }
-  oq.prototype = new nt();
-  oq.prototype.constructor = oq;
-  e = oq.prototype;
-  e.cc = function () {};
-  e.Mb = function () {
+  xq.prototype = new zt();
+  xq.prototype.constructor = xq;
+  e = xq.prototype;
+  e.ac = function () {};
+  e.Ob = function () {
     return "IndexedSeq";
   };
-  e.i = function () {
-    var a = new Mj(this);
-    return new yk(a);
+  e.h = function () {
+    var a = new Ak(this);
+    return new Bk(a);
   };
-  e.Eb = function (a) {
-    return Bo(this, a);
+  e.Jb = function (a) {
+    return Jo(this, a);
   };
-  e.W = function (a) {
-    return Do(this, a);
+  e.da = function (a) {
+    return Lo(this, a);
   };
   e.u = function () {
-    return this.xe[0];
+    return this.re[0];
   };
-  e.hb = function (a) {
-    var b = this.xe.length | 0;
+  e.kb = function (a) {
+    var b = this.re.length | 0;
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.Bd = function (a) {
-    return Eq(this, a);
+  e.Nd = function (a) {
+    return Nq(this, a);
   };
-  e.Wb = function (a) {
-    return Ul(this, a);
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return Xl(this, a);
+  e.Qb = function (a) {
+    return cm(this, a);
   };
-  e.qd = function () {
-    return Qp();
+  e.Ad = function () {
+    return Zp();
   };
-  e.t = function (a) {
-    return this.xe[a];
+  e.v = function (a) {
+    return this.re[a];
   };
-  e.n = function () {
-    return this.xe.length | 0;
+  e.q = function () {
+    return this.re.length | 0;
   };
-  e.v = function () {
-    return this.xe.length | 0;
+  e.t = function () {
+    return this.re.length | 0;
   };
-  e.Qc = function () {
+  e.Wc = function () {
     return "WrappedArray";
   };
-  e.Ua = function () {
+  e.Wa = function () {
     return this;
   };
-  e.Oa = function (a) {
-    this.xe.push(a);
+  e.Ia = function (a) {
+    this.re.push(a);
     return this;
   };
-  e.l = function (a) {
-    return this.xe[a | 0];
+  e.m = function (a) {
+    return this.re[a | 0];
   };
-  e.ha = function () {
-    return Qp();
+  e.X = function () {
+    return Zp();
   };
-  e.$classData = v({ zr: 0 }, !1, "scala.scalajs.js.WrappedArray", {
-    zr: 1,
-    Th: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ Br: 0 }, !1, "scala.scalajs.js.WrappedArray", {
+    Br: 1,
+    Ph: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -19210,190 +18967,190 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Uh: 1,
-    qc: 1,
-    pc: 1,
-    dh: 1,
-    ab: 1,
-    ma: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    Nj: 1,
-    Xc: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Qh: 1,
+    oc: 1,
+    nc: 1,
+    Yg: 1,
+    ob: 1,
+    va: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    Mj: 1,
+    Qc: 1,
     c: 1,
   });
-  function Wt(a, b, c, d) {
-    if (0 !== (b.a.length & ((-1 + b.a.length) | 0))) throw new zl();
+  function $t(a, b, c, d) {
+    if (0 !== (b.a.length & ((-1 + b.a.length) | 0))) throw new El();
     var f = b.a.length;
     if (0 > c || c >= f)
-      throw og(
-        new pg(),
+      throw xg(
+        new yg(),
         c + " is out of bounds (min 0, max " + ((-1 + f) | 0) + ")"
       );
     f = b.a.length;
     if (0 > d || d >= f)
-      throw og(
-        new pg(),
+      throw xg(
+        new yg(),
         d + " is out of bounds (min 0, max " + ((-1 + f) | 0) + ")"
       );
     a.U = b;
-    a.xb = c;
-    a.wb = d;
+    a.tb = c;
+    a.sb = d;
   }
-  function Ip(a, b, c) {
+  function Rp(a, b, c) {
     a.U = b;
-    a.xb = 0;
-    a.wb = c;
-    Wt(a, a.U, a.xb, a.wb);
+    a.tb = 0;
+    a.sb = c;
+    $t(a, a.U, a.tb, a.sb);
     return a;
   }
-  function Lp() {
-    var a = new Jp();
-    Ip(a, Hp(Op(), 16), 0);
+  function Up() {
+    var a = new Sp();
+    Rp(a, Qp(Xp(), 16), 0);
     return a;
   }
-  function Jp() {
+  function Sp() {
     this.U = null;
-    this.wb = this.xb = 0;
+    this.sb = this.tb = 0;
   }
-  Jp.prototype = new nt();
-  Jp.prototype.constructor = Jp;
-  function Xt() {}
-  e = Xt.prototype = Jp.prototype;
-  e.Bd = function (a) {
-    return Eq(this, a);
+  Sp.prototype = new zt();
+  Sp.prototype.constructor = Sp;
+  function au() {}
+  e = au.prototype = Sp.prototype;
+  e.Nd = function (a) {
+    return Nq(this, a);
   };
-  e.W = function (a) {
-    return Tl(this, a);
+  e.da = function (a) {
+    return Yl(this, a);
   };
-  e.Wb = function (a) {
-    return Ul(this, a);
+  e.Cb = function (a) {
+    return Zl(this, a);
   };
-  e.Pb = function (a) {
-    return Xl(this, a);
+  e.Qb = function (a) {
+    return cm(this, a);
   };
-  e.i = function () {
-    var a = new Mj(this);
-    return new yk(a);
+  e.h = function () {
+    var a = new Ak(this);
+    return new Bk(a);
   };
-  e.Eb = function (a) {
-    return Bo(this, a);
+  e.Jb = function (a) {
+    return Jo(this, a);
   };
   e.u = function () {
-    return this.t(0);
+    return this.v(0);
   };
-  e.hb = function (a) {
-    var b = ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
+  e.kb = function (a) {
+    var b = ((this.sb - this.tb) | 0) & ((-1 + this.U.a.length) | 0);
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.v = function () {
-    return ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
+  e.t = function () {
+    return ((this.sb - this.tb) | 0) & ((-1 + this.U.a.length) | 0);
   };
-  e.t = function (a) {
-    var b = ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
+  e.v = function (a) {
+    var b = ((this.sb - this.tb) | 0) & ((-1 + this.U.a.length) | 0);
     if (0 > a || a >= b)
-      throw og(
-        new pg(),
+      throw xg(
+        new yg(),
         a + " is out of bounds (min 0, max " + ((-1 + b) | 0) + ")"
       );
-    return this.U.a[((this.xb + a) | 0) & ((-1 + this.U.a.length) | 0)];
+    return this.U.a[((this.tb + a) | 0) & ((-1 + this.U.a.length) | 0)];
   };
-  function Dk(a, b) {
-    var c = (1 + (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0))) | 0;
-    c > (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0)) &&
+  function Gk(a, b) {
+    var c = (1 + (((a.sb - a.tb) | 0) & ((-1 + a.U.a.length) | 0))) | 0;
+    c > (((a.sb - a.tb) | 0) & ((-1 + a.U.a.length) | 0)) &&
       c >= a.U.a.length &&
-      Pp(a, c);
-    a.U.a[a.wb] = b;
-    a.wb = ((1 + a.wb) | 0) & ((-1 + a.U.a.length) | 0);
+      Yp(a, c);
+    a.U.a[a.sb] = b;
+    a.sb = ((1 + a.sb) | 0) & ((-1 + a.U.a.length) | 0);
     return a;
   }
-  function Kp(a, b) {
-    var c = b.v();
+  function Tp(a, b) {
+    var c = b.t();
     if (0 < c)
       for (
-        c = (c + (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0))) | 0,
-          c > (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0)) &&
+        c = (c + (((a.sb - a.tb) | 0) & ((-1 + a.U.a.length) | 0))) | 0,
+          c > (((a.sb - a.tb) | 0) & ((-1 + a.U.a.length) | 0)) &&
             c >= a.U.a.length &&
-            Pp(a, c),
-          b = b.i();
-        b.m();
+            Yp(a, c),
+          b = b.h();
+        b.l();
 
       )
         (c = b.k()),
-          (a.U.a[a.wb] = c),
-          (a.wb = ((1 + a.wb) | 0) & ((-1 + a.U.a.length) | 0));
-    else for (b = b.i(); b.m(); ) (c = b.k()), Dk(a, c);
+          (a.U.a[a.sb] = c),
+          (a.sb = ((1 + a.sb) | 0) & ((-1 + a.U.a.length) | 0));
+    else for (b = b.h(); b.l(); ) (c = b.k()), Gk(a, c);
     return a;
   }
-  function Ek(a) {
-    if (a.e()) throw Th(new Uh(), "empty collection");
-    var b = a.U.a[a.xb];
-    a.U.a[a.xb] = null;
-    a.xb = ((1 + a.xb) | 0) & ((-1 + a.U.a.length) | 0);
+  function Hk(a) {
+    if (a.e()) throw Uk("empty collection");
+    var b = a.U.a[a.tb];
+    a.U.a[a.tb] = null;
+    a.tb = ((1 + a.tb) | 0) & ((-1 + a.U.a.length) | 0);
     return b;
   }
-  e.n = function () {
-    return ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
+  e.q = function () {
+    return ((this.sb - this.tb) | 0) & ((-1 + this.U.a.length) | 0);
   };
   e.e = function () {
-    return this.xb === this.wb;
+    return this.tb === this.sb;
   };
-  e.qd = function () {
-    return Op();
+  e.Ad = function () {
+    return Xp();
   };
-  e.Ob = function (a, b, c) {
-    var d = ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0),
-      f = Nd(Od(), a);
+  e.Pb = function (a, b, c) {
+    var d = ((this.sb - this.tb) | 0) & ((-1 + this.U.a.length) | 0),
+      f = Bd(Gd(), a);
     d = c < d ? c : d;
     f = (f - b) | 0;
     f = d < f ? d : f;
     f = 0 < f ? f : 0;
-    0 < f && nr(this, a, b, c);
+    0 < f && vr(this, a, b, c);
     return f;
   };
-  function Pp(a, b) {
+  function Yp(a, b) {
     if (
       b >= a.U.a.length ||
       (16 < a.U.a.length && ((a.U.a.length - b) | 0) > b)
     ) {
-      var c = ((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0);
-      b = Hp(Op(), b);
-      b = nr(a, b, 0, c);
-      Wt(a, b, 0, c);
+      var c = ((a.sb - a.tb) | 0) & ((-1 + a.U.a.length) | 0);
+      b = Qp(Xp(), b);
+      b = vr(a, b, 0, c);
+      $t(a, b, 0, c);
     }
   }
-  e.Mb = function () {
+  e.Ob = function () {
     return "ArrayDeque";
   };
-  e.ha = function () {
-    return this.qd();
+  e.X = function () {
+    return this.Ad();
   };
-  e.qb = function (a) {
-    return Kp(this, a);
+  e.wb = function (a) {
+    return Tp(this, a);
   };
-  e.Oa = function (a) {
-    return Dk(this, a);
+  e.Ia = function (a) {
+    return Gk(this, a);
   };
-  e.l = function (a) {
-    return this.t(a | 0);
+  e.m = function (a) {
+    return this.v(a | 0);
   };
-  e.$classData = v({ El: 0 }, !1, "scala.collection.mutable.ArrayDeque", {
-    El: 1,
-    Th: 1,
-    Kc: 1,
-    xa: 1,
+  e.$classData = v({ Fl: 0 }, !1, "scala.collection.mutable.ArrayDeque", {
+    Fl: 1,
+    Ph: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -19401,54 +19158,54 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Uh: 1,
-    qc: 1,
-    pc: 1,
-    dh: 1,
-    Nj: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
-    Tq: 1,
-    id: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Qh: 1,
+    oc: 1,
+    nc: 1,
+    Yg: 1,
+    Mj: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
+    Vq: 1,
+    bd: 1,
     c: 1,
   });
-  function Ck(a) {
+  function Fk(a) {
     this.U = null;
-    this.wb = this.xb = 0;
-    a = Hp(Op(), a);
-    Ip(this, a, 0);
+    this.sb = this.tb = 0;
+    a = Qp(Xp(), a);
+    Rp(this, a, 0);
   }
-  Ck.prototype = new Xt();
-  Ck.prototype.constructor = Ck;
-  Ck.prototype.qd = function () {
-    return eq();
+  Fk.prototype = new au();
+  Fk.prototype.constructor = Fk;
+  Fk.prototype.Ad = function () {
+    return nq();
   };
-  Ck.prototype.Mb = function () {
+  Fk.prototype.Ob = function () {
     return "Queue";
   };
-  Ck.prototype.ha = function () {
-    return eq();
+  Fk.prototype.X = function () {
+    return nq();
   };
-  Ck.prototype.$classData = v({ tr: 0 }, !1, "scala.collection.mutable.Queue", {
-    tr: 1,
-    El: 1,
-    Th: 1,
-    Kc: 1,
-    xa: 1,
+  Fk.prototype.$classData = v({ vr: 0 }, !1, "scala.collection.mutable.Queue", {
+    vr: 1,
+    Fl: 1,
+    Ph: 1,
+    Dc: 1,
+    Ka: 1,
     E: 1,
     b: 1,
     B: 1,
@@ -19456,35 +19213,35 @@ let ScalaJSExample;
     D: 1,
     s: 1,
     C: 1,
-    la: 1,
-    oa: 1,
+    ua: 1,
+    Aa: 1,
     O: 1,
-    P: 1,
+    Q: 1,
     x: 1,
-    Mc: 1,
-    yc: 1,
-    Nc: 1,
-    xc: 1,
-    Xb: 1,
-    Uh: 1,
-    qc: 1,
-    pc: 1,
-    dh: 1,
-    Nj: 1,
-    Yc: 1,
-    $a: 1,
-    ya: 1,
-    Zc: 1,
-    ab: 1,
-    ma: 1,
-    Tq: 1,
-    id: 1,
+    Fc: 1,
+    vc: 1,
+    Gc: 1,
+    uc: 1,
+    Vb: 1,
+    Qh: 1,
+    oc: 1,
+    nc: 1,
+    Yg: 1,
+    Mj: 1,
+    Rc: 1,
+    nb: 1,
+    La: 1,
+    Sc: 1,
+    ob: 1,
+    va: 1,
+    Vq: 1,
+    bd: 1,
     c: 1,
   });
-  da = new n(0, 0);
-  jb.$h = da;
-  ScalaJSExample = Dc();
-  new (x(la).G)([]);
-  ic(Dc());
+  ea = new n(0, 0);
+  hb.Wh = ea;
+  ScalaJSExample = Bc();
+  new (x(ma).G)([]);
+  gc(Bc());
 }.call(this));
 //# sourceMappingURL=scala-js-games-opt.js.map

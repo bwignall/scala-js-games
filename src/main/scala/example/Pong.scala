@@ -27,7 +27,7 @@ case class Pong(bounds: Point, resetGame: () => Unit) extends Game {
 
   var aiCounter = 0
 
-  def moveAI() = {
+  def moveAI(): Unit = {
     val targetY = {
       val padelX = rightPaddle.pos.x
       val distance = padelX - ballPos.x
@@ -59,13 +59,13 @@ case class Pong(bounds: Point, resetGame: () => Unit) extends Game {
       }
     }
   }
-  def initBall =
+  def initBall: (Point, Point) =
     (
       Point(400, 300),
       Point(8 * (Random.nextInt(2) - 0.5), 8 * (Random.nextInt(2) - 0.5))
     )
 
-  def doPaddleCollision(paddle: Paddle) = {
+  def doPaddleCollision(paddle: Paddle): Unit = {
     val corner1 = paddle.pos - paddle.dims * paddle.face
     val corner2 = paddle.pos + paddle.dims * paddle.face
     if (ballPos.within(corner2, corner1, extra = Point(5, 5))) {
@@ -75,7 +75,7 @@ case class Pong(bounds: Point, resetGame: () => Unit) extends Game {
       )
     }
   }
-  def draw(ctx: dom.CanvasRenderingContext2D) = {
+  def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
     ctx.fillStyle = Color.Black
     ctx.fillRect(0, 0, bounds.x, bounds.y)
 

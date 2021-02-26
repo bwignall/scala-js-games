@@ -8,7 +8,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
   var bullets = Seq.empty[Bullet]
   val craft = new Craft(bounds / 2, Point(0, 0), 0)
   var frameCount = 0
-  var asteroids = Seq.fill(10)(
+  var asteroids: Seq[Asteroid] = Seq.fill(10)(
     new Asteroid(
       3,
       if (Random.nextBoolean())
@@ -21,7 +21,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
     )
   )
 
-  def update(keys: Set[Int]) = {
+  def update(keys: Set[Int]): Unit = {
     frameCount += 1
 
     asteroids.foreach(_.move())
@@ -71,7 +71,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
     }
   }
 
-  def draw(ctx: dom.CanvasRenderingContext2D) = {
+  def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
     ctx.fillStyle = Color.Black
     ctx.fillRect(0, 0, 800, 800)
 
@@ -84,7 +84,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
   }
 
   class Asteroid(val level: Int, var position: Point, val momentum: Point) {
-    def draw(ctx: dom.CanvasRenderingContext2D) = {
+    def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
       val size = 10 * level
       ctx.fillRect(
         position.x - size / 2,
@@ -93,12 +93,12 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
         size.toDouble
       )
     }
-    def move() = {
+    def move(): Unit = {
       position += momentum
       position += bounds
       position %= bounds
     }
-    def contains(other: Point) = {
+    def contains(other: Point): Boolean = {
       val min = position - Point(5, 5) * level.toDouble
       val max = position + Point(5, 5) * level.toDouble
       other.within(min, max)
@@ -106,7 +106,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
   }
 
   class Craft(var position: Point, var momentum: Point, var theta: Double) {
-    def draw(ctx: dom.CanvasRenderingContext2D) = {
+    def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
       ctx.beginPath()
       val pts = Seq(
         Point(15, 0).rotate(theta) + position,
@@ -117,7 +117,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
       pts.foreach(p => ctx.lineTo(p.x, p.y))
       ctx.fill()
     }
-    def move(keys: Set[Int]) = {
+    def move(keys: Set[Int]): Unit = {
       position += momentum
       position += bounds
       position %= bounds
@@ -129,7 +129,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
     }
   }
   class Bullet(var position: Point, val momentum: Point) {
-    def draw(ctx: dom.CanvasRenderingContext2D) = {
+    def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
       ctx.beginPath()
       ctx.moveTo(position.x, position.y)
       val forward = position + momentum * 5.0 / momentum.length
@@ -137,7 +137,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
       ctx.stroke()
     }
 
-    def move() = {
+    def move(): Unit = {
       position += momentum
     }
   }

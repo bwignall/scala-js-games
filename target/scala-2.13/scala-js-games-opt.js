@@ -773,7 +773,7 @@ let ScalaJSExample;
   function Zb(a) {
     ac(a, Rb(cc(a)));
     var b = ec(a);
-    b = "MESSAGE " + (b.f() ? "missing message?!" : b.Fg());
+    b = "MESSAGE " + (b.e() ? "missing message?!" : b.Fg());
     fc(b + "\n");
     dc(
       a,
@@ -794,7 +794,7 @@ let ScalaJSExample;
   function gc(a, b, c, d) {
     this.Vb = a;
     this.rc = b;
-    this.md = c;
+    this.ld = c;
     this.je = d;
   }
   gc.prototype = new q();
@@ -838,7 +838,7 @@ let ScalaJSExample;
                   throw new F(
                     "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/ScalaJSExample.scala: 83"
                   );
-                if (p.hh && ec(p).f()) {
+                if (p.hh && ec(p).e()) {
                   cc(p).cd(p.$c);
                   var u = cc(p);
                   yc();
@@ -846,7 +846,7 @@ let ScalaJSExample;
                   zc();
                   p = Ac(I(), p);
                   u.pg(Bc(p));
-                } else if (!ec(p).f()) {
+                } else if (!ec(p).e()) {
                   u = p.$c;
                   var y = Lb(G());
                   u.fillStyle = y;
@@ -1287,12 +1287,12 @@ let ScalaJSExample;
   }
   function Qd(a) {
     var b = Rd;
-    return a.f()
+    return a.e()
       ? 0
       : a.Fe(new Sd((() => (c, d) => ((c | 0) + (d | 0)) | 0)(a, b)));
   }
   function Td(a, b, c) {
-    return a.f() ? "" + b + ")" : a.le(Ud(), b, c, ")").Tb.o;
+    return a.e() ? "" + b + ")" : a.le(Ud(), b, c, ")").Tb.o;
   }
   function Vd(a, b, c, d, f) {
     var g = b.Tb;
@@ -3178,7 +3178,7 @@ let ScalaJSExample;
       g = 0;
       h = d;
       c = f = l = k = 0;
-      for (var p = a; !p.f(); ) {
+      for (var p = a; !p.e(); ) {
         a = p.u();
         p = p.w();
         a = mg(X(), a);
@@ -3322,7 +3322,7 @@ let ScalaJSExample;
     var b = new Xi(m(w));
     return new Yi(b, new E((() => (c) => Wi(Zi(), c))(a)));
   };
-  Ui.prototype.od = function (a) {
+  Ui.prototype.nd = function (a) {
     De();
     var b = a.v();
     if (-1 < b) {
@@ -3366,7 +3366,7 @@ let ScalaJSExample;
     return (c - b) | 0;
   }
   function cj(a) {
-    if (a.f()) throw ((a = new dj()), oe(a, null), a);
+    if (a.e()) throw ((a = new dj()), oe(a, null), a);
     return a.Eb(1);
   }
   function ej(a, b) {
@@ -3385,7 +3385,7 @@ let ScalaJSExample;
   }
   mj.prototype = new Nh();
   mj.prototype.constructor = mj;
-  mj.prototype.R = function (a) {
+  mj.prototype.W = function (a) {
     return this.zh.ha().ga(ij(new jj(), new nj(this.zh, this.lj, !1), a));
   };
   mj.prototype.N = function (a) {
@@ -3477,7 +3477,7 @@ let ScalaJSExample;
     return Fj;
   }
   function Ce(a, b, c, d, f, g) {
-    this.S = a;
+    this.R = a;
     this.Qa = b;
     this.Db = c;
     this.$b = d;
@@ -3505,8 +3505,8 @@ let ScalaJSExample;
   e.Cg = function (a, b, c, d) {
     var f = ve(P(), c, d),
       g = we(P(), f);
-    return 0 !== (this.S & g)
-      ? ((c = ze(P(), this.S, f, g)),
+    return 0 !== (this.R & g)
+      ? ((c = ze(P(), this.R, f, g)),
         this.$b.a[c] === b && L(M(), a, this.ic(c)))
       : 0 !== (this.Qa & g)
       ? ((f = ze(P(), this.Qa, f, g)), this.Yd(f).Cg(a, b, c, (5 + d) | 0))
@@ -3515,8 +3515,8 @@ let ScalaJSExample;
   function Gj(a, b, c, d, f) {
     var g = ve(P(), d, f),
       h = we(P(), g);
-    if (0 !== (a.S & h)) {
-      g = ze(P(), a.S, g, h);
+    if (0 !== (a.R & h)) {
+      g = ze(P(), a.R, g, h);
       var k = a.ic(g);
       if (Object.is(k, b)) return a;
       var l = a.Gd(g);
@@ -3533,7 +3533,7 @@ let ScalaJSExample;
       k.I((1 + f) | 0, b, (1 + f) | 0, (-1 + ((k.a.length - f) | 0)) | 0);
       c = re(a.$b, c);
       return new Ce(
-        a.S ^ h,
+        a.R ^ h,
         a.Qa | h,
         b,
         c,
@@ -3555,19 +3555,19 @@ let ScalaJSExample;
     g.a[f] = b;
     k.I(f, g, (1 + f) | 0, (k.a.length - f) | 0);
     b = se(a.$b, f, c);
-    return new Ce(a.S | h, a.Qa, g, b, (1 + a.bb) | 0, (a.Fc + d) | 0);
+    return new Ce(a.R | h, a.Qa, g, b, (1 + a.bb) | 0, (a.Fc + d) | 0);
   }
   function Lj(a, b, c, d, f) {
     var g = ve(P(), d, f),
       h = we(P(), g);
-    if (0 !== (a.S & h)) {
-      g = ze(P(), a.S, g, h);
+    if (0 !== (a.R & h)) {
+      g = ze(P(), a.R, g, h);
       c = a.ic(g);
       if (L(M(), c, b)) {
-        b = a.S;
+        b = a.R;
         2 === ye(he(), b) ? ((b = a.Qa), (b = 0 === ye(he(), b))) : (b = !1);
         if (b) {
-          h = 0 === f ? a.S ^ h : we(P(), ve(P(), d, 0));
+          h = 0 === f ? a.R ^ h : we(P(), ve(P(), d, 0));
           if (0 === g) {
             d = [a.ic(1)];
             f = B(new C(), d);
@@ -3609,7 +3609,7 @@ let ScalaJSExample;
         b.I(0, f, 0, g);
         b.I((1 + g) | 0, f, g, (-1 + ((b.a.length - g) | 0)) | 0);
         g = re(a.$b, g);
-        return new Ce(a.S ^ h, a.Qa, f, g, (-1 + a.bb) | 0, (a.Fc - d) | 0);
+        return new Ce(a.R ^ h, a.Qa, f, g, (-1 + a.bb) | 0, (a.Fc - d) | 0);
       }
       return a;
     }
@@ -3632,7 +3632,7 @@ let ScalaJSExample;
           k.I((1 + b) | 0, f, (1 + b) | 0, (-1 + ((k.a.length - b) | 0)) | 0);
           b = se(a.$b, c, d.Gd(0));
           a = new Ce(
-            a.S | h,
+            a.R | h,
             a.Qa ^ h,
             f,
             b,
@@ -3684,10 +3684,10 @@ let ScalaJSExample;
     return new Ce(0, u, g, xd().dj, c.Xa(), c.Cd());
   }
   e.Ui = function () {
-    return 0 !== this.S;
+    return 0 !== this.R;
   };
   e.bj = function () {
-    var a = this.S;
+    var a = this.R;
     return ye(he(), a);
   };
   e.Ti = function () {
@@ -3698,7 +3698,7 @@ let ScalaJSExample;
     return ye(he(), a);
   };
   function Ij(a, b) {
-    a = a.S & ((-1 + b) | 0);
+    a = a.R & ((-1 + b) | 0);
     return ye(he(), a);
   }
   function Jj(a, b) {
@@ -3712,7 +3712,7 @@ let ScalaJSExample;
     f.I(0, g, 0, f.a.length);
     g.a[b] = d;
     return new Ce(
-      a.S,
+      a.R,
       a.Qa,
       g,
       a.$b,
@@ -3721,7 +3721,7 @@ let ScalaJSExample;
     );
   }
   e.N = function (a) {
-    var b = this.S;
+    var b = this.R;
     b = ye(he(), b);
     for (var c = 0; c < b; ) a.l(this.ic(c)), (c = (1 + c) | 0);
     b = this.Qa;
@@ -3733,16 +3733,16 @@ let ScalaJSExample;
     if (1 === a.bb) return !!b.l(a.ic(0)) !== c ? a : Fe().ig;
     if (0 === a.Qa) {
       for (
-        var d = a.S,
+        var d = a.R,
           f = 0 === d ? 32 : (31 - ca(d & (-d | 0))) | 0,
-          g = (32 - ca(a.S)) | 0,
+          g = (32 - ca(a.R)) | 0,
           h = (d = 0),
           k = 0;
         f < g;
 
       ) {
         var l = we(P(), f);
-        if (0 !== (l & a.S)) {
+        if (0 !== (l & a.R)) {
           var p = a.ic(k);
           !!b.l(p) !== c && ((d |= l), (h = (h + Bd(Dd(), a.Gd(k))) | 0));
           k = (1 + k) | 0;
@@ -3750,7 +3750,7 @@ let ScalaJSExample;
         f = (1 + f) | 0;
       }
       if (0 === d) return Fe().ig;
-      if (d === a.S) return a;
+      if (d === a.R) return a;
       b = d;
       b = ye(he(), b);
       c = new r(b);
@@ -3761,14 +3761,14 @@ let ScalaJSExample;
       for (l = 0; f < k; )
         (p = we(P(), f)),
           0 !== (p & d) &&
-            ((p = xe(P(), a.S, p)),
+            ((p = xe(P(), a.R, p)),
             (c.a[l] = a.Db.a[p]),
             (g.a[l] = a.$b.a[p]),
             (l = (1 + l) | 0)),
           (f = (1 + f) | 0);
       return new Ce(d, 0, c, g, b, h);
     }
-    h = a.S | a.Qa;
+    h = a.R | a.Qa;
     d = 0 === h ? 32 : (31 - ca(h & (-h | 0))) | 0;
     var u = (32 - ca(h)) | 0,
       y = (f = 0),
@@ -3777,7 +3777,7 @@ let ScalaJSExample;
     k = null;
     for (var K = 0, J = (g = 0), Z = (h = 0), wa = 0, Ha = d; Ha < u; ) {
       var ka = we(P(), Ha);
-      if (0 !== (ka & a.S)) {
+      if (0 !== (ka & a.R)) {
         var Ka = a.ic(Z);
         !!b.l(Ka) !== c &&
           ((K |= ka),
@@ -3831,7 +3831,7 @@ let ScalaJSExample;
             ? ((u.a[(-1 + ((K - Ka) | 0)) | 0] = Ek(k)),
               (Ka = (1 + Ka) | 0),
               (Ha = (1 + Ha) | 0))
-            : 0 !== (qa & a.S)
+            : 0 !== (qa & a.R)
             ? (wa = (1 + wa) | 0)
             : 0 !== (qa & a.Qa) && (Ha = (1 + Ha) | 0),
           (d = (1 + d) | 0);
@@ -3845,7 +3845,7 @@ let ScalaJSExample;
       if (
         this.Fc === a.Fc &&
         this.Qa === a.Qa &&
-        this.S === a.S &&
+        this.R === a.R &&
         this.bb === a.bb
       ) {
         var b = this.$b;
@@ -3870,12 +3870,12 @@ let ScalaJSExample;
   function Fk(a) {
     var b = a.Db.q(),
       c = b.a.length,
-      d = a.S;
+      d = a.R;
     for (d = ye(he(), d); d < c; ) (b.a[d] = b.a[d].zk()), (d = (1 + d) | 0);
-    return new Ce(a.S, a.Qa, b, a.$b.q(), a.bb, a.Fc);
+    return new Ce(a.R, a.Qa, b, a.$b.q(), a.bb, a.Fc);
   }
   e.Ri = function (a) {
-    var b = this.S;
+    var b = this.R;
     b = ye(he(), b);
     for (var c = 0; c < b; ) a.ad(this.ic(c), this.Gd(c)), (c = (1 + c) | 0);
     b = this.Qa;
@@ -4098,7 +4098,7 @@ let ScalaJSExample;
   e.Vd = function (a) {
     return new Tk(this.Oh, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Tf(a);
   };
   e.$classData = v(
@@ -4172,7 +4172,7 @@ let ScalaJSExample;
   cl.prototype.Vd = function (a) {
     return new cl(this.Xg ? this.Yg : al(this), a);
   };
-  cl.prototype.R = function (a) {
+  cl.prototype.W = function (a) {
     return dl(this.Xg ? this.Yg : al(this), a);
   };
   cl.prototype.$classData = v(
@@ -4708,7 +4708,7 @@ let ScalaJSExample;
   e.i = function () {
     return this;
   };
-  e.f = function () {
+  e.e = function () {
     return !this.m();
   };
   e.Dd = function (a) {
@@ -4755,7 +4755,7 @@ let ScalaJSExample;
   function Pl() {}
   Pl.prototype = Ol.prototype;
   function zb(a, b) {
-    return a.hd.od(b);
+    return a.hd.nd(b);
   }
   e = Ol.prototype;
   e.Ce = function (a) {
@@ -4770,7 +4770,7 @@ let ScalaJSExample;
   e.Fb = function () {
     return this.hd.Fb();
   };
-  e.od = function (a) {
+  e.nd = function (a) {
     return zb(this, a);
   };
   function Ql(a, b) {
@@ -4876,14 +4876,14 @@ let ScalaJSExample;
   Yl.prototype = new q();
   Yl.prototype.constructor = Yl;
   e = Yl.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return yj(this, a);
   };
   function bm(a, b, c, d) {
     return new am(
       new H(
         ((f, g, h, k) => () => {
-          for (var l = null, p = !1, u = g.fa; !p && !u.f(); )
+          for (var l = null, p = !1, u = g.fa; !p && !u.e(); )
             (l = Y(u).u()), (p = !!h.l(l) !== k), (u = Y(u).gb()), (g.fa = u);
           return p ? (Bf(), (u = bm(Bf(), u, h, k)), new Pk(l, u)) : Sk();
         })(a, new Ci(b), c, d)
@@ -4896,7 +4896,7 @@ let ScalaJSExample;
         ((d, f, g) => () => {
           for (
             var h = new Ci(null), k = !1, l = new Ci(f.fa);
-            !k && !l.fa.f();
+            !k && !l.fa.e();
 
           )
             (h.fa = g.l(Y(l.fa).u()).i()),
@@ -4932,7 +4932,7 @@ let ScalaJSExample;
     return new am(
       new H(
         ((d, f, g) => () => {
-          for (var h = f.fa, k = g.Rj; 0 < k && !h.f(); )
+          for (var h = f.fa, k = g.Rj; 0 < k && !h.e(); )
             (h = Y(h).gb()), (f.fa = h), (k = (-1 + k) | 0), (g.Rj = k);
           return Y(h);
         })(a, new Ci(b), new Bi(c))
@@ -4988,7 +4988,7 @@ let ScalaJSExample;
   hm.prototype = new q();
   hm.prototype.constructor = hm;
   e = hm.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return im(this, a);
   };
   function im(a, b) {
@@ -5284,20 +5284,20 @@ let ScalaJSExample;
         Qm(this).zd,
         z(Qm(this).Jf, yb(new A(15, 0), Qm(this).Wd))
       );
-      Pm(this, a.nd(b));
+      Pm(this, a.md(b));
     }
     a = Om(this).Wb(
       new E(
         ((f) => (g) =>
           Rm(f)
             .Vd(new E(((h, k) => (l) => pb(l, k.cf))(f, g)))
-            .R(
+            .W(
               new E(
                 ((h, k) => (l) => {
                   var p =
                     1 === l.qg
                       ? xb().gj
-                      : zb(xb().jb, B(new C(), [30, -30])).R(
+                      : zb(xb().jb, B(new C(), [30, -30])).W(
                           new E(
                             ((u, y) => (D) =>
                               new mb(
@@ -5319,8 +5319,8 @@ let ScalaJSExample;
     if (null === a) throw new T(a);
     b = a.Ac();
     a = a.Bc();
-    var c = b.R(new E((() => (f) => f.Ac())(this)));
-    b = b.R(new E((() => (f) => f.Bc())(this)));
+    var c = b.W(new E((() => (f) => f.Ac())(this)));
+    b = b.W(new E((() => (f) => f.Bc())(this)));
     c = Rm(this).Pb(new E(((f, g) => (h) => !g.F(h))(this, c)));
     var d = xh();
     a = a.Rf(d.cj);
@@ -5335,7 +5335,7 @@ let ScalaJSExample;
     );
     Rm(this).Qf(new E(((f) => (g) => pb(g, Qm(f).zd))(this)))
       ? (Sb(this, new Tm("Your ship hit an asteroid!")), Zd(this.Kf))
-      : 0 === Rm(this).n() &&
+      : Rm(this).e() &&
         (Sb(this, new Tm("You successfully destroyed every asteroid!")),
         Zd(this.Kf));
   };
@@ -5450,7 +5450,7 @@ let ScalaJSExample;
       g = (1 + g) | 0;
     }
     b = a;
-    for (a = I(); !b.f(); ) (d = b.u()), (a = new Wm(d, a)), (b = b.w());
+    for (a = I(); !b.e(); ) (d = b.u()), (a = new Wm(d, a)), (b = b.w());
     this.Vj = a;
     this.Ya = ((1 | this.Ya) << 24) >> 24;
     this.hi = new A(400, 25);
@@ -5536,7 +5536,7 @@ let ScalaJSExample;
     a.strokeRect(20, 60, 65, 15);
     a.beginPath();
     a.moveTo(0, this.Xd.g);
-    for (b = Xm(this); !b.f(); ) {
+    for (b = Xm(this); !b.e(); ) {
       var c = b.u();
       a.lineTo(c.h, c.g);
       b = b.w();
@@ -5545,7 +5545,7 @@ let ScalaJSExample;
     a.fill();
     a.beginPath();
     a.moveTo(cn(this).dd().h, cn(this).dd().g);
-    cn(this).R(
+    cn(this).N(
       new E(
         ((d, f) => (g) => {
           f.lineTo(g.h, g.g);
@@ -5591,7 +5591,7 @@ let ScalaJSExample;
     for (a = c = null; b !== I(); ) {
       b.u();
       d = 0;
-      for (var f = Xm(this), g = -1; !f.f(); )
+      for (var f = Xm(this), g = -1; !f.e(); )
         f.u().h < Ym(this).h && (g = d), (f = f.w()), (d = (1 + d) | 0);
       d = g;
       -1 === d || 21 === d
@@ -5619,7 +5619,7 @@ let ScalaJSExample;
       b = b.w();
     }
     b = (null === c ? I() : c).Dk();
-    if (!b.f())
+    if (!b.e())
       if (((b = b.Fg()), gn() === b))
         Sb(this, new Tm("You have landed successfully.")), Zd(this.rg);
       else if (b instanceof fn)
@@ -5705,7 +5705,7 @@ let ScalaJSExample;
     b = Yb().Fb();
     if (0 === (4 & this.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 12"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 14"
       );
     var c = Ja(this.$j / kn(this).h),
       d = (-1 + c) | 0;
@@ -5731,21 +5731,21 @@ let ScalaJSExample;
   function hn(a) {
     if (0 === (1 & a.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 9"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 11"
       );
     return a.Xj;
   }
   function kn(a) {
     if (0 === (2 & a.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 10"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 12"
       );
     return a.Yj;
   }
   function ln(a) {
     if (0 === (8 & a.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 13"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 15"
       );
     return a.ni;
   }
@@ -5757,7 +5757,7 @@ let ScalaJSExample;
   e.Za = function () {
     if (0 === (16 & this.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 15"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 17"
       );
     return this.mi;
   };
@@ -5768,7 +5768,7 @@ let ScalaJSExample;
   e.Ab = function () {
     if (0 === (32 & this.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 16"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 18"
       );
     return this.li;
   };
@@ -5779,7 +5779,7 @@ let ScalaJSExample;
   function nn(a) {
     if (0 === (64 & a.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 17"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 19"
       );
     return a.pi;
   }
@@ -5790,7 +5790,7 @@ let ScalaJSExample;
   e.He = function () {
     if (0 === (128 & this.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 19"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 21"
       );
     return this.qi;
   };
@@ -5807,14 +5807,14 @@ let ScalaJSExample;
   function pn(a) {
     if (0 === (256 & a.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 30"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 32"
       );
     return a.ak;
   }
   function qn(a) {
     if (0 === (512 & a.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 31"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 33"
       );
     return a.oi;
   }
@@ -5825,7 +5825,7 @@ let ScalaJSExample;
   function sn(a) {
     if (0 === (1024 & a.K))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 33"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/BrickBreaker.scala: 35"
       );
     return a.Zj;
   }
@@ -6033,7 +6033,7 @@ let ScalaJSExample;
               })(this)
             )
           ),
-          0 === sn(this).kd &&
+          sn(this).e() &&
             (Sb(this, new Tm("Success! You've destroyed all the bricks!")),
             Zd(this.sg)));
     }
@@ -6145,7 +6145,7 @@ let ScalaJSExample;
     this.ie = null;
     this.he = !1;
     this.mk = this.lk = this.vi = this.ui = this.Ai = null;
-    this.W = this.yi = this.zi = this.wi = 0;
+    this.V = this.yi = this.zi = this.wi = 0;
     this.Oc = a;
     this.xi = b;
     Nb(this);
@@ -6153,28 +6153,28 @@ let ScalaJSExample;
     if (null !== b) b = kj(new lj(), b.Ac(), b.Bc());
     else throw new T(b);
     this.Ai = b;
-    this.W |= 1;
+    this.V |= 1;
     this.ui = this.Ai.Ac();
-    this.W |= 2;
+    this.V |= 2;
     this.vi = this.Ai.Bc();
-    this.W |= 4;
+    this.V |= 4;
     this.lk = new gc(new A(40, a.g / 2), new A(5, 75), new A(0, 0), 0.5);
-    this.W |= 8;
+    this.V |= 8;
     this.mk = new gc(new A(a.h - 40, a.g / 2), new A(5, 75), new A(0, 0), -0.5);
-    this.W |= 16;
+    this.V |= 16;
     this.wi = 0;
-    this.W |= 32;
+    this.V |= 32;
     this.zi = 0;
-    this.W |= 64;
+    this.V |= 64;
     this.yi = 60;
-    this.W |= 128;
-    this.W |= 256;
+    this.V |= 128;
+    this.V |= 256;
   }
   ul.prototype = new Qb();
   ul.prototype.constructor = ul;
   e = ul.prototype;
   e.Ab = function () {
-    if (0 === (2 & this.W))
+    if (0 === (2 & this.V))
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 13"
       );
@@ -6182,10 +6182,10 @@ let ScalaJSExample;
   };
   e.zg = function (a) {
     this.ui = a;
-    this.W |= 2;
+    this.V |= 2;
   };
   e.Za = function () {
-    if (0 === (4 & this.W))
+    if (0 === (4 & this.V))
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 13"
       );
@@ -6193,24 +6193,24 @@ let ScalaJSExample;
   };
   e.bd = function (a) {
     this.vi = a;
-    this.W |= 4;
+    this.V |= 4;
   };
   function yn(a) {
-    if (0 === (8 & a.W))
+    if (0 === (8 & a.V))
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 14"
       );
     return a.lk;
   }
   function zn(a) {
-    if (0 === (16 & a.W))
+    if (0 === (16 & a.V))
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 16"
       );
     return a.mk;
   }
   function An(a) {
-    if (0 === (32 & a.W))
+    if (0 === (32 & a.V))
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 23"
       );
@@ -6218,10 +6218,10 @@ let ScalaJSExample;
   }
   function Bn(a, b) {
     a.wi = b;
-    a.W |= 32;
+    a.V |= 32;
   }
   function Cn(a) {
-    if (0 === (64 & a.W))
+    if (0 === (64 & a.V))
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 24"
       );
@@ -6229,10 +6229,10 @@ let ScalaJSExample;
   }
   function Dn(a, b) {
     a.zi = b;
-    a.W |= 64;
+    a.V |= 64;
   }
   e.He = function () {
-    if (0 === (128 & this.W))
+    if (0 === (128 & this.V))
       throw new F(
         "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Pong.scala: 26"
       );
@@ -6240,24 +6240,24 @@ let ScalaJSExample;
   };
   e.Ge = function (a) {
     this.yi = a;
-    this.W |= 128;
+    this.V |= 128;
   };
   function En(a) {
     var b = zn(a).Vb.h - a.Ab().h,
       c = a.Za().g / a.Za().h;
     b = b * c + a.Ab().g;
-    zn(a).md = new A(0, 0);
+    zn(a).ld = new A(0, 0);
     c = zn(a).Vb.h - a.Ab().h;
     +Math.abs(c) < 45 * a.Za().h + 25 &&
       0 < a.Za().h &&
       (b > zn(a).Vb.g + zn(a).rc.g / 2
         ? ((b = b - zn(a).Vb.g - zn(a).rc.g / 2),
           +Math.abs(b) > zn(a).rc.g / 2 - 10 &&
-            (zn(a).md = z(zn(a).md, new A(0, 8))))
+            (zn(a).ld = z(zn(a).ld, new A(0, 8))))
         : b < zn(a).Vb.g + zn(a).rc.g / 2 &&
           ((b = b - zn(a).Vb.g - zn(a).rc.g / 2),
           +Math.abs(b) > zn(a).rc.g / 2 - 10 &&
-            (zn(a).md = rb(zn(a).md, new A(0, 8)))));
+            (zn(a).ld = rb(zn(a).ld, new A(0, 8)))));
   }
   function xn() {
     var a = new A(400, 300),
@@ -6297,9 +6297,9 @@ let ScalaJSExample;
     );
   };
   e.pg = function (a) {
-    yn(this).md = new A(0, 0);
-    a.F(38) && (yn(this).md = rb(yn(this).md, new A(0, 8)));
-    a.F(40) && (yn(this).md = z(yn(this).md, new A(0, 8)));
+    yn(this).ld = new A(0, 0);
+    a.F(38) && (yn(this).ld = rb(yn(this).ld, new A(0, 8)));
+    a.F(40) && (yn(this).ld = z(yn(this).ld, new A(0, 8)));
     En(this);
     this.zg(z(this.Ab(), this.Za()));
     if (0 >= this.Ab().g) {
@@ -6335,9 +6335,9 @@ let ScalaJSExample;
             (f = d.je),
             (g = c.Za().h),
             (f = 2 * f * +Math.abs(g)),
-            (g = c.Za().g + d.md.g / 8),
+            (g = c.Za().g + d.ld.g / 8),
             c.bd(new A(f, g)));
-          d.Vb = z(d.Vb, d.md);
+          d.Vb = z(d.Vb, d.ld);
           f = d.Vb;
           g = +Math.min(d.Vb.g, c.Oc.g - d.rc.g / 2);
           g = +Math.max(g, d.rc.g / 2);
@@ -6850,7 +6850,7 @@ let ScalaJSExample;
             return 0 !== l.t(p).a[u];
           })(a, b, g)
         )
-      ).R(
+      ).W(
         new E(
           ((k, l, p) => (u) =>
             new ao((l + Ja(p.h)) | 0, ((u | 0) + Ja(p.g)) | 0))(a, g, c)
@@ -6863,7 +6863,7 @@ let ScalaJSExample;
   function co(a) {
     if (0 === (4 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 51"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 54"
       );
     return a.Ji;
   }
@@ -6874,28 +6874,28 @@ let ScalaJSExample;
   function Wn(a) {
     if (0 === (16 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 53"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 56"
       );
     return a.ok;
   }
   function Qn(a) {
     if (0 === (32 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 54"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 57"
       );
     return a.qk;
   }
   function Vn(a) {
     if (0 === (64 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 55"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 58"
       );
     return a.rk;
   }
   function fo(a) {
     if (0 === (128 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 56"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 59"
       );
     return a.Ii;
   }
@@ -6906,21 +6906,21 @@ let ScalaJSExample;
   function ho(a) {
     if (0 === (256 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 57"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 60"
       );
     return a.Ki;
   }
   function io(a) {
     if (0 === (512 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 58"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 61"
       );
     return a.Hi;
   }
   function jo(a) {
     if (0 === (1024 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 59"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 62"
       );
     return a.Li;
   }
@@ -6931,14 +6931,14 @@ let ScalaJSExample;
   function Tn(a) {
     if (0 === (2048 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 62"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 65"
       );
     return a.pk;
   }
   function lo(a) {
     if (0 === (4096 & a.J))
       throw new F(
-        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 63"
+        "Uninitialized field: /home/brian/code/scala/scala-js-games/src/main/scala/example/Tetris.scala: 67"
       );
     return a.Mi;
   }
@@ -7041,7 +7041,7 @@ let ScalaJSExample;
           throw new T(l);
         })(a)
       )
-    ).R(
+    ).W(
       new E(
         (() => (k) => {
           if (null === k || null === k.ff) throw new T(k);
@@ -7065,7 +7065,8 @@ let ScalaJSExample;
       }
       c = new (x(oo).G)(d);
     }
-    if (0 < b.n()) {
+    if (b.e()) ko(a, z(jo(a), new A(0, 1)));
+    else {
       d = c.a.length;
       b = (-1 + d) | 0;
       if (!(0 >= d))
@@ -7087,24 +7088,24 @@ let ScalaJSExample;
       a.Ki = b;
       a.J |= 256;
       ko(a, new A(Qn(a).h / 2, 0));
-      no(a, new A(0, 0)).f() ||
+      no(a, new A(0, 0)).e() ||
         (Sb(a, new Tm("The board has filled up!")), Zd(a.lh));
-    } else ko(a, z(jo(a), new A(0, 1)));
+    }
   }
   e = wl.prototype;
   e.pg = function (a) {
     a.F(37) &&
       !lo(this).F(37) &&
-      no(this, new A(-1, 0)).f() &&
+      no(this, new A(-1, 0)).e() &&
       ko(this, z(jo(this), new A(-1, 0)));
     a.F(39) &&
       !lo(this).F(39) &&
-      no(this, new A(1, 0)).f() &&
+      no(this, new A(1, 0)).e() &&
       ko(this, z(jo(this), new A(1, 0)));
     if (
       a.F(32) &&
       !lo(this).F(32) &&
-      (mo(this, Zn(this).t(io(this))), !no(this, new A(0, 0)).f())
+      (mo(this, Zn(this).t(io(this))), !no(this, new A(0, 0)).e())
     )
       for (var b = 0; ; ) {
         mo(this, Zn(this).t(io(this)));
@@ -7147,7 +7148,7 @@ let ScalaJSExample;
           return !p;
         })(this)
       )
-    ).R(new E((() => (k) => k | 0)(this)));
+    ).W(new E((() => (k) => k | 0)(this)));
     b = (-1 + Ja(Qn(this).g)) | 0;
     if (!(0 > b))
       for (;;) {
@@ -7512,14 +7513,14 @@ let ScalaJSExample;
   wo.prototype.constructor = wo;
   function xo() {}
   xo.prototype = wo.prototype;
-  wo.prototype.f = function () {
+  wo.prototype.e = function () {
     return this === Ob();
   };
   wo.prototype.v = function () {
-    return this.f() ? 0 : 1;
+    return this.e() ? 0 : 1;
   };
   wo.prototype.i = function () {
-    if (this.f()) return W().Y;
+    if (this.e()) return W().Y;
     W();
     var a = this.Fg();
     return new yo(a);
@@ -7927,7 +7928,7 @@ let ScalaJSExample;
   Mo.prototype = new Kl();
   Mo.prototype.constructor = Mo;
   Mo.prototype.m = function () {
-    return !Yd(this.Hh).f();
+    return !Yd(this.Hh).e();
   };
   Mo.prototype.k = function () {
     if (this.m()) {
@@ -7945,30 +7946,30 @@ let ScalaJSExample;
     { Yo: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1 }
   );
   function No(a) {
-    for (var b = 0; !a.f(); ) (b = (1 + b) | 0), (a = a.w());
+    for (var b = 0; !a.e(); ) (b = (1 + b) | 0), (a = a.w());
     return b;
   }
   function Oo(a) {
-    if (a.f()) throw Th(new Uh(), "LinearSeq.last");
+    if (a.e()) throw Th(new Uh(), "LinearSeq.last");
     var b = a;
-    for (a = a.w(); !a.f(); ) (b = a), (a = a.w());
+    for (a = a.w(); !a.e(); ) (b = a), (a = a.w());
     return b.u();
   }
   function en(a, b) {
     if (0 > b) throw og(new pg(), "" + b);
     a = a.Eb(b);
-    if (a.f()) throw og(new pg(), "" + b);
+    if (a.e()) throw og(new pg(), "" + b);
     return a.u();
   }
   function Po(a, b) {
-    for (; !a.f(); ) {
+    for (; !a.e(); ) {
       if (b.l(a.u())) return !0;
       a = a.w();
     }
     return !1;
   }
   function Qo(a, b) {
-    for (; !a.f(); ) {
+    for (; !a.e(); ) {
       if (L(M(), a.u(), b)) return !0;
       a = a.w();
     }
@@ -7981,10 +7982,10 @@ let ScalaJSExample;
           a = !0;
           break a;
         }
-        if ((a.f() ? 0 : !b.f()) && L(M(), a.u(), b.u()))
+        if ((a.e() ? 0 : !b.e()) && L(M(), a.u(), b.u()))
           (a = a.w()), (b = b.w());
         else {
-          a = a.f() && b.f();
+          a = a.e() && b.e();
           break a;
         }
       }
@@ -7993,7 +7994,7 @@ let ScalaJSExample;
   }
   function So(a, b, c) {
     var d = 0 < c ? c : 0;
-    for (a = a.Eb(c); !a.f(); ) {
+    for (a = a.Eb(c); !a.e(); ) {
       if (b.l(a.u())) return d;
       d = (1 + d) | 0;
       a = a.w();
@@ -8002,8 +8003,8 @@ let ScalaJSExample;
   }
   function To(a, b) {
     for (var c = 0; ; ) {
-      if (c === b) return a.f() ? 0 : 1;
-      if (a.f()) return -1;
+      if (c === b) return a.e() ? 0 : 1;
+      if (a.e()) return -1;
       c = (1 + c) | 0;
       a = a.w();
     }
@@ -8014,7 +8015,7 @@ let ScalaJSExample;
   Uo.prototype = new Kl();
   Uo.prototype.constructor = Uo;
   Uo.prototype.m = function () {
-    return !this.Kh.f();
+    return !this.Kh.e();
   };
   Uo.prototype.k = function () {
     var a = this.Kh.u();
@@ -8039,8 +8040,8 @@ let ScalaJSExample;
     if (b instanceof Ce) {
       var h = ve(P(), f, g),
         k = we(P(), h);
-      if (0 !== (b.S & k)) {
-        a = ze(P(), b.S, h, k);
+      if (0 !== (b.R & k)) {
+        a = ze(P(), b.R, h, k);
         h = b.ic(a);
         var l = b.Gd(a);
         l === d && L(M(), h, c)
@@ -8051,7 +8052,7 @@ let ScalaJSExample;
             (c = (((-1 + b.Db.a.length) | 0) - Jj(b, k)) | 0),
             b.Db.I((1 + f) | 0, b.Db, f, (c - f) | 0),
             (b.Db.a[c] = d),
-            (b.S ^= k),
+            (b.R ^= k),
             (b.Qa |= k),
             (b.$b = re(b.$b, f)),
             (b.bb = (((-1 + b.bb) | 0) + d.Xa()) | 0),
@@ -8078,7 +8079,7 @@ let ScalaJSExample;
         c.I(0, h, 0, g);
         h.a[g] = d;
         c.I(g, h, (1 + g) | 0, (c.a.length - g) | 0);
-        b.S |= k;
+        b.R |= k;
         b.Db = a;
         b.$b = h;
         b.bb = (1 + b.bb) | 0;
@@ -8216,10 +8217,10 @@ let ScalaJSExample;
   dp.prototype = new Kl();
   dp.prototype.constructor = dp;
   dp.prototype.m = function () {
-    return !this.Sg.f();
+    return !this.Sg.e();
   };
   dp.prototype.k = function () {
-    if (this.Sg.f()) return W().Y.k();
+    if (this.Sg.e()) return W().Y.k();
     var a = Y(this.Sg).u();
     this.Sg = Y(this.Sg).gb();
     return a;
@@ -8237,7 +8238,7 @@ let ScalaJSExample;
   ep.prototype = new q();
   ep.prototype.constructor = ep;
   e = ep.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return Ac(I(), a);
   };
   e.X = function () {
@@ -8344,7 +8345,7 @@ let ScalaJSExample;
   e.i = function () {
     return this;
   };
-  e.f = function () {
+  e.e = function () {
     return this.Vc <= this.Jb;
   };
   e.Dd = function (a) {
@@ -8508,7 +8509,7 @@ let ScalaJSExample;
   e.i = function () {
     return this;
   };
-  e.f = function () {
+  e.e = function () {
     return !this.m();
   };
   e.Dd = function (a) {
@@ -8560,7 +8561,7 @@ let ScalaJSExample;
   e.i = function () {
     return this;
   };
-  e.f = function () {
+  e.e = function () {
     return !this.m();
   };
   e.Dd = function (a) {
@@ -8618,7 +8619,7 @@ let ScalaJSExample;
   mp.prototype = new q();
   mp.prototype.constructor = mp;
   e = mp.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return Ak(0, a);
   };
   function Ak(a, b) {
@@ -8696,30 +8697,30 @@ let ScalaJSExample;
     a.ea = 0;
     if (1024 > c)
       1 === a.nb &&
-        ((a.U = new (x(x(w)).G)(32)),
-        (a.U.a[0] = a.Da),
+        ((a.T = new (x(x(w)).G)(32)),
+        (a.T.a[0] = a.Da),
         (a.nb = (1 + a.nb) | 0)),
         (a.Da = new r(32)),
-        (a.U.a[31 & ((b >>> 5) | 0)] = a.Da);
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da);
     else if (32768 > c)
       2 === a.nb &&
         ((a.na = new (x(x(x(w))).G)(32)),
-        (a.na.a[0] = a.U),
+        (a.na.a[0] = a.T),
         (a.nb = (1 + a.nb) | 0)),
         (a.Da = new r(32)),
-        (a.U = new (x(x(w)).G)(32)),
-        (a.U.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.U);
+        (a.T = new (x(x(w)).G)(32)),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
+        (a.na.a[31 & ((b >>> 10) | 0)] = a.T);
     else if (1048576 > c)
       3 === a.nb &&
         ((a.Sa = new (x(x(x(x(w)))).G)(32)),
         (a.Sa.a[0] = a.na),
         (a.nb = (1 + a.nb) | 0)),
         (a.Da = new r(32)),
-        (a.U = new (x(x(w)).G)(32)),
+        (a.T = new (x(x(w)).G)(32)),
         (a.na = new (x(x(x(w))).G)(32)),
-        (a.U.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.U),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
+        (a.na.a[31 & ((b >>> 10) | 0)] = a.T),
         (a.Sa.a[31 & ((b >>> 15) | 0)] = a.na);
     else if (33554432 > c)
       4 === a.nb &&
@@ -8727,11 +8728,11 @@ let ScalaJSExample;
         (a.vb.a[0] = a.Sa),
         (a.nb = (1 + a.nb) | 0)),
         (a.Da = new r(32)),
-        (a.U = new (x(x(w)).G)(32)),
+        (a.T = new (x(x(w)).G)(32)),
         (a.na = new (x(x(x(w))).G)(32)),
         (a.Sa = new (x(x(x(x(w)))).G)(32)),
-        (a.U.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.U),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
+        (a.na.a[31 & ((b >>> 10) | 0)] = a.T),
         (a.Sa.a[31 & ((b >>> 15) | 0)] = a.na),
         (a.vb.a[31 & ((b >>> 20) | 0)] = a.Sa);
     else if (1073741824 > c)
@@ -8740,12 +8741,12 @@ let ScalaJSExample;
         (a.bc.a[0] = a.vb),
         (a.nb = (1 + a.nb) | 0)),
         (a.Da = new r(32)),
-        (a.U = new (x(x(w)).G)(32)),
+        (a.T = new (x(x(w)).G)(32)),
         (a.na = new (x(x(x(w))).G)(32)),
         (a.Sa = new (x(x(x(x(w)))).G)(32)),
         (a.vb = new (x(x(x(x(x(w))))).G)(32)),
-        (a.U.a[31 & ((b >>> 5) | 0)] = a.Da),
-        (a.na.a[31 & ((b >>> 10) | 0)] = a.U),
+        (a.T.a[31 & ((b >>> 5) | 0)] = a.Da),
+        (a.na.a[31 & ((b >>> 10) | 0)] = a.T),
         (a.Sa.a[31 & ((b >>> 15) | 0)] = a.na),
         (a.vb.a[31 & ((b >>> 20) | 0)] = a.Sa),
         (a.bc.a[31 & ((b >>> 25) | 0)] = a.vb);
@@ -8758,7 +8759,7 @@ let ScalaJSExample;
           "): a1\x3d" +
           a.Da +
           ", a2\x3d" +
-          a.U +
+          a.T +
           ", a3\x3d" +
           a.na +
           ", a4\x3d" +
@@ -8772,7 +8773,7 @@ let ScalaJSExample;
       );
   }
   function qp() {
-    this.Da = this.U = this.na = this.Sa = this.vb = this.bc = null;
+    this.Da = this.T = this.na = this.Sa = this.vb = this.bc = null;
     this.nb = this.Wc = this.Ub = this.ea = 0;
     this.Da = new r(32);
     this.Wc = this.Ub = this.ea = 0;
@@ -8805,22 +8806,22 @@ let ScalaJSExample;
         break;
       case 3:
         c = b.Kb;
-        var d = b.e;
+        var d = b.f;
         a.Da = 32 === d.a.length ? d : N(O(), d, 0, 32);
         a.nb = 2;
         a.Wc = (32 - b.ac) | 0;
         d = (b.j + a.Wc) | 0;
         a.ea = 31 & d;
         a.Ub = (d - a.ea) | 0;
-        a.U = new (x(x(w)).G)(32);
-        a.U.a[0] = b.d;
-        c.I(0, a.U, 1, c.a.length);
-        a.U.a[(1 + c.a.length) | 0] = a.Da;
+        a.T = new (x(x(w)).G)(32);
+        a.T.a[0] = b.d;
+        c.I(0, a.T, 1, c.a.length);
+        a.T.a[(1 + c.a.length) | 0] = a.Da;
         break;
       case 5:
         c = b.db;
         d = b.kb;
-        var f = b.e;
+        var f = b.f;
         a.Da = 32 === f.a.length ? f : N(O(), f, 0, 32);
         a.nb = 3;
         a.Wc = (1024 - b.Lb) | 0;
@@ -8830,15 +8831,15 @@ let ScalaJSExample;
         a.na = new (x(x(x(w))).G)(32);
         a.na.a[0] = V(R(), b.d, b.Sb);
         c.I(0, a.na, 1, c.a.length);
-        a.U = nd(O(), d, 32);
-        a.na.a[(1 + c.a.length) | 0] = a.U;
-        a.U.a[d.a.length] = a.Da;
+        a.T = nd(O(), d, 32);
+        a.na.a[(1 + c.a.length) | 0] = a.T;
+        a.T.a[d.a.length] = a.Da;
         break;
       case 7:
         c = b.Aa;
         d = b.Ha;
         f = b.Ga;
-        var g = b.e;
+        var g = b.f;
         a.Da = 32 === g.a.length ? g : N(O(), g, 0, 32);
         a.nb = 4;
         a.Wc = (32768 - b.eb) | 0;
@@ -8849,17 +8850,17 @@ let ScalaJSExample;
         a.Sa.a[0] = V(R(), V(R(), b.d, b.lb), b.mb);
         c.I(0, a.Sa, 1, c.a.length);
         a.na = nd(O(), d, 32);
-        a.U = nd(O(), f, 32);
+        a.T = nd(O(), f, 32);
         a.Sa.a[(1 + c.a.length) | 0] = a.na;
-        a.na.a[d.a.length] = a.U;
-        a.U.a[f.a.length] = a.Da;
+        a.na.a[d.a.length] = a.T;
+        a.T.a[f.a.length] = a.Da;
         break;
       case 9:
         c = b.da;
         d = b.ka;
         f = b.ja;
         g = b.ia;
-        var h = b.e;
+        var h = b.f;
         a.Da = 32 === h.a.length ? h : N(O(), h, 0, 32);
         a.nb = 5;
         a.Wc = (1048576 - b.Ba) | 0;
@@ -8871,19 +8872,19 @@ let ScalaJSExample;
         c.I(0, a.vb, 1, c.a.length);
         a.Sa = nd(O(), d, 32);
         a.na = nd(O(), f, 32);
-        a.U = nd(O(), g, 32);
+        a.T = nd(O(), g, 32);
         a.vb.a[(1 + c.a.length) | 0] = a.Sa;
         a.Sa.a[d.a.length] = a.na;
-        a.na.a[f.a.length] = a.U;
-        a.U.a[g.a.length] = a.Da;
+        a.na.a[f.a.length] = a.T;
+        a.T.a[g.a.length] = a.Da;
         break;
       case 11:
-        c = b.T;
+        c = b.S;
         d = b.ba;
         f = b.aa;
         g = b.$;
         h = b.Z;
-        var k = b.e;
+        var k = b.f;
         a.Da = 32 === k.a.length ? k : N(O(), k, 0, 32);
         a.nb = 6;
         a.Wc = (33554432 - b.ra) | 0;
@@ -8896,12 +8897,12 @@ let ScalaJSExample;
         a.vb = nd(O(), d, 32);
         a.Sa = nd(O(), f, 32);
         a.na = nd(O(), g, 32);
-        a.U = nd(O(), h, 32);
+        a.T = nd(O(), h, 32);
         a.bc.a[(1 + c.a.length) | 0] = a.vb;
         a.vb.a[d.a.length] = a.Sa;
         a.Sa.a[f.a.length] = a.na;
-        a.na.a[g.a.length] = a.U;
-        a.U.a[h.a.length] = a.Da;
+        a.na.a[g.a.length] = a.T;
+        a.T.a[h.a.length] = a.Da;
         break;
       default:
         throw new T(c);
@@ -8934,10 +8935,10 @@ let ScalaJSExample;
     if (1024 >= a) {
       var d = 31 & ((-1 + a) | 0),
         f = (((-1 + a) | 0) >>> 5) | 0,
-        g = this.U,
+        g = this.T,
         h = N(O(), g, 1, f),
-        k = this.U.a[0],
-        l = this.U.a[f],
+        k = this.T.a[0],
+        l = this.T.a[f],
         p = (1 + d) | 0,
         u = l.a.length === p ? l : nd(O(), l, p);
       return new Ue(k, (32 - this.Wc) | 0, h, u, b);
@@ -9134,7 +9135,7 @@ let ScalaJSExample;
   xp.prototype = new q();
   xp.prototype.constructor = xp;
   e = xp.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return yp(a);
   };
   function yp(a) {
@@ -9190,7 +9191,7 @@ let ScalaJSExample;
   Fp.prototype = new q();
   Fp.prototype.constructor = Fp;
   e = Fp.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return Gp(a);
   };
   function Gp(a) {
@@ -9243,8 +9244,8 @@ let ScalaJSExample;
   Mp.prototype.constructor = Mp;
   Mp.prototype.cc = function (a) {
     var b = this.ee;
-    a > (((b.wb - b.xb) | 0) & ((-1 + b.V.a.length) | 0)) &&
-      a >= b.V.a.length &&
+    a > (((b.wb - b.xb) | 0) & ((-1 + b.U.a.length) | 0)) &&
+      a >= b.U.a.length &&
       Pp(b, a);
   };
   Mp.prototype.$classData = v(
@@ -9346,7 +9347,7 @@ let ScalaJSExample;
   Yp.prototype = new q();
   Yp.prototype.constructor = Yp;
   e = Yp.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return Zp(new gp(), a);
   };
   e.X = function () {
@@ -9398,7 +9399,7 @@ let ScalaJSExample;
   cq.prototype = new q();
   cq.prototype.constructor = cq;
   e = cq.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return Kp(new Ck(16), a);
   };
   e.X = function () {
@@ -9452,7 +9453,7 @@ let ScalaJSExample;
   hq.prototype = new q();
   hq.prototype.constructor = hq;
   e = hq.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return iq(a);
   };
   e.X = function () {
@@ -9485,7 +9486,7 @@ let ScalaJSExample;
   lq.prototype = new q();
   lq.prototype.constructor = lq;
   e = lq.prototype;
-  e.od = function (a) {
+  e.nd = function (a) {
     return mq(this, a);
   };
   function mq(a, b) {
@@ -9684,7 +9685,7 @@ let ScalaJSExample;
   e.Fe = function (a) {
     return Kd(this, a);
   };
-  e.f = function () {
+  e.e = function () {
     return !this.i().m();
   };
   e.Ob = function (a, b, c) {
@@ -9702,22 +9703,22 @@ let ScalaJSExample;
   function zq(a, b) {
     a.fd = b;
     a.M = 0;
-    a.td = Nd(Od(), a.fd);
+    a.sd = Nd(Od(), a.fd);
     return a;
   }
   function Aq() {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
   }
   Aq.prototype = new Kl();
   Aq.prototype.constructor = Aq;
   function Bq() {}
   e = Bq.prototype = Aq.prototype;
   e.v = function () {
-    return (this.td - this.M) | 0;
+    return (this.sd - this.M) | 0;
   };
   e.m = function () {
-    return this.M < this.td;
+    return this.M < this.sd;
   };
   e.k = function () {
     try {
@@ -9810,14 +9811,14 @@ let ScalaJSExample;
     { Qo: 1, Os: 1, b: 1, Ef: 1, Xc: 1, qc: 1, pc: 1 }
   );
   function Dq(a, b) {
-    var c = a.rd().X();
+    var c = a.qd().X();
     0 <= a.v() && c.cc((1 + a.n()) | 0);
     c.qb(a);
     c.Oa(b);
     return c.Ua();
   }
   function Eq(a, b) {
-    var c = a.rd().X();
+    var c = a.qd().X();
     c.qb(a);
     c.qb(b);
     return c.Ua();
@@ -9892,23 +9893,23 @@ let ScalaJSExample;
     c: 1,
   });
   function Fq() {
-    this.ud = this.Qd = 0;
+    this.td = this.Qd = 0;
   }
   Fq.prototype = new Kl();
   Fq.prototype.constructor = Fq;
   function Gq() {}
   Gq.prototype = Fq.prototype;
   Fq.prototype.v = function () {
-    return this.ud;
+    return this.td;
   };
   Fq.prototype.m = function () {
-    return 0 < this.ud;
+    return 0 < this.td;
   };
   Fq.prototype.k = function () {
     if (this.m()) {
       var a = this.t(this.Qd);
       this.Qd = (1 + this.Qd) | 0;
-      this.ud = (-1 + this.ud) | 0;
+      this.td = (-1 + this.td) | 0;
       return a;
     }
     return W().Y.k();
@@ -9916,8 +9917,8 @@ let ScalaJSExample;
   Fq.prototype.Ed = function (a) {
     0 < a &&
       ((this.Qd = (this.Qd + a) | 0),
-      (a = (this.ud - a) | 0),
-      (this.ud = 0 > a ? 0 : a));
+      (a = (this.td - a) | 0),
+      (this.td = 0 > a ? 0 : a));
     return this;
   };
   function Hq() {}
@@ -10133,7 +10134,7 @@ let ScalaJSExample;
   });
   function ar(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.ko = a;
     zq(this, a);
   }
@@ -10158,7 +10159,7 @@ let ScalaJSExample;
   );
   function br(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.mo = a;
     zq(this, a);
   }
@@ -10183,7 +10184,7 @@ let ScalaJSExample;
   );
   function cr(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.oo = a;
     zq(this, a);
   }
@@ -10208,7 +10209,7 @@ let ScalaJSExample;
   );
   function dr(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.qo = a;
     zq(this, a);
   }
@@ -10233,7 +10234,7 @@ let ScalaJSExample;
   );
   function Kn(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.so = a;
     zq(this, a);
   }
@@ -10260,7 +10261,7 @@ let ScalaJSExample;
   );
   function er(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.uo = a;
     zq(this, a);
   }
@@ -10287,7 +10288,7 @@ let ScalaJSExample;
   );
   function fr(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.wo = a;
     zq(this, a);
   }
@@ -10312,7 +10313,7 @@ let ScalaJSExample;
   );
   function gr(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     zq(this, a);
   }
   gr.prototype = new Bq();
@@ -10333,7 +10334,7 @@ let ScalaJSExample;
   );
   function hr(a) {
     this.fd = null;
-    this.td = this.M = 0;
+    this.sd = this.M = 0;
     this.zo = a;
     zq(this, a);
   }
@@ -10357,12 +10358,12 @@ let ScalaJSExample;
     { yo: 1, Zd: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
   );
   function ir(a) {
-    this.ud = this.Qd = 0;
+    this.td = this.Qd = 0;
     this.tl = null;
     if (null === a) throw nb(null);
     this.tl = a;
     this.Qd = 0;
-    this.ud = 2;
+    this.td = 2;
   }
   ir.prototype = new Gq();
   ir.prototype.constructor = ir;
@@ -10389,12 +10390,12 @@ let ScalaJSExample;
     { hq: 1, wl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
   );
   function jr(a) {
-    this.ud = this.Qd = 0;
+    this.td = this.Qd = 0;
     this.ul = null;
     if (null === a) throw nb(null);
     this.ul = a;
     this.Qd = 0;
-    this.ud = 3;
+    this.td = 3;
   }
   jr.prototype = new Gq();
   jr.prototype.constructor = jr;
@@ -10424,12 +10425,12 @@ let ScalaJSExample;
     { jq: 1, wl: 1, pa: 1, b: 1, ca: 1, r: 1, s: 1, c: 1 }
   );
   function kr(a) {
-    this.ud = this.Qd = 0;
+    this.td = this.Qd = 0;
     this.vl = null;
     if (null === a) throw nb(null);
     this.vl = a;
     this.Qd = 0;
-    this.ud = 4;
+    this.td = 4;
   }
   kr.prototype = new Gq();
   kr.prototype.constructor = kr;
@@ -10492,23 +10493,23 @@ let ScalaJSExample;
         new pg(),
         c + " is out of bounds (min 0, max " + ((-1 + f) | 0) + ")"
       );
-    f = (((a.wb - a.xb) | 0) & ((-1 + a.V.a.length) | 0)) | 0;
+    f = (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0)) | 0;
     var g = (Nd(Od(), b) - c) | 0;
     f = f < g ? f : g;
     d = d < f ? d : f;
     if (0 < d) {
-      f = ((a.wb - a.xb) | 0) & ((-1 + a.V.a.length) | 0);
+      f = ((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0);
       if (0 >= f)
         throw og(
           new pg(),
           "0 is out of bounds (min 0, max " + ((-1 + f) | 0) + ")"
         );
-      f = ((a.xb + 0) | 0) & ((-1 + a.V.a.length) | 0);
-      g = (a.V.a.length - f) | 0;
+      f = ((a.xb + 0) | 0) & ((-1 + a.U.a.length) | 0);
+      g = (a.U.a.length - f) | 0;
       g = d < g ? d : g;
-      zh(Bh(), a.V, f, b, c, g);
+      zh(Bh(), a.U, f, b, c, g);
       d = (d - g) | 0;
-      0 < d && zh(Bh(), a.V, 0, b, (c + g) | 0, d);
+      0 < d && zh(Bh(), a.U, 0, b, (c + g) | 0, d);
     }
     return b;
   }
@@ -10783,7 +10784,7 @@ let ScalaJSExample;
     { On: 0 },
     !1,
     "scala.reflect.ManifestFactory$AnyManifest$",
-    { On: 1, ij: 1, hj: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { On: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var Vr;
   function De() {
@@ -10800,7 +10801,7 @@ let ScalaJSExample;
     { Pn: 0 },
     !1,
     "scala.reflect.ManifestFactory$BooleanManifest$",
-    { Pn: 1, qs: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Pn: 1, qs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var Xr;
   function hi() {
@@ -10818,7 +10819,7 @@ let ScalaJSExample;
     { Qn: 0 },
     !1,
     "scala.reflect.ManifestFactory$ByteManifest$",
-    { Qn: 1, rs: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Qn: 1, rs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var Zr;
   function bi() {
@@ -10836,7 +10837,7 @@ let ScalaJSExample;
     { Rn: 0 },
     !1,
     "scala.reflect.ManifestFactory$CharManifest$",
-    { Rn: 1, ss: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Rn: 1, ss: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var as;
   function di() {
@@ -10854,7 +10855,7 @@ let ScalaJSExample;
     { Sn: 0 },
     !1,
     "scala.reflect.ManifestFactory$DoubleManifest$",
-    { Sn: 1, ts: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Sn: 1, ts: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var cs;
   function gi() {
@@ -10872,7 +10873,7 @@ let ScalaJSExample;
     { Tn: 0 },
     !1,
     "scala.reflect.ManifestFactory$FloatManifest$",
-    { Tn: 1, us: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Tn: 1, us: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var es;
   function fi() {
@@ -10890,7 +10891,7 @@ let ScalaJSExample;
     { Un: 0 },
     !1,
     "scala.reflect.ManifestFactory$IntManifest$",
-    { Un: 1, vs: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Un: 1, vs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var gs;
   function Ee() {
@@ -10908,7 +10909,7 @@ let ScalaJSExample;
     { Vn: 0 },
     !1,
     "scala.reflect.ManifestFactory$LongManifest$",
-    { Vn: 1, ws: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Vn: 1, ws: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var is;
   function ei() {
@@ -10935,7 +10936,7 @@ let ScalaJSExample;
     { Wn: 0 },
     !1,
     "scala.reflect.ManifestFactory$NothingManifest$",
-    { Wn: 1, ij: 1, hj: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Wn: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var mi;
   function pi() {
@@ -10958,7 +10959,7 @@ let ScalaJSExample;
     { Xn: 0 },
     !1,
     "scala.reflect.ManifestFactory$NullManifest$",
-    { Xn: 1, ij: 1, hj: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Xn: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var oi;
   function ki() {
@@ -10981,7 +10982,7 @@ let ScalaJSExample;
     { Yn: 0 },
     !1,
     "scala.reflect.ManifestFactory$ObjectManifest$",
-    { Yn: 1, ij: 1, hj: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Yn: 1, ij: 1, hj: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var ji;
   function js() {
@@ -10995,7 +10996,7 @@ let ScalaJSExample;
     { Zn: 0 },
     !1,
     "scala.reflect.ManifestFactory$ShortManifest$",
-    { Zn: 1, xs: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { Zn: 1, xs: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var ks;
   function ci() {
@@ -11013,7 +11014,7 @@ let ScalaJSExample;
     { $n: 0 },
     !1,
     "scala.reflect.ManifestFactory$UnitManifest$",
-    { $n: 1, ys: 1, Ie: 1, b: 1, sd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
+    { $n: 1, ys: 1, Ie: 1, b: 1, rd: 1, Rc: 1, ed: 1, Sc: 1, c: 1, x: 1 }
   );
   var ms;
   function ii() {
@@ -11061,7 +11062,7 @@ let ScalaJSExample;
     var a = this.il.v();
     return 0 <= a ? (1 + a) | 0 : -1;
   };
-  os.prototype.f = function () {
+  os.prototype.e = function () {
     return !1;
   };
   os.prototype.$classData = v({ fp: 0 }, !1, "scala.collection.View$Appended", {
@@ -11094,8 +11095,8 @@ let ScalaJSExample;
     }
     return -1;
   };
-  gj.prototype.f = function () {
-    return this.sj.f() && this.tj.f();
+  gj.prototype.e = function () {
+    return this.sj.e() && this.tj.e();
   };
   gj.prototype.$classData = v({ hp: 0 }, !1, "scala.collection.View$Concat", {
     hp: 1,
@@ -11131,7 +11132,7 @@ let ScalaJSExample;
     var a = this.Og.v();
     return 0 <= a ? ((a = (a - this.Zf) | 0), 0 < a ? a : 0) : -1;
   };
-  wq.prototype.f = function () {
+  wq.prototype.e = function () {
     return !this.i().m();
   };
   wq.prototype.$classData = v({ uj: 0 }, !1, "scala.collection.View$Drop", {
@@ -11161,7 +11162,7 @@ let ScalaJSExample;
     var a = this.vj;
     return 0 > a ? 0 : a;
   };
-  Lh.prototype.f = function () {
+  Lh.prototype.e = function () {
     return 0 >= this.vj;
   };
   Lh.prototype.$classData = v({ jp: 0 }, !1, "scala.collection.View$Fill", {
@@ -11191,7 +11192,7 @@ let ScalaJSExample;
   nj.prototype.v = function () {
     return 0 === this.jl.v() ? 0 : -1;
   };
-  nj.prototype.f = function () {
+  nj.prototype.e = function () {
     return !this.i().m();
   };
   nj.prototype.$classData = v({ lp: 0 }, !1, "scala.collection.View$Filter", {
@@ -11220,7 +11221,7 @@ let ScalaJSExample;
   xq.prototype.v = function () {
     return 0 === this.kl.v() ? 0 : -1;
   };
-  xq.prototype.f = function () {
+  xq.prototype.e = function () {
     return !this.i().m();
   };
   xq.prototype.$classData = v({ op: 0 }, !1, "scala.collection.View$FlatMap", {
@@ -11255,8 +11256,8 @@ let ScalaJSExample;
   jj.prototype.v = function () {
     return this.$f.v();
   };
-  jj.prototype.f = function () {
-    return this.$f.f();
+  jj.prototype.e = function () {
+    return this.$f.e();
   };
   jj.prototype.$classData = v({ wj: 0 }, !1, "scala.collection.View$Map", {
     wj: 1,
@@ -11283,7 +11284,7 @@ let ScalaJSExample;
   ps.prototype.v = function () {
     return 1;
   };
-  ps.prototype.f = function () {
+  ps.prototype.e = function () {
     return !1;
   };
   ps.prototype.$classData = v({ qp: 0 }, !1, "scala.collection.View$Single", {
@@ -11315,8 +11316,8 @@ let ScalaJSExample;
     var b = this.xj.v();
     return 0 === b ? 0 : a < b ? a : b;
   };
-  yq.prototype.f = function () {
-    return this.yj.f() || this.xj.f();
+  yq.prototype.e = function () {
+    return this.yj.e() || this.xj.e();
   };
   yq.prototype.$classData = v({ sp: 0 }, !1, "scala.collection.View$Zip", {
     sp: 1,
@@ -11394,7 +11395,7 @@ let ScalaJSExample;
   e.z = function () {
     return Go(this);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.ha().ga(new os(this, a));
   };
   e.Bd = function (a) {
@@ -11419,7 +11420,7 @@ let ScalaJSExample;
   e.hb = function (a) {
     return bj(this, a);
   };
-  e.f = function () {
+  e.e = function () {
     return 0 === this.hb(0);
   };
   e.Je = function (a) {
@@ -11452,13 +11453,13 @@ let ScalaJSExample;
   e.hb = function (a) {
     return bj(this, a);
   };
-  e.f = function () {
+  e.e = function () {
     return 0 === this.hb(0);
   };
   e.Eb = function (a) {
     return this.me(a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.ne(a);
   };
   function Ej() {}
@@ -11471,7 +11472,7 @@ let ScalaJSExample;
   e.v = function () {
     return 0;
   };
-  e.f = function () {
+  e.e = function () {
     return !0;
   };
   e.ib = function () {
@@ -11537,7 +11538,7 @@ let ScalaJSExample;
   e.hb = function (a) {
     return bj(this, a);
   };
-  e.f = function () {
+  e.e = function () {
     return 0 === this.hb(0);
   };
   e.n = function () {
@@ -11550,7 +11551,7 @@ let ScalaJSExample;
   e.me = function (a) {
     return As(new Bs(), this.Ng, (this.qj + a) | 0);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.ne(a);
   };
   e.Eb = function (a) {
@@ -11595,8 +11596,8 @@ let ScalaJSExample;
   e.v = function () {
     return this.qf.v();
   };
-  e.f = function () {
-    return this.qf.f();
+  e.e = function () {
+    return this.qf.e();
   };
   e.$classData = v({ gl: 0 }, !1, "scala.collection.SeqView$Id", {
     gl: 1,
@@ -11649,7 +11650,7 @@ let ScalaJSExample;
   e.hb = function (a) {
     return bj(this, a);
   };
-  e.f = function () {
+  e.e = function () {
     return 0 === this.hb(0);
   };
   e.t = function (a) {
@@ -11661,7 +11662,7 @@ let ScalaJSExample;
   e.Eb = function (a) {
     return this.me(a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.ne(a);
   };
   e.$classData = v({ hl: 0 }, !1, "scala.collection.SeqView$Map", {
@@ -11704,7 +11705,7 @@ let ScalaJSExample;
   e.ne = function (a) {
     return new Eo(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return new Eo(this, a);
   };
   e.me = function (a) {
@@ -11750,7 +11751,7 @@ let ScalaJSExample;
   e.ne = function (a) {
     return new Eo(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return new Eo(this, a);
   };
   e.me = function (a) {
@@ -11804,7 +11805,7 @@ let ScalaJSExample;
   e.ne = function (a) {
     return new Eo(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return new Eo(this, a);
   };
   e.me = function (a) {
@@ -11858,7 +11859,7 @@ let ScalaJSExample;
   e.ne = function (a) {
     return new Eo(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return new Eo(this, a);
   };
   e.me = function (a) {
@@ -11975,7 +11976,7 @@ let ScalaJSExample;
   e.Xa = function () {
     return 0;
   };
-  e.f = function () {
+  e.e = function () {
     return !0;
   };
   e.v = function () {
@@ -12088,7 +12089,7 @@ let ScalaJSExample;
   e.Xa = function () {
     return 1;
   };
-  e.f = function () {
+  e.e = function () {
     return !1;
   };
   e.v = function () {
@@ -12159,7 +12160,7 @@ let ScalaJSExample;
   e.Xa = function () {
     return 2;
   };
-  e.f = function () {
+  e.e = function () {
     return !1;
   };
   e.v = function () {
@@ -12248,7 +12249,7 @@ let ScalaJSExample;
   e.Xa = function () {
     return 3;
   };
-  e.f = function () {
+  e.e = function () {
     return !1;
   };
   e.v = function () {
@@ -12345,7 +12346,7 @@ let ScalaJSExample;
   e.Xa = function () {
     return 4;
   };
-  e.f = function () {
+  e.e = function () {
     return !1;
   };
   e.v = function () {
@@ -12484,11 +12485,11 @@ let ScalaJSExample;
   e.Xa = function () {
     return this.mc.bb;
   };
-  e.f = function () {
+  e.e = function () {
     return 0 === this.mc.bb;
   };
   e.i = function () {
-    return this.f() ? W().Y : new lp(this.mc);
+    return this.e() ? W().Y : new lp(this.mc);
   };
   e.F = function (a) {
     var b = mg(X(), a),
@@ -12573,7 +12574,7 @@ let ScalaJSExample;
     return new am(
       new H(
         ((d, f) => () => {
-          if (d.f()) return Sk();
+          if (d.e()) return Sk();
           Bf();
           var g = f.l(Y(d).u()),
             h = $s(Y(d).gb(), f);
@@ -12585,21 +12586,21 @@ let ScalaJSExample;
   function bt(a, b, c, d, f) {
     b.o = "" + b.o + c;
     if (!a.uc) b.o += "\x3cnot computed\x3e";
-    else if (!a.f()) {
+    else if (!a.e()) {
       c = Y(a).u();
       b.o = "" + b.o + c;
       c = a;
       var g = Y(a).gb();
-      if (c !== g && (!g.uc || Y(c) !== Y(g)) && ((c = g), g.uc && !g.f()))
-        for (g = Y(g).gb(); c !== g && g.uc && !g.f() && Y(c) !== Y(g); ) {
+      if (c !== g && (!g.uc || Y(c) !== Y(g)) && ((c = g), g.uc && !g.e()))
+        for (g = Y(g).gb(); c !== g && g.uc && !g.e() && Y(c) !== Y(g); ) {
           b.o = "" + b.o + d;
           var h = Y(c).u();
           b.o = "" + b.o + h;
           c = Y(c).gb();
           g = Y(g).gb();
-          g.uc && !g.f() && (g = Y(g).gb());
+          g.uc && !g.e() && (g = Y(g).gb());
         }
-      if (!g.uc || g.f()) {
+      if (!g.uc || g.e()) {
         for (; c !== g; )
           (b.o = "" + b.o + d),
             (a = Y(c).u()),
@@ -12697,11 +12698,11 @@ let ScalaJSExample;
     }
     return a.ql;
   }
-  e.f = function () {
+  e.e = function () {
     return Y(this) === Sk();
   };
   e.v = function () {
-    return this.uc && this.f() ? 0 : -1;
+    return this.uc && this.e() ? 0 : -1;
   };
   e.u = function () {
     return Y(this).u();
@@ -12709,9 +12710,9 @@ let ScalaJSExample;
   function $l(a) {
     var b = a,
       c = a;
-    for (b.f() || (b = Y(b).gb()); c !== b && !b.f(); ) {
+    for (b.e() || (b = Y(b).gb()); c !== b && !b.e(); ) {
       b = Y(b).gb();
-      if (b.f()) break;
+      if (b.e()) break;
       b = Y(b).gb();
       if (b === c) break;
       c = Y(c).gb();
@@ -12719,10 +12720,10 @@ let ScalaJSExample;
     return a;
   }
   e.i = function () {
-    return this.uc && this.f() ? W().Y : new dp(this);
+    return this.uc && this.e() ? W().Y : new dp(this);
   };
   e.N = function (a) {
-    for (var b = this; !b.f(); ) a.l(Y(b).u()), (b = Y(b).gb());
+    for (var b = this; !b.e(); ) a.l(Y(b).u()), (b = Y(b).gb());
   };
   e.Qc = function () {
     return "LazyList";
@@ -12732,7 +12733,7 @@ let ScalaJSExample;
     return new am(
       new H(
         ((c, d) => () => {
-          if (c.f()) {
+          if (c.e()) {
             var f = Zd(d);
             return f instanceof am
               ? Y(f)
@@ -12749,12 +12750,12 @@ let ScalaJSExample;
     );
   }
   function dt(a, b) {
-    return a.uc && a.f()
+    return a.uc && a.e()
       ? yj(Bf(), b)
       : ct(a, new H(((c, d) => () => d)(a, b)));
   }
   function et(a, b) {
-    return a.uc && a.f()
+    return a.uc && a.e()
       ? (Bf(),
         new am(
           new H(
@@ -12776,22 +12777,22 @@ let ScalaJSExample;
         );
   }
   e.Fe = function (a) {
-    if (this.f()) throw Ld("empty.reduceLeft");
-    for (var b = Y(this).u(), c = Y(this).gb(); !c.f(); )
+    if (this.e()) throw Ld("empty.reduceLeft");
+    for (var b = Y(this).u(), c = Y(this).gb(); !c.e(); )
       (b = a.ad(b, Y(c).u())), (c = Y(c).gb());
     return b;
   };
   function Uk(a, b) {
-    return a.uc && a.f() ? Bf().Le : bm(Bf(), a, b, !1);
+    return a.uc && a.e() ? Bf().Le : bm(Bf(), a, b, !1);
   }
   e.Vd = function (a) {
     return new Tk(this, a);
   };
   e.Tf = function (a) {
-    return this.uc && this.f() ? Bf().Le : at(this, a);
+    return this.uc && this.e() ? Bf().Le : at(this, a);
   };
   function ft(a, b) {
-    return a.uc && a.f() ? Bf().Le : cm(Bf(), a, b);
+    return a.uc && a.e() ? Bf().Le : cm(Bf(), a, b);
   }
   e.Ff = function (a) {
     return kj(
@@ -12812,7 +12813,7 @@ let ScalaJSExample;
     return en(this, a | 0);
   };
   e.Eb = function (a) {
-    return 0 >= a ? this : this.uc && this.f() ? Bf().Le : em(Bf(), this, a);
+    return 0 >= a ? this : this.uc && this.e() ? Bf().Le : em(Bf(), this, a);
   };
   e.Rf = function (a) {
     return ft(this, a);
@@ -12820,13 +12821,13 @@ let ScalaJSExample;
   e.Wb = function (a) {
     return ft(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Tf(a);
   };
   e.Pb = function (a) {
     return Uk(this, a);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return et(this, a);
   };
   e.Bd = function (a) {
@@ -12865,7 +12866,7 @@ let ScalaJSExample;
   });
   function gt(a, b, c, d, f) {
     b.o = "" + b.o + c;
-    if (!a.f()) {
+    if (!a.e()) {
       c = a.u();
       b.o = "" + b.o + c;
       c = a;
@@ -12899,10 +12900,10 @@ let ScalaJSExample;
               (a = c.u()),
               (b.o = "" + b.o + a),
               (c = c.w());
-          c.f() || ((b.o = "" + b.o + d), (g = c.u()), (b.o = "" + b.o + g));
+          c.e() || ((b.o = "" + b.o + d), (g = c.u()), (b.o = "" + b.o + g));
         }
       }
-      c.f() ||
+      c.e() ||
         (c.ye()
           ? ((b.o = "" + b.o + d), (b.o += "\x3ccycle\x3e"))
           : ((b.o = "" + b.o + d), (b.o += "\x3cnot computed\x3e")));
@@ -12949,40 +12950,40 @@ let ScalaJSExample;
     return "Stream";
   };
   e.N = function (a) {
-    for (var b = this; !b.f(); ) a.l(b.u()), (b = b.w());
+    for (var b = this; !b.e(); ) a.l(b.u()), (b = b.w());
   };
   function it(a, b) {
-    if (a.f()) return (a = Af()), (b = Zd(b)), im(a, b);
+    if (a.e()) return (a = Af()), (b = Zd(b)), im(a, b);
     var c = a.u();
     return new lm(c, new H(((d, f) => () => it(d.w(), f))(a, b)));
   }
   e.Fe = function (a) {
-    if (this.f()) throw Ld("empty.reduceLeft");
-    for (var b = this.u(), c = this.w(); !c.f(); )
+    if (this.e()) throw Ld("empty.reduceLeft");
+    for (var b = this.u(), c = this.w(); !c.e(); )
       (b = a.ad(b, c.u())), (c = c.w());
     return b;
   };
   function bl(a, b, c) {
-    for (; !a.f() && !!b.l(a.u()) === c; ) a = a.w();
-    return a.f() ? mm() : nm(Af(), a, b, c);
+    for (; !a.e() && !!b.l(a.u()) === c; ) a = a.w();
+    return a.e() ? mm() : nm(Af(), a, b, c);
   }
   e.Vd = function (a) {
     return new cl(this, a);
   };
   function dl(a, b) {
-    if (a.f()) return mm();
+    if (a.e()) return mm();
     var c = b.l(a.u());
     return new lm(c, new H(((d, f) => () => dl(d.w(), f))(a, b)));
   }
   function jt(a, b) {
-    if (a.f()) return mm();
+    if (a.e()) return mm();
     var c = new Ci(a),
       d = Af(),
       f = b.l(c.fa.u());
-    for (d = im(d, f); !c.fa.f() && d.f(); )
+    for (d = im(d, f); !c.fa.e() && d.e(); )
       (c.fa = c.fa.w()),
-        c.fa.f() || ((d = Af()), (f = b.l(c.fa.u())), (d = im(d, f)));
-    return c.fa.f()
+        c.fa.e() || ((d = Af()), (f = b.l(c.fa.u())), (d = im(d, f)));
+    return c.fa.e()
       ? mm()
       : it(d, new H(((g, h, k) => () => jt(h.fa.w(), k))(a, c, b)));
   }
@@ -13000,7 +13001,7 @@ let ScalaJSExample;
   e.Wb = function (a) {
     return jt(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return dl(this, a);
   };
   e.Pb = function (a) {
@@ -13027,7 +13028,7 @@ let ScalaJSExample;
   e.Eb = function (a) {
     return Bo(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Do(this, a);
   };
   e.u = function () {
@@ -13131,13 +13132,13 @@ let ScalaJSExample;
   C.prototype = new q();
   C.prototype.constructor = C;
   e = C.prototype;
-  e.nd = function (a) {
+  e.md = function (a) {
     return Dq(this, a);
   };
   e.Ff = function (a) {
     return Sl(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Tl(this, a);
   };
   e.Wb = function (a) {
@@ -13209,7 +13210,7 @@ let ScalaJSExample;
     var b = this.n();
     return b === a ? 0 : b < a ? -1 : 1;
   };
-  e.f = function () {
+  e.e = function () {
     return 0 === this.hb(0);
   };
   e.aj = function () {
@@ -13236,7 +13237,7 @@ let ScalaJSExample;
   e.le = function (a, b, c, d) {
     return Vd(this, a, b, c, d);
   };
-  e.rd = function () {
+  e.qd = function () {
     return qq();
   };
   e.n = function () {
@@ -13293,7 +13294,7 @@ let ScalaJSExample;
   e.u = function () {
     return this.uq;
   };
-  e.f = function () {
+  e.e = function () {
     return !1;
   };
   e.ye = function () {
@@ -13306,9 +13307,9 @@ let ScalaJSExample;
   e.Ck = function () {
     var a = this,
       b = this;
-    for (a.f() || (a = a.w()); b !== a && !a.f(); ) {
+    for (a.e() || (a = a.w()); b !== a && !a.e(); ) {
       a = a.w();
-      if (a.f()) break;
+      if (a.e()) break;
       a = a.w();
       if (a === b) break;
       b = b.w();
@@ -13347,7 +13348,7 @@ let ScalaJSExample;
   kt.prototype = new ht();
   kt.prototype.constructor = kt;
   e = kt.prototype;
-  e.f = function () {
+  e.e = function () {
     return !0;
   };
   e.Gg = function () {
@@ -13420,12 +13421,12 @@ let ScalaJSExample;
       }
       null === g ? (a.yb.a[d] = new gf(b, c, f)) : (g.pb = new gf(b, c, g.pb));
     }
-    a.kd = (1 + a.kd) | 0;
+    a.ud = (1 + a.ud) | 0;
   }
   function pt(a, b) {
     var c = a.yb.a.length;
     a.Mj = Ja(b * a.Wh);
-    if (0 === a.kd) a.yb = new (x(hf).G)(b);
+    if (0 === a.ud) a.yb = new (x(hf).G)(b);
     else {
       var d = a.yb;
       a.yb = nd(O(), d, b);
@@ -13461,13 +13462,13 @@ let ScalaJSExample;
     a.Wh = c;
     a.yb = new (x(hf).G)(qt(b));
     a.Mj = Ja(a.yb.a.length * a.Wh);
-    a.kd = 0;
+    a.ud = 0;
     return a;
   }
   function gl() {
     this.Wh = 0;
     this.yb = null;
-    this.kd = this.Mj = 0;
+    this.ud = this.Mj = 0;
   }
   gl.prototype = new Zs();
   gl.prototype.constructor = gl;
@@ -13479,7 +13480,7 @@ let ScalaJSExample;
     return Xl(this, a);
   };
   e.Xa = function () {
-    return this.kd;
+    return this.ud;
   };
   function Yq(a) {
     return a ^ ((a >>> 16) | 0);
@@ -13507,7 +13508,7 @@ let ScalaJSExample;
     a > this.yb.a.length && pt(this, a);
   };
   function $b(a, b) {
-    ((1 + a.kd) | 0) >= a.Mj && pt(a, a.yb.a.length << 1);
+    ((1 + a.ud) | 0) >= a.Mj && pt(a, a.yb.a.length << 1);
     ot(a, b, Yq(mg(X(), b)));
   }
   function il(a, b) {
@@ -13539,12 +13540,12 @@ let ScalaJSExample;
         f = a.yb.a[d];
       if (null !== f)
         if (f.Td === c && L(M(), f.af, b))
-          (a.yb.a[d] = f.pb), (a.kd = (-1 + a.kd) | 0);
+          (a.yb.a[d] = f.pb), (a.ud = (-1 + a.ud) | 0);
         else
           for (d = f, f = f.pb; null !== f && f.Td <= c; ) {
             if (f.Td === c && L(M(), f.af, b)) {
               d.pb = f.pb;
-              a.kd = (-1 + a.kd) | 0;
+              a.ud = (-1 + a.ud) | 0;
               break a;
             }
             d = f;
@@ -13559,10 +13560,10 @@ let ScalaJSExample;
     return kl();
   };
   e.v = function () {
-    return this.kd;
+    return this.ud;
   };
-  e.f = function () {
-    return 0 === this.kd;
+  e.e = function () {
+    return 0 === this.ud;
   };
   e.N = function (a) {
     for (var b = this.yb.a.length, c = 0; c < b; ) {
@@ -13639,7 +13640,7 @@ let ScalaJSExample;
     a.cb = b;
     a.Hc = c;
     a.za = d;
-    a.vc = (b > c && 0 < d) || (b < c && 0 > d) || (b === c && !a.qd());
+    a.vc = (b > c && 0 < d) || (b < c && 0 > d) || (b === c && !a.pd());
     if (0 === d) throw rd("step cannot be 0.");
     if (a.vc) b = 0;
     else {
@@ -13649,7 +13650,7 @@ let ScalaJSExample;
       var h = ag();
       b = rh(h, b.Fa, b.Ea, f, g);
       h = h.Na;
-      g = a.qd() || !st(a) ? 1 : 0;
+      g = a.pd() || !st(a) ? 1 : 0;
       f = g >> 31;
       g = (b + g) | 0;
       h = new n(
@@ -13665,16 +13666,16 @@ let ScalaJSExample;
     a.Nd = b;
     switch (d) {
       case 1:
-        c = a.qd() ? c : (-1 + c) | 0;
+        c = a.pd() ? c : (-1 + c) | 0;
         break;
       case -1:
-        c = a.qd() ? c : (1 + c) | 0;
+        c = a.pd() ? c : (1 + c) | 0;
         break;
       default:
         (b = rt(a)),
           (h = d >> 31),
           (b = sh(ag(), b.Fa, b.Ea, d, h)),
-          (c = 0 !== b ? (c - b) | 0 : a.qd() ? c : (c - d) | 0);
+          (c = 0 !== b ? (c - b) | 0 : a.pd() ? c : (c - d) | 0);
     }
     a.Af = c;
   }
@@ -13687,7 +13688,7 @@ let ScalaJSExample;
   ut.prototype.constructor = ut;
   function vt() {}
   e = vt.prototype = ut.prototype;
-  e.nd = function (a) {
+  e.md = function (a) {
     return Dq(this, a);
   };
   e.Bd = function (a) {
@@ -13711,7 +13712,7 @@ let ScalaJSExample;
   e.Ag = function (a) {
     return Ms(this, a);
   };
-  e.rd = function () {
+  e.qd = function () {
     return xf();
   };
   e.Mb = function () {
@@ -13727,12 +13728,12 @@ let ScalaJSExample;
   e.i = function () {
     return new Rn(this.cb, this.za, this.Af, this.vc);
   };
-  e.f = function () {
+  e.e = function () {
     return this.vc;
   };
   e.n = function () {
     return 0 > this.Nd
-      ? Rh(Ff(), this.cb, this.Hc, this.za, this.qd())
+      ? Rh(Ff(), this.cb, this.Hc, this.za, this.pd())
       : this.Nd;
   };
   function wt(a) {
@@ -13740,7 +13741,7 @@ let ScalaJSExample;
     return a.Af;
   }
   function xt(a) {
-    0 > a.Nd && Rh(Ff(), a.cb, a.Hc, a.za, a.qd());
+    0 > a.Nd && Rh(Ff(), a.cb, a.Hc, a.za, a.pd());
   }
   e.N = function (a) {
     if (!this.vc)
@@ -13767,7 +13768,7 @@ let ScalaJSExample;
     ma(a)
       ? ((a |= 0),
         (a =
-          !(a === this.Hc && !this.qd()) &&
+          !(a === this.Hc && !this.pd()) &&
           (0 < this.za
             ? !(a < this.cb || a > this.Hc) &&
               (1 === this.za || 0 === Ia((a - this.cb) | 0, this.za))
@@ -13798,7 +13799,7 @@ let ScalaJSExample;
     return Hi(this);
   };
   e.z = function () {
-    var a = this.qd() ? "to" : "until",
+    var a = this.pd() ? "to" : "until",
       b = 1 === this.za ? "" : " by " + this.za;
     return (
       (this.vc ? "empty " : st(this) ? "" : "inexact ") +
@@ -13834,7 +13835,7 @@ let ScalaJSExample;
       a = (this.cb + ba(this.za, a)) | 0;
       var b = this.Hc,
         c = this.za;
-      a = this.qd() ? new yt(a, b, c) : new $n(a, b, c);
+      a = this.pd() ? new yt(a, b, c) : new $n(a, b, c);
     }
     return a;
   };
@@ -13844,7 +13845,7 @@ let ScalaJSExample;
   e.t = function (a) {
     return this.xg(a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     xt(this);
     return Tl(this, a);
   };
@@ -13854,7 +13855,7 @@ let ScalaJSExample;
       var a = this.Hc;
       a = new $n(a, a, this.za);
     } else
-      a = this.qd()
+      a = this.pd()
         ? new yt((this.cb + this.za) | 0, this.Hc, this.za)
         : new $n((this.cb + this.za) | 0, this.Hc, this.za);
     return a;
@@ -13874,7 +13875,7 @@ let ScalaJSExample;
   }
   $n.prototype = new vt();
   $n.prototype.constructor = $n;
-  $n.prototype.qd = function () {
+  $n.prototype.pd = function () {
     return !1;
   };
   $n.prototype.$classData = v(
@@ -13919,7 +13920,7 @@ let ScalaJSExample;
   }
   yt.prototype = new vt();
   yt.prototype.constructor = yt;
-  yt.prototype.qd = function () {
+  yt.prototype.pd = function () {
     return !0;
   };
   yt.prototype.$classData = v(
@@ -13994,7 +13995,7 @@ let ScalaJSExample;
   e.v = function () {
     return this.n();
   };
-  e.rd = function () {
+  e.qd = function () {
     return Cf();
   };
   e.n = function () {
@@ -14098,7 +14099,7 @@ let ScalaJSExample;
   };
   e.dd = function () {
     if (this instanceof At) {
-      var a = this.e;
+      var a = this.f;
       if (0 === a.a.length) throw Th(new Uh(), "empty.tail");
       return a.a[(-1 + a.a.length) | 0];
     }
@@ -14140,7 +14141,7 @@ let ScalaJSExample;
   e.Bd = function (a) {
     return Eq(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Tl(this, a);
   };
   e.Wb = function (a) {
@@ -14165,7 +14166,7 @@ let ScalaJSExample;
   e.v = function () {
     return this.n();
   };
-  e.rd = function () {
+  e.qd = function () {
     return Zi().Kj;
   };
   function Et(a, b) {
@@ -14194,11 +14195,11 @@ let ScalaJSExample;
     f = (f - b) | 0;
     f = c < f ? c : f;
     f = 0 < f ? f : 0;
-    0 < f && zh(Bh(), this.pd(), 0, a, b, f);
+    0 < f && zh(Bh(), this.od(), 0, a, b, f);
     return f;
   };
   e.y = function (a) {
-    return a instanceof Ct && Nd(Od(), this.pd()) !== Nd(Od(), a.pd())
+    return a instanceof Ct && Nd(Od(), this.od()) !== Nd(Od(), a.od())
       ? !1
       : ns(this, a);
   };
@@ -14219,7 +14220,7 @@ let ScalaJSExample;
   e.i = function () {
     return new Uo(this);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return Dq(this, a);
   };
   e.Ff = function (a) {
@@ -14240,28 +14241,28 @@ let ScalaJSExample;
   e.De = function (a, b) {
     return So(this, a, b);
   };
-  e.rd = function () {
+  e.qd = function () {
     return zc();
   };
   function Gt(a, b) {
-    if (a.f()) return b;
-    if (b.f()) return a;
+    if (a.e()) return b;
+    if (b.e()) return a;
     var c = new Wm(b.u(), a),
       d = c;
-    for (b = b.w(); !b.f(); ) {
+    for (b = b.w(); !b.e(); ) {
       var f = new Wm(b.u(), a);
       d = d.tc = f;
       b = b.w();
     }
     return c;
   }
-  e.f = function () {
+  e.e = function () {
     return this === I();
   };
   function Ac(a, b) {
     if (b instanceof Ii) return Gt(a, b);
     if (0 === b.v()) return a;
-    if (b instanceof gp && a.f()) return Ht(b);
+    if (b instanceof gp && a.e()) return Ht(b);
     b = b.i();
     if (b.m()) {
       for (var c = new Wm(b.k(), a), d = c; b.m(); ) {
@@ -14273,10 +14274,10 @@ let ScalaJSExample;
     return a;
   }
   e.N = function (a) {
-    for (var b = this; !b.f(); ) a.l(b.u()), (b = b.w());
+    for (var b = this; !b.e(); ) a.l(b.u()), (b = b.w());
   };
   e.n = function () {
-    for (var a = this, b = 0; !a.f(); ) (b = (1 + b) | 0), (a = a.w());
+    for (var a = this, b = 0; !a.e(); ) (b = (1 + b) | 0), (a = a.w());
     return b;
   };
   e.hb = function (a) {
@@ -14284,10 +14285,10 @@ let ScalaJSExample;
     else
       a: for (var b = this, c = 0; ; ) {
         if (c === a) {
-          a = b.f() ? 0 : 1;
+          a = b.e() ? 0 : 1;
           break a;
         }
-        if (b.f()) {
+        if (b.e()) {
           a = -1;
           break a;
         }
@@ -14297,22 +14298,22 @@ let ScalaJSExample;
     return a;
   };
   e.Qf = function (a) {
-    for (var b = this; !b.f(); ) {
+    for (var b = this; !b.e(); ) {
       if (a.l(b.u())) return !0;
       b = b.w();
     }
     return !1;
   };
   e.F = function (a) {
-    for (var b = this; !b.f(); ) {
+    for (var b = this; !b.e(); ) {
       if (L(M(), b.u(), a)) return !0;
       b = b.w();
     }
     return !1;
   };
   e.dd = function () {
-    if (this.f()) throw Th(new Uh(), "List.last");
-    for (var a = this, b = this.w(); !b.f(); ) (a = b), (b = b.w());
+    if (this.e()) throw Th(new Uh(), "List.last");
+    for (var a = this, b = this.w(); !b.e(); ) (a = b), (b = b.w());
     return a.u();
   };
   e.Qc = function () {
@@ -14326,8 +14327,8 @@ let ScalaJSExample;
           b = !0;
           break a;
         }
-        var c = b.f(),
-          d = a.f();
+        var c = b.e(),
+          d = a.e();
         if (c || d || !L(M(), b.u(), a.u())) {
           b = c && d;
           break a;
@@ -14343,7 +14344,7 @@ let ScalaJSExample;
   };
   e.Eb = function (a) {
     a: for (var b = this; ; ) {
-      if (0 >= a || b.f()) break a;
+      if (0 >= a || b.e()) break a;
       a = (-1 + a) | 0;
       b = b.w();
     }
@@ -14351,7 +14352,7 @@ let ScalaJSExample;
   };
   e.Pb = function (a) {
     a: for (var b = this; ; ) {
-      if (b.f()) {
+      if (b.e()) {
         a = I();
         break a;
       }
@@ -14359,7 +14360,7 @@ let ScalaJSExample;
         d = b.w();
       if (!1 !== !!a.l(c)) {
         b: for (;;) {
-          if (d.f()) {
+          if (d.e()) {
             a = b;
             break b;
           }
@@ -14375,7 +14376,7 @@ let ScalaJSExample;
               d = d.tc = g;
               f = f.w();
             }
-            for (f = c = c.w(); !c.f(); ) {
+            for (f = c = c.w(); !c.e(); ) {
               g = c.u();
               if (!1 === !!a.l(g)) {
                 for (; f !== c; )
@@ -14384,7 +14385,7 @@ let ScalaJSExample;
               }
               c = c.w();
             }
-            f.f() || (d.tc = f);
+            f.e() || (d.tc = f);
             a = b;
             break b;
           }
@@ -14406,7 +14407,7 @@ let ScalaJSExample;
     }
     return null === c ? I() : c;
   };
-  e.R = function (a) {
+  e.W = function (a) {
     if (this === I()) a = I();
     else {
       for (
@@ -14500,7 +14501,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return hi();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.Se;
   };
   e.$classData = v(
@@ -14603,7 +14604,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return bi();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.Te;
   };
   e.$classData = v({ Wq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofByte", {
@@ -14723,7 +14724,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return di();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.jd;
   };
   e.$classData = v({ Xq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofChar", {
@@ -14825,7 +14826,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return gi();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.Ue;
   };
   e.$classData = v(
@@ -14934,7 +14935,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return fi();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.Ve;
   };
   e.$classData = v({ Zq: 0 }, !1, "scala.collection.mutable.ArraySeq$ofFloat", {
@@ -15035,7 +15036,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return Ee();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.We;
   };
   e.$classData = v({ $q: 0 }, !1, "scala.collection.mutable.ArraySeq$ofInt", {
@@ -15149,7 +15150,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return ei();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.Xe;
   };
   e.$classData = v({ ar: 0 }, !1, "scala.collection.mutable.ArraySeq$ofLong", {
@@ -15268,7 +15269,7 @@ let ScalaJSExample;
   e.l = function (a) {
     return this.t(a | 0);
   };
-  e.pd = function () {
+  e.od = function () {
     return this.Ye;
   };
   e.$classData = v({ br: 0 }, !1, "scala.collection.mutable.ArraySeq$ofRef", {
@@ -15366,7 +15367,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return ci();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.Ze;
   };
   e.$classData = v({ cr: 0 }, !1, "scala.collection.mutable.ArraySeq$ofShort", {
@@ -15450,7 +15451,7 @@ let ScalaJSExample;
   e.Fd = function () {
     return ii();
   };
-  e.pd = function () {
+  e.od = function () {
     return this.mg;
   };
   e.$classData = v({ dr: 0 }, !1, "scala.collection.mutable.ArraySeq$ofUnit", {
@@ -15484,12 +15485,12 @@ let ScalaJSExample;
     c: 1,
   });
   function Kt(a, b, c, d) {
-    a.e = c;
+    a.f = c;
     a.j = d;
     a.d = b;
   }
   function At() {
-    this.e = this.d = null;
+    this.f = this.d = null;
     this.j = 0;
   }
   At.prototype = new Jt();
@@ -15550,7 +15551,7 @@ let ScalaJSExample;
     var c = this.d;
     return new Pe(N(O(), c, a, b));
   };
-  e.ld = function () {
+  e.kd = function () {
     if (1 === this.d.a.length) return Oe();
     var a = this.d,
       b = a.a.length;
@@ -15567,12 +15568,12 @@ let ScalaJSExample;
     return null !== c ? new Pe(c) : op.prototype.Pc.call(this, a, b);
   };
   e.w = function () {
-    return this.ld();
+    return this.kd();
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Hd(a);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.hc(a);
   };
   e.l = function (a) {
@@ -15754,7 +15755,7 @@ let ScalaJSExample;
     return Qt;
   }
   function Rt() {
-    this.e = this.d = null;
+    this.f = this.d = null;
     this.j = 0;
     Kt(this, R().Hj, R().Hj, 0);
   }
@@ -15774,7 +15775,7 @@ let ScalaJSExample;
     b.a[0] = a;
     return new Pe(b);
   };
-  e.ld = function () {
+  e.kd = function () {
     throw Ld("empty.tail");
   };
   e.wd = function () {
@@ -15796,12 +15797,12 @@ let ScalaJSExample;
     return og(new pg(), a + " is out of bounds (empty vector)");
   };
   e.w = function () {
-    return this.ld();
+    return this.kd();
   };
-  e.R = function () {
+  e.W = function () {
     return this;
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.hc(a);
   };
   e.l = function (a) {
@@ -15848,7 +15849,7 @@ let ScalaJSExample;
     return St;
   }
   function Ue(a, b, c, d, f) {
-    this.e = this.d = null;
+    this.f = this.d = null;
     this.j = 0;
     this.ac = b;
     this.Kb = c;
@@ -15862,7 +15863,7 @@ let ScalaJSExample;
       var b = (a - this.ac) | 0;
       return 0 <= b
         ? ((a = (b >>> 5) | 0),
-          a < this.Kb.a.length ? this.Kb.a[a].a[31 & b] : this.e.a[31 & b])
+          a < this.Kb.a.length ? this.Kb.a[a].a[31 & b] : this.f.a[31 & b])
         : this.d.a[a];
     }
     throw this.Gb(a);
@@ -15878,26 +15879,26 @@ let ScalaJSExample;
             f = d.a[a].q();
           f.a[c] = b;
           d.a[a] = f;
-          return new Ue(this.d, this.ac, d, this.e, this.j);
+          return new Ue(this.d, this.ac, d, this.f, this.j);
         }
-        a = this.e.q();
+        a = this.f.q();
         a.a[c] = b;
         return new Ue(this.d, this.ac, this.Kb, a, this.j);
       }
       c = this.d.q();
       c.a[a] = b;
-      return new Ue(c, this.ac, this.Kb, this.e, this.j);
+      return new Ue(c, this.ac, this.Kb, this.f, this.j);
     }
     throw this.Gb(a);
   };
   e.hc = function (a) {
-    if (32 > this.e.a.length)
+    if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.e, a)),
+        (a = $e(R(), this.f, a)),
         new Ue(this.d, this.ac, this.Kb, a, (1 + this.j) | 0)
       );
     if (30 > this.Kb.a.length) {
-      var b = U(R(), this.Kb, this.e),
+      var b = U(R(), this.Kb, this.f),
         c = new r(1);
       c.a[0] = a;
       return new Ue(this.d, this.ac, b, c, (1 + this.j) | 0);
@@ -15907,7 +15908,7 @@ let ScalaJSExample;
     var d = this.Kb,
       f = this.ac,
       g = R().fb,
-      h = this.e,
+      h = this.f,
       k = new (x(x(w)).G)(1);
     k.a[0] = h;
     h = new r(1);
@@ -15917,14 +15918,14 @@ let ScalaJSExample;
   e.lf = function (a) {
     if (32 > this.ac) {
       var b = af(R(), a, this.d);
-      return new Ue(b, (1 + this.ac) | 0, this.Kb, this.e, (1 + this.j) | 0);
+      return new Ue(b, (1 + this.ac) | 0, this.Kb, this.f, (1 + this.j) | 0);
     }
     if (30 > this.Kb.a.length)
       return (
         (b = new r(1)),
         (b.a[0] = a),
         (a = V(R(), this.d, this.Kb)),
-        new Ue(b, 1, a, this.e, (1 + this.j) | 0)
+        new Ue(b, 1, a, this.f, (1 + this.j) | 0)
       );
     b = new r(1);
     b.a[0] = a;
@@ -15938,29 +15939,29 @@ let ScalaJSExample;
       (1 + this.ac) | 0,
       R().fb,
       this.Kb,
-      this.e,
+      this.f,
       (1 + this.j) | 0
     );
   };
   e.Hd = function (a) {
     var b = cf(R(), this.d, a),
       c = df(R(), 2, this.Kb, a);
-    a = cf(R(), this.e, a);
+    a = cf(R(), this.f, a);
     return new Ue(b, this.ac, c, a, this.j);
   };
   e.wd = function (a, b) {
     a = new Ne(a, b);
     Q(a, 1, this.d);
     Q(a, 2, this.Kb);
-    Q(a, 1, this.e);
+    Q(a, 1, this.f);
     return a.Id();
   };
-  e.ld = function () {
+  e.kd = function () {
     if (1 < this.ac) {
       var a = this.d,
         b = a.a.length;
       a = N(O(), a, 1, b);
-      return new Ue(a, (-1 + this.ac) | 0, this.Kb, this.e, (-1 + this.j) | 0);
+      return new Ue(a, (-1 + this.ac) | 0, this.Kb, this.f, (-1 + this.j) | 0);
     }
     return this.wd(1, this.j);
   };
@@ -15974,30 +15975,30 @@ let ScalaJSExample;
       case 1:
         return this.Kb;
       case 2:
-        return this.e;
+        return this.f;
       default:
         throw new T(a);
     }
   };
   e.Pc = function (a, b) {
-    var c = ef(R(), this.e, a);
+    var c = ef(R(), this.f, a);
     return null !== c
       ? new Ue(
           this.d,
           this.ac,
           this.Kb,
           c,
-          (((this.j - this.e.a.length) | 0) + c.a.length) | 0
+          (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
       : op.prototype.Pc.call(this, a, b);
   };
   e.w = function () {
-    return this.ld();
+    return this.kd();
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Hd(a);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.hc(a);
   };
   e.l = function (a) {
@@ -16007,7 +16008,7 @@ let ScalaJSExample;
         (a = (b - this.ac) | 0),
         0 <= a
           ? ((b = (a >>> 5) | 0),
-            b < this.Kb.a.length ? this.Kb.a[b].a[31 & a] : this.e.a[31 & a])
+            b < this.Kb.a.length ? this.Kb.a[b].a[31 & a] : this.f.a[31 & a])
           : this.d.a[b]
       );
     throw this.Gb(b);
@@ -16045,7 +16046,7 @@ let ScalaJSExample;
     c: 1,
   });
   function Ve(a, b, c, d, f, g, h, k) {
-    this.e = this.d = null;
+    this.f = this.d = null;
     this.j = 0;
     this.Rb = b;
     this.Sb = c;
@@ -16068,7 +16069,7 @@ let ScalaJSExample;
           ? this.db.a[a].a[c].a[b]
           : c < this.kb.a.length
           ? this.kb.a[c].a[b]
-          : this.e.a[b];
+          : this.f.a[b];
       }
       return a >= this.Rb
         ? ((b = (a - this.Rb) | 0), this.Sb.a[(b >>> 5) | 0].a[31 & b])
@@ -16097,7 +16098,7 @@ let ScalaJSExample;
             this.Lb,
             f,
             this.kb,
-            this.e,
+            this.f,
             this.j
           );
         }
@@ -16114,11 +16115,11 @@ let ScalaJSExample;
               this.Lb,
               this.db,
               d,
-              this.e,
+              this.f,
               this.j
             )
           );
-        a = this.e.q();
+        a = this.f.q();
         a.a[c] = b;
         return new Ve(
           this.d,
@@ -16140,7 +16141,7 @@ let ScalaJSExample;
           (f = d.a[a].q()),
           (f.a[c] = b),
           (d.a[a] = f),
-          new Ve(this.d, this.Rb, d, this.Lb, this.db, this.kb, this.e, this.j)
+          new Ve(this.d, this.Rb, d, this.Lb, this.db, this.kb, this.f, this.j)
         );
       c = this.d.q();
       c.a[a] = b;
@@ -16151,16 +16152,16 @@ let ScalaJSExample;
         this.Lb,
         this.db,
         this.kb,
-        this.e,
+        this.f,
         this.j
       );
     }
     throw this.Gb(a);
   };
   e.hc = function (a) {
-    if (32 > this.e.a.length)
+    if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.e, a)),
+        (a = $e(R(), this.f, a)),
         new Ve(
           this.d,
           this.Rb,
@@ -16173,7 +16174,7 @@ let ScalaJSExample;
         )
       );
     if (31 > this.kb.a.length) {
-      var b = U(R(), this.kb, this.e),
+      var b = U(R(), this.kb, this.f),
         c = new r(1);
       c.a[0] = a;
       return new Ve(
@@ -16188,7 +16189,7 @@ let ScalaJSExample;
       );
     }
     if (30 > this.db.a.length) {
-      b = U(R(), this.db, U(R(), this.kb, this.e));
+      b = U(R(), this.db, U(R(), this.kb, this.f));
       c = R().Q;
       var d = new r(1);
       d.a[0] = a;
@@ -16210,7 +16211,7 @@ let ScalaJSExample;
       g = this.db,
       h = this.Lb,
       k = R().wc,
-      l = U(R(), this.kb, this.e),
+      l = U(R(), this.kb, this.f),
       p = new (x(x(x(w))).G)(1);
     p.a[0] = l;
     l = R().Q;
@@ -16228,7 +16229,7 @@ let ScalaJSExample;
         (1 + this.Lb) | 0,
         this.db,
         this.kb,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -16244,7 +16245,7 @@ let ScalaJSExample;
           (1 + this.Lb) | 0,
           this.db,
           this.kb,
-          this.e,
+          this.f,
           (1 + this.j) | 0
         )
       );
@@ -16253,7 +16254,7 @@ let ScalaJSExample;
       b.a[0] = a;
       a = R().Q;
       var c = V(R(), V(R(), this.d, this.Sb), this.db);
-      return new Ve(b, 1, a, 1, c, this.kb, this.e, (1 + this.j) | 0);
+      return new Ve(b, 1, a, 1, c, this.kb, this.f, (1 + this.j) | 0);
     }
     b = new r(1);
     b.a[0] = a;
@@ -16271,7 +16272,7 @@ let ScalaJSExample;
       R().wc,
       this.db,
       this.kb,
-      this.e,
+      this.f,
       (1 + this.j) | 0
     );
   };
@@ -16280,7 +16281,7 @@ let ScalaJSExample;
       c = df(R(), 2, this.Sb, a),
       d = df(R(), 3, this.db, a),
       f = df(R(), 2, this.kb, a);
-    a = cf(R(), this.e, a);
+    a = cf(R(), this.f, a);
     return new Ve(b, this.Rb, c, this.Lb, d, f, a, this.j);
   };
   e.wd = function (a, b) {
@@ -16289,10 +16290,10 @@ let ScalaJSExample;
     Q(a, 2, this.Sb);
     Q(a, 3, this.db);
     Q(a, 2, this.kb);
-    Q(a, 1, this.e);
+    Q(a, 1, this.f);
     return a.Id();
   };
-  e.ld = function () {
+  e.kd = function () {
     if (1 < this.Rb) {
       var a = this.d,
         b = a.a.length;
@@ -16304,7 +16305,7 @@ let ScalaJSExample;
         (-1 + this.Lb) | 0,
         this.db,
         this.kb,
-        this.e,
+        this.f,
         (-1 + this.j) | 0
       );
     }
@@ -16324,13 +16325,13 @@ let ScalaJSExample;
       case 3:
         return this.kb;
       case 4:
-        return this.e;
+        return this.f;
       default:
         throw new T(a);
     }
   };
   e.Pc = function (a, b) {
-    var c = ef(R(), this.e, a);
+    var c = ef(R(), this.f, a);
     return null !== c
       ? new Ve(
           this.d,
@@ -16340,17 +16341,17 @@ let ScalaJSExample;
           this.db,
           this.kb,
           c,
-          (((this.j - this.e.a.length) | 0) + c.a.length) | 0
+          (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
       : op.prototype.Pc.call(this, a, b);
   };
   e.w = function () {
-    return this.ld();
+    return this.kd();
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Hd(a);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.hc(a);
   };
   e.l = function (a) {
@@ -16365,7 +16366,7 @@ let ScalaJSExample;
           ? this.db.a[b].a[c].a[a]
           : c < this.kb.a.length
           ? this.kb.a[c].a[a]
-          : this.e.a[a];
+          : this.f.a[a];
       }
       return b >= this.Rb
         ? ((a = (b - this.Rb) | 0), this.Sb.a[(a >>> 5) | 0].a[31 & a])
@@ -16406,7 +16407,7 @@ let ScalaJSExample;
     c: 1,
   });
   function We(a, b, c, d, f, g, h, k, l, p, u) {
-    this.e = this.d = null;
+    this.f = this.d = null;
     this.j = 0;
     this.tb = b;
     this.lb = c;
@@ -16435,7 +16436,7 @@ let ScalaJSExample;
           ? this.Ha.a[c].a[d].a[b]
           : d < this.Ga.a.length
           ? this.Ga.a[d].a[b]
-          : this.e.a[b];
+          : this.f.a[b];
       }
       return a >= this.ub
         ? ((b = (a - this.ub) | 0),
@@ -16473,7 +16474,7 @@ let ScalaJSExample;
             g,
             this.Ha,
             this.Ga,
-            this.e,
+            this.f,
             this.j
           );
         }
@@ -16495,7 +16496,7 @@ let ScalaJSExample;
               this.Aa,
               d,
               this.Ga,
-              this.e,
+              this.f,
               this.j
             )
           );
@@ -16515,11 +16516,11 @@ let ScalaJSExample;
               this.Aa,
               this.Ha,
               f,
-              this.e,
+              this.f,
               this.j
             )
           );
-        a = this.e.q();
+        a = this.f.q();
         a.a[c] = b;
         return new We(
           this.d,
@@ -16557,7 +16558,7 @@ let ScalaJSExample;
             this.Aa,
             this.Ha,
             this.Ga,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -16580,7 +16581,7 @@ let ScalaJSExample;
             this.Aa,
             this.Ha,
             this.Ga,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -16596,16 +16597,16 @@ let ScalaJSExample;
         this.Aa,
         this.Ha,
         this.Ga,
-        this.e,
+        this.f,
         this.j
       );
     }
     throw this.Gb(a);
   };
   e.hc = function (a) {
-    if (32 > this.e.a.length)
+    if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.e, a)),
+        (a = $e(R(), this.f, a)),
         new We(
           this.d,
           this.tb,
@@ -16621,7 +16622,7 @@ let ScalaJSExample;
         )
       );
     if (31 > this.Ga.a.length) {
-      var b = U(R(), this.Ga, this.e),
+      var b = U(R(), this.Ga, this.f),
         c = new r(1);
       c.a[0] = a;
       return new We(
@@ -16639,7 +16640,7 @@ let ScalaJSExample;
       );
     }
     if (31 > this.Ha.a.length) {
-      b = U(R(), this.Ha, U(R(), this.Ga, this.e));
+      b = U(R(), this.Ha, U(R(), this.Ga, this.f));
       c = R().Q;
       var d = new r(1);
       d.a[0] = a;
@@ -16658,7 +16659,7 @@ let ScalaJSExample;
       );
     }
     if (30 > this.Aa.a.length) {
-      b = U(R(), this.Aa, U(R(), this.Ha, U(R(), this.Ga, this.e)));
+      b = U(R(), this.Aa, U(R(), this.Ha, U(R(), this.Ga, this.f)));
       c = R().fb;
       d = R().Q;
       var f = new r(1);
@@ -16686,7 +16687,7 @@ let ScalaJSExample;
       k = this.Aa,
       l = this.eb,
       p = R().Re,
-      u = U(R(), this.Ha, U(R(), this.Ga, this.e)),
+      u = U(R(), this.Ha, U(R(), this.Ga, this.f)),
       y = new (x(x(x(x(w)))).G)(1);
     y.a[0] = u;
     u = R().fb;
@@ -16723,7 +16724,7 @@ let ScalaJSExample;
         this.Aa,
         this.Ha,
         this.Ga,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -16742,7 +16743,7 @@ let ScalaJSExample;
           this.Aa,
           this.Ha,
           this.Ga,
-          this.e,
+          this.f,
           (1 + this.j) | 0
         )
       );
@@ -16761,7 +16762,7 @@ let ScalaJSExample;
         this.Aa,
         this.Ha,
         this.Ga,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -16781,7 +16782,7 @@ let ScalaJSExample;
         d,
         this.Ha,
         this.Ga,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -16805,7 +16806,7 @@ let ScalaJSExample;
       this.Aa,
       this.Ha,
       this.Ga,
-      this.e,
+      this.f,
       (1 + this.j) | 0
     );
   };
@@ -16816,7 +16817,7 @@ let ScalaJSExample;
       f = df(R(), 4, this.Aa, a),
       g = df(R(), 3, this.Ha, a),
       h = df(R(), 2, this.Ga, a);
-    a = cf(R(), this.e, a);
+    a = cf(R(), this.f, a);
     return new We(b, this.tb, c, this.ub, d, this.eb, f, g, h, a, this.j);
   };
   e.wd = function (a, b) {
@@ -16827,10 +16828,10 @@ let ScalaJSExample;
     Q(a, 4, this.Aa);
     Q(a, 3, this.Ha);
     Q(a, 2, this.Ga);
-    Q(a, 1, this.e);
+    Q(a, 1, this.f);
     return a.Id();
   };
-  e.ld = function () {
+  e.kd = function () {
     if (1 < this.tb) {
       var a = this.d,
         b = a.a.length;
@@ -16845,7 +16846,7 @@ let ScalaJSExample;
         this.Aa,
         this.Ha,
         this.Ga,
-        this.e,
+        this.f,
         (-1 + this.j) | 0
       );
     }
@@ -16869,13 +16870,13 @@ let ScalaJSExample;
       case 5:
         return this.Ga;
       case 6:
-        return this.e;
+        return this.f;
       default:
         throw new T(a);
     }
   };
   e.Pc = function (a, b) {
-    var c = ef(R(), this.e, a);
+    var c = ef(R(), this.f, a);
     return null !== c
       ? new We(
           this.d,
@@ -16888,17 +16889,17 @@ let ScalaJSExample;
           this.Ha,
           this.Ga,
           c,
-          (((this.j - this.e.a.length) | 0) + c.a.length) | 0
+          (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
       : op.prototype.Pc.call(this, a, b);
   };
   e.w = function () {
-    return this.ld();
+    return this.kd();
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Hd(a);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.hc(a);
   };
   e.l = function (a) {
@@ -16916,7 +16917,7 @@ let ScalaJSExample;
           ? this.Ha.a[c].a[d].a[a]
           : d < this.Ga.a.length
           ? this.Ga.a[d].a[a]
-          : this.e.a[a];
+          : this.f.a[a];
       }
       return b >= this.ub
         ? ((a = (b - this.ub) | 0),
@@ -16960,7 +16961,7 @@ let ScalaJSExample;
     c: 1,
   });
   function Xe(a, b, c, d, f, g, h, k, l, p, u, y, D, K) {
-    this.e = this.d = null;
+    this.f = this.d = null;
     this.j = 0;
     this.Va = b;
     this.Ia = c;
@@ -16995,7 +16996,7 @@ let ScalaJSExample;
           ? this.ja.a[d].a[f].a[b]
           : f < this.ia.a.length
           ? this.ia.a[f].a[b]
-          : this.e.a[b];
+          : this.f.a[b];
       }
       return a >= this.Ra
         ? ((b = (a - this.Ra) | 0),
@@ -17044,7 +17045,7 @@ let ScalaJSExample;
             this.ka,
             this.ja,
             this.ia,
-            this.e,
+            this.f,
             this.j
           );
         }
@@ -17071,7 +17072,7 @@ let ScalaJSExample;
               d,
               this.ja,
               this.ia,
-              this.e,
+              this.f,
               this.j
             )
           );
@@ -17096,7 +17097,7 @@ let ScalaJSExample;
               this.ka,
               f,
               this.ia,
-              this.e,
+              this.f,
               this.j
             )
           );
@@ -17119,11 +17120,11 @@ let ScalaJSExample;
               this.ka,
               this.ja,
               g,
-              this.e,
+              this.f,
               this.j
             )
           );
-        a = this.e.q();
+        a = this.f.q();
         a.a[c] = b;
         return new Xe(
           this.d,
@@ -17170,7 +17171,7 @@ let ScalaJSExample;
             this.ka,
             this.ja,
             this.ia,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -17199,7 +17200,7 @@ let ScalaJSExample;
             this.ka,
             this.ja,
             this.ia,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -17225,7 +17226,7 @@ let ScalaJSExample;
             this.ka,
             this.ja,
             this.ia,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -17244,16 +17245,16 @@ let ScalaJSExample;
         this.ka,
         this.ja,
         this.ia,
-        this.e,
+        this.f,
         this.j
       );
     }
     throw this.Gb(a);
   };
   e.hc = function (a) {
-    if (32 > this.e.a.length)
+    if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.e, a)),
+        (a = $e(R(), this.f, a)),
         new Xe(
           this.d,
           this.Va,
@@ -17272,7 +17273,7 @@ let ScalaJSExample;
         )
       );
     if (31 > this.ia.a.length) {
-      var b = U(R(), this.ia, this.e),
+      var b = U(R(), this.ia, this.f),
         c = new r(1);
       c.a[0] = a;
       return new Xe(
@@ -17293,7 +17294,7 @@ let ScalaJSExample;
       );
     }
     if (31 > this.ja.a.length) {
-      b = U(R(), this.ja, U(R(), this.ia, this.e));
+      b = U(R(), this.ja, U(R(), this.ia, this.f));
       c = R().Q;
       var d = new r(1);
       d.a[0] = a;
@@ -17315,7 +17316,7 @@ let ScalaJSExample;
       );
     }
     if (31 > this.ka.a.length) {
-      b = U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.e)));
+      b = U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.f)));
       c = R().fb;
       d = R().Q;
       var f = new r(1);
@@ -17341,7 +17342,7 @@ let ScalaJSExample;
       b = U(
         R(),
         this.da,
-        U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.e)))
+        U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.f)))
       );
       c = R().wc;
       d = R().fb;
@@ -17376,7 +17377,7 @@ let ScalaJSExample;
       p = this.da,
       u = this.Ba,
       y = R().Sh,
-      D = U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.e))),
+      D = U(R(), this.ka, U(R(), this.ja, U(R(), this.ia, this.f))),
       K = new (x(x(x(x(x(w))))).G)(1);
     K.a[0] = D;
     D = R().wc;
@@ -17420,7 +17421,7 @@ let ScalaJSExample;
         this.ka,
         this.ja,
         this.ia,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -17442,7 +17443,7 @@ let ScalaJSExample;
           this.ka,
           this.ja,
           this.ia,
-          this.e,
+          this.f,
           (1 + this.j) | 0
         )
       );
@@ -17464,7 +17465,7 @@ let ScalaJSExample;
         this.ka,
         this.ja,
         this.ia,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -17487,7 +17488,7 @@ let ScalaJSExample;
         this.ka,
         this.ja,
         this.ia,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -17515,7 +17516,7 @@ let ScalaJSExample;
         this.ka,
         this.ja,
         this.ia,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -17543,7 +17544,7 @@ let ScalaJSExample;
       this.ka,
       this.ja,
       this.ia,
-      this.e,
+      this.f,
       (1 + this.j) | 0
     );
   };
@@ -17556,7 +17557,7 @@ let ScalaJSExample;
       h = df(R(), 4, this.ka, a),
       k = df(R(), 3, this.ja, a),
       l = df(R(), 2, this.ia, a);
-    a = cf(R(), this.e, a);
+    a = cf(R(), this.f, a);
     return new Xe(
       b,
       this.Va,
@@ -17584,10 +17585,10 @@ let ScalaJSExample;
     Q(a, 4, this.ka);
     Q(a, 3, this.ja);
     Q(a, 2, this.ia);
-    Q(a, 1, this.e);
+    Q(a, 1, this.f);
     return a.Id();
   };
-  e.ld = function () {
+  e.kd = function () {
     if (1 < this.Va) {
       var a = this.d,
         b = a.a.length;
@@ -17605,7 +17606,7 @@ let ScalaJSExample;
         this.ka,
         this.ja,
         this.ia,
-        this.e,
+        this.f,
         (-1 + this.j) | 0
       );
     }
@@ -17633,13 +17634,13 @@ let ScalaJSExample;
       case 7:
         return this.ia;
       case 8:
-        return this.e;
+        return this.f;
       default:
         throw new T(a);
     }
   };
   e.Pc = function (a, b) {
-    var c = ef(R(), this.e, a);
+    var c = ef(R(), this.f, a);
     return null !== c
       ? new Xe(
           this.d,
@@ -17655,17 +17656,17 @@ let ScalaJSExample;
           this.ja,
           this.ia,
           c,
-          (((this.j - this.e.a.length) | 0) + c.a.length) | 0
+          (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
       : op.prototype.Pc.call(this, a, b);
   };
   e.w = function () {
-    return this.ld();
+    return this.kd();
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Hd(a);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.hc(a);
   };
   e.l = function (a) {
@@ -17686,7 +17687,7 @@ let ScalaJSExample;
           ? this.ja.a[d].a[f].a[a]
           : f < this.ia.a.length
           ? this.ia.a[f].a[a]
-          : this.e.a[a];
+          : this.f.a[a];
       }
       return b >= this.Ra
         ? ((a = (b - this.Ra) | 0),
@@ -17735,7 +17736,7 @@ let ScalaJSExample;
     c: 1,
   });
   function S(a, b, c, d, f, g, h, k, l, p, u, y, D, K, J, Z, wa) {
-    this.e = this.d = null;
+    this.f = this.d = null;
     this.j = 0;
     this.La = b;
     this.sa = c;
@@ -17746,7 +17747,7 @@ let ScalaJSExample;
     this.qa = k;
     this.va = l;
     this.ra = p;
-    this.T = u;
+    this.S = u;
     this.ba = y;
     this.aa = D;
     this.$ = K;
@@ -17766,8 +17767,8 @@ let ScalaJSExample;
           f = 31 & ((b >>> 10) | 0),
           g = 31 & ((b >>> 5) | 0);
         b &= 31;
-        return a < this.T.a.length
-          ? this.T.a[a].a[c].a[d].a[f].a[g].a[b]
+        return a < this.S.a.length
+          ? this.S.a[a].a[c].a[d].a[f].a[g].a[b]
           : c < this.ba.a.length
           ? this.ba.a[c].a[d].a[f].a[g].a[b]
           : d < this.aa.a.length
@@ -17776,7 +17777,7 @@ let ScalaJSExample;
           ? this.$.a[f].a[g].a[b]
           : g < this.Z.a.length
           ? this.Z.a[g].a[b]
-          : this.e.a[b];
+          : this.f.a[b];
       }
       return a >= this.qa
         ? ((b = (a - this.qa) | 0),
@@ -17807,8 +17808,8 @@ let ScalaJSExample;
           h = 31 & ((c >>> 10) | 0);
         a = 31 & ((c >>> 5) | 0);
         c &= 31;
-        if (d < this.T.a.length) {
-          var k = this.T.q(),
+        if (d < this.S.a.length) {
+          var k = this.S.q(),
             l = k.a[d].q(),
             p = l.a[f].q(),
             u = p.a[g].q(),
@@ -17836,7 +17837,7 @@ let ScalaJSExample;
             this.aa,
             this.$,
             this.Z,
-            this.e,
+            this.f,
             this.j
           );
         }
@@ -17863,12 +17864,12 @@ let ScalaJSExample;
               this.qa,
               this.va,
               this.ra,
-              this.T,
+              this.S,
               d,
               this.aa,
               this.$,
               this.Z,
-              this.e,
+              this.f,
               this.j
             )
           );
@@ -17893,12 +17894,12 @@ let ScalaJSExample;
               this.qa,
               this.va,
               this.ra,
-              this.T,
+              this.S,
               this.ba,
               f,
               this.$,
               this.Z,
-              this.e,
+              this.f,
               this.j
             )
           );
@@ -17921,12 +17922,12 @@ let ScalaJSExample;
               this.qa,
               this.va,
               this.ra,
-              this.T,
+              this.S,
               this.ba,
               this.aa,
               g,
               this.Z,
-              this.e,
+              this.f,
               this.j
             )
           );
@@ -17947,16 +17948,16 @@ let ScalaJSExample;
               this.qa,
               this.va,
               this.ra,
-              this.T,
+              this.S,
               this.ba,
               this.aa,
               this.$,
               h,
-              this.e,
+              this.f,
               this.j
             )
           );
-        a = this.e.q();
+        a = this.f.q();
         a.a[c] = b;
         return new S(
           this.d,
@@ -17969,7 +17970,7 @@ let ScalaJSExample;
           this.qa,
           this.va,
           this.ra,
-          this.T,
+          this.S,
           this.ba,
           this.aa,
           this.$,
@@ -18007,12 +18008,12 @@ let ScalaJSExample;
             this.qa,
             d,
             this.ra,
-            this.T,
+            this.S,
             this.ba,
             this.aa,
             this.$,
             this.Z,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -18042,12 +18043,12 @@ let ScalaJSExample;
             this.qa,
             this.va,
             this.ra,
-            this.T,
+            this.S,
             this.ba,
             this.aa,
             this.$,
             this.Z,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -18074,12 +18075,12 @@ let ScalaJSExample;
             this.qa,
             this.va,
             this.ra,
-            this.T,
+            this.S,
             this.ba,
             this.aa,
             this.$,
             this.Z,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -18103,12 +18104,12 @@ let ScalaJSExample;
             this.qa,
             this.va,
             this.ra,
-            this.T,
+            this.S,
             this.ba,
             this.aa,
             this.$,
             this.Z,
-            this.e,
+            this.f,
             this.j
           )
         );
@@ -18125,21 +18126,21 @@ let ScalaJSExample;
         this.qa,
         this.va,
         this.ra,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         this.$,
         this.Z,
-        this.e,
+        this.f,
         this.j
       );
     }
     throw this.Gb(a);
   };
   e.hc = function (a) {
-    if (32 > this.e.a.length)
+    if (32 > this.f.a.length)
       return (
-        (a = $e(R(), this.e, a)),
+        (a = $e(R(), this.f, a)),
         new S(
           this.d,
           this.La,
@@ -18151,7 +18152,7 @@ let ScalaJSExample;
           this.qa,
           this.va,
           this.ra,
-          this.T,
+          this.S,
           this.ba,
           this.aa,
           this.$,
@@ -18161,7 +18162,7 @@ let ScalaJSExample;
         )
       );
     if (31 > this.Z.a.length) {
-      var b = U(R(), this.Z, this.e),
+      var b = U(R(), this.Z, this.f),
         c = new r(1);
       c.a[0] = a;
       return new S(
@@ -18175,7 +18176,7 @@ let ScalaJSExample;
         this.qa,
         this.va,
         this.ra,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         this.$,
@@ -18185,7 +18186,7 @@ let ScalaJSExample;
       );
     }
     if (31 > this.$.a.length) {
-      b = U(R(), this.$, U(R(), this.Z, this.e));
+      b = U(R(), this.$, U(R(), this.Z, this.f));
       c = R().Q;
       var d = new r(1);
       d.a[0] = a;
@@ -18200,7 +18201,7 @@ let ScalaJSExample;
         this.qa,
         this.va,
         this.ra,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         b,
@@ -18210,7 +18211,7 @@ let ScalaJSExample;
       );
     }
     if (31 > this.aa.a.length) {
-      b = U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.e)));
+      b = U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.f)));
       c = R().fb;
       d = R().Q;
       var f = new r(1);
@@ -18226,7 +18227,7 @@ let ScalaJSExample;
         this.qa,
         this.va,
         this.ra,
-        this.T,
+        this.S,
         this.ba,
         b,
         c,
@@ -18239,7 +18240,7 @@ let ScalaJSExample;
       b = U(
         R(),
         this.ba,
-        U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.e)))
+        U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.f)))
       );
       c = R().wc;
       d = R().fb;
@@ -18257,7 +18258,7 @@ let ScalaJSExample;
         this.qa,
         this.va,
         this.ra,
-        this.T,
+        this.S,
         b,
         c,
         d,
@@ -18266,11 +18267,11 @@ let ScalaJSExample;
         (1 + this.j) | 0
       );
     }
-    if (62 > this.T.a.length) {
+    if (62 > this.S.a.length) {
       b = U(
         R(),
-        this.T,
-        U(R(), this.ba, U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.e))))
+        this.S,
+        U(R(), this.ba, U(R(), this.aa, U(R(), this.$, U(R(), this.Z, this.f))))
       );
       c = R().Re;
       d = R().wc;
@@ -18314,12 +18315,12 @@ let ScalaJSExample;
         (1 + this.qa) | 0,
         this.va,
         (1 + this.ra) | 0,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         this.$,
         this.Z,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -18339,12 +18340,12 @@ let ScalaJSExample;
           (1 + this.qa) | 0,
           this.va,
           (1 + this.ra) | 0,
-          this.T,
+          this.S,
           this.ba,
           this.aa,
           this.$,
           this.Z,
-          this.e,
+          this.f,
           (1 + this.j) | 0
         )
       );
@@ -18364,12 +18365,12 @@ let ScalaJSExample;
         (1 + this.qa) | 0,
         this.va,
         (1 + this.ra) | 0,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         this.$,
         this.Z,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -18390,12 +18391,12 @@ let ScalaJSExample;
         (1 + this.qa) | 0,
         this.va,
         (1 + this.ra) | 0,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         this.$,
         this.Z,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -18421,16 +18422,16 @@ let ScalaJSExample;
         1,
         f,
         (1 + this.ra) | 0,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         this.$,
         this.Z,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
-    if (62 > this.T.a.length) {
+    if (62 > this.S.a.length) {
       b = new r(1);
       b.a[0] = a;
       a = R().Q;
@@ -18444,7 +18445,7 @@ let ScalaJSExample;
           V(R(), V(R(), V(R(), this.d, this.sa), this.ta), this.ua),
           this.va
         ),
-        this.T
+        this.S
       );
       return new S(
         b,
@@ -18462,7 +18463,7 @@ let ScalaJSExample;
         this.aa,
         this.$,
         this.Z,
-        this.e,
+        this.f,
         (1 + this.j) | 0
       );
     }
@@ -18474,12 +18475,12 @@ let ScalaJSExample;
       d = df(R(), 3, this.ta, a),
       f = df(R(), 4, this.ua, a),
       g = df(R(), 5, this.va, a),
-      h = df(R(), 6, this.T, a),
+      h = df(R(), 6, this.S, a),
       k = df(R(), 5, this.ba, a),
       l = df(R(), 4, this.aa, a),
       p = df(R(), 3, this.$, a),
       u = df(R(), 2, this.Z, a);
-    a = cf(R(), this.e, a);
+    a = cf(R(), this.f, a);
     return new S(
       b,
       this.La,
@@ -18507,15 +18508,15 @@ let ScalaJSExample;
     Q(a, 3, this.ta);
     Q(a, 4, this.ua);
     Q(a, 5, this.va);
-    Q(a, 6, this.T);
+    Q(a, 6, this.S);
     Q(a, 5, this.ba);
     Q(a, 4, this.aa);
     Q(a, 3, this.$);
     Q(a, 2, this.Z);
-    Q(a, 1, this.e);
+    Q(a, 1, this.f);
     return a.Id();
   };
-  e.ld = function () {
+  e.kd = function () {
     if (1 < this.La) {
       var a = this.d,
         b = a.a.length;
@@ -18531,12 +18532,12 @@ let ScalaJSExample;
         (-1 + this.qa) | 0,
         this.va,
         (-1 + this.ra) | 0,
-        this.T,
+        this.S,
         this.ba,
         this.aa,
         this.$,
         this.Z,
-        this.e,
+        this.f,
         (-1 + this.j) | 0
       );
     }
@@ -18558,7 +18559,7 @@ let ScalaJSExample;
       case 4:
         return this.va;
       case 5:
-        return this.T;
+        return this.S;
       case 6:
         return this.ba;
       case 7:
@@ -18568,13 +18569,13 @@ let ScalaJSExample;
       case 9:
         return this.Z;
       case 10:
-        return this.e;
+        return this.f;
       default:
         throw new T(a);
     }
   };
   e.Pc = function (a, b) {
-    var c = ef(R(), this.e, a);
+    var c = ef(R(), this.f, a);
     return null !== c
       ? new S(
           this.d,
@@ -18587,23 +18588,23 @@ let ScalaJSExample;
           this.qa,
           this.va,
           this.ra,
-          this.T,
+          this.S,
           this.ba,
           this.aa,
           this.$,
           this.Z,
           c,
-          (((this.j - this.e.a.length) | 0) + c.a.length) | 0
+          (((this.j - this.f.a.length) | 0) + c.a.length) | 0
         )
       : op.prototype.Pc.call(this, a, b);
   };
   e.w = function () {
-    return this.ld();
+    return this.kd();
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return this.Hd(a);
   };
-  e.nd = function (a) {
+  e.md = function (a) {
     return this.hc(a);
   };
   e.l = function (a) {
@@ -18617,8 +18618,8 @@ let ScalaJSExample;
           f = 31 & ((a >>> 10) | 0),
           g = 31 & ((a >>> 5) | 0);
         a &= 31;
-        return b < this.T.a.length
-          ? this.T.a[b].a[c].a[d].a[f].a[g].a[a]
+        return b < this.S.a.length
+          ? this.S.a[b].a[c].a[d].a[f].a[g].a[a]
           : c < this.ba.a.length
           ? this.ba.a[c].a[d].a[f].a[g].a[a]
           : d < this.aa.a.length
@@ -18627,7 +18628,7 @@ let ScalaJSExample;
           ? this.$.a[f].a[g].a[a]
           : g < this.Z.a.length
           ? this.Z.a[g].a[a]
-          : this.e.a[a];
+          : this.f.a[a];
       }
       return b >= this.qa
         ? ((a = (b - this.qa) | 0),
@@ -18701,7 +18702,7 @@ let ScalaJSExample;
   e.Eb = function (a) {
     return Bo(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Do(this, a);
   };
   e.u = function () {
@@ -18739,7 +18740,7 @@ let ScalaJSExample;
     }
     return a;
   }
-  e.f = function () {
+  e.e = function () {
     return 0 === this.Tb.n();
   };
   e.ha = function () {
@@ -18824,7 +18825,7 @@ let ScalaJSExample;
   e.Bd = function (a) {
     return Eq(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Tl(this, a);
   };
   e.Wb = function (a) {
@@ -18836,7 +18837,7 @@ let ScalaJSExample;
   e.i = function () {
     return new bq(this.fe.i(), new H(((a) => () => a.Oj)(this)));
   };
-  e.rd = function () {
+  e.qd = function () {
     return aq();
   };
   e.t = function (a) {
@@ -18848,11 +18849,11 @@ let ScalaJSExample;
   e.v = function () {
     return this.Lc;
   };
-  e.f = function () {
+  e.e = function () {
     return 0 === this.Lc;
   };
   function Ht(a) {
-    a.Xh = !a.f();
+    a.Xh = !a.e();
     return a.fe;
   }
   function Zp(a, b) {
@@ -18949,7 +18950,7 @@ let ScalaJSExample;
   e.Bd = function (a) {
     return Eq(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Tl(this, a);
   };
   e.Wb = function (a) {
@@ -19034,7 +19035,7 @@ let ScalaJSExample;
   e.n = function () {
     return this.ob;
   };
-  e.rd = function () {
+  e.qd = function () {
     return Dp();
   };
   function Ap(a, b) {
@@ -19150,7 +19151,7 @@ let ScalaJSExample;
   e.Eb = function (a) {
     return Bo(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Do(this, a);
   };
   e.u = function () {
@@ -19169,7 +19170,7 @@ let ScalaJSExample;
   e.Pb = function (a) {
     return Xl(this, a);
   };
-  e.rd = function () {
+  e.qd = function () {
     return Qp();
   };
   e.t = function (a) {
@@ -19247,15 +19248,15 @@ let ScalaJSExample;
         new pg(),
         d + " is out of bounds (min 0, max " + ((-1 + f) | 0) + ")"
       );
-    a.V = b;
+    a.U = b;
     a.xb = c;
     a.wb = d;
   }
   function Ip(a, b, c) {
-    a.V = b;
+    a.U = b;
     a.xb = 0;
     a.wb = c;
-    Wt(a, a.V, a.xb, a.wb);
+    Wt(a, a.U, a.xb, a.wb);
     return a;
   }
   function Lp() {
@@ -19264,7 +19265,7 @@ let ScalaJSExample;
     return a;
   }
   function Jp() {
-    this.V = null;
+    this.U = null;
     this.wb = this.xb = 0;
   }
   Jp.prototype = new nt();
@@ -19274,7 +19275,7 @@ let ScalaJSExample;
   e.Bd = function (a) {
     return Eq(this, a);
   };
-  e.R = function (a) {
+  e.W = function (a) {
     return Tl(this, a);
   };
   e.Wb = function (a) {
@@ -19294,66 +19295,66 @@ let ScalaJSExample;
     return this.t(0);
   };
   e.hb = function (a) {
-    var b = ((this.wb - this.xb) | 0) & ((-1 + this.V.a.length) | 0);
+    var b = ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
     return b === a ? 0 : b < a ? -1 : 1;
   };
   e.v = function () {
-    return ((this.wb - this.xb) | 0) & ((-1 + this.V.a.length) | 0);
+    return ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
   };
   e.t = function (a) {
-    var b = ((this.wb - this.xb) | 0) & ((-1 + this.V.a.length) | 0);
+    var b = ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
     if (0 > a || a >= b)
       throw og(
         new pg(),
         a + " is out of bounds (min 0, max " + ((-1 + b) | 0) + ")"
       );
-    return this.V.a[((this.xb + a) | 0) & ((-1 + this.V.a.length) | 0)];
+    return this.U.a[((this.xb + a) | 0) & ((-1 + this.U.a.length) | 0)];
   };
   function Dk(a, b) {
-    var c = (1 + (((a.wb - a.xb) | 0) & ((-1 + a.V.a.length) | 0))) | 0;
-    c > (((a.wb - a.xb) | 0) & ((-1 + a.V.a.length) | 0)) &&
-      c >= a.V.a.length &&
+    var c = (1 + (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0))) | 0;
+    c > (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0)) &&
+      c >= a.U.a.length &&
       Pp(a, c);
-    a.V.a[a.wb] = b;
-    a.wb = ((1 + a.wb) | 0) & ((-1 + a.V.a.length) | 0);
+    a.U.a[a.wb] = b;
+    a.wb = ((1 + a.wb) | 0) & ((-1 + a.U.a.length) | 0);
     return a;
   }
   function Kp(a, b) {
     var c = b.v();
     if (0 < c)
       for (
-        c = (c + (((a.wb - a.xb) | 0) & ((-1 + a.V.a.length) | 0))) | 0,
-          c > (((a.wb - a.xb) | 0) & ((-1 + a.V.a.length) | 0)) &&
-            c >= a.V.a.length &&
+        c = (c + (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0))) | 0,
+          c > (((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0)) &&
+            c >= a.U.a.length &&
             Pp(a, c),
           b = b.i();
         b.m();
 
       )
         (c = b.k()),
-          (a.V.a[a.wb] = c),
-          (a.wb = ((1 + a.wb) | 0) & ((-1 + a.V.a.length) | 0));
+          (a.U.a[a.wb] = c),
+          (a.wb = ((1 + a.wb) | 0) & ((-1 + a.U.a.length) | 0));
     else for (b = b.i(); b.m(); ) (c = b.k()), Dk(a, c);
     return a;
   }
   function Ek(a) {
-    if (a.f()) throw Th(new Uh(), "empty collection");
-    var b = a.V.a[a.xb];
-    a.V.a[a.xb] = null;
-    a.xb = ((1 + a.xb) | 0) & ((-1 + a.V.a.length) | 0);
+    if (a.e()) throw Th(new Uh(), "empty collection");
+    var b = a.U.a[a.xb];
+    a.U.a[a.xb] = null;
+    a.xb = ((1 + a.xb) | 0) & ((-1 + a.U.a.length) | 0);
     return b;
   }
   e.n = function () {
-    return ((this.wb - this.xb) | 0) & ((-1 + this.V.a.length) | 0);
+    return ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0);
   };
-  e.f = function () {
+  e.e = function () {
     return this.xb === this.wb;
   };
-  e.rd = function () {
+  e.qd = function () {
     return Op();
   };
   e.Ob = function (a, b, c) {
-    var d = ((this.wb - this.xb) | 0) & ((-1 + this.V.a.length) | 0),
+    var d = ((this.wb - this.xb) | 0) & ((-1 + this.U.a.length) | 0),
       f = Nd(Od(), a);
     d = c < d ? c : d;
     f = (f - b) | 0;
@@ -19364,10 +19365,10 @@ let ScalaJSExample;
   };
   function Pp(a, b) {
     if (
-      b >= a.V.a.length ||
-      (16 < a.V.a.length && ((a.V.a.length - b) | 0) > b)
+      b >= a.U.a.length ||
+      (16 < a.U.a.length && ((a.U.a.length - b) | 0) > b)
     ) {
-      var c = ((a.wb - a.xb) | 0) & ((-1 + a.V.a.length) | 0);
+      var c = ((a.wb - a.xb) | 0) & ((-1 + a.U.a.length) | 0);
       b = Hp(Op(), b);
       b = nr(a, b, 0, c);
       Wt(a, b, 0, c);
@@ -19377,7 +19378,7 @@ let ScalaJSExample;
     return "ArrayDeque";
   };
   e.ha = function () {
-    return this.rd();
+    return this.qd();
   };
   e.qb = function (a) {
     return Kp(this, a);
@@ -19426,14 +19427,14 @@ let ScalaJSExample;
     c: 1,
   });
   function Ck(a) {
-    this.V = null;
+    this.U = null;
     this.wb = this.xb = 0;
     a = Hp(Op(), a);
     Ip(this, a, 0);
   }
   Ck.prototype = new Xt();
   Ck.prototype.constructor = Ck;
-  Ck.prototype.rd = function () {
+  Ck.prototype.qd = function () {
     return eq();
   };
   Ck.prototype.Mb = function () {

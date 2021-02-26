@@ -41,7 +41,10 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
       Array(0, 1, 1)
     )
   )
-  def iterator(piece: Seq[Array[Int]], offset: Point = Point(0, 0)) = {
+  def iterator(
+      piece: Seq[Array[Int]],
+      offset: Point = Point(0, 0)
+  ): IndexedSeq[(Int, Int)] = {
     for {
       i <- 0 until piece.length
       j <- 0 until piece(0).length
@@ -51,18 +54,19 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
   var moveCount = 0
   var keyCount = 0
   val blockWidth = 20.0
-  val gridDims = Point(13, bounds.y / blockWidth)
-  val leftBorder = (bounds.x - blockWidth * gridDims.x) / 2
+  val gridDims: Point = Point(13, bounds.y / blockWidth)
+  val leftBorder: Double = (bounds.x - blockWidth * gridDims.x) / 2
   var linesCleared = 0
-  var nextPiece = Random.nextInt(pieces.length)
-  var currentPiece = Random.nextInt(pieces.length)
-  var piecePos = Point(gridDims.x / 2, 0)
+  var nextPiece: Int = Random.nextInt(pieces.length)
+  var currentPiece: Int = Random.nextInt(pieces.length)
+  var piecePos: Point = Point(gridDims.x / 2, 0)
   class Position(var filled: String = Color.Black)
 
-  val grid = Array.fill(gridDims.x.toInt, gridDims.y.toInt)(new Position)
+  val grid: Array[Array[Position]] =
+    Array.fill(gridDims.x.toInt, gridDims.y.toInt)(new Position)
   var prevKeys = Set.empty[Int]
 
-  def rotate(p: Seq[Array[Int]]) = {
+  def rotate(p: Seq[Array[Int]]): Unit = {
     val w = p.length
     val h = p(0).length
     val center = Point(w.toDouble - 1, h.toDouble - 1) / 2
@@ -79,7 +83,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
     }
   }
 
-  def findCollisions(offset: Point) = {
+  def findCollisions(offset: Point): IndexedSeq[Unit] = {
     val pts = iterator(pieces(currentPiece), piecePos).toArray
     for {
       index <- 0 until pts.length
@@ -91,7 +95,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
     } yield {}
   }
 
-  def moveDown() = {
+  def moveDown(): Unit = {
     val collisions = findCollisions(Point(0, 1))
     val pts = iterator(pieces(currentPiece), piecePos).toArray
     if (collisions.nonEmpty) {
@@ -185,7 +189,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
       fillBlock(i, j, grid(i)(j).filled)
     }
 
-    def draw(p: Int, pos: Point, external: Boolean) = {
+    def draw(p: Int, pos: Point, external: Boolean): Unit = {
       val pts = iterator(pieces(p), pos)
       for (index <- 0 until pts.length) {
         val (i, j) = pts(index)

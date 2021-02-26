@@ -4,7 +4,7 @@ import org.scalajs.dom
 import scala.util.Random
 
 case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
-  val points = {
+  val points: List[Point] = {
     var current = 450.0
     var pts = List.empty[Point]
     val flat = Random.nextInt(21)
@@ -33,9 +33,9 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
     pts.reverse
   }
 
-  var craftPos = Point(400, 25)
-  var craftVel = Point(0, 0)
-  val theta = -math.Pi / 2
+  var craftPos: Point = Point(400, 25)
+  var craftVel: Point = Point(0, 0)
+  val theta: Double = -math.Pi / 2
   var fuel = 500
 
   def shipPoints =
@@ -44,7 +44,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
       craftPos + Point(7, 0).rotate(theta + 127.5 / 180 * Math.PI),
       craftPos + Point(7, 0).rotate(theta - 127.5 / 180 * Math.PI)
     )
-  def draw(ctx: dom.CanvasRenderingContext2D) = {
+  def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
     ctx.textAlign = "left"
     ctx.fillStyle = Color.Black
     ctx.fillRect(0, 0, bounds.x, bounds.y)
@@ -69,9 +69,9 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
     ctx.moveTo(shipPoints.last.x, shipPoints.last.y)
     shipPoints.foreach(p => ctx.lineTo(p.x, p.y))
     ctx.fill()
-    def drawFlame(p: Point, angle: Double) = {
+    def drawFlame(p: Point, angle: Double): Unit = {
       val offset = math.Pi * 1.25
-      def diamond(a: Int, b: Int, c: Int, w: Int) = {
+      def diamond(a: Int, b: Int, c: Int, w: Int): Unit = {
         val width = w * math.Pi / 180
 
         ctx.strokePath(
@@ -95,7 +95,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
 
   }
   var lastKeys: Set[Int] = Set()
-  def update(keys: Set[Int]) = {
+  def update(keys: Set[Int]): Unit = {
     lastKeys = keys
     if (fuel > 0) {
       if (keys(37)) craftVel += Point(0.5, 0).rotate(theta + math.Pi / 4)

@@ -9,14 +9,14 @@ import org.scalajs.dom.html.Canvas
 
 object Color {
   def rgb(r: Int, g: Int, b: Int) = s"rgb($r, $g, $b)"
-  val White = rgb(255, 255, 255)
-  val Red = rgb(255, 0, 0)
-  val Green = rgb(0, 255, 0)
-  val Blue = rgb(0, 0, 255)
-  val Cyan = rgb(0, 255, 255)
-  val Magenta = rgb(255, 0, 255)
-  val Yellow = rgb(255, 255, 0)
-  val Black = rgb(0, 0, 0)
+  val White: String = rgb(255, 255, 255)
+  val Red: String = rgb(255, 0, 0)
+  val Green: String = rgb(0, 255, 0)
+  val Blue: String = rgb(0, 0, 255)
+  val Cyan: String = rgb(0, 255, 255)
+  val Magenta: String = rgb(255, 0, 255)
+  val Yellow: String = rgb(255, 255, 0)
+  val Black: String = rgb(0, 0, 0)
   val all = Seq(
     White,
     Red,
@@ -30,24 +30,24 @@ object Color {
 }
 
 case class Point(x: Double, y: Double) {
-  def +(other: Point) = Point(x + other.x, y + other.y)
-  def -(other: Point) = Point(x - other.x, y - other.y)
-  def %(other: Point) = Point(x % other.x, y % other.y)
-  def <(other: Point) = x < other.x && y < other.y
-  def >(other: Point) = x > other.x && y > other.y
-  def /(value: Double) = Point(x / value, y / value)
-  def *(value: Double) = Point(x * value, y * value)
-  def *(other: Point) = x * other.x + y * other.y
-  def length = Math.sqrt(lengthSquared)
-  def lengthSquared = x * x + y * y
-  def within(a: Point, b: Point, extra: Point = Point(0, 0)) = {
+  def +(other: Point): Point = Point(x + other.x, y + other.y)
+  def -(other: Point): Point = Point(x - other.x, y - other.y)
+  def %(other: Point): Point = Point(x % other.x, y % other.y)
+  def <(other: Point): Boolean = x < other.x && y < other.y
+  def >(other: Point): Boolean = x > other.x && y > other.y
+  def /(value: Double): Point = Point(x / value, y / value)
+  def *(value: Double): Point = Point(x * value, y * value)
+  def *(other: Point): Double = x * other.x + y * other.y
+  def length: Double = Math.sqrt(lengthSquared)
+  def lengthSquared: Double = x * x + y * y
+  def within(a: Point, b: Point, extra: Point = Point(0, 0)): Boolean = {
     import math.{min, max}
     x >= min(a.x, b.x) - extra.x &&
     x < max(a.x, b.x) + extra.y &&
     y >= min(a.y, b.y) - extra.x &&
     y < max(a.y, b.y) + extra.y
   }
-  def rotate(theta: Double) = {
+  def rotate(theta: Double): Point = {
     val (cos, sin) = (Math.cos(theta), math.sin(theta))
     Point(cos * x - sin * y, sin * x + cos * y)
   }
@@ -82,7 +82,7 @@ class GameHolder(canvasName: String, gameMaker: (Point, () => Unit) => Game) {
     canvas.getContext("2d").asInstanceOf[dom.CanvasRenderingContext2D]
   var active = false
   var firstFrame = false
-  def update() = {
+  def update(): Unit = {
     if (!firstFrame) {
       game.draw(ctx)
       firstFrame = true
@@ -118,12 +118,12 @@ abstract class Game {
   def draw(ctx: dom.CanvasRenderingContext2D): Unit
 
   implicit class pimpedContext(val ctx: dom.CanvasRenderingContext2D) {
-    def fillCircle(x: Double, y: Double, r: Double) = {
+    def fillCircle(x: Double, y: Double, r: Double): Unit = {
       ctx.beginPath()
       ctx.arc(x, y, r, 0, math.Pi * 2)
       ctx.fill()
     }
-    def strokePath(points: Point*) = {
+    def strokePath(points: Point*): Unit = {
 
       ctx.beginPath()
       ctx.moveTo(points.last.x, points.last.y)

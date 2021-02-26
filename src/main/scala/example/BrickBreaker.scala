@@ -1,36 +1,38 @@
 package example
 
 import org.scalajs.dom
+
+import scala.collection.mutable
 import scala.util.Random
 
 case class Brick(pos: Point, color: String)
 
 case class BrickBreaker(bounds: Point, resetGame: () => Unit) extends Game {
   val borderWidth = 175.0
-  val brickSize = Point(50, 15)
+  val brickSize: Point = Point(50, 15)
 
-  val colWidth = bounds.x - borderWidth * 2
+  val colWidth: Double = bounds.x - borderWidth * 2
   var ballsLeft = 3
 
-  var ballVel = Point(0, 0)
-  var ballPos = Point(0, 0)
-  var paddlePos = Point(0, 0)
+  var ballVel: Point = Point(0, 0)
+  var ballPos: Point = Point(0, 0)
+  var paddlePos: Point = Point(0, 0)
 
   var respawnCounter = 0
 
-  def reset() = {
+  def reset(): Unit = {
 
     ballVel = Point(0, 0)
     paddlePos = Point(bounds.x / 2, bounds.y - 40)
     ballPos = Point(bounds.x / 2, paddlePos.y - 5)
     respawnCounter = 60
   }
-  def relaunch() = {}
+  def relaunch(): Unit = {}
   reset()
-  val paddleDims = Point(75, 5)
-  var paddleDir = Point(0, 0)
+  val paddleDims: Point = Point(75, 5)
+  var paddleDir: Point = Point(0, 0)
 
-  val bricks = {
+  val bricks: mutable.Set[Brick] = {
     val colors = Seq(
       Color.White,
       Color.Cyan,
@@ -54,7 +56,7 @@ case class BrickBreaker(bounds: Point, resetGame: () => Unit) extends Game {
     }
     bricks
   }
-  def draw(ctx: dom.CanvasRenderingContext2D) = {
+  def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
     ctx.fillStyle = Color.Black
     ctx.fillRect(0, 0, bounds.x, bounds.y)
 

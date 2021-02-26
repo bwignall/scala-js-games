@@ -11,9 +11,9 @@ case object Empty extends Spot
 case class Snake(bounds: Point, resetGame: () => Unit) extends Game {
   var frameCount = 0
   var length = 10
-  var direction = Point(1, 0)
-  var position = Point(40, 30)
-  val grid = {
+  var direction: Point = Point(1, 0)
+  var position: Point = Point(40, 30)
+  val grid: Array[Array[Spot]] = {
     val spots: Array[Array[Spot]] = Array.fill(80)(Array.fill(60)(Empty))
     for (i <- 0 until 80) {
       spots(i)(0) = Wall(Int.MaxValue)
@@ -25,7 +25,7 @@ case class Snake(bounds: Point, resetGame: () => Unit) extends Game {
     }
     spots
   }
-  def appleCount = {
+  def appleCount: Int = {
     val apples = for {
       col <- grid
       spot <- col
@@ -36,7 +36,7 @@ case class Snake(bounds: Point, resetGame: () => Unit) extends Game {
 
     apples.sum
   }
-  def draw(ctx: dom.CanvasRenderingContext2D) = {
+  def draw(ctx: dom.CanvasRenderingContext2D): Unit = {
     ctx.fillStyle = "rgb(0, 0, 0)"
     ctx.fillRect(0, 0, 800, 800)
 
@@ -60,7 +60,7 @@ case class Snake(bounds: Point, resetGame: () => Unit) extends Game {
 
     }
   }
-  def update(keys: Set[Int]) = {
+  def update(keys: Set[Int]): Unit = {
     frameCount += 1
 
     if (frameCount % 2 == 0) {

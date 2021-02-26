@@ -1,6 +1,6 @@
-<h1>Scala-Js Games</h1>
+<h1>Scala.js Games</h1>
 <p>
-    This is a collection of games ported from Java to Scala-Js: the
+    This is a collection of games ported from Java to Scala.js: the
     <a href="https://github.com/lihaoyi/scala-js-games/blob/master/src/main/scala/example/Asteroids.scala">
     source</a> for each game is written in Scala, and <a href="http://lampwww.epfl.ch/~doeraene/scala-js/">
     cross compiled</a> to run in the browser targeting the <a href="https://developer.mozilla.org/en-US/docs/HTML/Canvas">

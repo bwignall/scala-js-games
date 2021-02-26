@@ -65,7 +65,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
     if (asteroids.exists(_.contains(craft.position))) {
       result = Some("Your ship hit an asteroid!")
       resetGame()
-    } else if (asteroids.length == 0) {
+    } else if (asteroids.isEmpty) {
       result = Some("You successfully destroyed every asteroid!")
       resetGame()
     }
@@ -114,7 +114,7 @@ case class Asteroids(bounds: Point, resetGame: () => Unit) extends Game {
         Point(7, 0).rotate(theta - 127.5 / 180 * Math.PI) + position
       )
       ctx.moveTo(pts.last.x, pts.last.y)
-      pts.map(p => ctx.lineTo(p.x, p.y))
+      pts.foreach(p => ctx.lineTo(p.x, p.y))
       ctx.fill()
     }
     def move(keys: Set[Int]) = {

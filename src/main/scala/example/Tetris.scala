@@ -69,7 +69,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
     val out = Seq.fill(w)(Array.fill(h)(0))
 
     for { i <- 0 until w; j <- 0 until h } {
-      val centered = (Point(i.toDouble, j.toDouble) - center)
+      val centered = Point(i.toDouble, j.toDouble) - center
       val rotated = Point(centered.y * -1, centered.x * 1) + center
       out(rotated.x.toInt)(rotated.y.toInt) = p(i)(j)
     }
@@ -94,7 +94,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
   def moveDown() = {
     val collisions = findCollisions(Point(0, 1))
     val pts = iterator(pieces(currentPiece), piecePos).toArray
-    if (collisions.length > 0) {
+    if (collisions.nonEmpty) {
       for (index <- 0 until pts.length) {
         val (i, j) = pts(index)
         grid(i)(j).filled = Color.all(currentPiece)
@@ -102,7 +102,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
       currentPiece = nextPiece
       nextPiece = Random.nextInt(pieces.length)
       piecePos = Point(gridDims.x / 2, 0)
-      if (!findCollisions(Point(0, 0)).isEmpty) {
+      if (findCollisions(Point(0, 0)).nonEmpty) {
         result = Some("The board has filled up!")
         resetGame()
       }
@@ -117,7 +117,7 @@ case class Tetris(bounds: Point, resetGame: () => Unit) extends Game {
       piecePos += Point(1, 0)
     if (keys(32) && !prevKeys(32)) {
       rotate(pieces(currentPiece))
-      if (!findCollisions(Point(0, 0)).isEmpty) {
+      if (findCollisions(Point(0, 0)).nonEmpty) {
         for (_ <- 0 until 3) rotate(pieces(currentPiece))
       }
     }

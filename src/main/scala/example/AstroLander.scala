@@ -35,7 +35,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
 
   var craftPos = Point(400, 25)
   var craftVel = Point(0, 0)
-  var theta = -math.Pi / 2
+  val theta = -math.Pi / 2
   var fuel = 500
 
   def shipPoints =
@@ -67,7 +67,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
     ctx.beginPath()
 
     ctx.moveTo(shipPoints.last.x, shipPoints.last.y)
-    shipPoints.map(p => ctx.lineTo(p.x, p.y))
+    shipPoints.foreach(p => ctx.lineTo(p.x, p.y))
     ctx.fill()
     def drawFlame(p: Point, angle: Double) = {
       val offset = math.Pi * 1.25
@@ -129,7 +129,7 @@ case class AstroLander(bounds: Point, resetGame: () => Unit) extends Game {
       }
     }
 
-    hit.headOption.map {
+    hit.headOption.foreach {
       case Success =>
         result = Some("You have landed successfully.")
         resetGame()

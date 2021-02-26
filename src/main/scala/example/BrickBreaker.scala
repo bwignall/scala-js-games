@@ -46,7 +46,7 @@ case class BrickBreaker(bounds: Point, resetGame: () => Unit) extends Game {
       j <- 3 to 15
     } {
       bricks.add(
-        new Brick(
+        Brick(
           Point(i * brickSize.x + borderWidth, j * brickSize.y),
           colors(Random.nextInt(colors.length))
         )
@@ -178,7 +178,7 @@ case class BrickBreaker(bounds: Point, resetGame: () => Unit) extends Game {
           }
 
         }
-        if (bricks.size == 0) {
+        if (bricks.isEmpty) {
           result = Some("Success! You've destroyed all the bricks!")
           resetGame()
         }

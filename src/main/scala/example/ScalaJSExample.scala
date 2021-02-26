@@ -29,7 +29,7 @@ object Color {
   )
 }
 
-case class Point(val x: Double, val y: Double) {
+case class Point(x: Double, y: Double) {
   def +(other: Point) = Point(x + other.x, y + other.y)
   def -(other: Point) = Point(x - other.x, y - other.y)
   def %(other: Point) = Point(x % other.x, y % other.y)
@@ -62,13 +62,13 @@ class GameHolder(canvasName: String, gameMaker: (Point, () => Unit) => Game) {
   var game: Game = gameMaker(bounds, () => resetGame())
 
   canvas.onkeydown = { (e: dom.KeyboardEvent) =>
-    keys.add(e.keyCode.toInt)
-    if (Seq(32, 37, 38, 39, 40).contains(e.keyCode.toInt)) e.preventDefault()
+    keys.add(e.keyCode)
+    if (Seq(32, 37, 38, 39, 40).contains(e.keyCode)) e.preventDefault()
     message = None
   }
   canvas.onkeyup = { (e: dom.KeyboardEvent) =>
-    keys.remove(e.keyCode.toInt)
-    if (Seq(32, 37, 38, 39, 40).contains(e.keyCode.toInt)) e.preventDefault()
+    keys.remove(e.keyCode)
+    if (Seq(32, 37, 38, 39, 40).contains(e.keyCode)) e.preventDefault()
   }
 
   canvas.onfocus = { (_: dom.FocusEvent) =>
